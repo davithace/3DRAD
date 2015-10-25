@@ -1,0 +1,238 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+
+<head>
+   <title>
+      ValuePrint, 3D Rad
+   </title>
+
+   <META
+      content="ValuePrint,Variable,Print,Value,3D Rad"
+      name="keywords">
+</head>
+
+<body bgcolor="#000000" text="#909080" link="#F0E0E0" vlink="#F0E0E0" alink="#F0E0E0">
+
+<table border="0" cellpadding="0" cellspacing="0" width="760">
+
+   <tr>
+      <td width="760" colspan="6"><img src="./img/main_logo.jpg" width="760" height="182"></td>
+   </tr>
+
+   <tr>
+      <td width="26" bgcolor="#00002F"></td>
+      <td width="112" bgcolor="#00002F" valign="top">
+         <br>
+         <p>
+            <a href="http://www.3drad.com/">
+            <font color="#909080" size="1" face="Verdana">
+               <strong>WHAT IS<br>3D RAD?<br>CLICK HERE<br>TO FIND OUT!</strong>
+            </font>
+            </a>
+         </p>
+         <br>
+      </td>
+      <td width="24" bgcolor="#00002F"></td>
+      <td width="24"></td>
+      <td width="400">
+         <h1 align="center">
+            <font size="4" face="Verdana">
+               ValuePrint<br>
+            </font>
+         </h1>
+         <font size="2" face="Verdana">
+         <p>
+            <center>
+            <img src="./img/ValuePrint.jpg" width="128" height="128" align="center" border="0">
+            </center>
+            <br>
+            With this object you can display the internal parameters of any object, or a variable from a script.
+            Digit size, color, transparency, screen location and format are definable.
+            <br><br>
+
+            <br>
+            <center>
+            <font size="3" face="Verdana">
+               <strong>USAGE</strong>
+            </font>
+            </center>
+            <br>
+
+            Add the ValuePrint object to your project and link it to the object you want to
+            read the values from.
+            <br><br>
+            If the ValuePrint object is also linked to a <a href="./CamChase.htm">camera</a>, run-time it will be rendered
+            into the viewport for that camera only. This is typically useful when you add
+            split-screen functionality to your projects. 
+            <br><br>
+            You link objects together in the Object List (left side of 3D Rad main screen), by
+            selecting an object and then checking the other objects you want to link to it.
+            <br><br>
+            To configure the ValuePrint object, double-click it in the
+            Object List to open the following property dialog:
+            <br><br>
+
+            <center>
+            <img src="./img/ValuePrint_properties.jpg">
+            </center>
+            <br><br>
+            <center><strong>Text width & height</strong></center>
+            <br>
+            Any size is allowed for the digits, but values bigger than 2.0 may affect rendering quality.
+            <br><br>
+            NOTE: don't forget that you can visually set the digits location by clicking and dragging the mouse
+            in the Virtual Editor window, without opening the property dialog every time.
+            <br><br>
+            <center><strong>Text's screen location</strong></center>
+            <br>
+            The screen center is at 0,0. Left/right margins are at -16 and 16. Top/bottom margins are at 12 and -12.
+            <br><br>
+            NOTE: don't forget that you can visually set the digits size by right-clicking and dragging the mouse
+            in the Virtual Editor window, without opening the property dialog every time (you can
+            stretch the digits by right-clicking and dragging while holding the [Ctrl] key pressed).
+            <br><br>
+            <center><strong>Text color & opacity</strong></center>
+            <br>
+            Click the color button to open the color picker.
+            Opacity must be between 0.0 (invisible) and 1.0 (fully visible).
+            <br><br>
+            <center><strong>Format string</strong></center>
+            <br>
+            This string specifies the visualization format of the printed value. Examples:
+            <br><br>
+            <li>%.0f - any number of digits for the integer part, zero digits for the fraction part (e.g. 1321)</li>
+            <br><br>
+            <li>%3.0f - at least 3 digits for the integer part, zero digits for the fraction part (e.g. 321)</li>
+            <br><br>
+            <li>%2.3f - at least 2 digits for the integer part, 3 digits for the fraction part (e.g. 32.731)</li>
+            <br><br>
+            <li>%05.1f - at least 5 digits for the integer part, 1 digit for the fraction part.
+            If the integer part has less than 5 digits, missing spaces are filled with zero's (e.g. 00321.3)</li>
+            <br><br>
+            <li>%f - any number of digits for the integer part and up to six digits for the fraction part (e.g. 1501.540)</li>
+            <br><br>
+            <li>%g - any number of digits for the integer part and for the fraction part (e.g. 1501.54)</li>
+            <br><br>
+            <li>%.0f%% - any number of digits for the integer part, zero digits for the fraction part.
+            Also append a percent-symbol (%) to the value (e.g. 77%)</li>
+            <br><br>
+            <center><strong>Value range</strong></center>
+            <br>
+            Before printing, the source value can be <em>clamped</em> or <em>wrapped</em> within a specified range.
+            For example, if the source value is 48 and the range is 50,100, in clamp-mode the printed value is 50
+            and in wrap mode it is 98.
+            <br><br>
+            <center><strong>Value interpolation range</strong></center>
+            <br>
+            Before printing, the source value can be <em>transformed</em> by using two interpolation values as reference. Examples:
+            <br><br>
+            <li>Interpolation range is 0,100: the source value is printed as zero when it is zero and as 100 when it is 1.
+            Intermediate source values produce intermediate printed values (e.g. source = 0.5, printed value = 50)</li>
+            <br><br>
+            <li>Interpolation range is 150,200: the source value is printed as 150 when it is zero and as 200 when it is 1.
+            Intermediate source values produce intermediate printed values (e.g. source = 0.5, printed value = 175)</li>
+            <br><br>
+            <li>Interpolation range is -1,1: the source value is printed as -1 when it is zero and as 1 when it is 1.
+            Intermediate source values produce intermediate printed values (e.g. source = 0.5, printed value = 0)</li>
+            <br><br>
+            <li>Interpolation range is 10,-20: the source value is printed as 10 when it is zero and as -20 when it is 1.
+            Intermediate source values produce intermediate printed values (e.g. source = 0.5, printed value = -5)</li>
+            <br><br>
+            <li>Interpolation range is 0,1: the source value is printed as is (no transformation)</li>
+            <br><br>
+            <center><strong>Relationships</strong></center>
+            <br>
+            This list defines how the ValuePrint object relates to the object linked to it. 
+            The following relationship types are supported:
+            <br><br>
+            <li>IGNORE. Do nothing.</li>
+            <br><br>
+            <li>[parameter] is the value to PRINT. Print the specified internal value of the linked object.
+            <br><br>
+            Please see linked object's documentation (INTERNAL PARAMETERS section)
+            for details on the internal parameters it supports.
+            <br><br>
+            <center><strong>Visible at start</strong></center>
+            <br>
+            Whether to show the printed value when the project is run. If this option is unchecked, you will have
+            to link this object to an event object like for example <a href="./EventTimer.htm">EventTimer</a>
+            in order to visualize it.
+            <br><br>
+            <center>For information about the remaining controls, please <a href="./AllObjects.htm">click here</a>.</center>
+            <br><br>
+
+            <br>
+            <center>
+            <font size="3" face="Verdana">
+               <strong>ADDING YOUR OWN FONTS</strong>
+            </font>
+            </center>
+            <br>
+
+            The first step is duplicating the
+            <br><br>
+            <font size="2" face="Courier New">
+            C:\3D Rad\3DRad_res\<br>objects\ValuePrint\data\default
+            </font>
+            <br><br>
+            folder. Give the cloned folder a proper name (eg MyFont).
+            <br><br>
+            Duplicate the
+            <br><br>
+            <font size="2" face="Courier New">
+            C:\3D Rad\3DRad_res\<br>objects\ValuePrint\data\index\default.jpg
+            </font>
+            <br><br>
+            file and give it the same name as the cloned folder (eg MyFont.jpg).
+            <br><br>
+            Open the existing fonts.dds file in the
+            <br><br>
+            <font size="2" face="Courier New">
+            C:\3D Rad\3DRad_res\<br>objects\ValuePrint\data\MyFont
+            </font>
+            <br><br>
+            folder, by using any paint software supporting the .dds file format.
+            <br><br>
+            Modify the character images and save the .dds file back.
+            <br><br>
+            In the property dialog for the ValuePrint object you can now
+            click the Change button and double click the new skybox thumbnail.
+            <br><br>
+            The .wid file in the data folder specifies the relative width of each character in the set.
+            You can use a text editor to adjust the values for your custom font.
+            <br><br>
+            For advanced modifications, please keep in mind that the .x files in the data folder
+            can also be edited. They are 3d models (simple quads really) that use the fonts.dds file as texture.
+            <br><br>
+            You can replace them with any other 3d model in .x file format, as long as they all use the fonts.dds texture.
+            <br><br>
+            You can remove the .x files belonging to characters that are not present in your custom font.
+            This will make font loading faster for your 3D Rad projects.
+            <br><br><br>
+
+            <center><strong>INTERNAL PARAMETERS</strong></center>
+            <br><br>
+            The following internal parameters can be accessed by using <em>event</em> objects like
+            <a href="./EventOnValue.htm">EventOnValue</a> or <a href="./Script.htm">Script</a>:
+            <br><br>
+            <li>Displayed value (read only)</li>
+            <li>Opacity, between 0 and 1</li>
+         </p>
+         </font>
+      </td>
+      <td width="174"></td>
+   </tr>
+
+   <tr>
+      <td width="26" bgcolor="#00002F"></td>
+      <td width="112" bgcolor="#00002F"></td>
+      <td width="24" bgcolor="#00002F"></td>
+      <td width="598" colspan="3"><img src="./img/main_logo_bottom.jpg" width="598" height="103"></td>
+   </tr>
+
+</table>
+
+</body>
+
+</html>

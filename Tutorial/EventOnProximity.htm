@@ -1,0 +1,174 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+
+<head>
+   <title>
+      EventOnProximity, 3D Rad
+   </title>
+
+   <META
+      content="EventOnProximity,Timed,Timer,3D Rad"
+      name="keywords">
+</head>
+
+<body bgcolor="#000000" text="#909080" link="#F0E0E0" vlink="#F0E0E0" alink="#F0E0E0">
+
+<table border="0" cellpadding="0" cellspacing="0" width="760">
+
+   <tr>
+      <td width="760" colspan="6"><img src="./img/main_logo.jpg" width="760" height="182"></td>
+   </tr>
+
+   <tr>
+      <td width="26" bgcolor="#00002F"></td>
+      <td width="112" bgcolor="#00002F" valign="top">
+         <br>
+         <p>
+            <a href="http://www.3drad.com/">
+            <font color="#909080" size="1" face="Verdana">
+               <strong>WHAT IS<br>3D RAD?<br>CLICK HERE<br>TO FIND OUT!</strong>
+            </font>
+            </a>
+         </p>
+         <br>
+      </td>
+      <td width="24" bgcolor="#00002F"></td>
+      <td width="24"></td>
+      <td width="400">
+         <h1 align="center">
+            <font size="4" face="Verdana">
+               EventOnProximity<br>
+            </font>
+         </h1>
+         <font size="2" face="Verdana">
+         <p>
+            <center>
+            <img src="./img/EventOnProximity.jpg" width="128" height="128" align="center" border="0">
+            </center>
+            <br>
+            This object starts/stops (or shows/hides) objects linked to it when the distance between two objects of a
+            specified set is within a specified range.
+            <br><br>
+            For example, you use this object to trigger pre-defined events like the
+            animation of an opening gate when a character passes by.
+            <br><br>
+            This object can itself be started and stopped by other event objects,
+            allowing you to create <em>chains</em> and achieve articulated event management.
+            <br><br>
+            For more about event objects in general, please see <a href="http://www.3drad.com/event_objects.htm">this tutorial</a>.
+            <br><br>
+
+            <br>
+            <center>
+            <font size="3" face="Verdana">
+               <strong>USAGE</strong>
+            </font>
+            </center>
+            <br>
+
+            Add the EventOnProximity object to your project, link it to all the objects you want to
+            monitor for proximity and also to all objects you want to start/stop when the proximity
+            condition is met.
+            <br><br>
+            You link objects together in the Object List (left side of 3D Rad main screen), by
+            selecting an object and then checking the other objects you want to link to it.
+            <br><br>
+            To configure the EventOnProximity object, double-click it in the
+            Object List to open the following property dialog:
+            <br><br>
+            <center>
+            <img src="./img/EventOnProximity_properties.jpg">
+            </center>
+            <br><br>
+            <center><strong>Distance (min/max)</strong></center>
+            <br>
+            The event action is only performed if the distance between any two monitored objects
+            is within the specified range. See MONITOR (OFFSET 1/2/3/4/5) below for more.
+            <br><br>
+            <center><strong>Continuous detection</strong></center>
+            <br>
+            If this option is checked, the proximity test is performed continuously and the action triggered
+            repeatedly (75 times per second), until the condition is no longer met.
+            <br><br>
+            If this option is not checked, the event action is triggered only once.
+            It is performed again only after the proximity condition is no longer met and then met again.
+            <br><br>
+            <center><strong>Relationships</strong></center>
+            <br>
+            This list defines how the EventOnProximity object relates to the objects that are linked to it. 
+            The following relationship types are supported:
+            <br><br>
+            <li>IGNORE. Do nothing.
+            Typically used for linked objects that are <em>starters</em> for this EventOnProximity
+            object itself (in a chain of event objects for example).</li>
+            <br><br>
+            <li>MONITOR (OFFSET 1/2/3/4/5). Check the object for proximity with other objects.
+            <br><br>
+            The distance for the test is measured using a specific point on the objects as a reference.
+            This point is relative to the natural object's model center.
+            <br><br>
+            For example, assuming the offset from the model's center is a point on the front bumper of a car,
+            this point on the car bumper will still be the reference point when the car moves or rotates.
+            <br><br>
+            Up to 5 different point locations can be defined (<em>Object's center offsets</em> section)
+            and each monitored object can use one.
+            </li>
+            <br><br>
+            <li>START ON PROXIMITY. Start the object when a proximity check between two monitored objects is positive.
+            Note that the target object must provide some 'startable' action.</li>
+            <br><br>
+            <li>STOP ON PROXIMITY. Stop the object when a proximity check between two monitored objects is positive.</li>
+            <br><br>
+            <li>SWITCH ON PROXIMITY. Switch the object (start if stopped and vice-versa)
+            when a proximity check between two monitored objects is positive.
+            Note that, because the checking is performed 75 times per second, proximity may be reported several times.
+            This causes the target objects to be switched on/off repeatedly.</li>
+            <br><br>
+            <li>SHOW ON PROXIMITY. Show the object when a proximity check between two monitored objects is positive.</li>
+            <br><br>
+            <li>HIDE ON PROXIMITY. Hide the object when a proximity check between two monitored objects is positive.</li>
+            <br><br>
+            <li>S/H SWITCH ON PROXIMITY. Switch the object (show if hidden and vice-versa) when a proximity check between two monitored objects is positive.</li>
+            <br><br>
+            <li>RESET. Re-initialize the object completely, to its default state, as defined in the project.</li>
+            <br><br>
+            <center><strong>Randomize target object</strong></center>
+            <br>
+            If this option is checked, the specified action
+            is applied to one target object only, picked randomly.
+            If the option is not checked, the action is applied to all target objects instead.
+            <br><br>
+            <center><strong>Working at start</strong></center>
+            <br>
+            If this option is not checked, the EventOnProximity object will not work
+            until it is <em>started</em> by using another event object.
+            <br><br>
+            <center>For information about the remaining controls, please <a href="./AllObjects.htm">click here</a>.</center>
+
+            <br><br><br>
+            <center><strong>INTERNAL PARAMETERS</strong></center>
+            <br><br>
+            The following internal parameters can be accessed by using <em>event</em> objects like
+            <a href="./EventOnValue.htm">EventOnValue</a> or <a href="./Script.htm">Script</a>:
+            <br><br>
+            <li>Current distance between monitored objects, in meters. Read only.</li>
+
+         </p>
+         </font>
+      </td>
+      <td width="174"></td>
+   </tr>
+
+   <tr>
+      <td width="26" bgcolor="#00002F"></td>
+      <td width="112" bgcolor="#00002F"></td>
+      <td width="24" bgcolor="#00002F"></td>
+      <td width="598" colspan="3"><img src="./img/main_logo_bottom.jpg" width="598" height="103"></td>
+   </tr>
+
+</table>
+
+</body>
+
+</html>

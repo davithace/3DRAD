@@ -1,0 +1,105 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+
+<head>
+   <title>
+      PointLight, 3D Rad
+   </title>
+
+   <META
+      content="PointLight,Light,3D Rad"
+      name="keywords">
+</head>
+
+<body bgcolor="#000000" text="#909080" link="#F0E0E0" vlink="#F0E0E0" alink="#F0E0E0">
+
+<table border="0" cellpadding="0" cellspacing="0" width="760">
+
+   <tr>
+      <td width="760" colspan="6"><img src="./img/main_logo.jpg" width="760" height="182"></td>
+   </tr>
+
+   <tr>
+      <td width="26" bgcolor="#00002F"></td>
+      <td width="112" bgcolor="#00002F" valign="top">
+         <br>
+         <p>
+            <a href="http://www.3drad.com/">
+            <font color="#909080" size="1" face="Verdana">
+               <strong>WHAT IS<br>3D RAD?<br>CLICK HERE<br>TO FIND OUT!</strong>
+            </font>
+            </a>
+         </p>
+         <br>
+      </td>
+      <td width="24" bgcolor="#00002F"></td>
+      <td width="24"></td>
+      <td width="400">
+         <h1 align="center">
+            <font size="4" face="Verdana">
+               PointLight<br>
+            </font>
+         </h1>
+         <font size="2" face="Verdana">
+         <p>
+            <center>
+            <img src="./img/PointLight.jpg" width="128" height="128" align="center" border="0">
+            </center>
+            <br>
+            This object allows you to add colored point lights to your projects.
+            <br><br>
+            If the light is linked to an object in the Object List, the object will become
+            the light parent. Run-time, when the parent moves and rotates, the PointLight will
+            follow it, keeping it's relative position as you set it in the Virtual Editor.
+            <br><br>
+            IMPORTANT: like other special rendering effects, point lights will only affect
+            <a href="./SkinMesh.htm">SkinMesh</a> objects in the scene.
+            <br><br>
+            They may also illuminate other object types (like a non-SkinMesh-based terrain)
+            but this isn't always guaranteed.
+            <br><br>
+            Note that each SkinMesh object can be illuminated by no more than 4 lights simultaneously.
+            If more PointLights are within range, their light will not affect the SkinMesh surface.
+            <br><br>
+            Also note that point lights don't currently support volumetric shadows.
+            <br><br>
+            <center>
+            <img src="./img/PointLight_properties.jpg">
+            </center>
+            <br><br>
+            <strong>Light color & range</strong>.
+            Click the color button to open the color picker.
+            The bigger the range factor, the longer the distance reached by the point light.
+            <br><br>
+            IMPORTANT: point lights with a small range may fail to illuminate surfaces that
+            are made of big polygons, like for example a terrain.
+            <br><br>
+            <center>For information about the remaining controls, please <a href="./AllObjects.htm">click here</a>.</center>
+            <br><br><br>
+            <center><strong>INTERNAL PARAMETERS</strong></center>
+            <br><br>
+            The following internal parameters can be accessed by using <em>event</em> objects like
+            <a href="./EventOnValue.htm">EventOnValue</a> or <a href="./Script.htm">Script</a>:
+            <br><br>
+            <li>Red component, between 0 and 1</li>
+            <li>Green component, between 0 and 1</li>
+            <li>Blue component, between 0 and 1</li>
+         </p>
+         </font>
+      </td>
+      <td width="174"></td>
+   </tr>
+
+   <tr>
+      <td width="26" bgcolor="#00002F"></td>
+      <td width="112" bgcolor="#00002F"></td>
+      <td width="24" bgcolor="#00002F"></td>
+      <td width="598" colspan="3"><img src="./img/main_logo_bottom.jpg" width="598" height="103"></td>
+   </tr>
+
+</table>
+
+</body>
+
+</html>

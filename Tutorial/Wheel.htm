@@ -1,0 +1,209 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+
+<head>
+   <title>
+      Wheel, Vehicle, 3D Rad
+   </title>
+
+   <META
+      content="Wheel,Vehicle,3D Rad"
+      name="keywords">
+</head>
+
+<body bgcolor="#000000" text="#909080" link="#F0E0E0" vlink="#F0E0E0" alink="#F0E0E0">
+
+<table border="0" cellpadding="0" cellspacing="0" width="760">
+
+   <tr>
+      <td width="760" colspan="6"><img src="./img/main_logo.jpg" width="760" height="182"></td>
+   </tr>
+
+   <tr>
+      <td width="26" bgcolor="#00002F"></td>
+      <td width="112" bgcolor="#00002F" valign="top">
+         <br>
+         <p>
+            <a href="http://www.3drad.com/">
+            <font color="#909080" size="1" face="Arial">
+               <strong>WHAT IS<br>3D RAD?<br>CLICK HERE<br>TO FIND OUT!</strong>
+            </font>
+            </a>
+         </p>
+         <br>
+      </td>
+      <td width="24" bgcolor="#00002F"></td>
+      <td width="24"></td>
+      <td width="400">
+         <h1 align="center">
+            <font size="4" face="Arial">
+               Wheel
+            </font>
+         </h1>
+         <font size="2" face="Arial">
+         <p>
+            <center>
+            <img src="./img/Wheel.jpg" width="128" height="128" align="center" border="0">
+            </center>
+            <br>
+            By attaching this object to any other object supporting physics you can make wheeled vehicles of any sort.
+            <br><br>
+            Each wheel includes a tweakable motor, a brake, a steering system and a suspension.
+            <br><br>
+            <center>
+            <img src="./img/Wheel_properties.jpg">
+            </center>
+            <br><br>
+            <center><strong>Working At Start</strong></center>
+            <br>
+            If this option is not checked, the wheel will only respond to input controls when the
+            object is <em>started</em> by another object, like for example
+            <a href="./EventOnInput.htm">EventOnInput</a>.
+            <br><br>
+            <center><strong>Throttle, Reverse, Brake and Turn controls</strong></center>
+            <br>
+            You can make the wheel interactive by checking the box next to one or more input controls.
+            <br><br>
+            The <em>Delay</em> parameters allow you to set the <em>response time</em> for each control, in seconds (approximately).
+            Please note that delays should be set to 0.0 if proportional controls are used (see
+            <a href="./ConfigureControls.htm">ConfigureControls</a> for details).
+            <br><br>
+            Also, keep in mind that input controls must be disabled (unchecked) if you want to control the wheel by manipulating its internal values,
+            for example by using a <a href="./Script.htm">Script</a> object.
+            See <em>internal values</em> table below for more.
+            <br><br>
+            <center><strong>Total Mass</strong></center>
+            <br>
+            Basically the weight of the wheel. As a reference, total mass for one liter of
+            water (1 kg or 2.2 pounds) is about 1.0.
+            <br><br>
+            Warning! Setting a total mass too small may cause unpredictable behaviors, including
+            severe processing slowdown.
+            <br><br>
+            <center><strong>Power</strong></center>
+            <br>
+            The first value is the maximum spin supported by the wheel, in rounds per minute (RPM).
+            The second value is the maximum torque provided, considering that it is 100% when
+            spin is below 50 rpm. It then goes from 50% to 100% (when rpm is
+            70% of maximum allowed) and finally it goes from 100% to 0% (when rpm is maximum allowed).
+            <br><br>
+            The following torque graph is for a maximum spin of 4000 rpm:
+            <br><br>
+            <center>
+            <img src="./img/Wheel_a.jpg">
+            </center>
+            <br><br>
+            <center><strong>Reverse power</strong></center>
+            <br>
+            You can set different spin and torque for when the wheel goes reverse.
+            See <em>Throttle</em> above for details.
+            <br><br>
+            <center><strong>Brake Power</strong></center>
+            <br>
+            The bigger the value, the more effective the wheel brake.
+            <br><br>
+            <center><strong>Maximum Steering Angle</strong></center>
+            <br>
+            Maximum turning angle, in degrees.
+            Note that the speed at which the wheel turns is determined by the <em>Delay</em> specified for the
+            left/right controls, if non-proportional controls are used. See above for details.
+            <br><br>
+            <center><strong>Linear Damping (between 0 and 1)</strong></center>
+            <br>
+            Damping weakens the kinetic energy of the wheel. The effect is similar to
+            drag (resistance to motion through a fluid, for example air friction).
+            Setting this value to 1 causes zero damping. Zero produces maximum damping.
+            <br><br>
+            <center><strong>Angular Damping (between 0 and 1)</strong></center>
+            <br>
+            Damping can also be applied to rotation. See previous parameter for details.
+            <br><br>
+            <center><strong>Suspension Spring</strong></center>
+            <br>
+            The higher the factor, the stronger the suspension. A strong
+            suspension usually means less (smaller) oscillations.
+            <br><br>
+            <center><strong>Suspension Damping</strong></center>
+            <br>
+            The higher the factor, the more absorbing the suspension.
+            <br><br>
+            <center><strong>Restitution</strong></center>
+            <br>
+            The bounciness of the wheel when colliding with other objects. The smaller the
+            factor, the lower the bounciness. The value must be between 0 and 1.
+            <br><br>
+            Note that when two objects collide, the actual restitution is the average of the restitution
+            factors of the two objects.
+            <br><br>
+            <center><strong>Lateral Friction</strong></center>
+            <br>
+            Resistance encountered when the wheel is skidding laterally.
+            Zero means that there is no resistance. Set a very high value for
+            no-slipping friction (max is 3.402823466e+38).
+            <br><br>
+            Note that when two objects collide, the actual friction depends on factors of both objects.
+            <br><br>
+            <center><strong>Rolling Friction</strong></center>
+            <br>
+            Resistance encountered when the wheel is rolling or applying traction onto the ground.
+            See also <em>Lateral Friction</em> for more.
+            <br><br>
+            <center><strong>Relationships</strong></center>
+            <br>
+            This list defines how the Wheel object relates to the objects linked to it. 
+            The following relationship types are supported:
+            <br><br>
+            <li>IGNORE. Do nothing.</li>
+            <br><br>
+            <li>VEHICLE BODY. Attach the wheel to this object.
+            The orientation and location defined in the Virtual Editor are kept run-time.</li>
+            <br><br>
+            <li>VEHICLE BODY (COLLISIONS). Same as above, but also perform collision detection
+            between the wheel and the vehicle body.
+            <br><br>
+            NOTE: Specifying more than one single object as vehicle body is not recommended.
+            Resulting behavior is undefined.
+            <br><br>
+            <center><strong>Other dialog controls</strong></center>
+            <br>
+            For information about the remaining controls, please <a href="./AllObjects.htm">click here</a>.
+            <br><br>
+            <br><br>
+
+            <br>
+            <center><strong>INTERNAL PARAMETERS</strong></center>
+            <br><br>
+            The following internal parameters can be accessed by using <em>event</em> objects like
+            <a href="./EventOnValue.htm">EventOnValue</a> or <a href="./Script.htm">Script</a>:
+            <br><br>
+            <li>Wheel left/right input, between -1 and 1. Write only.</li>
+            <li>When written, wheel throttle input, between -1 and 1. Write only.</li>
+            <li>wheel brake input, between 0 and 1. Write only.</li>
+            <li>Current spin, in degrees per second. Read only</li>
+            <li>Current torque, between 0 and 1 (100%).</li>
+            <li>Current speed, in kilometers per hour. Read only</li>
+            <li>Suspension spring. Write only.</li>
+            <li>Suspension damping. Write only.</li>
+            <li>Lateral friction. Write only.</li>
+            <li>Rolling friction. Write only.</li>
+            <br><br>
+
+         </p>
+         </font>
+      </td>
+      <td width="174"></td>
+   </tr>
+
+   <tr>
+      <td width="26" bgcolor="#00002F"></td>
+      <td width="112" bgcolor="#00002F"></td>
+      <td width="24" bgcolor="#00002F"></td>
+      <td width="598" colspan="3"><img src="./img/main_logo_bottom.jpg" width="598" height="103"></td>
+   </tr>
+
+</table>
+
+</body>
+
+</html>

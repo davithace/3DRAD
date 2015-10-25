@@ -1,0 +1,259 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+
+<head>
+   <title>
+      Stand-alone Executable & Browser Applet Generator for 3D Rad
+   </title>
+
+   <META
+      content="Compile 3D Rad projects to stand-alone applications or browser applets"
+      name="description">
+
+   <META
+      content="Stand-alone,Applet,Compiler,3D Rad"
+      name="keywords">
+</head>
+
+<body bgcolor="#000000" text="#909080" link="#F0E0E0" vlink="#F0E0E0" alink="#F0E0E0">
+
+<table border="0" cellpadding="0" cellspacing="0" width="760">
+
+   <tr>
+      <td width="760" colspan="6"><img src="./img/main_logo.jpg" width="760" height="182"></td>
+   </tr>
+
+   <tr>
+      <td width="26" bgcolor="#00002F"></td>
+      <td width="112" bgcolor="#00002F" valign="top">
+         <br>
+         <p>
+            <a href="http://www.3drad.com/">
+            <font color="#909080" size="1" face="Verdana">
+               <strong>WHAT IS<br>3D RAD?<br>CLICK HERE<br>TO FIND OUT!</strong>
+            </font>
+            </a>
+         </p>
+         <br>
+      </td>
+      <td width="24" bgcolor="#00002F"></td>
+      <td width="24"></td>
+      <td width="400">
+         <h1 align="center">
+            <font size="4" face="Verdana">
+               3D Rad Compiler<br>
+            </font>
+         </h1>
+         <div align="justify">
+         <font size="2" face="Verdana">
+         <p>
+            <center>
+            <img src="./img/3drad_compiler.jpg" width="399" align="center" border="0">
+            </center>
+            <br>
+            The 3D Rad Compiler utility allows you to generate a distributable, stand-alone version of your 3D Rad
+            (.3dr) projects.
+            <br><br>
+            The output can be a standard Windows program (stand-alone executable) or an applet playing in
+            a webpage at your website.
+            <br><br>
+            In either case, the compiled product doesn't require 3D Rad to be installed on the final user's machine. 
+            <br><br>
+            As a stand-alone executable it can run windowed, maximized or in full-screen at any resolution supported by
+            the video-card, including wide-screen formats. Full-screen modes allows for a smoother framerate.
+            <br><br>
+            When playing in a browser, your projects will still support all the functionality of a regular application,
+            including, for example, network gaming, game settings persistence, ability for
+            the user to remap game controls and so on.
+            <br><br>
+            The compiler can combine multiple projects
+            into more complex applications where each project can be called by others to
+            achieve, for example, multi-level games.
+            Please see <a href="./ExitFade.htm">ExitFade object documentation</a> for details.
+            <br><br>
+
+            <br>
+            <center><strong><font size="3">FUNCTIONS</font></strong></center>
+            <br><br>
+            <center><strong>Add Project</strong></center><br>
+            Click this button to add a new .3dr project to the list of projects to compile.
+            <br><br>
+            The project list is on the left of the window. To mark a project
+            as the entry point, double click it.
+            <br><br>
+            <center><strong>Remove Project</strong></center><br>
+            This button removes the currently selected project from the list of projects to compile.
+            <br><br>
+            <center><strong>Compiled Project Name</strong></center><br>
+            Click in the edit box and specify a name for the compiled executable.
+            <br><br>
+            <center><strong>Can run windowed</strong></center><br>
+            Check this option to allow users of your stand-alone project to choose whether to run it in windowed mode or full-screen.
+            If this option is not checked, they will only be able to select a full-screen display.
+            <br><br>
+            NOTE: this setting is ignored when the compiled project plays in a browser (embedded into a webpage, see <em>Embed at</em>, below).
+            <br><br>
+            <center><strong>Maximized</strong></center><br>
+            Check this option to make your stand-alone project run in a borderless, maximized window.
+            Unlike full-screen modes, this mode will allow final users to switch between background applications without
+            terminating your compiled project.
+            <br><br>
+            NOTE: this setting is ignored when the compiled project plays in a browser (embedded into a webpage, see <em>Embed at</em>, below).
+            <br><br>
+            <center><strong>Adaptive GFX</strong></center><br>
+            Check this option to minimize the size of loaded textures when users of your stand-alone project
+            select a display size smaller than 640x480 pixels. This will likely reduce rendering quality,
+            but it can dramatically improve frame-rate and make your project playable on slower systems.
+            <br><br>
+            NOTE: this setting is ignored when the compiled project plays in a browser (embedded into a webpage, see <em>Embed at</em>, below).
+            <br><br>
+            <center><strong>Compiled Project Icon</strong></center><br>
+            Click the <em>Browse</em> button and select an icon (.ico) file to use
+            for the compiled executable.
+            <br><br>
+            NOTE: this setting is ignored when the compiled project plays in a browser (embedded into a webpage, see <em>Embed at</em>, below).
+            <br><br>
+
+            <center><strong>Global loading image</strong></center><br>
+            Click the <em>Browse</em> button and select a .jpg image file to use
+            as loading screen for the compiled executable.
+            Note that the image will be stretched to fit the screen, if necessary.
+            Recommended image size is 1024x768 or bigger.
+            <br><br>
+            This image will only be displayed while loading projects that don't have their own specific loading image.
+            <br><br>
+            To associate a loading image with a project, you must save a .jpg file with the same name as the project,
+            to the
+            <br><br>
+            <font size="2" face="Courier New">
+            C:\3D Rad\3DRad_res\projects
+            </font>
+            <br><br>
+            folder. For example, a loading image for a project called <em>MyProject.3dr</em> must be named <em>MyProject.jpg</em>.
+            <br><br>
+            <li>You can also associate a sequence of images to a project, so that they are shown like a slideshow while the project loads,
+            by saving the images with their file names numbered.
+            For example, <em>MyProject.jpg</em>, <em>MyProject_002.jpg</em>, <em>MyProject_003.jpg</em>, <em>MyProject_004.jpg</em> is a valid
+            image sequence. Note that the first image has no number ad that the second image is <em>_002</em>. There is no <em>_001</em> image.
+            <br><br>
+            When using image sequences, keep in mind that the total number of objects in the project is used as basis to try
+            to split the loading time evenly among the images. The actual loading time cannot be used as a reference because
+            it cannot be determined before the project is actually loaded.
+            <br><br>
+            As a consequence, certain images may be displayed for longer than others, based on what kind of objects are loaded
+            while they are shown.</li>
+            <br><br>
+            <li>To associate a music loop to a project, so that it is played while the project loads,
+            you must save a .wav or .ogg file with the same name as the project,
+            to the same folder.
+            For example, a loading music loop for a project called <em>MyProject.3dr</em> can be named
+            <em>MyProject.wav</em> or <em>MyProject.ogg</em>.</li>
+            <br><br>
+
+
+            <center><strong>Loading progress-bar</strong></center><br>
+            Check this option to display a progress-bar while the standalone project loads.
+            <br><br>
+            The progress bar is shown at the lower edge of the screen, over the loading image (see above).
+            <br><br>
+            In your compiled projects, you can customize the progress bar aspect by modifying the<br>
+            .\3DRad_res\system\progressBar.dds<br>
+            file.
+            <br><br>
+            You can also use a different image format by opening the progressBar.x file with an ASCII editor and changing the
+            'progressBar.dds' name to your alternate image file (must be .dds, .png, .tga, .bmp or .jpg).
+            <br><br>
+            <center><strong>Include third-party runtimes</strong></center><br>
+            Check this option to allow the standalone project to work on Windows®-based systems
+            that do not have the latest Microsoft® updates or the latest NVidia® PhysX® system software installed.
+            Please see license file for important information.
+            <br><br>
+            <center><strong>Embed at</strong></center><br>
+            Check this option to compile your project to a browser applet.
+            <br><br>
+            After compilation (see <em>Compile</em>, below) all you have to do is upload the
+            3 generated files to your website.
+            <br><br>
+            The exact location at your website must be specified in the input box
+            before compilation. For example: <em>http://www.3drad.com/</em>
+            or <em>http://www.3drad.com/subdir/</em>
+            <br><br>
+            The URL to launch the compiled applet will be the specified website location
+            followed by the uploaded .htm page name (for example <em>http://www.3drad.com/StuntPlane.htm</em>
+            or <em>http://www.3drad.com/subdir/StuntPlane.htm</em>).
+            <br><br>
+            <strong>IMPORTANT:</strong> to the specified website location you must also upload
+            the <a href="http://www.3drad.com/OSAKitPro.CAB">OSAKitPro.CAB</a> and
+            the <a href="http://www.3drad.com/OSAKitProPlayer.exe">OSAKitProPlayer.exe</a> files.
+            <br><br>
+            These files are free plug-ins developed by AncientSoft and they must be present on the server
+            to allow visitors of your website to play your compiled 3D Rad projects in their browser.
+            <br><br>
+            A complete SDK and a commercial version of the plug-ins, offering several advantages, including the ability to certify
+            the embedded applet by using your own digital signature, is available at the <a href="http://www.osakit.com/">OSAKit website</a>.
+            <br><br>
+            To all 3D Rad users, Ancientsoft is currently offering a 10% discount (coupon code: 3DRAD10).
+            <br><br>
+            <center><strong>Prompt</strong></center><br>
+            Check this option to always let visitors of your applet page know and authorize the launch of the OSAKit plug-in,
+            when they are on Window XP or Windows Vista with UAC disabled.
+            <br><br>
+            Enabling this option, which de-activates the OSAKit plugin after every use,
+            is <strong>highly recommended</strong> because letting an application run in the browser without
+            giving visitors a chance to block it, in case they don't trust the website, isn't a wise security policy.
+            <br><br>
+            <strong>DISCLAIMER</strong>: 3D Rad author is not affiliated in any way with AncientSoft and is not responsible
+            for any damage caused by the OSAKit plug-in or its use. Use of the OSAKit plugin will be at your own risk.
+            <br><br>
+            <center><strong>Save Settings</strong></center><br>
+            Allows you to save the current compiler settings.
+            <br><br>
+            <center><strong>Load Settings</strong></center><br>
+            Allows you to load a previously saved settings file.
+            <br><br>
+            <center><strong>Clear List</strong></center><br>
+            Clears the list of projects to compile.
+            <br><br>
+            <center><strong>Help</strong></center><br>
+            Opens this help document in your default Web browser.
+            <br><br>
+            <center><strong>Compile</strong></center><br>
+            Generates the stand-alone executable (or the browser embeddable files) in a sub-folder within the specified destination folder.
+            The sub-folder name will be the compiled project name plus a time-stamp (YYYYMMDDHHMMSS format).
+            <br><br>
+            For stand-alone executables, the compiled project can be run by
+            double-clicking the .exe file in the destination sub-folder.
+            To port the compiled project to another PC, simply port the destination sub-folder and its contents.
+            <br><br>
+            For browser applets, you need to upload the compiled files to your website (see <em>Embed at</em>, above).
+            <br><br>
+            <center><strong>PROTECTING COMPILED CONTENTS</strong></center><br>
+            Compiled .3dr files are protected so that they cannot be opened and examined in the editor by the final user.
+            <br><br>
+            Note that compiling a 3D Rad project only protects the .3dr (project) file.
+            It does not protect any resource files (3d models, textures, sounds etc) and the protection applied to the .3dr file is not
+            designed to stop serious hacking attempts.
+            <br><br>
+            In order to fully protect your compiled projects and all the resources you can use third party tools, like
+            <a href="https://secure.avangate.com/affiliate.php?ACCOUNT=SMARTPAC&AFFILIATE=13851&PATH=http%3A%2F%2Fwww.smartpacker.nl">3D Rad V-Packer</a>,
+            specifically developed to protect 3D Rad compiled projects.
+         </p>
+         </font>
+         </div>
+      </td>
+      <td width="174"></td>
+   </tr>
+
+   <tr>
+      <td width="26" bgcolor="#00002F"></td>
+      <td width="112" bgcolor="#00002F"></td>
+      <td width="24" bgcolor="#00002F"></td>
+      <td width="598" colspan="3"><img src="./img/main_logo_bottom.jpg" width="598" height="103"></td>
+   </tr>
+
+</table>
+
+</body>
+
+</html>

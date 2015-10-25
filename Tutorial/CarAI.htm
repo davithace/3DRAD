@@ -1,0 +1,252 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+
+<head>
+   <title>
+      CarAI, Vehicle, 3D Rad
+   </title>
+
+   <META
+      content="CarAI,Vehicle,Physics,Car,3D Rad"
+      name="keywords">
+</head>
+
+<body bgcolor="#000000" text="#909080" link="#F0E0E0" vlink="#F0E0E0" alink="#F0E0E0">
+
+<table border="0" cellpadding="0" cellspacing="0" width="860">
+
+   <tr>
+      <td width="860" colspan="6"><img src="./img/main_logo.jpg" width="760" height="182"></td>
+   </tr>
+
+   <tr>
+      <td width="26" bgcolor="#00002F"></td>
+      <td width="112" bgcolor="#00002F" valign="top">
+         <br>
+         <p>
+            <a href="http://www.3drad.com/">
+            <font color="#909080" size="1" face="Verdana">
+               <strong>WHAT IS<br>3D RAD?<br>CLICK HERE<br>TO FIND OUT!</strong>
+            </font>
+            </a>
+         </p>
+         <br>
+      </td>
+      <td width="24" bgcolor="#00002F"></td>
+      <td width="24"></td>
+      <td width="500">
+         <h1 align="center">
+            <font size="4" face="Verdana">
+               CarAI<br>
+            </font>
+         </h1>
+         <font size="2" face="Verdana">
+         <p>
+            <center>
+            <img src="./img/CarAI.jpg" width="128" height="128" align="center" border="0">
+            </center>
+            <br>
+            The CarAI object will drive your vehicles along a pre-defined path,
+            trying to avoid collisions with obstacles and other vehicles by applying artificial intelligence algorithms.
+            <br><br>
+            Optionally, the A.I. alogorithms can be 'reversed' or 'mixed' to achieve different behaviors like
+            trying to run into specified targets or drive away from certain objects, either forward or in reverse.
+            <br><br>
+            To use this object in your project, the first step is setting up all vehicles in the project so that they can be
+            driven by using human input controls.
+            <br><br>
+            This is necessary because the CarAI object, just like a human being, cannot
+            drive a car that doesn't provide proper handling.
+            <br><br>
+            Once you have tweaked your cars, for each vehicle you want to control, just add one CarAI object to your project.
+            <br><br>
+            Then link it to the car object to control, to the <a href="./Path.htm">Path</a> to
+            follow and to all obstacles to avoid.
+            Please see <a href="http://www.3drad.com/add_ai_cars_01.htm">this tutorial</a> for details.
+            <br><br>
+            After you have linked the CarAI object to all these elements, double-click the CarAI object
+            in the Object List to open the following property dialog:
+            <br><br>
+            <center>
+            <img src="./img/CarAI_properties.jpg">
+            </center>
+            <br><br>
+            <center><strong>Working At Start</strong></center>
+            <br>
+            If this option is not checked, artificial intelligence (and the
+            controlled vehicle) will only operate after the object is <em>started</em> by another object,
+            like for example <a href="./EventOnInput.htm">EventOnInput</a>.
+            <br><br>
+            <center><strong>Obstacle dodging</strong></center>
+            <br>
+            <li>
+            <strong>Minimum scanner depth</strong>.
+            The distance, in meters, at which an obstacle can be detected depends on controlled vehicle's speed.
+            This factor specifies the distance when vehicle speed is zero.
+            <br><br>
+            <li>
+            <strong>Max. scanner amplitude</strong>.
+            Typically, maximum scanner amplitude should be about vehicle width / 2 (meters).
+            The bigger the factor, the higher the chances to detect a small obstacle. However, 
+            setting this factor too big may cause the vehicle to react on obstacles that aren't actually on vehicle's path.
+            </li>
+            <br><br>
+            <li>
+            <strong>Driving carefulness</strong>.
+            The bigger the factor, the sooner the vehicle will react to avoid collisions.
+            The value must be between 0 and 10.
+            </li>
+            <br><br>
+            <li>
+            <strong>Max. front deviation angle</strong>.
+            This value, in degrees, between 0 and 180, will determine how far from the ideal path the controlled
+            vehicle can go to try avoiding a frontal collision.
+            <br><br>
+            Setting this value too big may cause unsteady driving.
+            Setting it to low may prevent the vehicle from avoiding obstacles.
+            </li>
+            <br><br>
+            <li>
+            <strong>Max. side deviation angle</strong>.
+            This value, in degrees, between 0 and 180, will determine how far from the ideal path the controlled
+            vehicle can go to try avoiding collisions with other vehicles on its side.
+            <br><br>
+            Setting this value too big may cause excessive reaction.
+            Setting it to low may prevent the vehicle from avoiding contacts.
+            </li>
+            <br><br>
+            <li>
+            <strong>Deviation return time</strong>.
+            Approximate time, in seconds, required to return to the ideal path, after a deviation (see above).
+            </li>
+            <br><br>
+            <li>
+            <strong>Enable unblock maneuver</strong>.
+            If this option is checked, the controlled vehicle will try to free itself when stuck somewhere.
+            </li>
+            <br><br>
+
+            <center><strong>Path following</strong></center>
+            <br>
+            <li>
+            <strong>Minimum throttle</strong>.
+            If this parameter is lower than 1, the vehicle will slow down when turning.
+            Minimum value is 0. Maximum value is 1.
+            </li>
+            <br><br>
+            <li>
+            <strong>Maximum throttle</strong>
+            <br>
+            You can prevent the controlled vehicle from going full-throttle on straights by setting this factor to any value below 1.
+            Minimum value is -1. Maximum value is 1. Use negative values to make the car go reverse.
+            </li>
+            <br><br>
+            <li>
+            <strong>Brakes</strong>
+            <br>
+            If this factor is above 0, the controlled vehicle will apply the brakes when an obstacle is detected.
+            Minimum value is -1. Maximum value is 1.
+            </li>
+            <br><br>
+            <li>
+            <strong>Path fuzziness</strong>
+            <br>
+            If this factor is above 0, the controlled vehicle will follow a slightly different path from
+            the one defined in the linked <a href="./Path.htm">Path</a> object.
+            The bigger the value, the bigger the alteration. Maximum value is 1.
+            </li>
+            <br><br>
+            <li>
+            <strong>Randomizer</strong>
+            <br>
+            If these factors are above 0, the corresponding parameters on the left (<em>Minimum throttle</em>,
+            <em>Maximum throttle</em> and <em>Brakes</em>) will be randomized by applying a variation.
+            <br><br>
+            For example, if you set <em>Maximum throttle</em> to 0.7 and its randomizer value to 0.3,
+            when the simulation is started the actual <em>Maximum throttle</em> used will be between 0.4 and 1.0.
+            <br><br>
+            Note that final value is still capped within its range. So, for example, if you set
+            <em>Maximum throttle</em> to 1.0 and its randomizer value to 0.3, resulting value will
+            be between 0.7 and 1.0.
+            </li>
+            <br><br>
+
+            <center><strong>A.I. Mode</strong></center>
+            <br>
+            <li>
+            <strong>Avoid</strong>.
+            Follow the path, trying to avoid the obstacles.
+            </li>
+            <br><br>
+            <li>
+            <strong>Chase</strong>.
+            Drive towards the closest target, but try to avoid direct collisions with it.
+            Typically, the <em>Brakes</em> parameter in the <em>Path following</em> section is non-zero
+            to cause the vahicle to slowdown or stop when close to the target.
+            Note that any path is ignored when this AI mode is used.
+            </li>
+            <br><br>
+            <li>
+            <strong>Target</strong>.
+            Try to run into the closest target. Note that any path is ignored when this AI mode is used.
+            </li>
+            <br><br>
+            <li>
+            <strong>Flee</strong>.
+            Drive away from all objects specified as OBSTACLE/TARGET in the <em>Relationships</em> list,
+            but also follow the specified path if possible.
+            </li>
+            <br><br>
+
+            <center><strong>Relationships</strong></center>
+            <br>
+            This list defines how the CarAI object relates to the objects linked to it. 
+            The following relationship types are supported:
+            <br><br>
+            <li>IGNORE. Do nothing.</li>
+            <br><br>
+            <li>DRIVABLE VEHICLE. This object is the vehicle to manage.
+            This is typically a <a href="./Car.htm">Car</a>.
+            Only one single vehicle can be managed by one CarAI object.</li>
+            <br><br>
+            <li>OBSTACLE/TARGET. This object is an obstacle to avoid.
+            This is typically a dynamic <a href="./RigidBody.htm">RigidBody</a> object in the project or
+            another vehicle.
+            <br><br>
+            Do not set the road/terrain object as an obstacle, or your AI vehicle will get really confused!</li>
+            <br><br>
+            <li>PATH. This object is a <a href="./Path.htm">Path</a> to follow.
+            If multiple paths are set this way, one is picked randomly among them, when the simulation starts or,
+            run-time, when the CarAI object is reset.</li>
+            <br><br>
+            <center><strong>Other dialog controls</strong></center>
+            <br>
+            For information about the remaining controls, please <a href="./AllObjects.htm">click here</a>.
+            <br><br><br>
+            <center><strong>INTERNAL PARAMETERS</strong></center>
+            <br><br>
+            The following internal parameters can be accessed by using <em>event</em> objects like
+            <a href="./EventOnValue.htm">EventOnValue</a> or <a href="./Script.htm">Script</a>:
+            <br><br>
+            <li>Maximum throttle, between 0 and 1</li>
+            <li>A.I. mode (0-3, write-only)</li>
+            <br><br>
+         </p>
+         </font>
+      </td>
+      <td width="174"></td>
+   </tr>
+
+   <tr>
+      <td width="26" bgcolor="#00002F"></td>
+      <td width="112" bgcolor="#00002F"></td>
+      <td width="24" bgcolor="#00002F"></td>
+      <td width="698" colspan="3"><img src="./img/main_logo_bottom.jpg" width="598" height="103"></td>
+   </tr>
+
+</table>
+
+</body>
+
+</html>

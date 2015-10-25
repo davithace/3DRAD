@@ -1,0 +1,165 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+
+<head>
+   <title>
+      EventOnValue, 3D Rad
+   </title>
+
+   <META
+      content="EventOnValue,Variable,3D Rad"
+      name="keywords">
+</head>
+
+<body bgcolor="#000000" text="#909080" link="#F0E0E0" vlink="#F0E0E0" alink="#F0E0E0">
+
+<table border="0" cellpadding="0" cellspacing="0" width="760">
+
+   <tr>
+      <td width="760" colspan="6"><img src="./img/main_logo.jpg" width="760" height="182"></td>
+   </tr>
+
+   <tr>
+      <td width="26" bgcolor="#00002F"></td>
+      <td width="112" bgcolor="#00002F" valign="top">
+         <br>
+         <p>
+            <a href="http://www.3drad.com/">
+            <font color="#909080" size="1" face="Verdana">
+               <strong>WHAT IS<br>3D RAD?<br>CLICK HERE<br>TO FIND OUT!</strong>
+            </font>
+            </a>
+         </p>
+         <br>
+      </td>
+      <td width="24" bgcolor="#00002F"></td>
+      <td width="24"></td>
+      <td width="400">
+         <h1 align="center">
+            <font size="4" face="Verdana">
+               EventOnValue<br>
+            </font>
+         </h1>
+         <font size="2" face="Verdana">
+         <p>
+            <center>
+            <img src="./img/EventOnValue.jpg" width="128" height="128" align="center" border="0">
+            </center>
+            <br>
+            This object starts/stops (or shows/hides) objects linked to it when the numeric parameters
+            of a set of monitored objects are within specified ranges.
+            <br><br>
+            All objects have specific parameters, like <em>life</em> for a character,
+            engine <em>power</em> for a car and so on.
+            The EventOnValue object can monitor these values and start other objects
+            when they are within specific ranges.
+            <br><br>
+            For example, you use the EventOnValue object to run (start) the ExitFade
+            object when Cam1StPerson dies (its energy value is zero). 
+            <br><br>
+            This object can itself be started and stopped by other event objects,
+            allowing you to create <em>chains</em> and achieve articulated event management.
+            <br><br>
+            For more about event objects in general, please see <a href="http://www.3drad.com/event_objects.htm">this tutorial</a>.
+            <br><br>
+
+            <br>
+            <center>
+            <font size="3" face="Verdana">
+               <strong>USAGE</strong>
+            </font>
+            </center>
+            <br>
+
+            Add the EventOnValue object to your project, link it to all the objects you want to
+            monitor and also to all objects you want to start/stop when the conditions are met.
+            <br><br>
+            You link objects together in the Object List (left side of 3D Rad main screen), by
+            selecting an object and then checking the other objects you want to link to it.
+            <br><br>
+            To configure the EventOnValue object, double-click it in the
+            Object List to open the following property dialog:
+            <br><br>
+            <center>
+            <img src="./img/EventOnValue_properties.jpg">
+            </center>
+            <br><br>
+            <center><strong>Relationships</strong></center>
+            <br>
+            This list defines how the EventOnValue object relates to the objects that are linked to it. 
+            The following relationship types are supported:
+            <br><br>
+            <li>IGNORE. Do nothing.
+            Typically used for linked objects that are <em>starters</em> for this EventOnValue
+            object itself (in a chain of event objects for example).</li>
+            <br><br>
+            <li>[parameter] is MONITORED. Monitor the specified internal value of this object.</li>
+            <br><br>
+            <li>START. Start the object when the values of all monitored objects are within the specified range.
+            Note that the target object must provide some 'startable' action.</li>
+            <br><br>
+            <li>STOP. Stop the object when the values of all monitored objects are within the specified range.</li>
+            <br><br>
+            <li>SWITCH. Switch the object (start if stopped and vice-versa)
+            when the values of all monitored objects are within the specified range.
+            Note that, because the checking is performed 75 times per second, a condition-met may be reported several times.
+            This causes the target objects to be switched on/off repeatedly.</li>
+            <br><br>
+            <li>SHOW. Show the object when the values of all monitored objects are within the specified range.</li>
+            <br><br>
+            <li>HIDE. Hide the object when the values of all monitored objects are within the specified range.</li>
+            <br><br>
+            <li>S/H SWITCH. Switch the object (show if hidden and vice-versa) when the values of all monitored objects are within the specified range.</li>
+            <br><br>
+            <li>RESET. Re-initialize the object completely, to its default state, as defined in the project.</li>
+            <br><br>
+            <center><strong>Randomize target object</strong></center>
+            <br>
+            If this option is checked, the specified action
+            is applied to one target object only, picked randomly.
+            If the option is not checked, the action is applied to all target objects instead.
+            <br><br>
+            <center><strong>Value range</strong></center>
+            <br>
+            The event action is only performed when ALL monitored internal values
+            are within the specified range.
+            <br><br>
+            <center><strong>Continuous detection</strong></center>
+            <br>
+            If this option is checked, the range test is performed continuously and the action triggered
+            repeatedly (75 times per second), until at least one monitored object's value is no longer
+            within the specified range.
+            <br><br>
+            If this option is not checked, the event action is triggered only once.
+            It is performed again only after at least one monitored value changes.
+            <br><br>
+            <center><strong>Detect once</strong></center>
+            <br>
+            If this option is checked, the range test is performed only once.
+            Detection is re-enabled only after the EventOnValue object is reset.
+            <br><br>
+            <center><strong>Working at start</strong></center>
+            <br>
+            If this option is not checked, the EventOnValue object will not work
+            until it is <em>started</em> itself by using another event object.
+            <br><br>
+            <center>For information about the remaining controls, please <a href="./AllObjects.htm">click here</a>.</center>
+         </p>
+         </font>
+      </td>
+      <td width="174"></td>
+   </tr>
+
+   <tr>
+      <td width="26" bgcolor="#00002F"></td>
+      <td width="112" bgcolor="#00002F"></td>
+      <td width="24" bgcolor="#00002F"></td>
+      <td width="598" colspan="3"><img src="./img/main_logo_bottom.jpg" width="598" height="103"></td>
+   </tr>
+
+</table>
+
+</body>
+
+</html>

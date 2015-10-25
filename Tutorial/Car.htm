@@ -1,0 +1,207 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+
+<head>
+   <title>
+      Car Physics Layouts for 3D Rad
+   </title>
+
+   <META
+      content="Car,Cars,3D Rad"
+      name="keywords">
+</head>
+
+<body bgcolor="#000000" text="#909080" link="#F0E0E0" vlink="#F0E0E0" alink="#F0E0E0">
+
+<table border="0" cellpadding="0" cellspacing="0" width="760">
+
+   <tr>
+      <td width="760" colspan="6"><img src="./img/main_logo.jpg" width="760" height="182"></td>
+   </tr>
+
+   <tr>
+      <td width="26" bgcolor="#00002F"></td>
+      <td width="112" bgcolor="#00002F" valign="top">
+         <br>
+         <p>
+            <a href="http://www.3drad.com/">
+            <font color="#909080" size="1" face="Verdana">
+               <strong>WHAT IS<br>3D RAD?<br>CLICK HERE<br>TO FIND OUT!</strong>
+            </font>
+            </a>
+         </p>
+         <br>
+      </td>
+      <td width="24" bgcolor="#00002F"></td>
+      <td width="24"></td>
+      <td width="400">
+         <h1 align="center">
+            <font size="4" face="Verdana">
+               Car
+            </font>
+         </h1>
+         <font size="2" face="Verdana">
+         <p>
+            <center>
+            <img src="./img/Car.jpg" width="128" height="128" align="center" border="0">
+            </center>
+            <br>
+            Car is a set of ready-to-use car physics layouts.
+            <br><br>
+            While you can setup the physics layout of a car by attaching
+            <a href="./Wheel.htm">wheels</a> to a <a href="./RigidBody.htm">RigidBody</a>,
+            using the Car object is much more productive.
+            <br><br>
+            Car physics can be fully configured on a convenient unique dialog and special
+            <em>simulation-damping</em> parameters allow you to 'filter-out' certain annoying
+            behaviors, like excessive tendency to flip-over or loose traction.
+            <br><br>
+            Additional parameters are also provided in a car-model-specific .ini file, which defines the basic
+            parameters, like car-body and wheel masses, that differentiate each car type in the library.
+            <br><br>
+            Each pre-made car layout comes with draft visible geometry which is a mere placeholder.
+            <br><br>
+            You can hide the placeholder meshes and visualize finished geometry instead by using
+            the <a href="./SkinMesh.htm">SkinMesh</a> object.
+            <br>
+            <br><br>
+            <center>
+            <img src="./img/Car_properties.jpg">
+            </center>
+            <br><br>
+            <center><strong>Wheel offsets and scale</strong></center>
+            <br>
+            All cars in the library (see <em>Change</em>, below) have default wheel locations and size.
+            You can alter these by specifying X, Y, Z offsets in meters and a scaling factor (1.0 means original size).
+            <br><br>
+            <center><strong>Change</strong></center>
+            <br>
+            Click the <em>Change</em> button to access the library of available car models.
+            <br><br>
+            <center><strong>Fast rendering</strong></center>
+            <br>
+            If this option is checked, a faster rendering technique is used for the placeholder geometry.
+            This will improve frame rate on slower systems, but it may reduce rendering quality.
+            <br><br>
+            <center><strong>Cast shadows</strong></center>
+            <br>
+            If this option is checked, the car layout will cast a volumetric shadow.
+            This may affect frame rate on slower systems.
+            <br><br>
+            <center><strong>Refl. update rate</strong></center>
+            <br>
+            Set this parameter to any positive value (below 450.0) to make the placeholder
+            geometry dynamically reflect the actual environment surrounding it. 
+            <br><br>
+            <center><strong>Hide car-body geometry</strong></center>
+            <br>
+            If this option is checked the car-body placeholder geometry will not be rendered, run-time.
+            <br><br>
+            <center><strong>Hide wheels geometry</strong></center>
+            <br>
+            If this option is checked the wheels' placeholder geometry will not be rendered run-time.
+            <br><br>
+            <center><strong>Controls</strong></center>
+            <br>
+            You can make the car interactive by checking the box next to one or more input controls
+            (Throttle, Reverse, Brake, Turn Left/Right).
+            <br><br>
+            You can allow final users of your project to configure control (eg to use a steering wheel by
+            adding a <a href="./ConfigureControls.htm">ConfigureControls</a> object to the project.
+            <br><br>
+            The <em>Delay</em> parameters allow you to set the <em>response time</em> for each control, in seconds (approximately). 
+            <br><br>
+            Also, keep in mind that input controls must be disabled (unchecked) if you want to control the car by manipulating its internal values,
+            for example by using the <a href="./Script.htm">Script</a> object.
+            See <em>internal values</em> table below for more.
+            <br><br>
+            <li><em>Max angle</em> determines the maximum turning angle for the front wheels.</li>
+            <br><br>
+            <li>If the <em>Working At Start</em> option is not checked, the car will only respond to input controls when the
+            object is <em>started</em> by another object, like for example
+            <a href="./EventOnInput.htm">EventOnInput</a>.</li>
+            <br><br>
+            <center><strong>Parameters</strong></center>
+            <br>
+            <li><em>Speed</em> is a factor that determines the maximum speed for the car. Actual speed depends on car masses, damping and other settings.</li>
+            <li><em>Acceleration</em> determines how quickly the car will reach its top speed. Actual speed depends on car masses, damping and other settings.</li>
+            <li><em>Reverse speed</em>, using the above factors as basis, determines the car performance when it goes reverse.</li>
+            <li><em>FWD/RWD</em> determine whether the car is front-wheel drive, rear-wheel drive, 4-wheel drive.</li>
+            <li><em>Brakes power</em> determines how quickly the car will stop while braking.</li>
+            <li><em>Front grip</em> values determine rolling and lateral traction (friction) for the front wheels.</li>
+            <li><em>Rear grip</em> values determine rolling and lateral traction (friction) for the rear wheels.</li>
+            <li><em>Suspensions</em> values determine suspensions' strength and hardness.</li>
+            <br><br>
+            <center><strong>Simulation dampers</strong></center>
+            <br>
+            <li><em>Banking stabilizer</em> is actually the center of mass displacement, in meters.
+                For example, 0.75 means that the center of mass for the car will be 0.75 meters lower than the car-body model center.
+                The lower the center of mass, the harder to flip the car on bends.
+            <br><br>
+                <strong>NOTE</strong>: setting the center of mass too low will make the car bend the opposite way, like a motorbike, on bends.
+                However, this effect is useful when implementing motorbikes, by altering the Car wheel X offset so that they join together
+                in the middle.</li>
+            <br><br>
+            <li><em>Crash damping</em> allows you to reduce car speed on collisions.
+                The second value is the threshold speed (in meters per second) for the object hit by the car.
+                If the object's speed is above the threshold, no damping is applied. You typically use this to prevent
+                collisions with other cars or non-static scenery props from triggering crash damping.</li>
+            <br><br>
+            <center><strong>Other dialog controls</strong></center>
+            <br>
+            For information about the remaining controls, please <a href="./AllObjects.htm">click here</a>.
+            <br><br><br>
+            <center><strong>INTERNAL PARAMETERS</strong></center>
+            <br><br>
+            The following internal parameters can be accessed by using other objects like
+            <a href="./EventOnValue.htm">EventOnValue</a> or <a href="./Script.htm">Script</a>:
+            <br><br>
+            <li>Turn left/right, between -1 and 1. Write only</li>
+            <li>Throttle, between -1 and 1. Write only</li>
+            <li>Brake, between 0 and 1. Write only</li>
+            <li>Speed, in meters per second. Read only</li>
+            <li>Maximum steering, in degrees. Read only</li>
+
+            <br><br>
+            The following internal parameters can be accessed by using the <a href="./Script.htm">Script</a> object.
+            Please note that resetting the Car object run-time (for example by calling the iObjectReset() script function)
+            will not restore these parameters to their default values.
+            <br><br>
+            <li>Top speed factor. Write only</li>
+            <li>Acceleration. Write only</li>
+            <li>Reverse (0-100). Write only</li>
+            <li>Brakes power. Write only</li>
+            <li>Brakes state. Read only. This value is 1 when the car is using the brakes, zero otherwise.
+                Note that cars controlled by the CarAI object may almost never brake, unless the
+                <em>Brakes</em> and the <em>Driving carefulness</em> parameters on the CarAI
+                object dialog are bigger than zero</li>
+            <li>Throttle state. Read only. This value is 1 when car throttle is fully activated, zero when it is released and -1
+                when the car is in full reverse. Intermediate states produce intermediate values.</li>
+            <li>Front grip. Write only</li>
+            <li>Front grip (lat). Write only</li>
+            <li>Rear grip. Write only</li>
+            <li>Rear grip (lat). Write only</li>
+            <li>Suspensions spring. Write only</li>
+            <li>Suspensions damping. Write only</li>
+            <li>FWD mode (0 or 1). Write only</li>
+            <li>RWD mode (0 or 1). Write only. NOTE: when both FWD and RWD are zero, rear wheels are blocked (hand-brake).</li>
+            <br><br>
+         </p>
+         </font>
+      </td>
+      <td width="174"></td>
+   </tr>
+
+   <tr>
+      <td width="26" bgcolor="#00002F"></td>
+      <td width="112" bgcolor="#00002F"></td>
+      <td width="24" bgcolor="#00002F"></td>
+      <td width="598" colspan="3"><img src="./img/main_logo_bottom.jpg" width="598" height="103"></td>
+   </tr>
+
+</table>
+
+</body>
+
+</html>

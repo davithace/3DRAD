@@ -1,0 +1,142 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+
+<head>
+   <title>
+      Scan-based Weapons, 3D Rad
+   </title>
+
+   <META
+      content="Scanner,Bullet,Laser,Weapon"
+      name="keywords">
+</head>
+
+<body bgcolor="#000000" text="#909080" link="#F0E0E0" vlink="#F0E0E0" alink="#F0E0E0">
+
+<table border="0" cellpadding="0" cellspacing="0" width="760">
+
+   <tr>
+      <td width="760" colspan="6"><img src="./img/main_logo.jpg" width="760" height="182"></td>
+   </tr>
+
+   <tr>
+      <td width="26" bgcolor="#00002F"></td>
+      <td width="112" bgcolor="#00002F" valign="top">
+         <br>
+         <p>
+            <a href="http://www.3drad.com/">
+            <font color="#909080" size="1" face="Verdana">
+               <strong>WHAT IS<br>3D RAD?<br>CLICK HERE<br>TO FIND OUT!</strong>
+            </font>
+            </a>
+         </p>
+         <br>
+      </td>
+      <td width="24" bgcolor="#00002F"></td>
+      <td width="24"></td>
+      <td width="400">
+         <h1 align="center">
+            <font size="4" face="Verdana">
+               Scanner<br>
+            </font>
+         </h1>
+         <font size="2" face="Verdana">
+         <p>
+            <center>
+            <img src="./img/Scanner.jpg" width="128" height="128" align="center" border="0">
+            </center>
+            <br>
+            The Scanner object allows you to <em>scan</em> a series of <a href="./RigidBody.htm">RigidBody</a>
+            objects linked to it, by using a beam of definable length and size.
+            <br><br>
+            If the scan intersects one of the target objects, the identifier of the object is exposed as an
+            internal parameter of the Scanner object (see below). Contact point distance, absolute 3d location
+            and surface normal are also returned.
+            <br><br>
+            The returned values can be polled run-time by
+            a <a href="./Script.htm">Script</a> and actions performed based on them.
+            <br><br>
+            The scan is performed once, whenever the Scanner object is <em>started</em> by another
+            object (like <a href="./EventOnInput.htm">EventOnInput</a>)
+            or by a <a href="./Script.htm">Script</a>. 
+            <br><br>
+            In the Virtual Editor, the Scanner object is displayed as a 3d beam you can orient or <em>attach</em> to
+            any moving object, like a Car object (see <em>ScannerDemo</em> sample project).
+            <br><br>
+            The scanner can also be attached to animated character bones,
+            for example a soldier's hand. 
+            <br><br>
+            <center>
+            <img src="./img/Scanner_properties.jpg">
+            </center>
+            <br><br>
+            <center><strong>Scan length</strong></center>
+            <br>
+            The scanner will only detect objects that are within the specified length (distance from scanner origin, in meters).
+            <br><br>
+            <font color="#FF0000" size="2" face="Verdana">Important!</font>
+            Because a certain amount of computation is required for each surface traversed by the scan beam, the longer the scan,
+            the greater the chances of crossing a very high number of surfaces, thus causing frame-rate loss.
+            Scan length should always be the shortest allowed by your project design.
+            <br><br>
+            <center><strong>Scan beam size</strong></center>
+            <br>
+            The ability to specify any size for the scan beam section is what makes this object so powerful.
+            Unlike classic single ray scanners, a beam-based scanner allows you, for example, to detect very
+            small objects by using just a few or even one single scan. This is important when you use this object,
+            as basis for an AI system, where, for example, a character needs to scan the surroundings, looking for
+            obstacles and/or targets.
+            <br><br>
+            <center><strong>Display scan beam</strong></center>
+            <br>
+            Check this option to visualize the Scanner object geometry run-time. The geometry is automatically stretched to
+            show the actual beam size and length.
+            <br><br>
+            <center><strong>Relationships</strong></center>
+            <br>
+            This list defines how the Scanner object relates to the objects linked to it. 
+            The following relationship types are supported:
+            <br><br>
+            <li>IGNORE. Do nothing.</li>
+            <br><br>
+            <li>TARGET. Include this item among the objects to scan. The object is usually a RigidBody object.</li>
+            <br><br>
+            <li>PARENT. If the Scanner object is linked to another object AND the other object is set
+            as PARENT, then it becomes the Scanner object parent. Run-time, when the parent moves
+            and rotates, the scanner will follow it, keeping it's relative position as you set
+            it in the Virtual Editor. 
+            </li>
+            <br><br>
+            <br><br>
+            <center>For information about the remaining controls, please <a href="./AllObjects.htm">click here</a>.</center>
+            <br><br><br>
+            <center><strong>INTERNAL PARAMETERS</strong></center>
+            <br><br>
+            The following internal parameters can be accessed by using <em>event</em> objects like
+            <a href="./EventOnValue.htm">EventOnValue</a> or <a href="./Script.htm">Script</a>:
+            <br><br>
+            <li>Scanned object. This is the OBJ_ handle of the RigidBody object that has just been detected by the scan.
+            Please see <a href="./Script.htm">Script object's help file</a> for details on OBJ_ parameters.</li>
+            <li>Scan distance. The distance of the contact point, from the scanner origin, in meters.</li>
+            <li>Scan location X/Y/Z. Coordinates of the contact point.</li>
+            <li>Scan normal X/Y/Z. Components of the surface normal vector, at contact point. The surface is the
+            target object surface.</li>
+         </p>
+         </font>
+      </td>
+      <td width="174"></td>
+   </tr>
+
+   <tr>
+      <td width="26" bgcolor="#00002F"></td>
+      <td width="112" bgcolor="#00002F"></td>
+      <td width="24" bgcolor="#00002F"></td>
+      <td width="598" colspan="3"><img src="./img/main_logo_bottom.jpg" width="598" height="103"></td>
+   </tr>
+
+</table>
+
+</body>
+
+</html>

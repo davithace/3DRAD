@@ -1,0 +1,351 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+
+<head>
+   <title>
+      Rigid Body for 3D Rad
+   </title>
+
+   <META
+      content="Rigid,Body,Physics,Dynamics,Kinetic,Simulation,3D Rad"
+      name="keywords">
+</head>
+
+<body bgcolor="#000000" text="#909080" link="#F0E0E0" vlink="#F0E0E0" alink="#F0E0E0">
+
+<table border="0" cellpadding="0" cellspacing="0" width="760">
+
+   <tr>
+      <td width="760" colspan="6"><img src="./img/main_logo.jpg" width="760" height="182"></td>
+   </tr>
+
+   <tr>
+      <td width="26" bgcolor="#00002F"></td>
+      <td width="112" bgcolor="#00002F" valign="top">
+         <br>
+         <p>
+            <a href="http://www.3drad.com/">
+            <font color="#909080" size="1" face="Verdana">
+               <strong>WHAT IS<br>3D RAD?<br>CLICK HERE<br>TO FIND OUT!</strong>
+            </font>
+            </a>
+         </p>
+         <br>
+      </td>
+      <td width="24" bgcolor="#00002F"></td>
+      <td width="24"></td>
+      <td width="400">
+         <h1 align="center">
+            <font size="4" face="Verdana">
+               RigidBody<br>
+            </font>
+         </h1>
+         <font size="2" face="Verdana">
+         <p>
+            <center>
+            <img src="./img/RigidBody.jpg" width="128" height="128" align="center" border="0">
+            </center>
+            <br>
+            RigidBody is a customizable solid object supporting collision detection and realistic physics simulation.
+            <br><br>
+            You can use your favorite 3d modeling application to create new rigid-bodies and add them to the RigidBody object library.
+            <br><br>
+            Your own 3d models are used by the RigidBody object as a reference to implement collision
+            detection or determine mass distribution (which ultimately determines
+            physics behavior).
+            Please see <a href="http://www.3drad.com/importing.htm">this document</a> for details.
+            <br><br>
+            Run-time, a RigidBody object is usually invisible and its visual aspect is provided by a
+            <a href="./SkinMesh.htm">SkinMesh</a> attached to it.
+            However, in the Virtual Editor (and run-time, mainly for debug purposes) it is visualized via
+            a placeholder-mesh.            
+            <br><br>
+            The RigidBody can act either as a static object (for example a terrain or the walls in a dungeon) or
+            as a dynamic object (a car body, an airplane fuselage, a bullet, a falling rock etc). Please see <em>Total Mass</em>
+            parameter (below) for more.
+            <br><br>
+
+            <center>
+            <font size="3" face="Verdana">
+               <strong>FUNCTIONS</strong>
+            </font>
+            </center>
+            <br>
+            The RigidBody object will be subject to physics laws as soon as the project is started.
+            For example, if it is dynamic and it is linked to a G-Force and a Terrain
+            object, it will fall and rebound realistically.
+            <br><br>
+            After adding a RigidBody object to your project, you can configure it by double-clicking it in the Object List.
+            <br>
+            <br><br>
+            <center>
+            <img src="./img/RigidBody_properties.jpg">
+            </center>
+            <br><br>
+            <center><strong>Enabled at start</strong></center>
+            <br>
+            If this option is not checked, the rigid-body will only perform physics simulation when the
+            object is <em>shown</em> by another object, like for example
+            <a href="./EventOnInput.htm">EventOnInput</a>.
+            <br><br>
+            Note that physics is enabled by <em>showing</em> the object, instead of <em>starting</em> it,
+            because being <em>enabled</em>, for a RigidBody object, doesn't just mean that its physics
+            simulation is performed, but also that its placeholder geometry is rendered run-time.
+            But see <em>Display placeholder geometry</em> for more.
+            <br><br>
+            <center><strong>Display geometry</strong></center>
+            <br>
+            Check this option to visualize the rigid-body's placeholder model, run-time.
+            Note that the model is not shown if the object is disabled (see <em>Enabled at start</em>).
+            <br><br>
+            In the Virtual Editor you can only hide the placeholder mesh by right-clicking the item in the Object List.
+            <br><br>
+
+            <center><strong>Parent bone ID</strong></center>
+            <br>
+            When this value is non-zero, and the RigidBody object is linked to a SkinMesh which is bone-animated,
+            the rigid-body will be attached to the SkinMesh's bone specified by the ID.
+            <br><br>
+            This feature can be used, for example, to achieve collision-detection and physics for a foot kicking a ball.
+            See the example project called SkinMeshBoneRigidBodyDemo.3dr.
+            <br><br>
+            The bone ID must be a positive, non-zero integer. The first bone in the model is 1, the second 2 and so on.
+            What bone corresponds to a certain ID depends on how the animated model was originally designed.
+            <br><br>
+            <strong>Note:</strong> the position of the attached RigidBody object is relative to the bone position when the animated
+            model is in its initial pose. This may not be the default pose you see in the Virtual Editor.
+            To see the initial pose of all animated SkinMesh objects in the scene, hold the [F] key pressed.
+            <br><br>
+            <strong>Note:</strong> this parameter can be modified run-time by using a script (see 'Internal Parameters' section, below).
+            This allows you to detach the RigidBody object (bone ID = 0) or switch target bone.
+            Note that this feature is only supported for RigidBody objects that are attached to a bone when the project starts.
+            <br><br>
+
+            <center><strong>Path</strong></center>
+            <br>
+            If you <em>attach</em> the RigidBody object to a path by linking it to a
+            <a href="./Path.htm">Path</a> object then it will <em>try</em> to follow the pre-defined course.
+            <br><br>
+            <li>
+            <strong>Loop Count</strong>.
+            This is the number of times the object will loop around the path.
+            Non integer values (e.g. 0.5) are supported.</li>
+            </li>
+            <br><br>
+            <li>
+            <strong>Speed</strong>.
+            Path following speed. When this value is 1, the whole path is completed in one second.
+            Negative values are supported (reverse).
+            <br><br>
+            Note that the relative speed along a specific portion of the path depends on the number of nodes
+            defined along the segment. In particular, the more nodes are defined, the slower the speed.
+            This property allows you to accurately program speed variations.
+            </li>
+            <br><br>
+            <li>
+            <strong>Behavior</strong>.
+            When the dynamic object is <em>stopped and re-started</em> (for example by an object like
+            <a href="./EventOnInput.htm">EventOnInput</a>) it can
+            start again from path's beginning, resume from where it was when stopped
+            or move the opposite way along the path.
+            </li>
+            <br><br>
+            <li>
+            <strong>Follow At Start</strong>.
+            If this option is not checked, the object will follow the path only when <em>started</em> by
+            another object, like for example <a href="./EventOnInput.htm">EventOnInput</a>.
+            </li>
+            <br><br>
+
+            <center><strong>Bone/Path following</strong></center>
+            <br>
+            When the RigidBody is attached to a bone or a Path, it will <em>tend</em> to follow the bone/path.
+            You must tweak the <em>Force intensity</em> and <em>Torque intensity</em>
+            factors to achieve an accurate following behavior for your specific object.
+            <br><br>
+            The remarkable advantage in mixing bone/path following with physics this way
+            (instead of using <a href="./SkinMesh.htm">SkinMesh object</a>'s bone/path following functionality for example)
+            is that your object can interact realistically with the environment (collisions,
+            forces, joints) while traveling along the pre-defined bone/path course.
+            <br><br>
+            <li>
+            <strong>Force intensity</strong>.
+            The bigger the value, the stronger the attraction force between the bone/path and the object.
+            To avoid jittering you should compensate stronger forces by adding some
+            <em>Linear damping</em> (see Physics, below).
+            </li>
+            <br><br>
+            <li>
+            <strong>Torque intensity</strong>.
+            The bigger the value, the stronger the torque used to keep the object aligned with the
+            bone (or path direction).
+            To avoid wobbling you should compensate stronger toques by adding some
+            <em>Angular damping</em> (see Physics, below).
+            </li>
+            <br><br>
+
+            <center><strong>Physics</strong></center>
+            <br>
+            <li>
+            <strong>Use bounding sphere as body</strong>.
+            If this option is checked, the 'solid' volume of your object will be a sphere instead of a detailed physics
+            model derived from user-defined geometry (.spg, .coo).
+            <br><br>
+            This simplified 'solid' volume is faster to process. It is automatically created from the bounding
+            sphere of the placeholder mesh and it is recommended over the spg/coo-based version where accuracy for
+            collision detection and simulation is not required.
+            </li>
+            <br><br>
+            <li>
+            <strong>Total Mass</strong>.
+            Basically the weight of the object. As a reference, total mass for one liter of
+            water (1 kg or 2.2 pounds) is about 1.0.
+            <br><br>
+            <strong>NOTE:</strong> setting masses too low can cause unstable simulations,
+            especially when multiple RigidBody objects are connected by using Joint objects to form complex systems.
+            Messes below 1.0 are usually not recommended, unless bodies are very simple, like for example single spheres.
+            <br><br>
+            <font color="#FF0000" size="2" face="Verdana"><strong>IMPORTANT!</strong></font> Setting
+            this value to -1 will make the object static (infinite weight).
+            This is typically used for scenery elements, like terrain, buildings, trees and so on.
+            <br><br>
+            <strong>NOTE:</strong> if the RigidBody is box/sphere-group based and its mass is -1, then its position can be set dynamically (run-time),
+            for example by using a script (iObject...Set() functions), to achieve paddles and
+            similar objects that affect the environment but aren't affected by it.
+            For an example please see the demo project called PaddleDemo.</li>
+            <br><br>
+            <li>
+            <strong>Restitution (between 0 and 1)</strong>.
+            The bounciness of the object when colliding with other objects. The smaller the
+            factor, the lower the bounciness.
+            <br><br>
+            Note that when two objects collide, the actual restitution is the average of the restitution
+            factors of the two objects.
+            </li>
+            <br><br>
+            <li>
+            <strong>Friction</strong>.
+            Resistance encountered when the object is moved in contact with another object.
+            Zero means that there is no resistance. Set a very high value for
+            no-slipping friction (max is 3.402823466e+38).
+            <br><br>
+            Note that when two objects collide, the actual friction is the average of the friction
+            factors of the two objects.
+            </li>
+            <br><br>
+            <li>
+            <strong>Rolling friction (wheel)</strong>.
+            You can set lateral and rolling friction independently by enabling this setting.
+            When rolling friction is enabled, the <em>Friction</em> factor (above) is used for lateral friction.
+            </li>
+            <br><br>
+            <li>
+            <strong>Linear Damping (between 0 and 1)</strong>.
+            Damping weakens the kinetic energy of the object. The effect on a moving body is similar to
+            drag (resistance to motion through a fluid, for example air friction).
+            Setting this value to 1 causes zero damping. Zero produces maximum damping.
+            </li>
+            <br><br>
+            <li>
+            <strong>Angular Damping (between 0 and 1)</strong>.
+            Damping can also be applied to rotation. See previous parameter for details.
+            </li>
+            <br><br>
+            <li>
+            <strong>Max Speed/Spin</strong>.
+            These two values let you prevent the RigidBody object from going beyond a certain speed (in meters per second)
+            and/or a certain spin (in degrees per second). This is useful to limit the <em>energy</em> involved in collisions.
+            <br><br>
+            On collisions, excessive speed or spin may cause inaccurate physics simulation, severe frame-rate drops and even crashes.
+            To achieve solid simulations, set these parameters to the lowest values allowed by your game design.
+            </li>
+            <br><br>
+
+            <center><strong>Hide/show attached SkinMeshes</strong></center>
+            <br>
+            This option allows you to hide all SkinMeshes linked to the RigidBody, when the RigidBody object is hidden and show them when the RigidBody is shown. 
+            <br><br>
+            This feature is typically used with the 'HIDE ON CONTACT' option currently supported by the EventOnContact object, allowing you to
+            control visibility of individual RigidBody objects and all their SkinMeshes by using one single EventOnContact object and no scripting.
+            <br><br>
+
+            For information about the remaining controls, please <a href="./AllObjects.htm">click here</a>.
+            <br><br>
+
+            <center><strong>Imposters</strong></center>
+            <br>
+            This object includes functionality allowing you to create/set/destroy RigidBody object clones run-time by using iObjectImposter*() script functions
+            or the <a href="./Imposter.htm">Imposter object</a>. For examples of usage, please see the sample projects named RigidBodyImposters.3dr and
+            ImposterObjectRBDemo.3dr (in 3D Rad, press Ctrl+O to visualize the list of available demo projects).
+            <br><br>
+            The clones (imposters) are identical to the master RigidBody object but perform physics simulation independently. 
+            <br><br>
+            Collision detection and response is enabled between each imposter and all objects in the scene that are linked (ticked on the Object List)
+            to the master RigidBody object. 
+            <br><br>
+            Collision detection and response are also enabled among the imposter objects themselves (that is, all clones will perform collision detection
+            with all other identical clones in the group). 
+            <br><br>
+            Furthermore, if RigidBody objects are linked (collision enabled), imposters you create for them will perform collision detection (that is,
+            collision detection between imposters from different RigidBody objects will be supported). 
+            <br><br>
+            Because imposters are true internal clones derived from the master data structures (not, recreated by reloading the .spg/.coo files), they
+            are fast to create and take advantage of the maximum processing power provided by NVidia PhysX. 
+            <br><br>
+            NOTE: imposters are supported for both dynamic (box/sphere-group based) and static (polygon-based) RigidBody objects. 
+            <br><br>
+            NOTE: if the master RigidBody has the 'display geometry' option enabled, its imposters are rendered by using a clone of the
+            master's visual. In order to also visualize an imposter's shadows however, the master RigidBody object needs to have one
+            defined and the iObjectImposterShadowEnable() script function will have to be called for the imposter. 
+            <br><br>
+            NOTE: hiding a RigidBody imposter will remove it completely from the simulation. When shown back, physics simulation for it will
+            resume at the location where it was when hidden, but without any residual kinetic energy (that is, if an imposter was falling due
+            to gravity force, when shown again, it will resume falling from a still state). 
+            <br><br>
+            NOTE: a new script function called iObjectImposterGet() will also be provided to allow you to retrieve individual imposter positions
+            run-time. This will be useful for example to 'attach' imposters from other object types (like SkinMesh, Particles etc) to individual
+            RigidBody imposters. 
+            <br><br>
+            NOTE: physics property changes (like to friction, restitution etc) applied to the master after imposters have been created are not
+            automatically transferred to imposters. 
+            <br><br>
+            NOTE: if the master RigidBody is linked to a G-Force object, the gravity acceleration applied to it will also be applied to all the imposters
+            individually as well. Keep in mind however that if the master RigidBody moves out of the area of influence of the G-Force object,
+            the accleration will no longer be applied to the imposters, even if they are still within the area of influence of the G-Force object.
+            This behavior also dictates that, when gravity is set to radial mode for the G-Force object, the actual acceleration applied to individual
+            imposters will be determined by the master position relative to the G-Force object, not the individual imposter object position.
+            <br><br>
+
+            <br>
+            <center><strong>INTERNAL PARAMETERS</strong></center>
+            <br><br>
+            The following internal parameters can be accessed by using <em>event</em> objects like
+            <a href="./EventOnValue.htm">EventOnValue</a> or <a href="./Script.htm">Script</a>:
+            <br><br>
+            <li>Current speed, in meters per second. Read only.</li>
+            <li>Current spin, in degrees per second. Read only.</li>
+            <li>Linear Damping (0-1, 1 means no damping). Write only.</li>
+            <li>Angular Damping (0-1, 1 means no damping). Write only.</li>
+            <li>Total Mass. Write only. Note that setting the mass to -1, which turns the RigidBody into a static RigidBody, is a one-way operation. Setting the mass again will take no effect.</li>
+            <li>Parent bone ID. Write only. See notes at 'Parent bone ID' section, above, for more.</li>
+            <li>Path speed. Speed when following a path.</li>
+            <br><br>
+         </font>
+         </p>
+      </td>
+      <td width="174"></td>
+   </tr>
+
+   <tr>
+      <td width="26" bgcolor="#00002F"></td>
+      <td width="112" bgcolor="#00002F"></td>
+      <td width="24" bgcolor="#00002F"></td>
+      <td width="598" colspan="3"><img src="./img/main_logo_bottom.jpg" width="598" height="103"></td>
+   </tr>
+
+</table>
+
+</body>
+
+</html>

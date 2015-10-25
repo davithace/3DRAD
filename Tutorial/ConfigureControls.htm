@@ -1,0 +1,206 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+
+<head>
+   <title>
+      ConfigureControls, 3D Rad
+   </title>
+
+   <META
+      content="ConfigureControls,Life,Tracker,3D Rad"
+      name="keywords">
+</head>
+
+<body bgcolor="#000000" text="#909080" link="#F0E0E0" vlink="#F0E0E0" alink="#F0E0E0">
+
+<table border="0" cellpadding="0" cellspacing="0" width="760">
+
+   <tr>
+      <td width="760" colspan="6"><img src="./img/main_logo.jpg" width="760" height="182"></td>
+   </tr>
+
+   <tr>
+      <td width="26" bgcolor="#00002F"></td>
+      <td width="112" bgcolor="#00002F" valign="top">
+         <br>
+         <p>
+            <a href="http://www.3drad.com/">
+            <font color="#909080" size="1" face="Verdana">
+               <strong>WHAT IS<br>3D RAD?<br>CLICK HERE<br>TO FIND OUT!</strong>
+            </font>
+            </a>
+         </p>
+         <br>
+      </td>
+      <td width="24" bgcolor="#00002F"></td>
+      <td width="24"></td>
+      <td width="400">
+         <h1 align="center">
+            <font size="4" face="Verdana">
+               ConfigureControls<br>
+            </font>
+         </h1>
+         <font size="2" face="Verdana">
+         <p>
+            <center>
+            <img src="./img/ConfigureControls.jpg" width="128" height="128" align="center" border="0">
+            </center>
+            <br>
+            Add support for any input device to your 3d projects!
+            <br><br>
+            Keyboard, joysticks, gamepads, steering wheels and any other input device that can be
+            installed under Windows® will be available to, and fully configurable by users of your projects.
+            <br><br>
+
+            <br>
+            <center>
+            <font size="3" face="Verdana">
+               <strong>USAGE</strong>
+            </font>
+            </center>
+            <br>
+            Usage is absolutely straightforward. Just add this object to your 3D Rad project and
+            double-click it in the Object List to open the configuration dialog.
+            <br><br>
+            <center>
+            <img src="./img/ConfigureControls_properties.jpg">
+            </center>
+            <br><br>
+            <strong>Controls & Descriptions</strong>.
+            3D Rad supports up to 32 configurable controls.
+            <br><br>
+            If you want a control to be configurable run-time by users of your
+            project, simply specify a description in the input box next to the control.
+            <br><br>
+            This description is shown to the user during run-time configuration.
+            <br><br>
+            You can define the order in which the controls are configured by specifying a priority value
+            in the description. For example (see picture above), if you want the <em>Jump</em> control
+            to be configured first and <em>Move Forward/Backward</em> last, then type the descriptions as follows:
+            <br><br>
+            <em>Move Forward @4</em><br>
+            <em>Move Backward @5</em><br>
+            <em>Turn Left @2</em><br>
+            <em>Turn Right @3</em><br>
+            <em>Jump @1</em>
+            <br><br>
+            Priority values must be between @0 and @31. Where no priority is specified, @0 is assumed.
+            <br><br>
+            Color, size and screen location of the descriptions are definable to adapt
+            to the custom background image you can use as GUI.
+            <br><br>
+            <strong>Text color & opacity</strong>.
+            Click the color button to open the color picker.
+            Opacity must be between 0.0 (invisible) and 1.0 (fully visible).
+            <br><br>
+            <strong>Text width & height</strong>.
+            Any size is allowed, but values bigger than 2.0 may reduce rendering quality.
+            <br><br>
+            <strong>Text's screen location</strong>.
+            The screen center is at 0,0. Left/right margins are at -16 and 16. Top/bottom margins are at 12 and -12.
+            <br><br>
+            <center>For information about the remaining controls, please <a href="./AllObjects.htm">click here</a>.</center>
+            <br><br>
+            <center><strong>RUN-TIME CONFIGURATION</strong></center>
+            <br><br>
+            If you have specified a description for at least one of the 32 controls (see above), users
+            of your project can enter the run-time configuration procedure, by pressing [LeftCtrl]+[LeftShift]+[F9].
+            <br><br>
+            By default, as GUI, the ConfigureControls object provides simple semi-transparent panels with
+            some text. You can customize these as explained below. The default GUI can be rendered as an overlay,
+            like in the following example:
+            <br><br>
+            <center>
+            <img src="./img/ConfigureControls_a.jpg">
+            </center>
+            <br><br>
+            If the user chooses to assign the control to a proportional device, the panel changes to the following:
+            <br><br>
+            <center>
+            <img src="./img/ConfigureControls_b.jpg">
+            </center>
+            <br><br>
+            The system can automatically detect any connected input device. If the input is successfully detected it is
+            assigned to the current control and the following message appears:
+            <br><br>
+            <center>
+            <img src="./img/ConfigureControls_c.jpg">
+            </center>
+            <br><br>
+            The procedure cycles through all the controls you have made user-configurable.
+            <br><br>
+            <center><strong>CUSTOMIZING DEFAULT CONTROLS</strong></center>
+            <br><br>
+            Each new 3D Rad project comes with default controls, all assigned to the keyboard.
+            <br><br>
+            If you want to re-map these default controls for your project:
+            <br><br>
+            <li>add the ConfigureControls object to a runnable project</li>
+            <br><br>
+            <li>open the property dialog for it and type a description for the controls you want to re-map and click OK</li>
+            <br><br>
+            <li>press the [SpaceBar] to launch the project</li>
+            <br><br>
+            <li>press [LeftCtrl]+[LeftShift]+[F9] to start the run-time configuration procedure</li>
+            <br><br>
+            The new settings will become the default for your project. If you don't plan to
+            make them re-configurable by the final user, you can remove the ConfigureControls
+            object from the project.
+            <br><br>
+            WARNING! Setting the defaults to controls on a device other than the keyboard is not recommended.
+            The input controls may not work on systems where the original device is not installed,
+            unless the user re-configures them.
+            <br><br>
+            <center><strong>REMARKS</strong></center>
+            <br><br>
+            In a multi-level compiled project, the ConfigureControls object should only be present in one single level
+            (for example the entry-point project, or a game menu),
+            if you want the settings to be preserved from one level to another.
+            <br><br>
+            <center><strong>CUSTOMIZING THE GRAPHICAL USER INTERFACE</strong></center>
+            <br><br>
+            To modify the static background included to the ConfigureControl object, you must replace, in the
+            <br><br>
+             .\3DRad_res\objects\ConfigureControls\data\
+            <br><br>
+            folder, the files called
+            <br><br>
+            controlA.dds<br>
+            controlB.dds<br>
+            controlC.dds
+            <br><br>
+            with your own picture files in one of the following formats: .dds, .png, .tga, .jpg, .bmp.
+            <br><br>
+            While the file extension can change, the file names must be controlA, controlB and controlC.
+            For example, valid file names are controlA.jpg, controlB.jpg and controlC.jpg.
+            <br><br>
+            The 3 files are the first, second and third message shown in the pictures above, respectively.
+            <br><br>
+            The images will cover the entire screen. If you want them to show some transparency (like the default ones)
+            you must use a file format supporting alpha information (.dds, .png or .tga).
+
+            <br><br><br>
+            <center><strong>INTERNAL PARAMETERS</strong></center>
+            <br><br>
+            The following internal parameters can be accessed by using a <a href="./Script.htm">Script</a> object.
+            <br><br>
+            <li>Remapping In Progress, read only. This value is 1 when the user is remapping the controls, zero otherwise.</li>
+         </p>
+         </font>
+      </td>
+      <td width="174"></td>
+   </tr>
+
+   <tr>
+      <td width="26" bgcolor="#00002F"></td>
+      <td width="112" bgcolor="#00002F"></td>
+      <td width="24" bgcolor="#00002F"></td>
+      <td width="598" colspan="3"><img src="./img/main_logo_bottom.jpg" width="598" height="103"></td>
+   </tr>
+
+</table>
+
+</body>
+
+</html>

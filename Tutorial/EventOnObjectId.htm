@@ -1,0 +1,139 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+
+<head>
+   <title>
+      EventOnObjectId, 3D Rad
+   </title>
+
+   <META
+      content="EventOnObjectId,3D Rad"
+      name="keywords">
+</head>
+
+<body bgcolor="#000000" text="#909080" link="#F0E0E0" vlink="#F0E0E0" alink="#F0E0E0">
+
+<table border="0" cellpadding="0" cellspacing="0" width="760">
+
+   <tr>
+      <td width="760" colspan="6"><img src="./img/main_logo.jpg" width="760" height="182"></td>
+   </tr>
+
+   <tr>
+      <td width="26" bgcolor="#00002F"></td>
+      <td width="112" bgcolor="#00002F" valign="top">
+         <br>
+         <p>
+            <a href="http://www.3drad.com/">
+            <font color="#909080" size="1" face="Verdana">
+               <strong>WHAT IS<br>3D RAD?<br>CLICK HERE<br>TO FIND OUT!</strong>
+            </font>
+            </a>
+         </p>
+         <br>
+      </td>
+      <td width="24" bgcolor="#00002F"></td>
+      <td width="24"></td>
+      <td width="400">
+         <h1 align="center">
+            <font size="4" face="Verdana">
+               EventOnObjectId<br>
+            </font>
+         </h1>
+         <font size="2" face="Verdana">
+         <p>
+            <center>
+            <img src="./img/EventOnObjectId.jpg" width="128" height="128" align="center" border="0">
+            </center>
+            <br>
+            Certain 3D Rad objects expose the identification number (handle) of other objects as internal parameters.
+            For example, an internal parameter of the Scanner object is the ID# of the object that has just been hit by the scan. 
+            <br><br>
+            The EventOnObjectId object will trigger an action (like starting a Particles object or a SoundEffect) as soon as
+            the ID# matches the ID# of a specified object. 
+            <br><br>
+            In the relationships window (see below) you can specify the function of each object linked to the EventOnObjectId. 
+            <br><br>
+            For example, a SoundEffect object can be the object to START, a Scanner object's internal parameter the item to monitor
+            and a RigidBody the TARGET object whose handle is checked against the Scanner internal parameter.
+            As a result, run-time, when the scan hits the RigidBody, the sound effect is played. 
+            <br><br>
+            Note that specifying the same object as both TARGET and object to START (STOP, SHOW etc) is possible
+            (for example to hide an object when it is hit by a scan). 
+            <br><br>
+
+            For more about event objects in general, please see <a href="http://www.3drad.com/event_objects.htm">this tutorial</a>.
+            <br><br>
+
+            <center>
+            <img src="./img/EventOnObjectId_properties.jpg">
+            </center>
+            <br><br>
+
+            <center><strong>Working at start</strong></center>
+            <br>
+            If this option is not checked, the EventOnObjectId object will not work
+            until it is <em>started</em> by using another event object or a script.
+            <br><br>
+
+            <center><strong>Stop after condition is met</strong></center>
+            <br>
+            This option is typically used to only trigger actions once, when the target is hit for the first time only.
+            <br><br>
+
+            <center><strong>Relationships</strong></center>
+            <br>
+            This list defines how the EventOnObjectId object relates to the objects that are linked to it. 
+            The following relationship types are supported:
+            <br><br>
+            <li>IGNORE. Do nothing.
+            Typically used for linked objects that are <em>starters</em> for this EventOnObjectId
+            object itself (in a chain of event objects for example).</li>
+            <br><br>
+            <li>START. Start the object when the condition is met.
+            Note that the target object must provide some 'startable' action.</li>
+            <br><br>
+            <li>STOP. Stop the object when the condition is met.</li>
+            <br><br>
+            <li>SWITCH. Switch the object (start if stopped and vice-versa)
+            when the condition is met.</li>
+            <br><br>
+            <li>SHOW. Show the object when the condition is met.</li>
+            <br><br>
+            <li>HIDE. Hide the object when the condition is met.</li>
+            <br><br>
+            <li>S/H SWITCH. Switch the object (show if hidden and vice-versa) when the condition is met.</li>
+            <br><br>
+            <li>RESET. Re-initialize the object completely, to its default state, as defined in the project, when the condition is met.</li>
+            <br><br>
+            <li>TARGET (START, STOP etc). Same as above (START, STOP etc) but the specified object will also
+            be a target. When the monitored object ID# matches this object's ID#, the action will be applied to this object.
+            Note that actions specified for all object marked as START, STOP etc, will be performed as well.</li>
+            <br><br>
+            <li>TARGET. When the monitored object ID# matches this object's ID#, actions specified for all object marked as START, STOP etc,
+            will be performed.</li>
+            <br><br>
+            <li>[parameter] is target object ID. Monitor the specified internal value of this object.
+            When this value becomes identical to the object id# of an object marked as TARGET, in this list,
+            the actions (START, STOP, etc) specified for other objects in this list are performed.</li>
+            <br><br>
+            <center>For information about the remaining controls, please <a href="./AllObjects.htm">click here</a>.</center>
+         </p>
+         </font>
+      </td>
+      <td width="174"></td>
+   </tr>
+
+   <tr>
+      <td width="26" bgcolor="#00002F"></td>
+      <td width="112" bgcolor="#00002F"></td>
+      <td width="24" bgcolor="#00002F"></td>
+      <td width="598" colspan="3"><img src="./img/main_logo_bottom.jpg" width="598" height="103"></td>
+   </tr>
+
+</table>
+
+</body>
+
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+
+<head>
+   <title>
+      G-Force, Gravity Acceleration, 3D Rad
+   </title>
+
+   <META
+      content="G-Force,Gravity,Acceleration,3D Rad"
+      name="keywords">
+</head>
+
+<body bgcolor="#000000" text="#909080" link="#F0E0E0" vlink="#F0E0E0" alink="#F0E0E0">
+
+<table border="0" cellpadding="0" cellspacing="0" width="760">
+
+   <tr>
+      <td width="760" colspan="6"><img src="./img/main_logo.jpg" width="760" height="182"></td>
+   </tr>
+
+   <tr>
+      <td width="26" bgcolor="#00002F"></td>
+      <td width="112" bgcolor="#00002F" valign="top">
+         <br>
+         <p>
+            <a href="http://www.3drad.com/">
+            <font color="#909080" size="1" face="Verdana">
+               <strong>WHAT IS<br>3D RAD?<br>CLICK HERE<br>TO FIND OUT!</strong>
+            </font>
+            </a>
+         </p>
+         <br>
+      </td>
+      <td width="24" bgcolor="#00002F"></td>
+      <td width="24"></td>
+      <td width="400">
+         <h1 align="center">
+            <font size="4" face="Verdana">
+               G-Force<br>
+            </font>
+         </h1>
+         <font size="2" face="Verdana">
+         <p>
+            <center>
+            <img src="./img/G-Force.jpg" width="128" height="128" align="center" border="0">
+            </center>
+            <br>
+            The gravity force object applies linear acceleration to its targets, the objects
+            that are linked to it in the Object List.
+            <br><br>
+            Intensity, direction and range of the force is adjustable and multiple instances
+            of the object can be added to achieve different gravity effects in different
+            zones of the space.
+            <br><br>
+            All active objects that are linked to the g-force objects in the List Editor are
+            affected by the force, if they are within the specified range.
+            <br><br>
+            <center>
+            <img src="./img/G-Force_properties.jpg">
+            </center>
+            <br><br>
+            <strong>Acceleration limits (in m/s^)</strong>.
+            The intensity of the acceleration, in meters per squared-second.
+            Default value is planet Earth gravity.
+            <br><br>
+            If the <em>Radial</em> option is checked you can specify the acceleration as a range (see below).
+            <br><br>
+            <strong>Range (min/max, in meters)</strong>.
+            These values are relative to the current G-Force object's location.
+            Only target objects that are within the specified distance range are affected by gravity.
+            <br><br>
+            <strong>Radial</strong>.
+            If this option is checked then G-Force object orientation is ignored. The direction of the acceleration applied
+            to target bodies will always be toward (or away from) the G-Force object location.
+            <br><br>
+            The intensity of the acceleration is relative to the current target object's position, within the specified <em>Range</em> (see above).
+            <br><br>
+            So, when target object's distance is minimum, intensity is the first <em>Acceleration limit</em> value specified, and,
+            when target object's distance is maximum, intensity is the second <em>Acceleration limit</em> value specified.
+            <br><br>
+            <strong>Force occlusion</strong>.
+            When <em>Radial</em> mode is checked, you can optionally exclude from the acceleration action the target objects that are behind other target objects.
+            This is useful when using the G-Force object to simulate explosion forces, and you don't want, for example, an object on one side of a wall to be
+            affected by an explosion on the other side of the wall.
+            <br><br>
+            <strong>Acceleration action timer</strong>.
+            If the timer parameter is greater than zero, the G-Force object
+            will only work (affect target bodies) for the specified amount of time, in seconds.
+            The object can then be re-started by another object, like for example
+            <a href="./EventOnInput.htm">EventOnInput</a>. Run-time, the timer is re-initialized to the
+            specified value whenever the object is started or reset by another object.
+            <br><br>
+            <center>For information about the remaining controls, please <a href="./AllObjects.htm">click here</a>.</center>
+            <br><br><br>
+            <center><strong>INTERNAL PARAMETERS</strong></center>
+            <br><br>
+            The following internal parameters can be accessed by using <em>event</em> objects like
+            <a href="./EventOnValue.htm">EventOnValue</a> or <a href="./Script.htm">Script</a>:
+            <br><br>
+            <li>Acceleration</li>
+            <li>Acceleration (l2)</li>
+            <li>Range (max)</li>
+         </p>
+         </font>
+      </td>
+      <td width="174"></td>
+   </tr>
+
+   <tr>
+      <td width="26" bgcolor="#00002F"></td>
+      <td width="112" bgcolor="#00002F"></td>
+      <td width="24" bgcolor="#00002F"></td>
+      <td width="598" colspan="3"><img src="./img/main_logo_bottom.jpg" width="598" height="103"></td>
+   </tr>
+
+</table>
+
+</body>
+
+</html>

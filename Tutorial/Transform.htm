@@ -1,0 +1,141 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+
+<head>
+   <title>
+      Transform, 3D Rad
+   </title>
+
+   <META
+      content="Transform,Move,Rotate,Scale"
+      name="keywords">
+</head>
+
+<body bgcolor="#000000" text="#909080" link="#F0E0E0" vlink="#F0E0E0" alink="#F0E0E0">
+
+<table border="0" cellpadding="0" cellspacing="0" width="760">
+
+   <tr>
+      <td width="760" colspan="6"><img src="./img/main_logo.jpg" width="760" height="182"></td>
+   </tr>
+
+   <tr>
+      <td width="26" bgcolor="#00002F"></td>
+      <td width="112" bgcolor="#00002F" valign="top">
+         <br>
+         <p>
+            <a href="http://www.3drad.com/">
+            <font color="#909080" size="1" face="Verdana">
+               <strong>WHAT IS<br>3D RAD?<br>CLICK HERE<br>TO FIND OUT!</strong>
+            </font>
+            </a>
+         </p>
+         <br>
+      </td>
+      <td width="24" bgcolor="#00002F"></td>
+      <td width="24"></td>
+      <td width="400">
+         <h1 align="center">
+            <font size="4" face="Verdana">
+               Transform<br>
+            </font>
+         </h1>
+         <font size="2" face="Verdana">
+         <p>
+            <center>
+            <img src="./img/Transform.jpg" width="128" height="128" align="center" border="0">
+            </center>
+            <br>
+            You can use the Transform object to apply run-time translations, rotations and scaling to the objects linked to it.
+            <br><br>
+            Transformations are applied once, when the Transform object is <em>started</em> by an event object or a script.
+            The Transform object will immediately <em>stop</em> after that.
+            <br><br>
+            Continuous transformations can be achieved by starting the Transform object at every processing loop. 
+            <br><br>
+            When the Transform object is <em>reset</em>, all objects linked to it will be set to their initial position.
+            <br><br>
+            For an example of usage, please see the <em>TransformDemo</em> sample project.
+            <br><br>
+            <center>
+            <img src="./img/Transform_properties.jpg">
+            </center>
+            <br><br>
+            <center><strong>Translation</strong></center>
+            <br>
+            These three values are the X, Y, Z increments to add to the linked object's location. The values are in meters.
+            <br><br>
+            When the Transform object is started, objects linked to it will be translated by the specified amounts
+            along the Transform object's local exes (the red/green/blue segments of the object's handle, in the Virtual Editor).
+            If the <em>Relative transformations</em> option is un-checked,
+            the translations will be along the world axes instead.
+            <br><br>
+            <center><strong>Rotation</strong></center>
+            <br>
+            These three values are the X, Y, Z increments to add to the linked object's orientation. The values are in degrees.
+            <br><br>
+            When the Transform object is started, objects linked to it will be rotated by the specified amounts
+            about the Transform object's local exes. If the <em>Relative transformations</em> option is un-checked,
+            the rotations will be world-relative, about the destination object center.
+            <br><br>
+            <center><strong>Scale increment</strong></center>
+            <br>
+            These three values are the X, Y, Z increments to add to the linked object's scaling.
+            <br><br>
+            When the Transform object is started, objects linked to it will be resized based on the
+            new scaling.
+            Note that scaling is always target-object-relative, even when the <em>Relative transformations</em> option is checked,
+            <br><br>
+            <center><strong>Display handle</strong></center>
+            <br>
+            Check this option to visualize the Transform object handle run-time.
+            <br><br>
+            <center><strong>Relationships</strong></center>
+            <br>
+            This list defines how the Transform object relates to the objects linked to it. 
+            The following relationship types are supported:
+            <br><br>
+            <li>IGNORE. Do nothing.</li>
+            <br><br>
+            <li>TRANSFORM. Apply the specified transformations to this object.
+                           Note that not all objects support all transformations.
+                           Certain objects, like RigidBody and Car, do not support scaling, for example.</li>
+            <br><br>
+            <li>PARENT. If the Transform object is linked to another object AND the other object is set
+            as PARENT, then, run-time, when the parent moves
+            and rotates, the Transform handle will follow it, keeping it's relative position as you set
+            it in the Virtual Editor. 
+            </li>
+            <br><br>
+            <br><br>
+            <center>For information about the remaining controls, please <a href="./AllObjects.htm">click here</a>.</center>
+
+            <br><br>
+            <center><strong>Remarks</strong></center>
+            <br>
+            Please keep in mind that setting the position of a RigidBody object (or any other
+            object supporting collision detection, like Terrain, Car etc) causes physics simulation
+            to momentarily stop working.
+            <br><br>
+            If a RigidBody object is moved by using the Transform object
+            to a position where it is in contact with another object supporting collision detection,
+            the simulation may fail and the collision may not be detected or may cause computation errors and crashes.
+         </p>
+         </font>
+      </td>
+      <td width="174"></td>
+   </tr>
+
+   <tr>
+      <td width="26" bgcolor="#00002F"></td>
+      <td width="112" bgcolor="#00002F"></td>
+      <td width="24" bgcolor="#00002F"></td>
+      <td width="598" colspan="3"><img src="./img/main_logo_bottom.jpg" width="598" height="103"></td>
+   </tr>
+
+</table>
+
+</body>
+
+</html>

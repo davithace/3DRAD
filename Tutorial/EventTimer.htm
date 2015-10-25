@@ -1,0 +1,161 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+
+<head>
+   <title>
+      EventTimer, 3D Rad
+   </title>
+
+   <META
+      content="EventTimer,Timed,Timer,3D Rad"
+      name="keywords">
+</head>
+
+<body bgcolor="#000000" text="#909080" link="#F0E0E0" vlink="#F0E0E0" alink="#F0E0E0">
+
+<table border="0" cellpadding="0" cellspacing="0" width="760">
+
+   <tr>
+      <td width="760" colspan="6"><img src="./img/main_logo.jpg" width="760" height="182"></td>
+   </tr>
+
+   <tr>
+      <td width="26" bgcolor="#00002F"></td>
+      <td width="112" bgcolor="#00002F" valign="top">
+         <br>
+         <p>
+            <a href="http://www.3drad.com/">
+            <font color="#909080" size="1" face="Verdana">
+               <strong>WHAT IS<br>3D RAD?<br>CLICK HERE<br>TO FIND OUT!</strong>
+            </font>
+            </a>
+         </p>
+         <br>
+      </td>
+      <td width="24" bgcolor="#00002F"></td>
+      <td width="24"></td>
+      <td width="400">
+         <h1 align="center">
+            <font size="4" face="Verdana">
+               EventTimer<br>
+            </font>
+         </h1>
+         <font size="2" face="Verdana">
+         <p>
+            <center>
+            <img src="./img/EventTimer.jpg" width="128" height="128" align="center" border="0">
+            </center>
+            <br>
+            This object starts/stops (or shows/hides) objects linked to it after a specified time has elapsed.
+            Start/stop action can be repeated any number of times and time intervals can be made random.
+            <br><br>
+            In addition, this object can itself be started and stopped by other objects,
+            to achieve more articulated time-based event management.
+            <br><br>
+            Typical usage includes timed events like opening a gate at random times, game-level termination, and so on.
+            <br><br>
+            For more about event objects in general, please see <a href="http://www.3drad.com/event_objects.htm">this tutorial</a>.
+            <br><br>
+            To add a timer to an object that supports starting and stopping of actions,
+            simply add the EventTimer object to your project, link it to the target object (or objects) and
+            then double-click EventTimer in the Object List to open the following property dialog:
+            <br><br>
+            <center>
+            <img src="./img/EventTimer_properties.jpg">
+            </center>
+            <br><br>
+            <center><strong>Start time range (in seconds)</strong></center>
+            <br>
+            This range sets the initial value for the <em>Current time</em> parameter (see <em>INTERNAL PARAMETERS</em> section, below).
+            The range should be set to zero if this internal parameter is not used.
+            <br><br>
+            If the start time range values are not identical, the initial time will be randomized within the specified range.
+            <br><br>
+            <center><strong>End time range (in seconds)</strong></center>
+            <br>
+            This second range sets the EventTimer object's duration.
+            If the end time range values are not identical, the duration will be randomized within the specified range.
+            <br><br>
+            Basically, the EventTimer object will start/stop the target object[s] after the specified period of time.
+            <br><br>
+            Note that the actual duration is the absolute value of (<em>End time</em> - <em>Start time</em>).
+            <em>Start time</em> can be bigger than <em>End time</em> and negative values are allowed for both ranges.
+            <br><br>
+            <center><strong>Repetitions</strong></center>
+            <br>
+            If this value is bigger than 1, the start/stop action is repeated at regular (or random) intervals
+            for the specified number of times. Typically, repetitions are used with the <em>SWITCH</em>
+            setting (see Relationships, below).
+            <br><br>
+            <center><strong>Working at start</strong></center>
+            <br>
+            If this option is not checked, the timer will not work until it is <em>started</em> by using another
+            object. This feature allows you, for instance, to create chains of EventTimer
+            objects and create more complex timed actions, like for example opening and closing of a gate every 5
+            seconds, but only when 3 minutes have elapsed since the project is run.
+            <br><br>
+            <center><strong>Reset internal timers when stopped</strong></center>
+            <br>
+            If this option is not checked, the internal timers (see <em>INTERNAL PARAMETERS</em> below)
+            are not reset when the EventTimer object stops or is stopped by another object.
+            The internal timers are always reset when the object is started though.
+            <br><br>
+            <center><strong>Relationships</strong></center>
+            <br>
+            This list defines how the EventTimer object relates to the objects that are linked to it,
+            in the Object List (left side of 3D Rad main screen). 
+            The following relationship types are supported:
+            <li>IGNORE. Typically used for linked objects that start this EventTimer
+            object (in a chain of EventTimer objects for example).</li>
+            <li>START. Start the object when the specified time is elapsed.
+            Note that the target object must provide some 'startable' action.</li>
+            <li>STOP. Stop the object when the specified time is elapsed.</li>
+            <li>SWITCH. Switch the object (start if stopped and vice-versa) when the specified time is elapsed.</li>
+            <li>RESET. Re-initialize the object completely, to its default state, as defined in the project.</li>
+            <li>SHOW. Show the object when the specified time is elapsed.</li>
+            <li>HIDE. Hide the object when the specified time is elapsed.</li>
+            <li>S/H SWITCH. Switch the object (show if hidden and vice-versa) when the specified time is elapsed.</li>
+            <br><br>
+            <center><strong>Randomize target object</strong></center>
+            <br>
+            If this option is checked, the specified action
+            is applied to one target object only, picked randomly.
+            If the option is not checked, the action is applied to all target objects instead.
+            <br><br>
+            <center>For information about the remaining controls, please <a href="./AllObjects.htm">click here</a>.</center>
+            <br><br>
+
+            <br>
+            <center>
+            <font size="3" face="Verdana">
+               <strong>INTERNAL PARAMETERS</strong>
+            </font>
+            </center>
+            <br><br>
+            Additional timer functionality is provided by this object through its internal values.
+            The additional timers are reset every time the EventTimer object is started (or re-started).
+            They are stopped when the object is stopped.
+            Timers state can be read run-time by using for example
+            <a href="./ValuePrint.htm">ValuePrint</a>.
+            <br><br>
+            <li>Elapsed time since this object was started, in seconds.</li>
+            <li>Current time, in seconds. Read only. See <em>Start/End time range</em> section, above.</li>
+         </p>
+         </font>
+      </td>
+      <td width="174"></td>
+   </tr>
+
+   <tr>
+      <td width="26" bgcolor="#00002F"></td>
+      <td width="112" bgcolor="#00002F"></td>
+      <td width="24" bgcolor="#00002F"></td>
+      <td width="598" colspan="3"><img src="./img/main_logo_bottom.jpg" width="598" height="103"></td>
+   </tr>
+
+</table>
+
+</body>
+
+</html>

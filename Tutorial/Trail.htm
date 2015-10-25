@@ -1,0 +1,151 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+
+<head>
+   <title>
+      Trail, 3D Rad
+   </title>
+
+   <META
+      content="Trail,Skindmark,Tiremark,Smoke,3D Rad"
+      name="keywords">
+</head>
+
+<body bgcolor="#000000" text="#909080" link="#F0E0E0" vlink="#F0E0E0" alink="#F0E0E0">
+
+<table border="0" cellpadding="0" cellspacing="0" width="760">
+
+   <tr>
+      <td width="760" colspan="6"><img src="./img/main_logo.jpg" width="760" height="182"></td>
+   </tr>
+
+   <tr>
+      <td width="26" bgcolor="#00002F"></td>
+      <td width="112" bgcolor="#00002F" valign="top">
+         <br>
+         <p>
+            <a href="http://www.3drad.com/">
+            <font color="#909080" size="1" face="Verdana">
+               <strong>WHAT IS<br>3D RAD?<br>CLICK HERE<br>TO FIND OUT!</strong>
+            </font>
+            </a>
+         </p>
+         <br>
+      </td>
+      <td width="24" bgcolor="#00002F"></td>
+      <td width="24"></td>
+      <td width="400">
+         <h1 align="center">
+            <font size="4" face="Verdana">
+               Trail<br>
+            </font>
+         </h1>
+         <font size="2" face="Verdana">
+         <p>
+            <center>
+            <img src="./img/Trail.jpg" width="128" height="128" align="center" border="0">
+            </center>
+            <br>
+            By moving the Trail object in virtual space, for example by attaching it to a traveling spaceship or any
+            other moving object in your project, you can render a 3d trail.
+            <br><br>
+            You can use this object for ammunition tracers, tire-marks, continuous smoke trails, reference lines and so on.
+            <br><br>
+            Trail shape, colors, opacity, lifetime and smoothness are definable and some presets are included.
+            <br><br>
+            The trail emitter is an object you can place and orient visually in the Virtual Editor.
+            <br><br>
+            <center>
+            <img src="./img/Trail_properties.jpg">
+            </center>
+            <br><br>
+            <center><strong>Change</strong></center>
+            <br>
+            Click this button to select the trail segment aspect.
+            You can make your own trail shapes as follows:<br><br>
+            <li>By using your favorite paint program, make a picture which includes an alpha (opacity) layer.
+            The alpha map is used to make parts of your picture transparent. See the documentation for your
+            paint program for details about alpha layers.</li><br><br>
+            <li>To guarantee compatibility with all systems, the image should be power-of-two-sized,
+            like for example 256x256, 128x512 and so on.</li><br><br>
+            <li>Save your picture to .tga, .png or .dds format to
+            the<br><br>
+            <font size="2" face="Courier New">
+            C:\3D Rad\3DRad_res\objects\Trail\Data\
+            </font><br><br>
+            folder.</li><br><br>
+            <li>Resize your picture to 128x128 pixels and save it again as a .jpg file to
+            the<br><br>
+            <font size="2" face="Courier New">
+            C:\3D Rad\3DRad_res\objects\Trail\Data\Index\
+            </font><br><br>
+            folder. This image will be used to display your new shape in the Trail
+            object's dialogs and make it selectable among the other shapes available.</li>
+            <br><br>
+
+            <center><strong>Parent bone ID</strong></center>
+            <br>
+            When this value is non-zero, and the Trail object is linked to a SkinMesh which is bone-animated,
+            the trail emitter will be attached to the SkinMesh's bone defined by the specified bone ID.
+            <br><br>
+            The bone ID must be a positive, non-zero integer. The first bone in the model is 1, the second 2 and so on.
+            What bone corresponds to a certain ID depends on how the animated model was originally designed.
+            <br><br>
+            <strong>Note:</strong> the position of the attached trail emitter is relative to the bone position when the animated
+            model is in its initial pose. This may not be the default pose you see in the Virtual Editor.
+            To see the initial pose of all animated SkinMesh objects in the scene, hold the [F] key pressed.
+            <br><br>
+
+            <center><strong>Parameters</strong></center>
+            <br>
+            <li>If the <em>Working At Start</em> option is not checked, the trail will only be emitted
+            after the object is <em>started</em> by another object, like for example
+            <a href="./EventOnInput.htm">EventOnInput</a>.</li><br><br>
+            <li><em>Render mode</em>. Burn-out rendering technique blends overlapping trails together also making
+            them look like bright plasma.</li><br><br>
+            <li><em>Color (initial/final)</em>. Click the color buttons to open the color picker.</li><br><br>
+            <li><em>Opacity (0-1)</em>. The lower the value, the more transparent the trail.</li><br><br>
+            <li><em>Frequency (trail segments per second)</em> is the number of trail segments emitted every second.</li><br><br>
+            <li><em>Lifetime (in seconds)</em> determines how quickly the trail will vanish.</li><br><br>
+            <li><em>Size (in meters)</em> can be any value above 0, but keep in mind that bigger trails are slower to render.</li><br><br>
+            <li><em>Expansion speed (in meters per second)</em> can be used to expand/shrink the trail run-time.</li><br><br>
+            <br><br>
+            <center><strong>Other dialog controls</strong></center>
+            <br>
+            For information about the remaining controls, please <a href="./AllObjects.htm">click here</a>.
+            <br><br><br>
+            <center><strong>INTERNAL PARAMETERS</strong></center>
+            <br><br>
+            The following internal parameters can be set by using objects like
+            <a href="./Script.htm">Script</a>:
+            <br><br>
+            <li>Frequency (trail segments per second), write only</li>
+            <li>Opacity (between 0 and 1), write only</li>
+            <br><br>
+            <center><strong>LIMITATIONS</strong></center>
+            <br>
+            Trail source location on a fast moving/spinning parent object is calculated by a special prediction algorithm.
+            <br><br>
+            When the parent moves on a curved path, the exact position of the source in 3d space can be very complex to
+            calculate accurately.
+            <br><br>
+            This may cause the trail source to appear slightly displaced at times.
+         </p>
+         </font>
+      </td>
+      <td width="174"></td>
+   </tr>
+
+   <tr>
+      <td width="26" bgcolor="#00002F"></td>
+      <td width="112" bgcolor="#00002F"></td>
+      <td width="24" bgcolor="#00002F"></td>
+      <td width="598" colspan="3"><img src="./img/main_logo_bottom.jpg" width="598" height="103"></td>
+   </tr>
+
+</table>
+
+</body>
+
+</html>

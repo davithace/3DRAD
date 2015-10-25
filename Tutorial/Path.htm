@@ -1,0 +1,145 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+
+<head>
+   <title>
+      3D path for 3D Rad
+   </title>
+
+   <META
+      content="Path,3D Course,Animation,3D Rad"
+      name="keywords">
+</head>
+
+<body bgcolor="#000000" text="#909080" link="#F0E0E0" vlink="#F0E0E0" alink="#F0E0E0">
+
+<table border="0" cellpadding="0" cellspacing="0" width="760">
+
+   <tr>
+      <td width="760" colspan="6"><img src="./img/main_logo.jpg" width="760" height="182"></td>
+   </tr>
+
+   <tr>
+      <td width="26" bgcolor="#00002F"></td>
+      <td width="112" bgcolor="#00002F" valign="top">
+         <br>
+         <p>
+            <a href="http://www.3drad.com/">
+            <font color="#909080" size="1" face="Verdana">
+               <strong>WHAT IS<br>3D RAD?<br>CLICK HERE<br>TO FIND OUT!</strong>
+            </font>
+            </a>
+         </p>
+         <br>
+      </td>
+      <td width="24" bgcolor="#00002F"></td>
+      <td width="24"></td>
+      <td width="400">
+         <h1 align="center">
+            <font size="4" face="Verdana">
+               Path<br>
+            </font>
+            <font size="1" face="Verdana">
+               Intelligent Object For 3D Rad
+            </font>
+         </h1>
+         <div align="justify"> 
+         <font size="2" face="Verdana">
+         <p>
+            <center>
+            <img src="./img/Path.jpg" width="128" height="128" align="center" border="0">
+            </center>
+            <br>
+            Use this object to make 3d virtual paths that other objects linked to it can follow.
+            <br><br>
+            The course is defined by specifying nodes (3d locations) as a list of coordinates.
+            The resulting smooth curve which passes through all the points you have defined is automatically
+            computed by using a spline algorithm.
+            <br><br>
+            Path location, orientation and scaling can be edited in the Virtual Editor.
+            <br><br>
+            The actual path is visualized in real-time while you edit the project.
+            <br><br>
+            This object can be used to move targets around in a shooter game,
+            create reference courses for AI based vehicles and so on.
+            <br><br>
+            For details on how to use paths with specific objects like for example
+            <a href="./SkinMesh.htm">SkinMesh</a> or <a href="./RigidBody.htm">RigidBody</a>
+            please see the documentation for those particular objects.
+            <br>
+            <br><br>
+            <center>
+            <img src="./img/Path_properties.jpg">
+            </center>
+            <br><br>
+            <center><strong>Working At Start</strong></center>
+            <br>
+            If this option is not checked, the path will be ignored (not followed) by objects linked to it.
+            It will only operate after it is <em>started</em> by another object,
+            like for example <a href="./EventOnInput.htm">EventOnInput</a>.
+            <br><br>
+            <center><strong>Recording Mode</strong></center>
+            <br>
+            If this option is checked, the path will not work as usual, run-time.
+            Instead it will record its location at regular intervals, adding the coordinates
+            to the list in the Path Nodes box, on the property dialog.
+            <br><br>
+            This feature allows you to use any moving object in the project to edit a new path.
+            For example, you can attach the Path object to a car, set the Path mode to 'recording', launch
+            the project and drive the car around to set new path nodes.
+            <br><br>
+            The <em>Freq</em> parameter defines the frequency at which you want to record the path locations.
+            Setting this factor to zero will disable automatic recording. You will still be able to record
+            a node by pressing the [R] key though.
+            <br><br>
+            <center><strong>Path Nodes</strong></center>
+            <br>
+            In this window you list the path nodes as a list of coordinates.
+            <br><br>
+            For each line of text, you must specify the X, Y and Z coordinates of the node, separated by a comma.
+            <br><br>
+            The values are in meters and they are relative to the current Path object's position.
+            <br><br>
+            Note that the first node will be the center of the Path object in the editor.
+            It means that, if you want the node coordinates to be absolute (world-center-relative),
+            Path object orientation must be zero, scaling must be 1 and location must match first node coordinates.
+            <br><br>
+            <center><strong>Path visualization line properties</strong></center>
+            <br>
+            These two parameters allow you to set thickness (in meters) and speed (total time, in seconds,
+            to complete a path loop) for the path visualization line.
+            <br><br>
+            <center><strong>Relationships</strong></center>
+            <br>
+            This list defines how the Path object relates to the objects linked to it. 
+            The following relationship types are supported:
+            <br><br>
+            <li>IGNORE. Do nothing.</li>
+            <br><br>
+            <li>PARENT. If the path is linked to an object in the Object List <em>AND</em> the
+            object is set as <em>PARENT</em>, then the target object becomes the path's parent.
+            Run-time, when the parent moves and rotates, the path will follow it, keeping it's
+            relative position as you set it in the Virtual Editor.</li>
+            <br><br>
+            <li>For information about the remaining controls, please <a href="./AllObjects.htm">click here</a>.</li>
+            <br><br>
+         </p>
+         </font>
+         </div>
+      </td>
+      <td width="174"></td>
+   </tr>
+
+   <tr>
+      <td width="26" bgcolor="#00002F"></td>
+      <td width="112" bgcolor="#00002F"></td>
+      <td width="24" bgcolor="#00002F"></td>
+      <td width="598" colspan="3"><img src="./img/main_logo_bottom.jpg" width="598" height="103"></td>
+   </tr>
+
+</table>
+
+</body>
+
+</html>

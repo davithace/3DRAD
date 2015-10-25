@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+
+<head>
+   <title>
+      Mapping Controls To Animation
+   </title>
+</head>
+
+<body bgcolor="#000000" text="#909080" link="#F0E0E0" vlink="#F0E0E0" alink="#F0E0E0">
+
+<table border="0" cellpadding="0" cellspacing="0" width="760">
+
+   <tr>
+      <td width="760" colspan="6"><img src="./img/main_logo.jpg" width="760" height="182"></td>
+   </tr>
+
+   <tr>
+      <td width="26" bgcolor="#00002F"></td>
+      <td width="112" bgcolor="#00002F" valign="top">
+         <br>
+         <p>
+            <a href="http://www.3drad.com/">
+            <font color="#909080" size="1" face="Verdana">
+               <strong>WHAT IS<br>3D RAD?<br>CLICK HERE<br>TO FIND OUT!</strong>
+            </font>
+            </a>
+         </p>
+         <br>
+      </td>
+      <td width="24" bgcolor="#00002F"></td>
+      <td width="24"></td>
+      <td width="400">
+         <h1 align="center">
+            <font size="4" face="Verdana">
+               AnimationControls<br>
+            </font>
+         </h1>
+         <div align="justify"> 
+         <font size="2" face="Verdana">
+         <p>
+            <center>
+            <img src="./img/AnimationControls.jpg" width="128" height="128" align="center" border="0">
+            </center>
+            <br>
+            After you have linked this object to a SkinMesh object which uses an .x file with a multi-set animation in it,
+            you will be able to associate up to 32 animation sequences to as many keys (or
+            gamepad/joystick controls) by using an user-friendly interface instead of a script. 
+            <br><br>
+            For an example of usage please see the demo project called <em>AnimationControlsDemo</em> (in 3D Rad, press Ctrl+O and select the project).
+            <br><br>
+
+            <center>
+            <img src="./img/AnimationControls_properties.jpg">
+            </center>
+            <br><br>
+            Animation sequences (sets) in an .x file are numbered. The order depends on how the animated model was originally designed,
+            and other factors that depend on the modeling software used to create/export the animated model to DirectX (.x) file format.
+            <br><br>
+            Each row on the property dialog allows you to specify the
+            control to use to select, run-time, each animation set. Note that the list of available controls can be
+            customized by using the <a href="./ConfigureControls.htm">ConfigureControls</a> object.
+            <br><br>
+            <strong>Working At Start</strong>.
+            If this option is not checked, the AnimationControls object will not work (no input detected)
+            until it is <em>started</em> by using another event object.
+            This can be used for example to enable/disable controls run-time, or use two or more AnimationControls objects for a single 
+            Skinmesh animation (to provide multiple control choices to the final player for example). 
+            <br><br>
+            <strong>Speed</strong>.
+            The <em>speed</em> parameter specifies the animation speed to use when the animation set is selected.
+            If the value is preceded by a question mark (for example "?1" or "?2.73" etc) the animation speed will be
+            proportional to the translation speed of the SkinMesh object you are controlling animations for.
+            The specified animation speed value (the value following the '?' symbol) will be matched when the SkinMesh speed is
+            one meter per second.
+            <br><br>
+            <strong>Duration</strong>.
+            You can set each animation set to play for a certain time and then stop. If duration is set to zero, the
+            animation will loop forever. This feature can be used, for example, to play an animation only once, by
+            setting the proper time, depending on animation speed. Time value is in seconds and decimal values,
+            like 3.731 (3 seconds and 731 thousands-of-second) are valid. 
+            <br><br>
+            NOTE: this feature is not supported for animation sets that have their speed bound to the SkinMesh translation speed (see above).
+            <br><br>
+         </p>
+         </font>
+         </div>
+      </td>
+      <td width="174"></td>
+   </tr>
+
+   <tr>
+      <td width="26" bgcolor="#00002F"></td>
+      <td width="112" bgcolor="#00002F"></td>
+      <td width="24" bgcolor="#00002F"></td>
+      <td width="598" colspan="3"><img src="./img/main_logo_bottom.jpg" width="598" height="103"></td>
+   </tr>
+
+</table>
+
+</body>
+
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+
+<head>
+   <title>
+      Switch, 3D Rad
+   </title>
+
+   <META
+      content="Switch,Swap"
+      name="keywords">
+</head>
+
+<body bgcolor="#000000" text="#909080" link="#F0E0E0" vlink="#F0E0E0" alink="#F0E0E0">
+
+<table border="0" cellpadding="0" cellspacing="0" width="760">
+
+   <tr>
+      <td width="760" colspan="6"><img src="./img/main_logo.jpg" width="760" height="182"></td>
+   </tr>
+
+   <tr>
+      <td width="26" bgcolor="#00002F"></td>
+      <td width="112" bgcolor="#00002F" valign="top">
+         <br>
+         <p>
+            <a href="http://www.3drad.com/">
+            <font color="#909080" size="1" face="Verdana">
+               <strong>WHAT IS<br>3D RAD?<br>CLICK HERE<br>TO FIND OUT!</strong>
+            </font>
+            </a>
+         </p>
+         <br>
+      </td>
+      <td width="24" bgcolor="#00002F"></td>
+      <td width="24"></td>
+      <td width="400">
+         <h1 align="center">
+            <font size="4" face="Verdana">
+               Switch<br>
+            </font>
+         </h1>
+         <font size="2" face="Verdana">
+         <p>
+            <center>
+            <img src="./img/Switch.jpg" width="128" height="128" align="center" border="0">
+            </center>
+            <br>
+            The Switch object allows you to replace an object with another, run-time, as a consequence of game events.
+            <br><br>
+            It can also be used to switch between two specified animation sets of a SkinMesh object, with smooth
+            transition between the two (animation blending). 
+            <br><br>
+            The switching is performed once, when the Switch object is <em>started</em> by an event object or a script.
+            The Switch object will immediately <em>stop</em> after that.
+            <br><br>
+            Hiding the Switch object will also hide the two objects (or the animated SkinMesh) linked to it.
+            Showing it will only show the item which is currently switched on. 
+            <br><br>
+            When the Switch object is <em>reset</em>, the <em>primary</em> object is shown (or the primary animation
+            set is selected) and the <em>secondary</em> object is hidden.
+            <br><br>
+            For examples of usage, please see the <em>SwitchObjectDemo</em> and the <em>SwitchAnimSetDemo</em> sample projects.
+            <br><br>
+            <center>
+            <img src="./img/Switch_properties.jpg">
+            </center>
+            <br><br>
+            <center><strong>Do not update position...</strong></center>
+            <br>
+            When checked, the object which is switched on will not be automatically placed to the position of the object
+            which is switched off.
+            <br><br>
+            This setting is recommended when your project manages the position of the object some other way,
+            for example when the objects are car-body SkinMeshes attached to a Car.
+            <br><br>
+            <center><strong>Do not start/stop objects...</strong></center>
+            <br>
+            When checked (default) objects linked to the Switch object are simply shown/hidden.
+            Otherwise they are also started/stopped when the switching action is performed.
+            <br><br>
+            <center><strong>Ignore all settings and...</strong></center>
+            <br>
+            When two different animation sets are specified, the Switch object will consider the
+            <em>primary</em> object as an animated SkinMesh. The switching action will be between
+            the two animation sets specified.
+            <br><br>
+            IMPORTANT! The initial animation set to use will be the one specified in the property dialog
+            for the SkinMesh object, not the animation set specified here as <em>primary</em>.
+            <br><br>
+            <center><strong>Relationships</strong></center>
+            <br>
+            This list defines how the Switch object relates to the objects linked to it. 
+            The following relationship types are supported:
+            <br><br>
+            <li>IGNORE. Do nothing.</li>
+            <br><br>
+            <li>PRIMARY. This object will be shown when the project is started.</li>
+            <br><br>
+            <li>SECONDARY. This object will be hidden when the project is started.</li>
+            <br><br>
+            NOTE: setting multiple objects as <em>primary/secondary</em> is possible
+            and useful in some cases, but it's not guarateed to always work as expected.
+            For example, all objects will switch to the same location when turned on,
+            unless the <em>Do not update position...</em> option is checked.
+            <br><br>
+            <br><br>
+            <center>For information about the remaining controls, please <a href="./AllObjects.htm">click here</a>.</center>
+         </p>
+         </font>
+      </td>
+      <td width="174"></td>
+   </tr>
+
+   <tr>
+      <td width="26" bgcolor="#00002F"></td>
+      <td width="112" bgcolor="#00002F"></td>
+      <td width="24" bgcolor="#00002F"></td>
+      <td width="598" colspan="3"><img src="./img/main_logo_bottom.jpg" width="598" height="103"></td>
+   </tr>
+
+</table>
+
+</body>
+
+</html>

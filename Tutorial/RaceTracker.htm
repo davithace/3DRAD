@@ -1,0 +1,138 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+
+<head>
+   <title>
+      RaceTracker, Vehicle, 3D Rad
+   </title>
+
+   <META
+      content="RaceTracker,Waypoint,Standing,Car,Lap,Position,3D Rad"
+      name="keywords">
+</head>
+
+<body bgcolor="#000000" text="#909080" link="#F0E0E0" vlink="#F0E0E0" alink="#F0E0E0">
+
+<table border="0" cellpadding="0" cellspacing="0" width="860">
+
+   <tr>
+      <td width="860" colspan="6"><img src="./img/main_logo.jpg" width="760" height="182"></td>
+   </tr>
+
+   <tr>
+      <td width="26" bgcolor="#00002F"></td>
+      <td width="112" bgcolor="#00002F" valign="top">
+         <br>
+         <p>
+            <a href="http://www.3drad.com/">
+            <font color="#909080" size="1" face="Verdana">
+               <strong>WHAT IS<br>3D RAD?<br>CLICK HERE<br>TO FIND OUT!</strong>
+            </font>
+            </a>
+         </p>
+         <br>
+      </td>
+      <td width="24" bgcolor="#00002F"></td>
+      <td width="24"></td>
+      <td width="500">
+         <h1 align="center">
+            <font size="4" face="Verdana">
+               RaceTracker<br>
+            </font>
+         </h1>
+         <font size="2" face="Verdana">
+         <p>
+            <center>
+            <img src="./img/RaceTracker.jpg" width="128" height="128" align="center" border="0">
+            </center>
+            <br>
+            RaceTracker will monitor vehicles racing along a course marked by waypoints, reporting
+            the current standing and lap for one of them (for example the player car).
+            <br><br>
+            Race statistics can be accessed and displayed by reading the internal parameters for this object
+            by using, for example, <a href="./ValuePrint.htm">ValuePrint</a>. See 'Internal Parameters' section below for details.
+            <br><br>
+            A number of <a href="./Waypoint.htm">Waypoint</a> objects must be added to your project and placed along the racetrack,
+            before you can use the RaceTracker object to gather statistics.
+            <br><br>
+            The order in which the waypoints must be passed is determined by their order in the Object List.
+            <br><br>
+            <center>
+            <img src="./img/RaceTracker_a.jpg">
+            </center>
+            <br><br>
+            The first waypoint is also the last one (terminating each lap), therefore it should be placed on the finish line.
+            <br><br>
+            Because main-vehicle standing is computed by comparing all vehicle distances from their next waypoint, waypoints should
+            frequent and uniformly spaced along the race course, to maximize stats accuracy.
+            <br><br>
+            Note that the Waypoint object is actually a box and not a simple plane. The waypoint is considered <em>passed</em>
+            when the center of the 3d model for the monitored vehicle enters the box. In a typical racing game, you would
+            stretch the waypoint boxes to look like thin boards.
+            <br><br>
+            <center>
+            <img src="./img/RaceTracker_b.jpg">
+            </center>
+            <br><br>
+            After you have placed the waypoints, RaceTracker usage is straightforward. Just add the RaceTracker to your project and
+            link it to the main vehicle object, to all other vehicles in the race and to all waypoints.
+            <br><br>
+            Then, in the RaceTracker's property dialog, set the relationships for all the linked objects.
+            <br><br>
+            <center>
+            <img src="./img/RaceTracker_properties.jpg">
+            </center>
+            <br><br>
+            <center><strong>Working At Start</strong></center>
+            <br>
+            If this option is not checked, waypoints will only be checked after the RaceTracker object is <em>started</em> by another object.
+            <br><br>
+            <center><strong>Relationships</strong></center>
+            <br>
+            This list defines how the RaceTracker object relates to the objects linked to it. 
+            The following relationship types are supported:
+            <br><br>
+            <li>IGNORE. Do nothing.</li>
+            <br><br>
+            <li>MAIN VEHICLE. This object is the main vehicle to track.
+            Race statistic will only be reported for this object.
+            Only one single object can be set as main vehicle.</li>
+            <br><br>
+            <li>VEHICLE. This object is one of the other vehicles in the race.
+            The maximum number of racing objects that can be monitored is 128.
+            <br><br>
+            <li>WAYPOINT. This object is a <a href="./Waypoint.htm">Waypoint</a>.
+            There is no limit in the number of waypoints you can set.
+            <br><br>
+            <center><strong>Other dialog controls</strong></center>
+            <br>
+            For information about the remaining controls, please <a href="./AllObjects.htm">click here</a>.
+            <br><br><br>
+            <center><strong>INTERNAL PARAMETERS</strong></center>
+            <br><br>
+            The following internal parameters can be accessed by using <em>event</em> objects like
+            <a href="./ValuePrint.htm">ValuePrint</a> or <a href="./Script.htm">Script</a>:
+            <br><br>
+            <li>Main vehicle's current standing (read only)</li>
+            <li>Main vehicle's current lap (read only). Note that lap is zero before the first waypoint is passed.</li>
+            <li>Main vehicle's next waypoint (read only)</li>
+            <br><br>
+         </p>
+         </font>
+      </td>
+      <td width="174"></td>
+   </tr>
+
+   <tr>
+      <td width="26" bgcolor="#00002F"></td>
+      <td width="112" bgcolor="#00002F"></td>
+      <td width="24" bgcolor="#00002F"></td>
+      <td width="698" colspan="3"><img src="./img/main_logo_bottom.jpg" width="598" height="103"></td>
+   </tr>
+
+</table>
+
+</body>
+
+</html>

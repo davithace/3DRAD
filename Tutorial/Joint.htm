@@ -1,0 +1,197 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+
+<head>
+   <title>
+      Joint, 3D Rad
+   </title>
+
+   <META
+      content="Joint,Gravity,Acceleration,3D Rad"
+      name="keywords">
+</head>
+
+<body bgcolor="#000000" text="#909080" link="#F0E0E0" vlink="#F0E0E0" alink="#F0E0E0">
+
+<table border="0" cellpadding="0" cellspacing="0" width="760">
+
+   <tr>
+      <td width="760" colspan="6"><img src="./img/main_logo.jpg" width="760" height="182"></td>
+   </tr>
+
+   <tr>
+      <td width="26" bgcolor="#00002F"></td>
+      <td width="112" bgcolor="#00002F" valign="top">
+         <br>
+         <p>
+            <a href="http://www.3drad.com/">
+            <font color="#909080" size="1" face="Verdana">
+               <strong>WHAT IS<br>3D RAD?<br>CLICK HERE<br>TO FIND OUT!</strong>
+            </font>
+            </a>
+         </p>
+         <br>
+      </td>
+      <td width="24" bgcolor="#00002F"></td>
+      <td width="24"></td>
+      <td width="400">
+         <h1 align="center">
+            <font size="4" face="Verdana">
+               Joint<br>
+            </font>
+         </h1>
+         <font size="2" face="Verdana">
+         <p>
+            <center>
+            <img src="./img/Joint.jpg" width="128" height="128" align="center" border="0">
+            </center>
+            <br>
+            The Joint object allows you to link objects together to make systems as simple as a pendulum or as complex as a ragdoll.
+            <br><br>
+            Joint's rotational limits can be set and angular forces can be defined to simulate motors and advanced mechanisms.
+            <br><br>
+            The joint will act on the two objects linked to it, at the Joint object location, which you can set visually, in the Virtual Editor.
+            <br><br>
+            Joint object orientation is also important as certain joint properties, like rotational limits, motors and axes,
+            may depend on it. 
+            <br><br>
+            Note that the two objects linked to the joint must support physics. RigidBody, Ball, Car, can all be used with joints
+            for example, while SkinMesh cannot.
+            <br><br>
+            Multiple Joint objects can be used to connect multiple RigidBody objects and create any kind of system.
+            <br><br>
+            When working with joints, keep in mind that the small blue axis of the Joint object item is the local Z axis.
+            <br><br>
+            When the joint is in a <em>slider</em> mode, the blue axis is the line along which the slider will move,
+            with blue axis direction being the positive direction.
+            <br><br>
+            The blue axis is also the reference for the hinge mode, where it is the axis about which the swiveling happens.
+            <br><br>
+            Positive rotations are always counterclockwise, if you look at the colored axis, when it points toward your eye. 
+            <br><br>
+            <center>
+            <img src="./img/Joint_properties.jpg">
+            </center>
+            <br><br>
+
+            <center><strong>Joint Type</strong></center>
+            <br>
+            A <strong><em>ball</em></strong> joint acts like a single point about which the secondary object can rotate freely,
+            unless limits are set (see below).
+            <br><br>
+            A <strong><em>fixed</em></strong> joint completely glues two objects together, blocking any relative movement.
+            Note that fixed Joint position is irrelevant.
+            <br><br>
+            A <strong><em>fixed (fast)</em></strong> joint is a legacy type, only kept for backwards compatibility. It is now identical to a fixed joint.
+            <br><br>
+            A <strong><em>hinge</em></strong> joint acts like an axis about which the secondary object can rotate.
+            This is always the local Z axis for the Joint object (blue axis).
+            <br><br>
+            A <strong><em>slider</em></strong> joint acts like a line along which the secondary object can move.
+            This is always the local Z axis for the Joint object (blue axis).
+            <br><br>
+
+            <center><strong>Working At Start</strong></center>
+            <br>
+            If this option is not checked, the junction will be enabled only when the Joint
+            object is <em>started</em> by another object, like for example
+            <a href="./EventOnInput.htm">EventOnInput</a>.
+            <br><br>
+            In this case, the joint location will be relative to the reference object (see <em>Relationships</em>, below).
+            <br><br>
+            That is, while the application point for the reference object is the relative
+            location you defined in the Virtual Editor, for the second object (body B),
+            the application point will depend on object's location at the time of Joint activation.
+            <br><br>
+            <center><strong>Angular range (degs)</strong></center>
+            <br>
+            Where applicable, depending on joint type,
+            for each local axis of the Joint object (red arm is +X, green is +Y, blue is +Z) you can define
+            the rotational ranges, in degrees.
+            <br><br>
+            Setting these limits to -180 and +180 actually disables the stop.
+            <br><br>
+            NOTE: depending on the selected joint type, you may be able to only specify one value for the range.
+            In these cases, the range is +/- the value spcified. So, for example, for the Ball joint type, setting
+            45 for the angular range about the Y axis will limit the rotation between -45 and 45.
+            <br><br>
+            NOTE: rotational limits make the simulation more complex to compute and therefore
+            may affect frame-rate on slower computers. 
+            <br><br>
+            NOTE: for <em>slider</em> joints, limits are in meters, from the Joint object location, along its local X axis.
+            <br><br>
+            <center><strong>Strength/hardness</strong></center>
+            <br>
+            These two parameters determine the behavior of the stop (see <em>Angular limits</em>, above).
+            <br><br>
+            When non-zero, the bigger the <em>strength</em> factor, the stronger the stop.
+            A strong stop will resist torques more than a weak stop.
+            By default, stop strength is 0 (infinite strength).
+            <br><br>
+            When non-zero, the bigger the <em>hardness</em> factor, the harder the stop.
+            A soft stop will 'absorb' torques in a spongy way.
+            By default, stop hardness is 0 (infinite hardness).
+            <br><br>
+            You can achieve soft stops by setting both strength and hardness
+            to low values.
+            <br><br>
+            <center><strong>Joint motors</strong></center>
+            <br>
+            Where applicable, depending on joint type,
+            you can apply a torque to the linked objects, about each local axis of the Joint object.
+            <br><br>
+            The <em>spin</em> factor is the reference angular velocity
+            the motor will try to reach and keep, in degrees per second.
+            <br><br>
+            The <em>torque</em> factor is the angular force applied to reach and keep the specified spin.
+            Setting this value to zero disables the motor.
+            <br><br>
+            NOTE: for <em>slider</em> joints, motor parameters are <em>speed</em> (in meters per second) and <em>force</em>,
+            as they are linear quantities.
+            <br><br>
+            <center><strong>Relationships</strong></center>
+            <br>
+            This list defines how the Joint object relates to the objects linked to it. 
+            The following relationship types are supported:
+            <br><br>
+            <li>IGNORE. Do nothing.</li>
+            <br><br>
+            <li>BODY A (REFERENCE). Attach the joint to this object.
+            The joint will follow the reference object, keeping its relative orientation and location as you set it in the Virtual Editor.</li>
+            <br><br>
+            <li>BODY B. The second object to attach the joint to. This object will be able to rotate about and move along joint axes,
+            based on the joint type and the parameters you specify on the property dialog.</li>
+            <br><br>
+            NOTE: Specifying more than one single object as body A or more than one single object as body B is not recommended.
+            Resulting behavior is undefined.
+            <br><br>
+            <br><br>
+            <center>For information about the remaining controls, please <a href="./AllObjects.htm">click here</a>.</center>
+            <br><br><br>
+            <center><strong>INTERNAL PARAMETERS</strong></center>
+            <br><br>
+            The following internal parameters can be accessed by using <em>event</em> objects like
+            <a href="./EventOnValue.htm">EventOnValue</a> or <a href="./Script.htm">Script</a>:
+            <br><br>
+            <li>Motor's spin, about joint's X axis</li>
+            <li>Motor's spin, about joint's Y axis</li>
+            <li>Motor's spin, about joint's Z axis (or speed, in meters per second, for slider joint type)</li>
+         </p>
+         </font>
+      </td>
+      <td width="174"></td>
+   </tr>
+
+   <tr>
+      <td width="26" bgcolor="#00002F"></td>
+      <td width="112" bgcolor="#00002F"></td>
+      <td width="24" bgcolor="#00002F"></td>
+      <td width="598" colspan="3"><img src="./img/main_logo_bottom.jpg" width="598" height="103"></td>
+   </tr>
+
+</table>
+
+</body>
+
+</html>

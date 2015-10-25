@@ -1,0 +1,239 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+
+<head>
+   <title>
+      Sprite for 3D Rad
+   </title>
+
+   <META
+      content="Sprite,2D,Image,Picture,3D Rad"
+      name="keywords">
+</head>
+
+<body bgcolor="#000000" text="#909080" link="#F0E0E0" vlink="#F0E0E0" alink="#F0E0E0">
+
+<table border="0" cellpadding="0" cellspacing="0" width="760">
+
+   <tr>
+      <td width="760" colspan="6"><img src="./img/main_logo.jpg" width="760" height="182"></td>
+   </tr>
+
+   <tr>
+      <td width="26" bgcolor="#00002F"></td>
+      <td width="112" bgcolor="#00002F" valign="top">
+         <br>
+         <p>
+            <a href="http://www.3drad.com/">
+            <font color="#909080" size="1" face="Verdana">
+               <strong>WHAT IS<br>3D RAD?<br>CLICK HERE<br>TO FIND OUT!</strong>
+            </font>
+            </a>
+         </p>
+         <br>
+      </td>
+      <td width="24" bgcolor="#00002F"></td>
+      <td width="24"></td>
+      <td width="400">
+         <h1 align="center">
+            <font size="4" face="Verdana">
+               Sprite<br>
+            </font>
+         </h1>
+         <font size="2" face="Verdana">
+         <p>
+            <center>
+            <img src="./img/Sprite.jpg" width="128" height="128" align="center" border="0">
+            </center>
+            <br>
+            A customizable 2d-graphics object for your projects.
+            <br><br>
+            You can use the Sprite to add static/animated screen elements to your works, like for example
+            a sight in a FPS game, the rotary dial of a speedometer in a racing game, the features
+            of the cockpit in a flight simulator, the scrolling background of a 2D game and so on. 
+            <br><br>
+            You can animate a Sprite by changing its orientation/location run-time with the
+            <a href="./Script.htm">Script</a> object. 
+            <br><br>
+            If the Sprite object is linked to a <a href="./CamChase.htm">camera</a> in the Object List, run-time it will be rendered
+            into the viewport for that camera only. This is typically useful when you add
+            split-screen functionality to your projects. 
+            <br><br>
+            <center>
+            <img src="./img/Sprite_properties.jpg">
+            </center>
+            <br><br>
+            <center><strong>Work as full-screen mouse pointer</strong></center>
+            <br>
+            If this option is checked, the sprite will be bound to mouse movements.
+            This feature is typically used to implement a custom mouse pointer for compiled projects running in full-screen mode.
+            <br><br>
+            If the project is not compiled or running in windowed mode, this option disables the sprite object.
+            <br><br>
+
+            <center><strong>Detect mouse-over event</strong></center>
+            <br>
+            If this option is enabled, the Sprite object is checked 60 times per second to see if it is under the mouse.
+            <br><br>
+            If it is, an internal parameter for the Sprite object is set to 1.
+            <br><br>
+            Please see the <em>INTERNAL PARAMETERS</em> section below for details.
+            <br><br>
+            <strong>Note:</strong> the whole original sprite-image is used as a reference.
+            Therefore any transparent pixels in the image will raise the mouse-over flag.
+            <br><br>
+
+            <center><strong>Priority</strong></center>
+            <br>
+            You can set the general render priority group for the sprite.
+            <br><br>
+            There are 3 groups currently: render the sprite behind texts, over texts or as a background (i.e. behind
+            all 3d objects in the scene except the SkyBox, if present).
+            <br><br>
+            The value next the drop-down list determines the rendering priority among sprites in the same general priority group.
+            This value must be an integer. Negative values are supported.
+            <br><br>
+            <center><strong>Rendering mode</strong></center>
+            <br>
+            Various render modes are supported, including 'burnout', typically used for flares and similar effects.
+            <br><br>
+            <center><strong>Base color & opacity</strong></center>
+            <br>
+            Click the color button to open the color picker.
+            Opacity must be between 0.0 (invisible) and 1.0 (fully visible).
+            <br><br>
+            <center><strong>Screen location</strong></center>
+            <br>
+            Screen position of the image center. The screen center is at 0,0.
+            Left/right margins are at -16 and 16. Top/bottom margins are at 12 and -12.
+            <br><br>
+            NOTE: don't forget that you can visually set the sprite location by clicking and dragging the mouse
+            in the Virtual Editor window, without opening the property dialog every time.
+            <br><br>
+            <center><strong>Width/height</strong></center>
+            <br>
+            Any size above zero is allowed. To fill the entire screen, set width/height to 32/24 and screen location to 0,0.
+            <br><br>
+            NOTE: don't forget that you can visually set the sprite size by right-clicking and dragging the mouse
+            in the Virtual Editor window, without opening the property dialog every time (you can
+            stretch the sprite by right-clicking and dragging while holding the [Ctrl] key pressed).
+            <br><br>
+            <center><strong>Rotation angle</strong></center>
+            <br>
+            Sprite orientation, in degrees.
+            <br><br>
+
+            <center><strong>Animation</strong></center>
+            <br>
+            The Sprite object supports frame-based animation as a sequence of images rendered one after the other.
+            <br><br>
+            The following controls are enabled if a sequence of images is defined for the Sprite, as
+            described in the <em>Using image sequences as animated sprites</em> section, below.
+            <br><br>
+            <li><strong>Initial frame</strong>.
+            This value is the initial animation frame. Zero is the first frame, 1 the second and so on.</li>
+            <br><br>
+            <li><strong>Frames per second</strong>.
+            This value is the initial animation speed.</li>
+            <br><br>
+            <li><strong>Animation duration</strong>.
+            You can set the animation to play for a certain time and then stop. Set this value to zero to play forever.
+            This feature can be used, for example, to play an animation only once, by setting the proper
+            time, depending on animation speed. Time value is in seconds and decimal values, like 3.731 (3 seconds
+            and 731 thousands-of-second) are valid.
+            </li>
+            <br><br>
+            <li><strong>Playing at start</strong>.
+            If this option is checked the animation will start playing as soon as the project is started.
+            Starting/stopping the Sprite object, for example by using an <a href="./EventOnInput.htm">EventOnInput</a> object
+            or a <a href="./Script.htm">Script</a> object, will start/stop the animation.
+            <br><br>
+            Note that the animation will re-start from the beginning
+            only after the Sprite object is 'reset' by another object or a script. 
+            <br><br>
+
+            <center>For information about the remaining controls, please <a href="./AllObjects.htm">click here</a>.</center>
+
+            <br><br>
+            <center>
+            <font size="3" face="Verdana">
+               <strong>USING YOUR OWN IMAGES AS<br>STATIC SPRITES</strong>
+            </font>
+            </center>
+            <br>
+
+            Save your image files to the
+            <br><br>
+            <font size="2" face="Courier New">
+            C:\3D Rad\3DRad_res\objects\Sprite\Data\
+            </font>
+            <br><br>
+            folder.
+            <br><br>
+            To assign one image to a sprite, in the property dialog for the sprite, click the
+            <em>Change Source Image</em> button and double click the image thumbnail.
+            <br><br>
+            Note that the image browser will only display a thumbnail of the image if your Windows
+            installation supports its format.
+            <br><br>
+            For example, in order to display a thumbnail for images in .dds format you will likely
+            have to install the <em>NVidia DDS Thumbnail Viewer</em> (free) or another similar utility.
+            <br><br>
+            If you want the sprite to show some per-pixel transparency (like the default one)
+            you must use an image file format supporting alpha information (.dds, .png or .tga).
+            <br><br>
+            Supported image formats are: .dds, .png, .tga, .jpg, .bmp.
+
+            <br><br>
+            <center>
+            <font size="3" face="Verdana">
+               <strong>USING IMAGE SEQUENCES AS<br>ANIMATED SPRITES</strong>
+            </font>
+            </center>
+            <br>
+
+            The first image of the sequence must be saved to the data folder as described above (<em>USING YOUR OWN IMAGES AS STATIC SPRITES</em>).
+            <br><br>
+            The remaining images must be saved into a sub-folder of the <em>data</em> folder.
+            <br><br>
+            The name of the sub-folder must be the same as the initial image file (omitting the extension).
+            <br><br>
+            The images in the sub-folder must be named by using 4-digit numbers (for example 0001.jpg, 0002.jpg, etc).
+            <br><br>
+            The extension of the images in the sub-folder must be the same as the initial image (the one saved outside the subfolder).
+            <br><br>
+            For an example, please see 'animation.jpg' and 'animation' subfolder, in the C:\3D Rad\3DRad_res\objects\Sprite\Data\ folder.
+            <br><br>
+            To see this animation in action please see the demo project called <em>SpriteAnimation.3dr</em>.
+
+            <br><br><br>
+            <center><strong>INTERNAL PARAMETERS</strong></center>
+            <br><br>
+            The following internal parameters can be accessed by using <em>event</em> objects like
+            <a href="./EventOnValue.htm">EventOnValue</a> or <a href="./Script.htm">Script</a>:
+            <br><br>
+            <li>Red/Green/Blue (base color's RGB components), between 0 and 1</li>
+            <li>Opacity, between 0 and 1</li>
+            <li>Mouse-over Flag. Run-time, this value is 1 if the mouse is over the Sprite object, 0 otherwise.
+                The value is always zero if the <em>Detect mouse-over event</em> option is not checked (see above).</li>
+            <li>Animation frame. The animation image to display.</li>
+            <li>Frame-rate. Animation speed, in frames per second.</li>
+         </p>
+         </font>
+      </td>
+      <td width="174"></td>
+   </tr>
+
+   <tr>
+      <td width="26" bgcolor="#00002F"></td>
+      <td width="112" bgcolor="#00002F"></td>
+      <td width="24" bgcolor="#00002F"></td>
+      <td width="598" colspan="3"><img src="./img/main_logo_bottom.jpg" width="598" height="103"></td>
+   </tr>
+
+</table>
+
+</body>
+
+</html>

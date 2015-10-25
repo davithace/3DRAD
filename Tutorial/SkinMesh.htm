@@ -1,0 +1,444 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+
+<head>
+   <title>
+      Skinned Mesh for 3D Rad
+   </title>
+
+   <META
+      content="Skinned,Mesh,3d,Object,Shader,3D Rad"
+      name="keywords">
+</head>
+
+<body bgcolor="#000000" text="#909080" link="#F0E0E0" vlink="#F0E0E0" alink="#F0E0E0">
+
+<table border="0" cellpadding="0" cellspacing="0" width="760">
+
+   <tr>
+      <td width="760" colspan="6"><img src="./img/main_logo.jpg" width="760" height="182"></td>
+   </tr>
+
+   <tr>
+      <td width="26" bgcolor="#00002F"></td>
+      <td width="112" bgcolor="#00002F" valign="top">
+         <br>
+         <p>
+            <a href="http://www.3drad.com/">
+            <font color="#909080" size="1" face="Verdana">
+               <strong>WHAT IS<br>3D RAD?<br>CLICK HERE<br>TO FIND OUT!</strong>
+            </font>
+            </a>
+         </p>
+         <br>
+      </td>
+      <td width="24" bgcolor="#00002F"></td>
+      <td width="24"></td>
+      <td width="400">
+         <h1 align="center">
+            <font size="4" face="Verdana">
+               SkinMesh
+            </font>
+         </h1>
+         <div align="justify"> 
+         <font size="2" face="Verdana">
+         <p>
+            <center>
+            <img src="./img/SkinMesh.jpg" width="128" height="128" align="center" border="0">
+            </center>
+            <br>
+            SkinMesh is a customizable 3d object supporting bone-based animation, frame-by-frame animation, multiple animation sets,
+            animation blending and various rendering techniques and visual effects.
+            <br><br>
+            With the SkinMesh object you can render your own 3d models in an interactive 3d world.
+            Please see <a href="http://www.3drad.com/importing.htm">this tutorial</a> for details.
+            <br><br>
+
+            <br>
+            <center>
+            <font size="3" face="Verdana">
+               <strong>FUNCTIONS</strong>
+            </font>
+            </center>
+            <br>
+            If you link the SkinMesh object to another object supporting physics
+            (like for example a <a href="./RigidBody.htm">RigidBody</a> based object), then the mesh will stay with the body
+            while it moves around in virtual space.
+            <br><br>
+            In this case, please note that the mesh will follow the parent object by keeping the relative position
+            you set in the Virtual Editor.
+            <br><br>
+            If the SkinMesh object isn't linked to anything, then, run-time, it will keep its location (performing
+            any bone-based or 'frame-based' animation 'in place'), unless it is following a path (see below).
+            <br><br>
+            After adding the SkinMesh object to your project, you can configure it by double-clicking it in the Object List.
+            <br>
+            <br><br>
+            <center>
+            <img src="./img/SkinMesh_properties.jpg">
+            </center>
+            <br><br>
+
+            <center><strong>Change button</strong></center>
+            <br>
+            You can select the visual aspect for the SkinMesh object by clicking this button.
+            You can add your own 3d models to the library by using Google SketchUp.
+            Please see <a href="http://www.3drad.com/gatehouse_01.htm">this tutorial</a> for details.
+            <br><br>
+
+            <center><strong>Parent bone ID</strong></center>
+            <br>
+            When this value is non-zero, and the SkinMesh object is linked to another SkinMesh which is bone-animated,
+            the first SkinMesh will be attached to the second SkinMesh's bone defined by the specified bone ID.
+            <br><br>
+            This feature can be used, for example, to attach a sword to the hand of a walking character.
+            See the example project called SkinMeshBoneDemo.3dr.
+            <br><br>
+            The bone ID must be a positive, non-zero integer. The first bone in the model is 1, the second 2 and so on.
+            What bone corresponds to a certain ID depends on how the animated model was originally designed.
+            <br><br>
+            <strong>Note:</strong> the position of the attached SkinMesh is relative to the bone position when the animated
+            model is in its initial pose. This may not be the default pose you see in the Virtual Editor.
+            To see the initial pose of all animated SkinMesh objects in the scene, hold the [F] key pressed.
+            <br><br>
+
+            <center><strong>Texture</strong></center>
+            <br>
+            <li><strong>Mip-map levels</strong>.
+            Number of <a href="http://en.wikipedia.org/wiki/Mipmap">mip-maps</a>
+            that the SkinMesh object's textures will use. By default this value is 0 (all mip-maps).
+            <br><br>
+            Setting this value to 1, sometimes improves frame-rate because one single mip-map level
+            uses less video memory. Frame-rate improves dramatically if all textures in the
+            scene fit into the available video memory.
+            </li>
+            <br><br>
+            <li><strong>Mip-map LOD</strong>.
+            Mip-mapping level of detail. This is basically a factor determining
+            the distance at which a certain mip-map level should be rendered, in place of the original texture.
+            <br><br>
+            In practice, the bigger the factor, the more blurred the textures will be.
+            Negative values (sharper textures) are allowed.
+            <br><br>
+            NOTE: sharper texture rendering uses more video memory, which tends to affect
+            rendering performance. Use the highest mipmap level of detail possible, to
+            optimize performance and improve frame rate.
+            </li>
+            <br><br>
+            <li><strong>Bump texture tiles</strong>.
+            Number of repetitions for the bump texture.
+            Note that this option is currently only supported by glass and water shaders.
+            </li>
+            <br><br>
+            <li><strong>Bump amplitude</strong>.
+            Degree of bumpiness.
+            Note that this option is currently only supported by glass and water shaders.
+            </li>
+            <br><br>
+            <center><strong>Rendering</strong></center>
+            <br>
+            <li><strong>Ignore point lights</strong>.
+            By default, if point lights are close enough to affect the SkinMesh object, the model surface is affected by them.
+            <br><br>
+            However, because rendering surfaces that are illuminated by multiple lights require much more processing power,
+            you may want to disable this feature for specific SkinMesh objects to optimize frame-rate.
+            <br><br>
+            Note that, for each SkinMesh, there is a maximum limit of point lights that can affect its surface at any given time.
+            Please see the <a href="./PointLight.htm">PointLight object's help file</a> for details.
+            <br><br>
+            IMPORTANT: point lights with a small range may fail to illuminate SkinMesh surfaces that
+            are made of big polygons.
+            </li>
+            <br><br>
+            <li><strong>Use custom shaders</strong>.
+            Various pre-defined rendering techniques are supported by the SkinMesh object.
+            A drop-down list allows you to select the one to use.
+            <br><br>
+            Note that 'bumpy' techniques are only rendered if a normal map image file is present in the data
+            folder for the currently selected model.
+            <br><br>
+            By checking the <em>Use custom shaders</em> option you can disable pre-defined shaders,
+            which allows you to write custom shaders for the SkinMesh by using HLSL code in your scripts.
+            <br><br>
+            For more information about writing custom shaders, please <a href="./custom-shaders.htm">click here</a>.
+            </li>
+            <br><br>
+            <li><strong>Mode</strong>.
+            Various render modes are supported. Please note that certain render modes may require
+            <em>Depth sorting</em> enabled in order to work properly.
+            <br><br>
+            For example, if you render your flat, partially transparent SkinMeshes as billboards,
+            enabling <em>Depth sorting</em> is the only way to avoid visual artifacts where they overlap.</li>
+            <br><br>
+            When making your 3d models to be used as billboards, keep in mind that they will be rendered with their local Z axis facing away from the camera.</li>
+            <br><br>
+            <li><strong>Depth sorting</strong>.
+            If checked, the object's mesh is rendered after all other meshes in the scene.
+            This option is recommended for meshes with transparent surfaces because it reduces rendering artifacts,
+            like surfaces disappearing when they should be visible behind the transparent mesh.
+            Do not use this option for non-transparent meshes, as this wastes processing power.
+            See also <em>No Z-buffer</em>, below.</li>
+            <br><br>
+            <li><strong>No Z-buffer</strong>.
+            This option is recommended for meshes with transparent surfaces because it reduces rendering artifacts.
+            Typically used with <em>Depth sorting</em> (see above).</li>
+            <br><br>
+            <li><strong>No Shadows</strong>.
+            If checked, shadows will not be cast on the mesh. Note that the mesh will still cast a shadow if
+            a _shadow.x model is present in the data folder.</li>
+            <br><br>
+            <li><strong>No Fog</strong>.
+            By default, if there is a Fog object in the project, all SkinMeshes will be affected by it. 
+            If this option is checked, the SkinMesh will ignore the Fog object and will be rendered with no fog effect.</li>
+            <br><br>
+            <li><strong>Enable environment-map</strong>.
+            If the 3d model's data folder includes a cube map file called 000_em.dds, then you can enable and configure
+            reflection/refraction-based visual effects by checking this option.</li>
+            <br><br>
+            <li><strong>Refresh-rate</strong>.
+            When environment-map is enabled (see above), if this factor is zero,
+            the reflected/refracted image is the static cubic image
+            loaded from the file.
+            <br><br>
+            If it is any positive value instead (below 450.0) then the surface will
+            dynamically reflect/refract the actual environment surrounding the object.
+            <br><br>
+            Setting it to the special value 0.01 will create a static image of the actual environment surrounding the object.
+            This feature can be used where you don't have a cubic image matching the environment and dynamic updating of the
+            reflected image is too slow. Note that the reflected image may not be updated in the editor. Updating only occurs
+            when the project is launched or the SkinMesh object is reset by an Event object or a Script object, run-time.
+            <br><br>
+            NOTE: an object is reflected/refracted only if the <em>Visible in reflections</em>
+            option is available and checked on its property dialog.
+            <br><br>
+            NOTE: Dynamic environment-maps can be very slow to render. The greater the refresh rate factor,
+            the slower the rendering.
+            <br><br>
+            NOTE: actual reflections/refractions are not performed if the video-card
+            doesn't provide so called render-to-texture functionality.</li>
+            <br><br>
+
+            <li><strong>Reflection factor</strong>.
+            Reflection-effect intensity, between 0.0 and 1.0.
+            <br><br>
+            NOTE: the intensity is rounded to 0.5 on some older video-cards.</li>
+            <br><br>
+
+            <li><strong>Refraction factor</strong>.
+            Determines the glass/water effect lighting property. Lower values tend to make the material darker and less dense.
+            <br><br>
+            NOTE: this parameter is only supported by glass and water shaders.</li>
+            <br><br>
+
+            <li><strong>Shadow caster extrusion</strong>.
+            Length of the extruded shadow caster model (which constitutes the SkinMesh shadow volume), in meters. 
+            <br><br>
+            Note that, when the specified length is zero, the shadow volume is identical to the shadow caster mesh.
+            In this case, the shadow effect renders a bit faster.</li>
+            <br><br>
+
+            <center><strong>Animation</strong></center>
+            <br>
+            The SkinMesh object supports two types of animation: bone-based (mesh skinning) and
+            frame-based (a sequence of 3d models rendered one after the other).
+            <br><br>
+            <li><strong>Set</strong>.
+            If your animation is bone-based and it supports 2 or more animation sets,
+            this value is the initial animation set to play.</li>
+            <br><br>
+            <li><strong>Time</strong>.
+            This is the initial animation time. Zero is the beginning of the animation sequence.
+            Note that this factor will only work with bone-based animations with one single animation set.</li>
+            <br><br>
+            <li><strong>Speed</strong>.
+            Initial animation speed. This value is in key-frames and actual speed depends on how the
+            model was originally designed in the 3d animation tool used to make it.
+            Keep in mind that you may have to use very small values for certain 3d models (e.g. 0.05).</li>
+            <br><br>
+            <li><strong>Blend</strong>.
+            This is the time, in seconds, required to smoothly switch from one animation set to another.</li>
+            <br><br>
+            <li><strong>Bind to path motion</strong>.
+            If this option is checked and the SkinMesh object is linked to a Path object, then
+            the animation will only play if the path-following action also playing.</li>
+            <br><br>
+            <li><strong>Reset before blending</strong>.
+            If this option is checked the bone-based animation sequence will reset to the beginning
+            when switching from another animation set.</li>
+            <br><br>
+            <li><strong>Animation duration</strong>.
+            You can set the animation to play for a certain time and then stop. Set this value to zero to play forever.
+            This feature can be used, for example, to play an animation only once, by setting the proper
+            time, depending on animation speed. Time value is in seconds and decimal values, like 3.731 (3 seconds
+            and 731 thousands-of-second) are valid.</li>
+            <br><br>
+            <li><strong>Spline blending</strong>.
+            When smoothly switching from one animation set to another, spline interpolation is used, if this option is checked.
+            If not checked, linear interpolation is used instead.</li>
+            <br><br>
+            <li><strong>Frame</strong>.
+            If the animation is frame-based, this value is the initial animation frame.</li>
+            <br><br>
+            <li><strong>Frames per sec.</strong>.
+            If the animation is frame-based, this value is the initial animation speed.</li>
+            <br><br>
+            <li><strong>Compress data</strong>.
+            If this option is checked the animation data for the current 3d model will be compressed
+            to save memory and improve processing speed.
+            Note that this may substantially reduce the animation quality though.</li>
+            <br><br>
+
+            <center><strong>Path</strong></center>
+            <br>
+            If you <em>attach</em> the SkinMesh object to a path by linking it to a
+            <a href="./Path.htm">Path</a> object, then it will follow the pre-defined course, while also
+            performing its bone-based or frame-based animation, if defined.
+            <br><br>
+            <li>
+            <strong>Loop Count</strong>.
+            This is the number of times the object will loop around the path.
+            Non integer values (e.g. 0.5) are supported.</li>
+            </li>
+            <br><br>
+            <li>
+            <strong>Speed</strong>.
+            Path following speed. When this value is 1, the whole path is completed in one second.
+            Negative values are supported (reverse).
+            <br><br>
+            Note that the relative speed along a specific portion of the path depends on the number of nodes
+            defined along the segment. In particular, the more nodes are defined, the slower the speed.
+            This property allows you to accurately program speed variations.
+            </li>
+            <br><br>
+            <li>
+            <strong>Behavior</strong>.
+            When the path-following object is <em>stopped and re-started</em> (for example by an object like
+            <a href="./EventOnInput.htm">EventOnInput</a>) it can
+            start again from path's beginning, resume from where it was when stopped
+            or move the opposite way along the path.
+            </li>
+            <br><br>
+            <li>
+            <strong>Follow At Start</strong>.
+            If this option is not checked, the object will follow the path only when <em>started</em> by
+            another object, like for example <a href="./EventOnInput.htm">EventOnInput</a>.
+            </li>
+            <br><br>
+
+            <center><strong>Spin vector, X, Y, Z</strong></center>
+            <br>
+            If this option is enabled, you can specify an axis of rotation for the mesh by
+            providing its vector components. Run-time, the mesh will ignore path or parent
+            object orientation, spinning about the axis you specified instead.
+            <br><br>
+            The vector length will determine the rotation speed, in degrees per second.
+            <br><br>
+            For example, you can achieve a rotation about the X axis at 360 degrees per second with (360.0f,0.0f,0.0f).
+            A rotation about the vertical (Y) axis can be achieved with (0.0f,360.0f,0.0f) instead. And
+            (0.0f,0.0f,360.0f) will cause a rotation about the Z axis.
+            <br><br>
+            If the <em>Random</em> option is checked, the axis you provide is only used as a reference
+            to perform rotations about random axes.
+            <br><br>
+
+            <center><strong>Enable rendered pixels stats</strong></center>
+            <br>
+            If this option is enabled, the number of pixels rendered for the SkinMesh object is available as
+            an internal parameter. Please see the <em>INTERNAL PARAMETERS</em> section below for details.
+            <br><br>
+            This feature can be used to determine if a Skinmesh object is visible, because the number of
+            rendered pixels will be zero if the SkinMesh is completely behind another object in the scene.
+            <br><br>
+            <strong>Note:</strong> if the hardware doesn't support rendering statistics, the number of rendered pixels
+            will be returned as -1, even if this option is enabled.
+            <br><br>
+            <strong>Note:</strong> when this option is enabled, the SkinMesh object will always disappear behind
+            transparent objects and it will not receive shadows.
+            <br><br>
+            <strong>Note:</strong> if multiple SkinMesh objects have this option enabled, results are not guaranteed to be accurate
+            when these objects overlap.
+            <br><br>
+            <strong>Note:</strong> if multiple cameras are active in the scene, you must specify what camera
+            will be used for the statistics, by making it the only camera with the 'Rendering statistics' option enabled.
+            Please see <a href="./CamChase.htm">CamChase</a>. Note that the Cam1StPerson object is set to support statistics
+            by default and this setting cannot be changed.
+            <br><br>
+
+            <center><strong>Detect mouse-over event</strong></center>
+            <br>
+            If this option is enabled, the SkinMesh object is checked 60 times per second to see if it is under the mouse.
+            <br><br>
+            If it is, an internal parameter for the SkinMesh object is set to 1.
+            <br><br>
+            Please see the <em>INTERNAL PARAMETERS</em> section below for details.
+            <br><br>
+            <strong>Note:</strong> because this function uses the original, un-morphed SkinMesh geometry as a reference,
+            mouse-over results may not be accurate for animated SkinMeshes.
+            <br><br>
+            <strong>Warning!</strong> This option can be very slow to process for SkinMeshes made of many polygons.
+            <br><br>
+
+            <center><strong>Network ID</strong></center>
+            <br>
+            In a multiplayer game, when the project is running on the server, SkinMesh objects that have the same <em>Network ID</em> and
+            are in a project which is running on a connected client PC, are automatically placed at the same location as the SkinMesh
+            on the server.
+            <br><br>
+            So, for example, if you have a racing game running on the server, and all the SkinMesh objects for the cars (body, wheels etc)
+            synchronized with identical SkinMesh objects in a project running on a client, the user in front of the client PC screen
+            will see the race that is happening on the server.
+            <br><br>
+            Note that the project running on the client will only need to include SkinMesh objects (visuals). The Car object for example, will not be
+            needed there. Nor will be any car physics simulation.
+            <br><br>
+            The Network ID can be any value between 1 and 65535. Setting the ID to zero will disable synchronization.
+            <br><br>
+            For more information about creating multiplayer projects with 3D Rad, please <a href="./how-to-make-multiplayer-games.htm">click here</a>.
+            <br><br>
+
+            <center><strong>Other Controls</strong></center>
+            <br>
+            For information about the remaining controls, please <a href="./AllObjects.htm">click here</a>.
+            <br><br>
+
+            <br>
+            <center><strong>INTERNAL PARAMETERS</strong></center>
+            <br><br>
+            The following internal parameters can be accessed run-time by using objects like
+            <a href="./EventOnValue.htm">EventOnValue</a> or <a href="./Script.htm">Script</a>:
+            <br><br>
+            <li>Speed (m/sec). This is the current translation speed for the SkinMesh object, in meters per second (read-only)</li>
+            <li>Animation set. Altering this value at startup (see iInitializing() Script function) or
+               too often (e.g. at every script loop) may cause the animation to change abruptly, without blending.</li>
+            <li>Animation speed (write-only)</li>
+            <li>Animation time (or current frame, if the animation is frame-based)</li>
+            <li>Path speed factor (write-only)</li>
+            <li>Path time (write-only)</li>
+            <li>Bump-texture U (write-only). Note that this parameter is currently only supported by glass and water shaders.</li>
+            <li>Bump-texture V (write-only). Note that this parameter is currently only supported by glass and water shaders.</li>
+            <li>Mouse-over Flag. Run-time, this value is 1 if the mouse is over the SkinMesh object, 0 otherwise.
+                The value is always zero if the <em>Detect mouse-over event</em> option is not checked (see above).</li>
+            <li>Rendered pixels (read-only). Please see above for details.</li>
+            <li>Internal flags (write-only). This parameter allows you to control additional functions for the SkinMesh object, as follows:
+            set this parameter to 0 to disable 'Visible In Reflections' mode, set it to 1 to enable.</li>
+            <br><br>
+         </p>
+         </font>
+         </div>
+      </td>
+      <td width="174"></td>
+   </tr>
+
+   <tr>
+      <td width="26" bgcolor="#00002F"></td>
+      <td width="112" bgcolor="#00002F"></td>
+      <td width="24" bgcolor="#00002F"></td>
+      <td width="598" colspan="3"><img src="./img/main_logo_bottom.jpg" width="598" height="103"></td>
+   </tr>
+
+</table>
+
+</body>
+
+</html>

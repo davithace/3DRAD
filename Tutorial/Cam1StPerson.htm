@@ -1,0 +1,143 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+
+<head>
+   <title>
+      1St Person Camera for 3D Rad
+   </title>
+
+   <META
+      content="1St Person View Object"
+      name="description">
+
+   <META
+      content="Cam1StPerson,1St,Person,View,Camera,3D Rad"
+      name="keywords">
+</head>
+
+<body bgcolor="#000000" text="#909080" link="#F0E0E0" vlink="#F0E0E0" alink="#F0E0E0">
+
+<table border="0" cellpadding="0" cellspacing="0" width="760">
+
+   <tr>
+      <td width="760" colspan="6"><img src="./img/main_logo.jpg" width="760" height="182"></td>
+   </tr>
+
+   <tr>
+      <td width="26" bgcolor="#00002F"></td>
+      <td width="112" bgcolor="#00002F" valign="top">
+         <br>
+         <p>
+            <a href="http://www.3drad.com/">
+            <font color="#909080" size="1" face="Verdana">
+               <strong>WHAT IS<br>3D RAD?<br>CLICK HERE<br>TO FIND OUT!</strong>
+            </font>
+            </a>
+         </p>
+         <br>
+      </td>
+      <td width="24" bgcolor="#00002F"></td>
+      <td width="24"></td>
+      <td width="400">
+         <h1 align="center">
+            <font size="4" face="Verdana">
+               Cam1StPerson<br>
+            </font>
+         </h1>
+         <font size="2" face="Verdana">
+         <p>
+            <center>
+            <img src="./img/Cam1StPerson.jpg" width="128" height="128" align="center" border="0">
+            </center>
+            <br>
+            This object is a quick way to add an interactive 1st-person view to your projects.
+            <br><br>
+
+            <br>
+            <center>
+            <font size="3" face="Verdana">
+               <strong>USAGE</strong>
+            </font>
+            </center>
+            <br>
+
+            Add the object to your project, place it in the scenery and go.
+            The camera geometry and the green globe are only visible in the Virtual Editor and represent the
+            actor's starting location and collision volume respectively.
+            <br><br>
+            Keep in mind that this object is a camera. In general you should make sure no other camera is active in the project, to avoid rendering conflicts.
+            <br><br>
+            Also note that this object requires some gravity to walk. Make sure you link it to a gravity object (for example <em>G-Force</em>).
+            <br><br>
+            <center>
+            <img src="./img/Cam1StPerson_properties.jpg">
+            </center>
+            <br><br>
+            <center><strong>Viewport</strong></center>
+            <br>
+            <strong>Rendering At Start</strong>.
+            If not checked, the camera will not display the scene when the project is launched.
+            Run-time, you can enable rendering by using event objects like
+            <a href="./EventOnInput.htm">EventOnInput</a>.
+            <br><br>
+            <strong>Horizontal position (0-1)</strong>.
+            The screen position of the viewport's top/left corner, between 0.0 (left margin) and 1.0 (right margin).
+            <br><br>
+            <strong>Vertical position (0-1)</strong>.
+            The screen position of the viewport's top/left corner. Zero is the left margin of the screen, 1 is the right margin.
+            <br><br>
+            <strong>Width/Height (0-1)</strong>.
+            Viewport size, between 0.0 and 1.0 (full width/height, as big as the screen).
+            <br><br>
+            <strong>Visibility distance (meters)</strong>.
+            Objects beyond the specified distance will not be rendered.
+            Excluding from rendering the distant features of a large scene
+            can improve frame-rate on slower systems.
+            <br><br>
+            <strong>Field of view, in degrees</strong>.
+            The lower the value, the more zoomed the scene.
+            <br><br>
+
+            <center><strong>Parameters</strong></center>
+            <br>
+            <strong>Eye height & body radius</strong>.
+            The first parameter is basically the stature of the character.
+            The second parameter is the radius of the collision sphere for the character.
+            Values below 0.2 are not permitted.
+            <br><br>
+            <strong>Head rotation speed, Head pitching speed, Head pitching limits (degs)</strong>.
+            These parameters allow you to set look-around responsiveness and limits.
+            <br><br>
+            <strong>Walk forward speed, Walk backward speed, Walk sideways speed</strong>.
+            These parameters allow you to set movement controls responsiveness.
+            <br><br>
+            <strong>Max. climbable slope (in degrees)</strong>.
+            The terrain's gradient angle above which the actor will not be able to climb.
+            <br><br>
+            <strong>Controls</strong>.
+            This group of settings allows you to specify what input devices to use to control the character.
+            Note that to change the available default devices and/or let users of your projects to use any
+            input device, you must add the <a href="./ConfigureControls.htm">ConfingureControls object</a> to the project.
+            <br><br>
+            <center>For information about the remaining controls, please <a href="./AllObjects.htm">click here</a>.</center>
+            <br><br>
+
+         </p>
+         </font>
+      </td>
+      <td width="174"></td>
+   </tr>
+
+   <tr>
+      <td width="26" bgcolor="#00002F"></td>
+      <td width="112" bgcolor="#00002F"></td>
+      <td width="24" bgcolor="#00002F"></td>
+      <td width="598" colspan="3"><img src="./img/main_logo_bottom.jpg" width="598" height="103"></td>
+   </tr>
+
+</table>
+
+</body>
+
+</html>

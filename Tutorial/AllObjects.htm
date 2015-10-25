@@ -1,0 +1,162 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+
+<head>
+   <title>
+      3D Rad Objects, The Basics
+   </title>
+
+   <META
+      content="Objects, 3D Rad"
+      name="keywords">
+</head>
+
+<body bgcolor="#000000" text="#909080" link="#F0E0E0" vlink="#F0E0E0" alink="#F0E0E0">
+
+<table border="0" cellpadding="0" cellspacing="0" width="760">
+
+   <tr>
+      <td width="760" colspan="6"><img src="./img/main_logo.jpg" width="760" height="182"></td>
+   </tr>
+
+   <tr>
+      <td width="26" bgcolor="#00002F"></td>
+      <td width="112" bgcolor="#00002F" valign="top">
+         <br>
+         <p>
+            <a href="http://www.3drad.com/">
+            <font color="#909080" size="1" face="Verdana">
+               <strong>WHAT IS<br>3D RAD?<br>CLICK HERE<br>TO FIND OUT!</strong>
+            </font>
+            </a>
+         </p>
+         <br>
+      </td>
+      <td width="24" bgcolor="#00002F"></td>
+      <td width="24"></td>
+      <td width="400">
+         <h1 align="center">
+            <font size="4" face="Verdana">
+               3D Rad Objects' Properties<br>
+            </font>
+            <font size="1" face="Verdana">
+               COMMON FUNCTIONS
+            </font>
+         </h1>
+         <font size="2" face="Verdana">
+         <p>
+            The meaning of some properties dialog controls is common to all objects.
+            <br><br>
+            <center>
+            <img src="./img/AllObjects_name.jpg">
+            </center>
+            <br>
+            <strong>Name</strong>.
+            The object's name is shown in the Object List (left side of 3D Rad main screen).
+            Because objects are listed in alphabetical order, choosing your objects name properly
+            will make project editing easier.
+            <br><br>
+            <center>
+            <img src="./img/AllObjects_active.jpg">
+            </center>
+            <br>
+            <strong>Active</strong>.
+            If not checked, the object is completely ignored run-time and will not be visible.
+            Note that inactive objects are normally visible and editable in the Virtual Editor.
+            To hide an object in the Virtual editor, right-click on it the Object List.
+            <br><br>
+            <center>
+            <img src="./img/AllObjects_visible.jpg">
+            </center>
+            <br>
+            <strong>Visible At Start</strong>.
+            If not checked, the object will not be visible and may not process collision detection (if applicable).
+            Run-time, you can show objects that are invisible at start by using event objects like EventTimer.
+            <br><br>
+            <center>
+            <img src="./img/AllObjects_location.jpg">
+            </center>
+            <br>
+            <strong>Location  X, Y, Z,  in meters</strong>.
+            Absolute location of the object, if applicable.
+            Object location is either edited visually in the Virtual Editor, or numerically in the
+            object's property dialog.
+            Note that the natural object's model center is used as a reference, not the current handle location.
+            The object's model center is 'hard-coded' in the object file and cannot be changed in 3D Rad.
+            In the Virtual Editor, you can move the handle to the model center by right-clicking an object
+            while holding [Shift] pressed or by clicking it using the middle mouse button.
+            <br><br>
+            <center>
+            <img src="./img/AllObjects_orientation.jpg">
+            </center>
+            <br>
+            <strong>Orientation about X, Y, Z, in degrees</strong>.
+            Absolute orientation of the object, if applicable.
+            Editing object orientation visually in the Virtual Editor is easier. Managing 3d orientations
+            as angles about XYZ axes instead can be confusing and the dialog controls are only provided
+            for completeness.
+            <br><br>
+            <center>
+            <img src="./img/AllObjects_scale.jpg">
+            </center>
+            <br>
+            <strong>Scaling X, Y, Z (1.0 = original)</strong>.
+            Size of the object, if applicable.
+            Scaling is relative to the natural size of the model, as defined (hard coded) in the source files.
+            It can only be adjusted along object's local axes.
+            <br><br>
+            <center>
+            <img src="./img/AllObjects_boneid.jpg">
+            </center>
+            <br>
+            <strong>Parent bone ID</strong>.
+            When this value is non-zero, and the object supporting this parameter is linked to a SkinMesh which is bone-animated,
+            the object will be attached to the SkinMesh's bone indicated by the specified bone ID.
+            <br><br>
+            This feature can be used, for example, to attach a sword to the hand of a walking character.
+            See the example project called SkinMeshBoneDemo.3dr.
+            <br><br>
+            The bone ID must be a positive, non-zero integer. The first bone in the model is 1, the second 2 and so on.
+            What bone corresponds to a certain ID depends on how the animated model was originally designed.
+            <br><br>
+            <strong>Note:</strong> the position of the attached object is relative to the bone position when the animated
+            model is in its initial pose. This may not be the default pose you see in the Virtual Editor.
+            To see the initial pose of all animated SkinMesh objects in the scene, hold the [F] key pressed.
+            <br><br>
+            <center>
+            <img src="./img/AllObjects_copy.jpg">
+            </center>
+            <br>
+            <strong>Copy, Paste, Save, Load</strong>.
+            You can copy object's settings from one object to another (either in the current or another project)
+            by using the Copy and Paste buttons or by using [Ctrl]+[C] and [Ctrl]+[V] in the Virtual Editor.
+            Object settings can also be saved to and loaded from files.
+            Note that some settings may not be ported from/to objects of different type.
+            <br><br>
+            <center>
+            <img src="./img/AllObjects_ok.jpg">
+            </center>
+            <br>
+            <strong>OK, Help, Cancel</strong>.
+            The Help button opens current object's documentation, if available.
+            Click the OK button to confirm the settings or Cancel to close the dialog and ignore any changes.
+            <br><br>
+         </p>
+         </font>
+      </td>
+      <td width="174"></td>
+   </tr>
+
+   <tr>
+      <td width="26" bgcolor="#00002F"></td>
+      <td width="112" bgcolor="#00002F"></td>
+      <td width="24" bgcolor="#00002F"></td>
+      <td width="598" colspan="3"><img src="./img/main_logo_bottom.jpg" width="598" height="103"></td>
+   </tr>
+
+</table>
+
+</body>
+
+</html>

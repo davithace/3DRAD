@@ -1,0 +1,221 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+
+<head>
+   <title>
+      EventOnLocation, 3D Rad
+   </title>
+
+   <META
+      content="EventOnLocation,Checkpoint,Waypoint,3D Rad"
+      name="keywords">
+</head>
+
+<body bgcolor="#000000" text="#909080" link="#F0E0E0" vlink="#F0E0E0" alink="#F0E0E0">
+
+<table border="0" cellpadding="0" cellspacing="0" width="760">
+
+   <tr>
+      <td width="760" colspan="6"><img src="./img/main_logo.jpg" width="760" height="182"></td>
+   </tr>
+
+   <tr>
+      <td width="26" bgcolor="#00002F"></td>
+      <td width="112" bgcolor="#00002F" valign="top">
+         <br>
+         <p>
+            <a href="http://www.3drad.com/">
+            <font color="#909080" size="1" face="Verdana">
+               <strong>WHAT IS<br>3D RAD?<br>CLICK HERE<br>TO FIND OUT!</strong>
+            </font>
+            </a>
+         </p>
+         <br>
+      </td>
+      <td width="24" bgcolor="#00002F"></td>
+      <td width="24"></td>
+      <td width="400">
+         <h1 align="center">
+            <font size="4" face="Verdana">
+               EventOnLocation<br>
+            </font>
+         </h1>
+         <font size="2" face="Verdana">
+         <p>
+            <center>
+            <img src="./img/EventOnLocation.jpg" width="128" height="128" align="center" border="0">
+            </center>
+            <br>
+            This object starts/stops (or shows/hides) objects linked to it when an object
+            enters or exits a definable volume (box).
+            <br><br>
+            For example, you use this object to play a sound effect or stop a timer
+            when a racecar crosses a waypoint.
+            <br><br>
+            This object can itself be started and stopped by other event objects,
+            allowing you to create <em>chains</em> and achieve articulated event management.
+            <br><br>
+            For more about event objects in general, please see <a href="http://www.3drad.com/event_objects.htm">this tutorial</a>.
+            <br><br>
+
+            <br>
+            <center>
+            <font size="3" face="Verdana">
+               <strong>USAGE</strong>
+            </font>
+            </center>
+            <br>
+
+            Add the EventOnLocation object to your project, link it to all the objects you want to
+            monitor for volume crossing and also to all objects you want to start/stop when the
+            condition is met.
+            <br><br>
+            You link objects together in the Object List (left side of 3D Rad main screen), by
+            selecting an object and then checking the other objects you want to link to it.
+            <br><br>
+            The volume is rendered as a cube you can stretch (scale), rotate and place anywhere,
+            in the Virtual Editor.
+            <br><br>
+            To configure the EventOnLocation object, double-click it in the
+            Object List to open the following property dialog:
+            <br><br>
+            <center>
+            <img src="./img/EventOnLocation_properties.jpg">
+            </center>
+            <br><br>
+            <center><strong>Change Volume Geometry</strong></center>
+            <br>
+            By default, the volume geometry is a 1 meter wide cube. By clicking this button you can set it to a custom 3d model in DirectX (.x) file format.
+            Note that the .x file must be in the
+            <br><br>
+            <font size="2" face="Courier New">
+            C:\3D Rad\3DRad_res\objects\EventOnLocation\Data\
+            </font>
+            <br><br>
+            folder.
+            <br><br>
+            Note: the higher the number of polygons in the .x file, the slower the processing for the EventOnLocation object.
+            <br><br>
+            <center><strong>Display volume</strong></center>
+            <br>
+            If this option is checked, the volume is also rendered run-time, usually for debug purposes.
+            <br><br>
+            <center><strong>Relationships</strong></center>
+            <br>
+            This list defines how the EventOnLocation object relates to the objects that are linked to it. 
+            The following relationship types are supported:
+            <br><br>
+            <li>IGNORE. Do nothing.
+            Typically used for linked objects that are <em>starters</em> for this EventOnLocation
+            object itself (in a chain of event objects for example).</li>
+            <br><br>
+            <li>CHECK FOR ENTERING (OFFSET 1/2/3/4/5). Monitor the object to detect when it enters the box.
+            <br><br>
+            The check is based on a reference point on the object, defined as a
+            relative offset from the object's model center.
+            <br><br>
+            For example, assuming the offset from the model's center is a point on the front bumper of a car,
+            this point on the car bumper will still be the reference point when the car moves or rotates.
+            <br><br>
+            Up to 5 different point locations can be defined (see <em>Object's center offsets</em> section)
+            and each monitored object can use one.
+            </li>
+            <br><br>
+            <li>CHECK FOR EXITING (OFFSET 1/2/3/4/5). Monitor the object to detect when it exits the box.
+            See <em>CHECK FOR ENTERING</em> above for details.
+            </li>
+            <br><br>
+            <li>START ON CONDITION. Start the object when a crossing condition is detected.
+            Note that the target object must provide some 'startable' action.
+            See for example the <a href="./SoundEffect.htm">SoundEffect</a> object.</li>
+            <br><br>
+            <li>STOP ON CONDITION. Stop the object when a crossing condition is detected.</li>
+            <br><br>
+            <li>SWITCH ON CONDITION. Switch the object (start if stopped and vice-versa)
+            when a crossing condition is detected.
+            </li>
+            <br><br>
+            <li>SHOW ON CONDITION. Show the object when a crossing condition is detected.</li>
+            <br><br>
+            <li>HIDE ON CONDITION. Hide the object when a crossing condition is detected.</li>
+            <br><br>
+            <li>S/H SWITCH ON CONDITION. Switch the object (show if hidden and vice-versa) when a crossing condition is detected.</li>
+            <br><br>
+            <li>RESET. Re-initialize the object completely, to its default state, as defined in the project.</li>
+            <br><br>
+            <li>PARENT. The box will be attached to this object and will move and rotate with it.</li>
+            <br><br>
+            <li>IMPOSTER MASTER. This object (must be a SkinMesh) will be used to visualize EventOnLocation imposters (see <em>Imposters</em> section, below).</li>
+            <br><br>
+            <li>IMPOSTER MASTER (AUTO). This object (must be a SkinMesh) will be used to visualize EventOnLocation imposters
+            (see <em>Imposters</em> section, below). Unlike the similar setting above, this one will automatically remove the
+            cloned zone and its imposter SkinMesh when a monitored object enters/exits the cloned zone.</li>
+            <br><br>
+            <center><strong>Execute opposite action on exiting</strong></center>
+            <br>
+            If this option is checked, the specified action
+            is applied to the target on entering the detection zone, and the opposite action is applied to the target on
+            exiting the detection zone.
+            <br><br>
+            This feature can be used, for example, to start a looping sound when an object enters a zone and stop the sound
+            when the same object exits the zone.
+            <br><br>
+            Note that this feature only works for monitored objects that are marked, in the <em>Relationships</em> window, as
+            CHECK FOR ENTERING (OFFSET 1/2/3/4/5).
+            <br><br>
+            <center><strong>Randomize target object</strong></center>
+            <br>
+            If this option is checked, the specified action
+            is applied to one target object only, picked randomly.
+            If the option is not checked, the action is applied to all target objects instead.
+            <br><br>
+            <center><strong>Working at start</strong></center>
+            <br>
+            If this option is not checked, the EventOnLocation object will not work
+            until it is <em>started</em> by using another event object.
+            <br><br>
+            <center>For information about the remaining controls, please <a href="./AllObjects.htm">click here</a>.</center>
+
+            <br><br>
+            <center><strong>Imposters</strong></center>
+            <br>
+            The EventOnLocation object's detection zone can be 'cloned', run-time. This means that you can create/destroy unlimited detection zones
+            run-time, with one single EvenOnLocation object in the project. 
+            <br><br>
+            Creation/destruction/positioning of zone-clones (also called <em>imposters</em>) can be achieved by using iObjectImposter...() script
+            functions or the <a href="./Imposter.htm">Imposter object</a>. 
+            <br><br>
+            The cloned zones work like the default zone, as an 'extension' of it. That is, the action is triggered when the monitored
+            objects enter/exit the main zone or any of its clones. 
+            <br><br>
+            You can optionally specify a SkinMesh object to visualize where imposter detection areas are created, and also
+            optionally remove the detection area imposter (and its SkinMesh, if any) as soon as one of the monitored objects
+            enters/exits the imposter area. 
+            <br><br>
+            For an example of usage of EventOnLocation imposters, please see the demo project called <em>EOLImpostersDemo.3dr</em>.
+            <br><br><br>
+            <center><strong>INTERNAL PARAMETERS</strong></center>
+            <br><br>
+            The following internal parameters can be accessed by using <em>event</em> objects like
+            <a href="./EventOnValue.htm">EventOnValue</a> or <a href="./Script.htm">Script</a>:
+            <br><br>
+            <li>Condition (1 when entering/exiting condition is detected, zero otherwise). Read only.</li>
+         </p>
+         </font>
+      </td>
+      <td width="174"></td>
+   </tr>
+
+   <tr>
+      <td width="26" bgcolor="#00002F"></td>
+      <td width="112" bgcolor="#00002F"></td>
+      <td width="24" bgcolor="#00002F"></td>
+      <td width="598" colspan="3"><img src="./img/main_logo_bottom.jpg" width="598" height="103"></td>
+   </tr>
+
+</table>
+
+</body>
+
+</html>

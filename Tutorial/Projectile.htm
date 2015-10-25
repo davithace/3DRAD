@@ -1,0 +1,146 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+
+<head>
+   <title>
+      Projectiles, 3D Rad
+   </title>
+
+   <META
+      content="Projectile,Bullet,Weapon"
+      name="keywords">
+</head>
+
+<body bgcolor="#000000" text="#909080" link="#F0E0E0" vlink="#F0E0E0" alink="#F0E0E0">
+
+<table border="0" cellpadding="0" cellspacing="0" width="760">
+
+   <tr>
+      <td width="760" colspan="6"><img src="./img/main_logo.jpg" width="760" height="182"></td>
+   </tr>
+
+   <tr>
+      <td width="26" bgcolor="#00002F"></td>
+      <td width="112" bgcolor="#00002F" valign="top">
+         <br>
+         <p>
+            <a href="http://www.3drad.com/">
+            <font color="#909080" size="1" face="Verdana">
+               <strong>WHAT IS<br>3D RAD?<br>CLICK HERE<br>TO FIND OUT!</strong>
+            </font>
+            </a>
+         </p>
+         <br>
+      </td>
+      <td width="24" bgcolor="#00002F"></td>
+      <td width="24"></td>
+      <td width="400">
+         <h1 align="center">
+            <font size="4" face="Verdana">
+               Projectile<br>
+            </font>
+         </h1>
+         <font size="2" face="Verdana">
+         <p>
+            <center>
+            <img src="./img/Projectile.jpg" width="128" height="128" align="center" border="0">
+            </center>
+            <br>
+            The Projectile object allows you to <em>shoot</em> a series of <a href="./RigidBody.htm">RigidBody</a>
+            objects linked to it, one after the other, towards the direction specified by the arrow, at a specified speed.
+            <br><br>
+            The shooting action is performed as soon as the Projectile object is started by another
+            object (like <a href="./EventOnInput.htm">EventOnInput</a>)
+            or by a <a href="./Script.htm">Script</a>. 
+            <br><br>
+            A parameter on the Projectile object's property dialog allows you to set bullet lifetime.
+            When a RigidBody bullet has expired (lifetime elapsed) it will disappear
+            and will become re-usable (shootable again). 
+            <br><br>
+            In the Virtual Editor, the Projectile object is an arrow you can orient or <em>attach</em> to
+            any moving object, like a Car object (see <em>ProjectileDemo</em> sample project).
+            <br><br>
+            The arrow can also be attached to animated character bones,
+            like the arm of a soldier (see <em>SkinMeshBoneProjectilesDemo</em> sample project). 
+            <br><br>
+            An internal parameter for the Projectile object contains the object handle of the
+            RigidBody bullet that has just been shot and another the handle of the RigidBody that has
+            just expired. This allows a script to hide/show/start/stop any object related to the
+            bullet when it is shot or when it disappears (see <em>ProjectileObjectInternalParams</em> sample project).
+            <br><br>
+            <center>
+            <img src="./img/Projectile_properties.jpg">
+            </center>
+            <br><br>
+            <center><strong>Projectile velocity</strong></center>
+            <br>
+            The speed at which each RigidBody object will be thrown, in meters per second.
+            <br><br>
+            <font color="#FF0000" size="2" face="Verdana">Important!</font>
+            Very fast RigidBody objects may fail to properly rebound against solid surfaces and go through them,
+            due to limits with CPU's finite math calculations.
+            A typical workaround is using an <a href="./EventOnContact.htm">EventOnContact</a> object to  hide the bullet
+            as soon as a collision is detected for it (see <em>ProjectileHideOnContact.3dr</em> sample project).
+            <br><br>
+            <center><strong>Inherit parent inertia</strong></center>
+            <br>
+            When un-checked, this option prevents the projectiles from being affected by the parent object speed.
+            <br><br>
+            <center><strong>Projectile lifetime</strong></center>
+            <br>
+            Time, in seconds, after which a RigidBody bullet gets re-usable, after it has been shot.
+            <br><br>
+            If this parameter is zero, bullets will become re-usable as soon as all others have been shot.
+            <br><br>
+            NOTE: if a projectile is hidden by another object (like <a href="./EventOnContact.htm">EventOnContact</a>)
+            it expires, thus becoming re-usable immediately.
+            <br><br>
+            <center><strong>Display arrow</strong></center>
+            <br>
+            Check this option to visualize the Projectile object arrow run-time.
+            <br><br>
+            <center><strong>Relationships</strong></center>
+            <br>
+            This list defines how the Projectile object relates to the objects linked to it. 
+            The following relationship types are supported:
+            <br><br>
+            <li>IGNORE. Do nothing.</li>
+            <br><br>
+            <li>PROJECTILE. Use this object as a bullet. The object is usually a RigidBody object.</li>
+            <br><br>
+            <li>PARENT. If the Projectile object is linked to another object AND the other object is set
+            as PARENT, then it becomes the Projectile object parent. Run-time, when the parent moves
+            and rotates, the bullet launcher will follow it, keeping it's relative position as you set
+            it in the Virtual Editor. 
+            </li>
+            <br><br>
+            <br><br>
+            <center>For information about the remaining controls, please <a href="./AllObjects.htm">click here</a>.</center>
+            <br><br><br>
+            <center><strong>INTERNAL PARAMETERS</strong></center>
+            <br><br>
+            The following internal parameters can be accessed by using <em>event</em> objects like
+            <a href="./EventOnValue.htm">EventOnValue</a> or <a href="./Script.htm">Script</a>:
+            <br><br>
+            <li>Thrown object. This is the OBJ_ handle of the RigidBody object that has just been shot.
+            Please see <a href="./Script.htm">Script object's help file</a> for details on OBJ_ parameters.</li>
+            <li>Expired object. The OBJ_ handle of the RigidBody object that has just become re-usable.</li>
+         </p>
+         </font>
+      </td>
+      <td width="174"></td>
+   </tr>
+
+   <tr>
+      <td width="26" bgcolor="#00002F"></td>
+      <td width="112" bgcolor="#00002F"></td>
+      <td width="24" bgcolor="#00002F"></td>
+      <td width="598" colspan="3"><img src="./img/main_logo_bottom.jpg" width="598" height="103"></td>
+   </tr>
+
+</table>
+
+</body>
+
+</html>

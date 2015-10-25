@@ -1,0 +1,207 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+
+<head>
+   <title>
+      Particles, 3D Rad
+   </title>
+
+   <META
+      content="Particles,Smoke,Fire,Dust,3D Rad"
+      name="keywords">
+</head>
+
+<body bgcolor="#000000" text="#909080" link="#F0E0E0" vlink="#F0E0E0" alink="#F0E0E0">
+
+<table border="0" cellpadding="0" cellspacing="0" width="760">
+
+   <tr>
+      <td width="760" colspan="6"><img src="./img/main_logo.jpg" width="760" height="182"></td>
+   </tr>
+
+   <tr>
+      <td width="26" bgcolor="#00002F"></td>
+      <td width="112" bgcolor="#00002F" valign="top">
+         <br>
+         <p>
+            <a href="http://www.3drad.com/">
+            <font color="#909080" size="1" face="Verdana">
+               <strong>WHAT IS<br>3D RAD?<br>CLICK HERE<br>TO FIND OUT!</strong>
+            </font>
+            </a>
+         </p>
+         <br>
+      </td>
+      <td width="24" bgcolor="#00002F"></td>
+      <td width="24"></td>
+      <td width="400">
+         <h1 align="center">
+            <font size="4" face="Verdana">
+               Particles<br>
+            </font>
+         </h1>
+         <font size="2" face="Verdana">
+         <p>
+            <center>
+            <img src="./img/Particles.jpg" width="128" height="128" align="center" border="0">
+            </center>
+            <br>
+            This powerful object allows you to easily add to your 3d productions particle-based effects
+            like explosions, fire, smoke, dust, plasma, rain, snow, confetti, etc.
+            <br><br>
+            The particle emitter is an object you can place and orient visually in the Virtual Editor.
+            <br><br>
+            If the Particles object is linked to another object in the Object List, this will become
+            the particle emitter's parent. Runtime, when the parent moves and rotates, the particle emitter will follow it.
+            <br><br>
+            <center>
+            <img src="./img/Particles_properties.jpg">
+            </center>
+            <br><br>
+            <center><strong>Change</strong></center>
+            <br>
+            Click this button to select the particle aspect. Several shapes are available for the particles. The default shape is
+            usually the best choice for fire and plasma-like effects.
+            You can make your own particle shapes as follows:<br><br>
+            <li>By using your favorite paint program, make a picture which includes an alpha (opacity) layer.
+            The alpha map is used to make parts of your picture transparent. See the documentation for your
+            paint program for details about alpha layers.</li><br><br>
+            <li>To guarantee compatibility with all systems, the image should be power-of-two-sized,
+            like for example 256x256, 128x512 and so on.</li><br><br>
+            <li>Save your picture to .tga, .png or .dds format to
+            the<br><br>
+            <font size="2" face="Courier New">
+            C:\3D Rad\3DRad_res\objects\Particles\Data\
+            </font><br><br>
+            folder.</li><br><br>
+            <li>Resize your picture to 128x128 pixels and save it again as a .jpg file to
+            the<br><br>
+            <font size="2" face="Courier New">
+            C:\3D Rad\3DRad_res\objects\Particles\Data\Index\
+            </font><br><br>
+            folder. This image will be used to display your new shape in the Particles
+            object's dialogs and make it selectable among the other shapes available.</li>
+            <br><br>
+
+            <center><strong>Animation Frames Per Second</strong></center>
+            <br>
+            The Particles object supports frame-based animation as a sequence of images rendered one after the other.
+            <br><br>
+            If a sequence of images is defined for the Particles, as
+            described in the <em>Using image sequences as animated particles</em> section, below, then
+            this value is the initial animation speed.
+            <br><br>
+
+            <center><strong>Parent bone ID</strong></center>
+            <br>
+            When this value is non-zero, and the Particles object is linked to a SkinMesh which is bone-animated,
+            the particle emitter will be attached to the SkinMesh's bone defined by the specified bone ID.
+            <br><br>
+            This feature can be used, for example, to make the fire follow the mouth of an animated dragon.
+            See the example project called SkinMeshBoneParticlesDemo.3dr.
+            <br><br>
+            The bone ID must be a positive, non-zero integer. The first bone in the model is 1, the second 2 and so on.
+            What bone corresponds to a certain ID depends on how the animated model was originally designed.
+            <br><br>
+            <strong>Note:</strong> the position of the attached particle emitter is relative to the bone position when the animated
+            model is in its initial pose. This may not be the default pose you see in the Virtual Editor.
+            To see the initial pose of all animated SkinMesh objects in the scene, hold the [F] key pressed.
+            <br><br>
+
+            <center><strong>Parameters</strong></center>
+            <br>
+            <li>If the <em>Working At Start</em> option is not checked, the particles will only be emitted
+            after the object is <em>started</em> by another object, like for example
+            <a href="./EventOnInput.htm">EventOnInput</a>.</li><br><br>
+            <li>If the <em>Timer</em> parameter is greater than zero, the Particle object
+            will only work (emit) for the specified amount of time, in seconds.
+            The object can then be re-started by another object, like for example
+            <a href="./EventOnInput.htm">EventOnInput</a>. Run-time, the timer is re-initialized to the
+            specified value whenever the object is started or reset by another object.
+            <br><br>
+            <li><em>Render mode</em>. Burn-out rendering technique blends particles together also making
+            them look like bright plasma. Normal mode is typically the best choice for smoke/dust effects.</li><br><br>
+            <li><em>Initial color/Final color</em>. Click the color buttons to open the color picker.</li><br><br>
+            <li><em>Opacity (0-1)</em>. The lower the value, the more transparent the particles.</li><br><br>
+            <li><em>Frequency (particles per second)</em> is the amount of particles emitted every second.</li><br><br>
+            <li><em>Lifetime (in seconds)</em> determines how quickly the particles die after they are emitted.</li><br><br>
+            <li><em>Emission range (in degrees)</em>. The particles are emitted along directions within the specified minimum and
+            maximum cone-angles. An angle of zero degrees indicates a cone as narrow as a line. An angle of 360 degrees is
+            a cone as wide as the full emission sphere. Emission cone axes (emission direction of a zero-degrees cone) are
+            parallel to the Particles object arrow (as you set it in the Virtual Editor).</li><br><br>
+            <li><em>Speed (min/max, in meters per second)</em>, the initial particles' speed. Must be above 0.</li><br><br>
+            <li><em>Gravity (absolute vector)</em>. You typically only set the Y (second) value. Earth gravity is about -9.8.
+            The X and Z values allow you to simulate forces moving in different directions than vertical, like wind.</li><br><br>
+            <li><em>Air resistance</em> causes the particles to decelerate after they are emitted. The lower (more negative) the
+            value, the bigger the drag effect. Positive values are supported and cause the particles to accelerate.
+            Zero is invalid and it is automatically converted to -0.001.</li><br><br>
+            <li><em>Scale (initial/final)</em> can be any value above 0, but keep in mind that bigger particles are slower to render.</li><br><br>
+            <br><br>
+            <center><strong>Other dialog controls</strong></center>
+            <br>
+            For information about the remaining controls, please <a href="./AllObjects.htm">click here</a>.
+            <br><br><br>
+
+            <br><br>
+            <center>
+            <font size="3" face="Verdana">
+               <strong>USING IMAGE SEQUENCES AS<br>ANIMATED PARTICLES</strong>
+            </font>
+            </center>
+            <br>
+
+            The first image of the sequence must be saved to the data folder as described above (<em>Change</em> section).
+            <br><br>
+            The remaining images must be saved into a sub-folder of the <em>data</em> folder.
+            <br><br>
+            The name of the sub-folder must be the same as the initial image file (omitting the extension).
+            <br><br>
+            The images in the sub-folder must be named by using 4-digit numbers (for example 0001.dds, 0002.dds, etc).
+            <br><br>
+            The extension of the images in the sub-folder must be the same as the initial image (the one saved outside the subfolder).
+            <br><br>
+            For an example, please see 'animation.dds' and 'animation' subfolder, in the C:\3D Rad\3DRad_res\objects\Particles\Data\ folder.
+            <br><br>
+            To see this animation in action please see the demo project called <em>ParticleAnimation.3dr</em>.
+
+            <br><br><br>
+
+            <center><strong>INTERNAL PARAMETERS</strong></center>
+            <br><br>
+            The following internal parameters can be set by using objects like
+            <a href="./Script.htm">Script</a>:
+            <br><br>
+            <li>Frequency (particles per second), write only</li>
+            <li>Life-time (in seconds), write only</li>
+            <li>Animation frame. The animation image to display.</li>
+            <li>Frame-rate. Animation speed, in frames per second.</li>
+            <br><br>
+
+            <center><strong>LIMITATIONS</strong></center>
+            <br>
+            Particle source location on a fast moving/spinning parent object is calculated by a special prediction algorithm.
+            <br><br>
+            When the parent moves on a curved path, the exact position of the source in 3d space can be very complex to
+            calculate accurately.
+            <br><br>
+            This may cause the particle source to appear slightly displaced at times.
+
+         </p>
+         </font>
+      </td>
+      <td width="174"></td>
+   </tr>
+
+   <tr>
+      <td width="26" bgcolor="#00002F"></td>
+      <td width="112" bgcolor="#00002F"></td>
+      <td width="24" bgcolor="#00002F"></td>
+      <td width="598" colspan="3"><img src="./img/main_logo_bottom.jpg" width="598" height="103"></td>
+   </tr>
+
+</table>
+
+</body>
+
+</html>

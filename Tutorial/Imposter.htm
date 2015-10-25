@@ -1,0 +1,191 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+
+<head>
+   <title>
+      Imposter, 3D Rad
+   </title>
+
+   <META
+      content="Imposter,Clone,Spawn"
+      name="keywords">
+</head>
+
+<body bgcolor="#000000" text="#909080" link="#F0E0E0" vlink="#F0E0E0" alink="#F0E0E0">
+
+<table border="0" cellpadding="0" cellspacing="0" width="860">
+
+   <tr>
+      <td width="860" colspan="6"><img src="./img/main_logo.jpg" width="760" height="182"></td>
+   </tr>
+
+   <tr>
+      <td width="26" bgcolor="#00002F"></td>
+      <td width="112" bgcolor="#00002F" valign="top">
+         <br>
+         <p>
+            <a href="http://www.3drad.com/">
+            <font color="#909080" size="1" face="Verdana">
+               <strong>WHAT IS<br>3D RAD?<br>CLICK HERE<br>TO FIND OUT!</strong>
+            </font>
+            </a>
+         </p>
+         <br>
+      </td>
+      <td width="24" bgcolor="#00002F"></td>
+      <td width="24"></td>
+      <td width="500">
+         <h1 align="center">
+            <font size="4" face="Verdana">
+               Imposter<br>
+            </font>
+         </h1>
+         <div align="justify"> 
+         <font size="2" face="Verdana">
+         <p>
+            <center>
+            <img src="./img/Imposter.jpg" width="128" height="128" align="center" border="0">
+            </center>
+            <br>
+            The Imposter object, when started by an event object (like EventOnInput) or a script, creates an
+            imposter (a run-time clone) of objects linked to it, as long as run-time cloning is supported for
+            those objects.
+            <br><br>
+            The relationship window on the Imposter object's property dialog lets you set linked objects
+            as PARENT or MASTER. The imposter will be created at the run-time Imposter object position, or the run-time master object position. 
+            <br><br>
+            The Imposter object will <em>stop</em> after creating the clones, and will be ready to be started
+            again, to create a new imposter for each master object linked to it.
+            <br><br>
+            The Imposter object is typically used to create run-time instances of SkinMesh and Particles objects.
+            <br><br>
+            For an example of usage, please see the <em>ImposterObjectDemo</em> project.
+            <br><br>
+            <center>
+            <img src="./img/Imposter_properties.jpg">
+            </center>
+            <br><br>
+            <center><strong>Maximum imposters</strong></center>
+            <br>
+            When the number of imposters created exceeds the maximum specified in this box, the first imposter created will vanish
+            while the new one is added to the scene.
+            <br><br>
+            It is recommended that you don't set this value higher than the amount of imposters you will actually need, as
+            some memory space is allocated based on the value you specify, regardless of the number of imposters you will
+            actually create, run-time.
+            <br><br>
+            <center><strong>Imposter lifetime</strong></center>
+            <br>
+            After the specified time has ellapsed, the imposter will be removed by the scene.
+            This feature is useful where the imposter itself doesn't have a built-in lifetime timer.
+            <br><br>
+            If the lifetime specified is zero, imposters will never expire. However they will
+            be removed from the scene if the Imposter object is <em>reset</em>, run-time, by
+            an event object or a script.
+            <br><br>
+            <center><strong>Create imposters shadow</strong></center>
+            <br>
+            If this option is checked, each created imposter will include a shadow caster, if this is supported by the master object.
+            <br><br>
+            <center><strong>Display handle</strong></center>
+            <br>
+            Check this option to visualize the Imposter object handle run-time.
+            <br><br>
+            <center><strong>Use mesh map</strong></center>
+            <br>
+            If this option is checked, one imposter for each vertex in a specified mesh in DirectX (.x) file format will be created.
+            For an example of usage, please see the demo project called <em>ImposterMeshMapDemo.3dr</em>.
+            <br><br>
+            The .x file to use as mesh-map can be specified by clicking the <em>Select mesh map file</em> button.
+            <br><br>
+            Imposters will be created all at the same time when the Imposter object is started (see above).
+            <br><br>
+            The position of each imposter will be at each vertex position. The position will be relative to Imposter object position
+            (or master position, depending on relationship settings, see below).
+            <br><br>
+            Note that, unless you chose to use master object orientation (see below), each imposter relative orientation will be based on vertex normal
+            information, as it is stored in the source .x file.
+            <br><br>
+            This means that the imposter will be oriented so that its local Z axis matches the vertex normal vector. So, for example, if the
+            mesh map is a flat terrain and the imposter mesh is a tree, in order to be correctly oriented, it must be modeled so that, when
+            imported as a regular SkinMesh, its tip points towards the +Z axis (blue axis in the Virtual Editor).
+            <br><br>
+            When making your own mesh maps, also note that the .x file will have to be in the <em>data\meshmaps</em> folder, along with the
+            default one (meshMap.x).
+            <br><br>
+
+            <center><strong>Randomization</strong></center>
+            <br>
+            These parameters allow you to add randomization offsets to each imposter that will be created.
+            <br><br>
+            Randomization X/Y/Z parameters are +/- offsets from the imposter intended orientation/location, which, as said,
+            can be based on master object, Imposter object or mesh-map. 
+            <br><br>
+            Random variations will be source-relative (that is, reative to the master object if the master object is the souce,
+            relative to the Imposter object if it is the source, and relative to individual vertex positions if a mesh map is used. 
+            <br><br>
+            For scaling, randomization parameters are +/- offsets from the X/Y/Z <em>Base scaling</em> factors. 
+            <br><br>
+            NOTE: base scaling is ignored if all randomization offsets are zero. 
+            <br><br>
+            NOTE: when using mesh map's vertex normal for orientation, randomizing Z location means radomizing
+            the position along the mesh vertex normal. So, to randomize the horizonthal location of trees on a terrain for example,
+            you set the X and Y randomization ranges only.
+            <br><br>
+
+            <center><strong>Relationships</strong></center>
+            <br>
+            This list defines how the Imposter object relates to the objects linked to it. 
+            The following relationship types are supported:
+            <br><br>
+            <li>IGNORE. Do nothing.</li>
+            <br><br>
+            <li>
+            MASTER. This object will be used as master to create an imposter when the Imposter object is started.
+            The imposter will be placed at the Imposter objects runtime position (same location, same orientation).
+            You can use this setting for as many objects as needed.
+            </li>
+            <br><br>
+            <li>
+            MASTER (use orientation). Same as MASTER, but Imposter orientation will be the same as the master object.
+            Location will be same as Imposter's. You can use this setting for as many objects as needed.
+            </li>
+            <br><br>
+            <li>
+            MASTER (use location). Same as MASTER, but Imposter location will be the same as the master object.
+            Orientation will be same as Imposter's. You can use this setting for as many objects as needed.
+            </li>
+            <br><br>
+            <li>
+            MASTER (use position). Same as MASTER, but Imposter location AND orientation will be the same
+            as the master object. You can use this setting for as many objects as needed.
+            </li>
+            <br><br>
+            <li>
+            PARENT. If the Imposter object is linked to another object AND the other object is set
+            as PARENT, then, run-time, when the parent moves
+            and rotates, the Imposter handle will follow it, keeping it's relative position as you set
+            it in the Virtual Editor. 
+            </li>
+            <br><br>
+            <center>For information about the remaining controls, please <a href="./AllObjects.htm">click here</a>.</center>
+         </p>
+         </font>
+         </div>
+      </td>
+      <td width="174"></td>
+   </tr>
+
+   <tr>
+      <td width="26" bgcolor="#00002F"></td>
+      <td width="112" bgcolor="#00002F"></td>
+      <td width="24" bgcolor="#00002F"></td>
+      <td width="698" colspan="3"><img src="./img/main_logo_bottom.jpg" width="598" height="103"></td>
+   </tr>
+
+</table>
+
+</body>
+
+</html>

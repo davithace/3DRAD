@@ -1,0 +1,122 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+
+<head>
+   <title>
+      Terrain for 3D Rad
+   </title>
+
+   <META
+      content="Terrain,Level,Map,3D Rad"
+      name="keywords">
+</head>
+
+<body bgcolor="#000000" text="#909080" link="#F0E0E0" vlink="#F0E0E0" alink="#F0E0E0">
+
+<table border="0" cellpadding="0" cellspacing="0" width="760">
+
+   <tr>
+      <td width="760" colspan="6"><img src="./img/main_logo.jpg" width="760" height="182"></td>
+   </tr>
+
+   <tr>
+      <td width="26" bgcolor="#00002F"></td>
+      <td width="112" bgcolor="#00002F" valign="top">
+         <br>
+         <p>
+            <a href="http://www.3drad.com/">
+            <font color="#909080" size="1" face="Verdana">
+               <strong>WHAT IS<br>3D RAD?<br>CLICK HERE<br>TO FIND OUT!</strong>
+            </font>
+            </a>
+         </p>
+         <br>
+      </td>
+      <td width="24" bgcolor="#00002F"></td>
+      <td width="24"></td>
+      <td width="400">
+         <h1 align="center">
+            <font size="4" face="Verdana">
+               Terrain
+            </font>
+         </h1>
+         <font size="2" face="Verdana">
+         <p>
+            <center>
+            <img src="./img/Terrain.jpg" width="128" height="128" align="center" border="0">
+            </center>
+            <br>
+            Terrain is a set of ready-made maps you can immediately use as basis for your projects.
+            <br><br>
+            All parts of the terrain model support collision detection and can interact with other
+            3D Rad objects like vehicles, characters and so on.
+            <br>
+            <br><br>
+            <center>
+            <img src="./img/Terrain_properties.jpg">
+            </center>
+            <br><br>
+            <center><strong>Change</strong></center>
+            <br>
+            Click the <em>Change</em> button to choose a map among the various that are available.
+            <br><br>
+            <center><strong>Fast rendering</strong></center>
+            <br>
+            If this option is checked, a faster rendering technique is used.
+            This will improve frame rate on slower systems, but it may reduce rendering quality.
+            <br><br>
+            Note that on old systems that do not support hardware processed pixel shaders, this modality is automatically used.
+            <br><br>
+            <center><strong>Cast shadows</strong></center>
+            <br>
+            If this option is checked, the terrain will cast a volumetric shadow.
+            This may severely affect frame rate on slower systems.
+            <br><br>
+            <center><strong>Receive shadows</strong></center>
+            <br>
+            If this option is checked, the terrain will receive volumetric shadow from other objects (and itself if <em>Cast shadows</em> above must be checked).
+            <br><br>
+            <center><strong>Ignore point lights</strong></center>
+            <br>
+            By default, if point lights are close enough to affect the Terrain object, the surface is affected by them.
+            <br><br>
+            However, because rendering surfaces that are illuminated by multiple lights require much more processing power,
+            this option allows you to disable this feature to optimize frame-rate.
+            <br><br>
+            Note that, for each Terrain object, there is a maximum limit of point lights that can affect its surface at any given time.
+            Please see the <a href="./PointLight.htm">PointLight object's help file</a> for details.
+            <br><br>
+            IMPORTANT: point lights with a small range may fail to illuminate terrain surfaces properly, where they are made of big polygons.
+            <br><br>
+            <center><strong>Collision detection</strong></center>
+            <br>
+            If this option is checked, the terrain will detect collision detection with all rigid-body based
+            objects linked to it.
+            <br><br>
+            <br>
+            <center><strong>INTERNAL PARAMETERS</strong></center>
+            <br><br>
+            The following internal parameters can be accessed run-time by using the <a href="./Script.htm">Script</a> object:
+            <br><br>
+            <li>Internal flags (write-only). This parameter allows you to control visibility in reflections for the Terrain object, as follows:
+            set this parameter to 0 to disable 'Visible In Reflections' mode, set it to 1 to enable.</li>
+            <br><br>
+         </p>
+         </font>
+      </td>
+      <td width="174"></td>
+   </tr>
+
+   <tr>
+      <td width="26" bgcolor="#00002F"></td>
+      <td width="112" bgcolor="#00002F"></td>
+      <td width="24" bgcolor="#00002F"></td>
+      <td width="598" colspan="3"><img src="./img/main_logo_bottom.jpg" width="598" height="103"></td>
+   </tr>
+
+</table>
+
+</body>
+
+</html>

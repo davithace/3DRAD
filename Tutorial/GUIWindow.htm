@@ -1,0 +1,190 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+
+<head>
+   <title>
+      GUIWindow, 3D Rad
+   </title>
+
+   <META
+      content="GUIWindow,GUI,UI,3D Rad"
+      name="keywords">
+</head>
+
+<body bgcolor="#000000" text="#909080" link="#F0E0E0" vlink="#F0E0E0" alink="#F0E0E0">
+
+<table border="0" cellpadding="0" cellspacing="0" width="760">
+
+   <tr>
+      <td width="760" colspan="6"><img src="./img/main_logo.jpg" width="760" height="182"></td>
+   </tr>
+
+   <tr>
+      <td width="26" bgcolor="#00002F"></td>
+      <td width="112" bgcolor="#00002F" valign="top">
+         <br>
+         <p>
+            <a href="http://www.3drad.com/">
+            <font color="#909080" size="1" face="Verdana">
+               <strong>WHAT IS<br>3D RAD?<br>CLICK HERE<br>TO FIND OUT!</strong>
+            </font>
+            </a>
+         </p>
+         <br>
+      </td>
+      <td width="24" bgcolor="#00002F"></td>
+      <td width="24"></td>
+      <td width="400">
+         <h1 align="center">
+            <font size="4" face="Verdana">
+               GUIWindow<br>
+            </font>
+         </h1>
+         <div align="justify"> 
+         <font size="2" face="Verdana">
+         <p>
+            <center>
+            <img src="./img/GUIWindow.jpg" width="128" height="128" align="center" border="0">
+            </center>
+            <br>
+            The GUIWindow object allows you to easily add to your projects run-time GUI windows, without any scripting. 
+            <br><br>
+            For each GUI window, you will be able to define up to 16 controls. Each control can be bound to internal
+            parameters and/or orientation/location properties of other objects in your project, allowing the final
+            user to adjust parameters (and orientation/location) of objects in real-time. 
+            <br><br>
+            For example, without scripting, you will be able to add GUI controls to a racing game allowing the player
+            to dynamically adjust car parameters (engine, suspensions etc), optionally seeing the changes immediately
+            applied, while test-driving the car. 
+            <br><br>
+            Each instance of the GUIWindow object will represent one GUI window on the screen. You will be able to add
+            multiple GUIWindow objects to a 3D Rad project to implement multiple GUI windows. 
+            <br><br>
+            This is useful for example where you need to control multiple parameters of a single object (like for example,
+            screen position of a Sprite object and also the opacity of the same Sprite object).
+            In these cases you can use two or more instances of the GUI object,
+            as shown in the <em>GUIWindowDemo</em> project (in 3D Rad, press Ctrl+O to see a list of available demo projects).
+            <br><br>
+            By starting/stopping the GUIWindow object (for example by using event objects or a script) you will be able
+            to hide/show the GUI interface. 
+            <br><br>
+            Depending on what parameters you choose to link the GUI window controls to, an appropriate control type
+            will be automatically rendered by the GUIWindow object. Supported control types are: orientation editor, location editor,
+            numeric parameter editor.
+            <br><br>
+            The graphic layout and controls are provided by AntTweakBar (antisphere.com).
+            <br><br>
+            NOTE: unlike 3D Rad built-in sprites, GUI windows will not stretch/shrink with the main display,
+            for example when the user changes the display mode for the finished game. GUI window size/position
+            will be in pixels, not in screen units. 
+            <br><br>
+
+            <br>
+            <center>
+            <font size="3" face="Verdana">
+               <strong>USAGE</strong>
+            </font>
+            </center>
+            <br>
+
+            Add the GUIWindow object to your project, link it to all the objects you want to control.
+            <br><br>
+            You link objects together in the Object List (left side of 3D Rad main screen), by
+            selecting an object and then checking the other objects you want to link to it.
+            <br><br>
+            To configure the GUIWindow object, double-click it in the
+            Object List to open the following property dialog:
+            <br><br>
+            <center>
+            <img src="./img/GUIWindow_properties.jpg">
+            </center>
+            <br><br>
+            <center><strong>Working at start</strong></center>
+            <br>
+            If this option is not checked, the GUIWindow object will not be rendered
+            until it is <em>started</em> by another object.
+            <br><br>
+            <center><strong>Relationships</strong></center>
+            <br>
+            This list defines what parameters to control for the selected object. 
+            The following relationship types are supported:
+            <br><br>
+            <li>IGNORE. Do nothing.</li>
+            <br><br>
+            <li>ORIENTATION. Control the orientation of this object (if applicable).</li>
+            <br><br>
+            <li>LOCATION. Control the orientation of this object (if applicable).</li>
+            <br><br>
+            <li>[parameter description]. Control the specified internal value of this object.</li>
+            <br><br>
+            <center><strong>Window parameters</strong></center>
+            <br>
+            <li><strong>Position/Size (in pixels)</strong>. Position of the GUI window.</li>
+            <br><br>
+            <li><strong>Title (must be unique)</strong>. The name of the GUI window.
+            If multiple instances of the GUIWindow object are present in your project,
+            this name must be unique. If two GUI windows have the same name, only one
+            will be rendered.</li>
+            <br><br>
+            <li><strong>Color</strong>. Click this button to show a color picker and select a color for the GUI window.</li>
+            <br><br>
+            <li><strong>Movable</strong>. If this option is checked, the GUI window will be movable and resizable by the final user.</li>
+            <br><br>
+            <center><strong>Control parameters</strong></center>
+            <br>
+            <li><strong>Name</strong>. Name of the control. If the control is a <em>LOCATION</em> control, you must specify
+            3 comma-separated names (one for each coordinate you will be able to control run-time).</li>
+            <br><br>
+            <li><strong>Value</strong>. Default value for the control. If the control is an <em>ORIENTATION</em> or <em>LOCATION</em> control, you must specify
+            3 comma-separated values (X, Y, Z rotation, in degrees, for orientation, or X, Y, Z location, in meters, for location).</li>
+            <br><br>
+            <li><strong>Step</strong>. Variation step for the control. If the control is a <em>LOCATION</em> control, you must specify
+            3 comma-separated values (X, Y, Z steps, in meters).</li>
+            <br><br>
+            <li><strong>Min/Max</strong>. Minimum/maximum values for the control. If the control is a <em>LOCATION</em> control, you must specify
+            3 comma-separated values (X, Y, Z bounds, in meters).</li>
+            <br><br>
+            NOTE: in each of the input boxes above you can specify one or more (comma-separated) parameters.
+            The ability to specify multiple comma-separated parameters in one single input box is useful for orientation/location controls
+            as mentioned above, but also to configure two or more controls, if you have enabled controls for multiple objects listed
+            in the <em>Relationships</em> window.
+            <br><br>
+            In this cases, keep in mind that the system will use the parameters based on the order in which the objects are listed in the
+            <em>Relationships</em> window.
+            <br><br>
+            So, for example, the first item in the <em>Relationships</em> window will use the first parameter
+            in the input box (the first 3 parameters if it is an orientation/location control), the second item will use the next parameter
+            (or the next 3 parameters if it is an orientation/location control) and so on.
+            <br><br>
+            Also note that orientation/location items will always 'take' 3 parameters, even if the don't actually use them.
+            For example, if you have an orientation item and a single parameter item selected in the <em>Relationships</em> window,
+            the parameter input boxes will ALL need to contain 4 parameters. The unique value item will always use the 4th parameter.
+            <br><br>
+            <center><strong>REMARKS</strong></center>
+            <br>
+            In a compiled project running in full-screen (or maximized) mode, a mouse pointer isn't visualized by default,
+            which makes operating GUI windows very difficult.
+            You can however use a <a href="./Sprite.htm">Sprite object</a> as mouse pointer by selecting the <em>Work as full-screen mouse pointer</em>
+            option on the Sprite property dialog.
+            <br><br>
+            In order to render the sprite over the GUI windows, make sure it is set to <em>Render sprite over texts</em>.
+         </p>
+         </font>
+         </div> 
+      </td>
+      <td width="174"></td>
+   </tr>
+
+   <tr>
+      <td width="26" bgcolor="#00002F"></td>
+      <td width="112" bgcolor="#00002F"></td>
+      <td width="24" bgcolor="#00002F"></td>
+      <td width="598" colspan="3"><img src="./img/main_logo_bottom.jpg" width="598" height="103"></td>
+   </tr>
+
+</table>
+
+</body>
+
+</html>

@@ -1,0 +1,190 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+
+<head>
+   <title>
+      PathFinder, 3D Rad
+   </title>
+
+   <META
+      content="Path Finder,Character,A.I.,AI,3D Rad"
+      name="keywords">
+</head>
+
+<body bgcolor="#000000" text="#909080" link="#F0E0E0" vlink="#F0E0E0" alink="#F0E0E0">
+
+<table border="0" cellpadding="0" cellspacing="0" width="860">
+
+   <tr>
+      <td width="860" colspan="6"><img src="./img/main_logo.jpg" width="760" height="182"></td>
+   </tr>
+
+   <tr>
+      <td width="26" bgcolor="#00002F"></td>
+      <td width="112" bgcolor="#00002F" valign="top">
+         <br>
+         <p>
+            <a href="http://www.3drad.com/">
+            <font color="#909080" size="1" face="Verdana">
+               <strong>WHAT IS<br>3D RAD?<br>CLICK HERE<br>TO FIND OUT!</strong>
+            </font>
+            </a>
+         </p>
+         <br>
+      </td>
+      <td width="24" bgcolor="#00002F"></td>
+      <td width="24"></td>
+      <td width="500">
+         <h1 align="center">
+            <font size="4" face="Verdana">
+               PathFinder<br>
+            </font>
+         </h1>
+         <div align="justify"> 
+         <font size="2" face="Verdana">
+         <p>
+            <center>
+            <img src="./img/PathFinder.jpg" width="128" height="128" align="center" border="0">
+            </center>
+            <br>
+            The PathFinder object is a guide for other objects that can move and follow 'targets' (like the Character object, the CarAI object or a user
+            created script). The PathFinder object location is the goal to reach.
+            <br><br>
+            Run-time, the PathFinder object temporarily places itself at strategic locations on
+            your project's terrain so that, the follower object, by moving towards it, will ultimately reach the goal going around
+            static and moving obstacles (like a boulder suddenly falling on the path).
+            <br><br>
+            For a demonstration, please see the <em>PathFinderDemo</em> project, included to the 3D Rad installation.
+            <br><br>
+            The A.I. is designed to work reasonably well with moving target locations, as long as the speed is moderate.
+            Typical case is when the PathFinder object is attached to the player's character and set to be the target for an enemy character. 
+            <br><br>
+            If the PathFinder object is located at an inaccessible position (within a completely secluded area, on a hill beyond the maximum climbable slope,
+            too close to an obstacle, too close to the ground or too far from it), the path finding algorithm will never 'solve the problem' and the
+            follower object may not move as a result.
+            <br><br>
+            Keep in mind that the red star center (goal) should always be above the ground, at an height which is approximately the same as the
+            follower object's center. Failing to place the goal properly will likely cause the path finder to fail.
+            <br><br>
+            <center>
+            <img src="./img/PathFinder_properties.jpg">
+            </center>
+            <br><br>
+            <center><strong>Working At Start</strong></center>
+            <br>
+            If this option is not checked, the path finder will only operate after the object is <em>started</em> by another object,
+            like for example <a href="./EventOnInput.htm">EventOnInput</a>.
+            <br><br>
+            <center><strong>Display goal location</strong></center>
+            <br>
+            Check this option to visualize the PathFinder object geometry run-time (a red star).
+            This will be the goal that the PathFinder object will try to lead the character to.
+            <br><br>
+            <center><strong>Parameters</strong></center>
+            <br>
+            <li>
+            <strong>A.I. power</strong>.
+            The time the A.I. algorithm will take to sort the path out depends on scene complexity and the amount of processing power you assign to
+            the task. The minimum amount of processing power that you can specify is 1. There is no maximum, but setting this value too high will
+            affect the framerate in a way that depends on the system your project is running on.
+            </li>
+            <br><br>
+            <li>
+            <strong>Path optimization</strong>.
+            The PathFinder isn't guaranteed to find the shortest path to the goal, but it will do so more often than not.
+            If this option is checked, an additional algorithm will be used to raise the probability that the
+            chosen path will be the shortest. The trade-off is additional processing power usage, which may affect frame-rate.
+            </li>
+            <br><br>
+            <li>
+            <strong>Scan resolution</strong>.
+            Raising this parameter may help find paths in a very complex scenery, but it may also increase the delay at
+            start-up or after the goal has moved to a different location or the current path gets blocked.
+            </li>
+            <br><br>
+            <li>
+            <strong>Scan depth</strong>.
+            The bigger the factor, the sooner the PathFinder object will react to obstacles suddenly blocking the current path.
+            Setting this value too high though, will likely cause severe, intermittent processing slowdowns, where the terrain
+            or obstacles are modeled with a high number of polygons.
+            </li>
+            <br><br>
+            <li>
+            <strong>Max. climbable slope</strong>.
+            The terrain's gradient angle, in degrees, above which the terrain will be considered an obstacle to avoid.
+            </li>
+            <br><br>
+            <li>
+            <strong>Altitude range</strong>.
+            When approaching climbable stairs (modeled as ramps) or steep slopes, even if they are above the maximum climbable gradient,
+            the path finder may still try to reach their top, if the goal is placed there and there is no other way to it.
+            <br><br>
+            If the altitude range doesn't include the stairs/slope top though, the area will be considered inaccessible.
+            <br><br>
+            The range is in meters and always computed from the current position of the path following object.
+            </li>
+
+            <center><strong>Relationships</strong></center>
+            <br>
+            This list defines how the PathFinder object relates to the objects linked to it. 
+            The following relationship types are supported:
+            <br><br>
+            <li>IGNORE. Do nothing.</li>
+            <br><br>
+            <li>CHARACTER. The run-time location of this object is used by the path finder
+            to determine where the path follower is. This is usually the Character object,
+            but it can be anything, depending on how you are using the PathFinder object.
+            <br><br>
+            For example, if you are 'following' the path (PathFinder object location) by using a script,
+            you will probably need to specify a script-controlled SkinMesh object as CHARACTER, to give the
+            PathFinder object a reference.
+            <br><br>
+            Specifying more than one object as CHARACTER is not recommended.
+            <br><br>
+            <li>OBSTACLE. This object is an obstacle to avoid.
+            This is typically a Terrain object or a RigidBody object, but it can be
+            any object which supports collision detection (like Ball or Car).
+            Objects that don't support collision detection, like SkinMesh, will not work as obstacles.</li>
+            <br><br>
+            <li>PARENT. If the PathFinder object is linked to another object AND the other object is set
+            as PARENT, then, run-time, when the parent moves and rotates, the path finding goal will follow it,
+            keeping it's relative position as you set it in the Virtual Editor.
+            <br><br>
+            The goal can also be attached to animated character bones, where necessary. For more information please
+            see the <em>Parent Bone ID</em> parameter description in the <a href="./SkinMesh.htm">SkinMesh object's help file</a>.</li>
+            <br><br>
+            <center><strong>Other dialog controls</strong></center>
+            <br>
+            For information about the remaining controls, please <a href="./AllObjects.htm">click here</a>.
+            <br><br><br>
+            <center><strong>INTERNAL PARAMETERS</strong></center>
+            <br><br>
+            The following internal parameters can be controlled, run-time, by using a <a href="./Script.htm">Script</a>:
+            <br><br>
+            <li>A.I. power (write-only).</li>
+            <li>Scan resolution (write-only). Changing this value will cause the path to be re-calculated.</li>
+            <li>Scan depth (write-only).</li>
+            <li>Max slope (write-only).</li>
+            <li>Altitude range (write-only).</li>
+            <li>Path found flag (read-only). This value is 1 when a valid path has been found, zero otherwise.</li>
+            <br><br>
+         </p>
+         </font>
+         </div>
+      </td>
+      <td width="174"></td>
+   </tr>
+
+   <tr>
+      <td width="26" bgcolor="#00002F"></td>
+      <td width="112" bgcolor="#00002F"></td>
+      <td width="24" bgcolor="#00002F"></td>
+      <td width="698" colspan="3"><img src="./img/main_logo_bottom.jpg" width="598" height="103"></td>
+   </tr>
+
+</table>
+
+</body>
+
+</html>

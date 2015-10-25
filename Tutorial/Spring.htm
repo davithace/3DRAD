@@ -1,0 +1,117 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+
+<head>
+   <title>
+      Spring, 3D Rad
+   </title>
+
+   <META
+      content="Spring,Soft,Body,3D Rad"
+      name="keywords">
+</head>
+
+<body bgcolor="#000000" text="#909080" link="#F0E0E0" vlink="#F0E0E0" alink="#F0E0E0">
+
+<table border="0" cellpadding="0" cellspacing="0" width="760">
+
+   <tr>
+      <td width="760" colspan="6"><img src="./img/main_logo.jpg" width="760" height="182"></td>
+   </tr>
+
+   <tr>
+      <td width="26" bgcolor="#00002F"></td>
+      <td width="112" bgcolor="#00002F" valign="top">
+         <br>
+         <p>
+            <a href="http://www.3drad.com/">
+            <font color="#909080" size="1" face="Verdana">
+               <strong>WHAT IS<br>3D RAD?<br>CLICK HERE<br>TO FIND OUT!</strong>
+            </font>
+            </a>
+         </p>
+         <br>
+      </td>
+      <td width="24" bgcolor="#00002F"></td>
+      <td width="24"></td>
+      <td width="400">
+         <h1 align="center">
+            <font size="4" face="Verdana">
+               Spring<br>
+            </font>
+         </h1>
+         <font size="2" face="Verdana">
+         <p>
+            <center>
+            <img src="./img/Spring.jpg" width="128" height="128" align="center" border="0">
+            </center>
+            <br>
+            The Spring object allows you to link two objects together by using an 'elastic' force.
+            <br><br>
+            Relative positions for the objects to link and the spring, as you set them in the Virtual Editor,
+            will determine the configuration that the system will try to keep run-time.
+            <br><br>
+            <center>
+            <img src="./img/Spring_properties.jpg">
+            </center>
+            <br><br>
+            <center><strong>Working At Start</strong></center>
+            <br>
+            If this option is not checked, the elastic force will be enabled only when the Spring
+            object is <em>started</em> by another object, like for example
+            <a href="./EventOnInput.htm">EventOnInput</a>.
+            <br><br>
+            In this case, while the application point for the 'body A' is the relative
+            location you defined in the Virtual Editor, for the second object (body B),
+            the application point will depend on object's location at the time of Spring activation.
+            <br><br>
+            <center><strong>Parameters</strong></center>
+            <br>
+            Spring strength and spring damping factors allow you to set the 'bounciness' and the
+            'stiffness' of the spring respectively.
+            <br><br>
+            <center><strong>Relationships</strong></center>
+            <br>
+            This list defines how the Spring object relates to the objects linked to it. 
+            The following relationship types are supported:
+            <br><br>
+            <li>IGNORE. Do nothing.</li>
+            <br><br>
+            <li>BODY A. Attach the one tip of the spring to this object.
+            The primary connection point of the spring will always be relative to this object.</li>
+            <br><br>
+            <li>BODY B (OPTIONAL). The second object to attach the spring to.
+            If not specified, the secondary connection point of the spring will be fixed, at the current spring object location.</li>
+            <br><br>
+            NOTE: Specifying more than one single object as body A or more than one single object as body B is not recommended.
+            Resulting behavior is undefined.
+            <br><br>
+            <br><br>
+            <center>For information about the remaining controls, please <a href="./AllObjects.htm">click here</a>.</center>
+            <br><br><br>
+            <center><strong>INTERNAL PARAMETERS</strong></center>
+            <br><br>
+            The following internal parameters can be accessed by using <em>event</em> objects like
+            <a href="./EventOnValue.htm">EventOnValue</a> or <a href="./Script.htm">Script</a>:
+            <br><br>
+            <li>Spring strength</li>
+            <li>Spring damping</li>
+         </p>
+         </font>
+      </td>
+      <td width="174"></td>
+   </tr>
+
+   <tr>
+      <td width="26" bgcolor="#00002F"></td>
+      <td width="112" bgcolor="#00002F"></td>
+      <td width="24" bgcolor="#00002F"></td>
+      <td width="598" colspan="3"><img src="./img/main_logo_bottom.jpg" width="598" height="103"></td>
+   </tr>
+
+</table>
+
+</body>
+
+</html>

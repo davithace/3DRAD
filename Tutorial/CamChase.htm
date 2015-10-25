@@ -1,0 +1,229 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+
+<head>
+   <title>
+      Chasing Camera, 3D Rad
+   </title>
+
+   <META
+      content="Chase Camera, 3D Rad"
+      name="keywords">
+
+</head>
+
+<body bgcolor="#000000" text="#909080" link="#F0E0E0" vlink="#F0E0E0" alink="#F0E0E0">
+
+<table border="0" cellpadding="0" cellspacing="0" width="760">
+
+   <tr>
+      <td width="760" colspan="6"><img src="./img/main_logo.jpg" width="760" height="182"></td>
+   </tr>
+
+   <tr>
+      <td width="26" bgcolor="#00002F"></td>
+      <td width="112" bgcolor="#00002F" valign="top">
+         <br>
+         <p>
+            <a href="http://www.3drad.com/">
+            <font color="#909080" size="1" face="Verdana">
+               <strong>WHAT IS<br>3D RAD?<br>CLICK HERE<br>TO FIND OUT!</strong>
+            </font>
+            </a>
+         </p>
+         <br>
+      </td>
+      <td width="24" bgcolor="#00002F"></td>
+      <td width="24"></td>
+      <td width="400">
+         <h1 align="center">
+            <font size="4" face="Verdana">
+               CamChase<br>
+            </font>
+         </h1>
+         <font size="2" face="Verdana">
+         <p>
+            <center>
+            <img src="./img/CamChase.jpg" width="128" height="128" align="center" border="0">
+            </center>
+            <br>
+            This camera takes and chases any object you specify as target.
+            <br><br>
+            By positioning the camera and its target in the Virtual Editor, you
+            specify the relative location (offset) the camera will try to keep while the target moves around.
+            <br><br>
+            All active objects that are linked to the camera in the List Editor are considered as targets,
+            but only one of them is actually used runtime.
+            <br><br>
+            If no target is defined the camera holds the position you set in the Virtual Editor.
+            <br><br>
+            Please see <a href="http://www.3drad.com/CamChaseSettings.htm">this tutorial</a> for examples of usage.
+            <br><br>
+            <center>
+            <img src="./img/CamChase_properties.jpg">
+            </center>
+            <br><br>
+            <center><strong>Filter</strong></center>
+            <br>
+            Camera filters apply special post-processing effects to the rendered scene.
+            Each effect comes with default parameters. You can alter these parameters run-time by using a script.
+            Please see the <em>INTERNAL PARAMETERS</em> section below for details.
+            <br><br>
+            <center><strong>Parameters</strong></center>
+            <br>
+            <strong>Rotation Speed (from 0 to 1)</strong>.
+            Quickness of camera rotation, when taking a moving object. Zero will cause the camera to not
+            rotate at all, and 1.0 will cause the camera to align with the target immediately.
+            <br><br>
+            <strong>Translation Speed (from 0 to 1)</strong>.
+            Quickness of camera translation, when chasing an object. Zero will set a still camera,
+            and 1.0 will cause the camera to reach its offset location immediately.
+            <br><br>
+            <strong>Field of view, in degrees</strong>.
+            The lower the value, the more zoomed the scene.
+            <br><br>
+            A negative value switches the camera to orthogonal projection mode.
+            In this case, view width (zooming) is defined by the absolute value of FOV.
+            For example, -5.0 sets a 5.0 meter wide view.
+            <br><br>
+            Note that orthogonal projection cannot render SkyBox objects.
+            Make sure the orthogonal camera is properly located as objects too far or too
+            close or behind the camera are not rendered!
+            <br><br>
+            <strong>Ignore actor orientation</strong>.
+            If not checked, the camera will consider its relative Virtual Editor position from the
+            target object as a rigid offset. It means that the camera will try to keep
+            its relative position while the target object rotates. This feature can be used
+            to implement on-board cameras, for example.
+            <br><br>
+            <strong>No tilting</strong>.
+            If checked, the camera will never tilt. Make sure this setting is not selected
+            when the CamChase object is used as an on-board camera for example.
+            <br><br>
+            <center><strong>Viewport</strong></center>
+            <br>
+            <strong>Rendering At Start</strong>.
+            If not checked, the camera will not display the scene when the project is launched.
+            Run-time, you can enable/disable rendering by 'showing/hiding' the camera object by using event objects like
+            <a href="./EventOnInput.htm">EventOnInput</a>.
+            <br><br>
+            <strong>Mirror</strong>.
+            If checked, the camera will render a mirror view of the scene.
+            This can be used to implement rear-view mirrors in a racing game for example.
+            <br><br>
+            <strong>Horizontal position (0-1)</strong>.
+            The screen position of the viewport's top/left corner, between 0.0 (left margin) and 1.0 (right margin).
+            <br><br>
+            <strong>Vertical position (0-1)</strong>.
+            The screen position of the viewport's top/left corner. Zero is the left margin of the screen, 1 is the right margin.
+            <br><br>
+            <strong>Width/Height (0-1)</strong>.
+            Viewport size, between 0.0 and 1.0 (full width/height, as big as the screen).
+            <br><br>
+            <strong>Visibility distance (meters)</strong>.
+            Objects beyond the specified distance will not be rendered.
+            Excluding from rendering the distant features of a large scene
+            can improve frame-rate on slower systems.
+            <br><br>
+            <strong>Rendering statistics</strong>.
+            If checked, the camera will allow tracking of the number of rendered pixels for SkinMesh
+            objects. Please <a href="./SkinMesh.htm">SkinMesh object's help file</a> for details.
+            <br><br>
+            <strong>Listener</strong>.
+            By default, if multiple cameras are active on screen at the same time (split-screen, rear-mirrors etc) the foremost
+            camera is automatically used as listener (the reference point for all 3d sounds in the scene). 
+            Un-checking the <em>Listener</em> option will prevent the CamChase object from being used as listener.
+            <br><br>
+            <center><strong>Look-at offset</strong></center>
+            <br>
+            The camera takes a specific point on the object.
+            This point is defined as an offset relative to the natural object's model center.
+            <br><br>
+            For example, assuming the offset from the model's center (look-at offset) is a point on the front bumper of a car,
+            this point on the car bumper will still be the camera target when the car moves or rotates.
+            <br><br>
+            <center><strong>Shaking / intensity</strong></center>
+            <br>
+            If the camera is linked to another object in the Object List, then it supports
+            several shaking effects you can use to boost realism for your projects by
+            simulating camera human handling, quakes, dinosaur steps, vibrations caused by high speed and so on.
+            <br><br>
+            The intensity factor sets the shaking amplitude, frequency, or both, depending on the selected effect.
+            <br><br>
+            Note that the intensity factor can also be controlled run-time by using event objects or a script (see
+            <em>Internal Parameters</em> section, below).
+            <br><br>
+            <center><strong>Relationships</strong></center>
+            <br>
+            This list defines how the CamChase object relates to the objects linked to it. 
+            The following relationship types are supported:
+            <br><br>
+            <li>IGNORE. Do nothing.</li>
+            <br><br>
+            <li>CHASE. This object is the camera target.
+            <br><br>
+            NOTE: specifying more than one single object as target is not recommended.
+            Resulting behavior is undefined.</li>
+            <br><br>
+            <li>AVOID. If this object is solid (supports collision detection) the camera will try to avoid
+            passing through it.
+            <br><br>
+            NOTE: the avoidance algorithm is only guaranteed to work when the <em>Translation Speed</em> parameter (see above) is below 1.0.</li>
+            <br><br>
+            <li>RENDER TARGET. If this object is a SkinMesh, replace all its textures with the scene rendered by this camera.
+            The camera will no longer render on the screen, rendering instead into the target SkinMesh's textures.
+            <br><br>
+            This can be used for example to implement virtual monitors (like the screen of a CCTV in a 3d scene).
+            For an example of usage, please see the CameraTextureDemo project (in 3D Rad press Ctrl+O to access available demo projects).</li>
+            <br><br>
+            <li>LOOK-AT. If an object is marked as 'LOOK-AT', the camera will look at it, while still following any object marked as 'CHASE', as usual. 
+            <br><br>
+            If multiple objects are marked as 'LOOK-AT', the camera will look at the closest. 
+            <br><br>
+            Example of usage is a camera following a walking character (CHASE) but looking at a monster (LOOK-AT). 
+            <br><br>
+            If the 'LOOK-AT' object is a 'dummy' invisible SkinMesh, you can dynamically place the dummy SkinMesh
+            anywhere in the scene to change camera target, while still following the actor.</li>
+            <br><br>
+
+            <center><strong>Other dialog controls</strong></center>
+            <br>
+            For information about the remaining controls, please <a href="./AllObjects.htm">click here</a>..
+
+            <br><br><br>
+            <center><strong>INTERNAL PARAMETERS</strong></center>
+            <br><br>
+            The following internal parameters can be modified by using the <a href="./Script.htm">Script</a> object:
+            <br><br>
+            <li>Field Of View, write only</li>
+            <br><br>
+            <li>Shaking intensity, write only</li>
+            <br><br>
+            <li>Camera Filter, write only.<br>Set this parameter to 1 to activate Blur effect, 2 for Bloom etc.</li>
+            <br><br>
+            <li>Camera Filter Parameter A, write only.<br>Blur intensity or<br>Bloom luminance.</li>
+            <br><br>
+            <li>Camera Filter Parameter B, write only.<br>Bloom mid-gray.</li>
+            <br><br>
+            <li>Camera Filter Parameter C, write only.<br>Bloom white-cutoff.</li>
+            <br><br>
+            <li>Camera Filter Parameter D, write only.<br>Bloom intensity.</li>
+         </p>
+         </font>
+      </td>
+      <td width="174"></td>
+   </tr>
+
+   <tr>
+      <td width="26" bgcolor="#00002F"></td>
+      <td width="112" bgcolor="#00002F"></td>
+      <td width="24" bgcolor="#00002F"></td>
+      <td width="598" colspan="3"><img src="./img/main_logo_bottom.jpg" width="598" height="103"></td>
+   </tr>
+
+</table>
+
+</body>
+
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+
+<head>
+   <title>
+      Wind, 3D Rad
+   </title>
+
+   <META
+      content="Wind,Lift,Sail,3D Rad"
+      name="keywords">
+</head>
+
+<body bgcolor="#000000" text="#909080" link="#F0E0E0" vlink="#F0E0E0" alink="#F0E0E0">
+
+<table border="0" cellpadding="0" cellspacing="0" width="760">
+
+   <tr>
+      <td width="760" colspan="6"><img src="./img/main_logo.jpg" width="760" height="182"></td>
+   </tr>
+
+   <tr>
+      <td width="26" bgcolor="#00002F"></td>
+      <td width="112" bgcolor="#00002F" valign="top">
+         <br>
+         <p>
+            <a href="http://www.3drad.com/">
+            <font color="#909080" size="1" face="Verdana">
+               <strong>WHAT IS<br>3D RAD?<br>CLICK HERE<br>TO FIND OUT!</strong>
+            </font>
+            </a>
+         </p>
+         <br>
+      </td>
+      <td width="24" bgcolor="#00002F"></td>
+      <td width="24"></td>
+      <td width="400">
+         <h1 align="center">
+            <font size="4" face="Verdana">
+               Wind<br>
+            </font>
+         </h1>
+         <font size="2" face="Verdana">
+         <p>
+            <center>
+            <img src="./img/Wind.jpg" width="128" height="128" align="center" border="0">
+            </center>
+            <br>
+            The Wind object is typically used to simulate the effect of flowing air for the <a href="./Airfoil.htm">Airfoil</a> object,
+            to implement sailing boats, gliders, kites, windmills etc.
+            <br><br>
+            By adjusting Airfoil object settings you can also simulate other fluid streams, like water (for boat rudder, daggerboard, keel, oars etc).
+            <br><br>
+            To enable the effect, simply link the Wind object to Airfoil objects in your project.
+            <br><br>
+            The Wind object will also work with <a href="./Particles.htm">Particles</a> and <a href="./Trail.htm">Trail</a> objects.
+            <br><br>
+            Multiple instances of the Wind object can be added to your project.
+            This allows you, for example, to configure them differently and enable/disable them run-time by
+            using event objects to achieve changing weather effects.
+            <br><br>
+            More sophisticated effects can be achieved by manipulating Wind object's orientation (wind direction) and
+            gushing velocity run-time by using a Script object.
+            <br><br>
+            <center>
+            <img src="./img/Wind_properties.jpg">
+            </center>
+            <br><br>
+            <center><strong>REMARKS</strong></center>
+            <br><br>
+            <li>Wind speed and direction can be altered run-time by using event objects and scripts, but the changes may
+            take a few instants to be applied to airfoils, particles and trails.</li>
+            <br><br>
+            <li>Setting wind speed too high may cause airfoils linked to RigidBody objects with low mass to apply
+            excessive lift/drag forces to the system, causing inaccurate simulation.</li>
+            <br><br>
+            <li>Particles that are emitted before the Wind object is activated (started) will not be affected by wind.</li>
+            <br><br><br>
+            <center><strong>INTERNAL PARAMETERS</strong></center>
+            <br><br>
+            The following internal parameters can be accessed by using <em>event</em> objects like
+            <a href="./EventOnValue.htm">EventOnValue</a> or <a href="./Script.htm">Script</a>:
+            <br><br>
+            <li>Wind speed (m/s)</li>
+         </p>
+         </font>
+      </td>
+      <td width="174"></td>
+   </tr>
+
+   <tr>
+      <td width="26" bgcolor="#00002F"></td>
+      <td width="112" bgcolor="#00002F"></td>
+      <td width="24" bgcolor="#00002F"></td>
+      <td width="598" colspan="3"><img src="./img/main_logo_bottom.jpg" width="598" height="103"></td>
+   </tr>
+
+</table>
+
+</body>
+
+</html>

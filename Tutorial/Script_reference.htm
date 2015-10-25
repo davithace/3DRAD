@@ -1,0 +1,1741 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head><title>Script Object Reference</title></head>
+<body bgcolor="#FFFFFF" text="#000000" link="#000000" vlink="#000000" alink="#000000">
+<h1 align="center"><font size="5" face="Courier New">SCRIPT OBJECT REFERENCE</font>
+</font></h1>
+<font size="2" face="Courier New">
+<hr size="1" noshade>
+<a name="0"></a>
+<center><strong>OBJECT FUNCTIONS<br>
+</strong></center><hr size="1" noshade>
+<br>
+<a name="1"></a>
+<strong>void iObjectStart(OBJ_X)<br>
+</strong>&nbsp;&nbsp;&nbsp;Start the specified object. Note that the target object must provide some 'startable' action.<br>
+&nbsp;&nbsp;&nbsp;Please see target object's help file for details on the action it performs when started.<br>
+&nbsp;&nbsp;&nbsp;OBJ_X = object handle.<br>
+<br>
+<a name="2"></a>
+<strong>void iObjectStop(OBJ_X)<br>
+</strong>&nbsp;&nbsp;&nbsp;Stop the specified object. Note that the target object must support some 'stoppable' action.<br>
+&nbsp;&nbsp;&nbsp;Please see target object's help file for details on the action it performs.<br>
+&nbsp;&nbsp;&nbsp;OBJ_X = object handle.<br>
+<br>
+<a name="3"></a>
+<strong>void iObjectSwitch(OBJ_X)<br>
+</strong>&nbsp;&nbsp;&nbsp;Switch the specified object (start if stopped and vice-versa).<br>
+&nbsp;&nbsp;&nbsp;Note that the target object must provide some 'startable/stoppable' action.<br>
+&nbsp;&nbsp;&nbsp;Please see target object's help file for details on the action it performs.<br>
+&nbsp;&nbsp;&nbsp;OBJ_X = object handle.<br>
+<br>
+<a name="4"></a>
+<strong>void iObjectShow(OBJ_X)<br>
+</strong>&nbsp;&nbsp;&nbsp;Show the specified object.<br>
+&nbsp;&nbsp;&nbsp;OBJ_X = object handle.<br>
+<br>
+<a name="5"></a>
+<strong>void iObjectHide(OBJ_X)<br>
+</strong>&nbsp;&nbsp;&nbsp;Hide the specified object.<br>
+&nbsp;&nbsp;&nbsp;OBJ_X = object handle.<br>
+<br>
+<a name="6"></a>
+<strong>void iObjectShowHideSwitch(OBJ_X)<br>
+</strong>&nbsp;&nbsp;&nbsp;Switch the specified object (show if hidden and vice-versa).<br>
+&nbsp;&nbsp;&nbsp;OBJ_X = object handle.<br>
+<br>
+<a name="7"></a>
+<strong>void iObjectReset(OBJ_X)<br>
+</strong>&nbsp;&nbsp;&nbsp;Re-initialize the specified object completely, to its default state, as defined in the project.<br>
+&nbsp;&nbsp;&nbsp;OBJ_X = object handle.<br>
+<br>
+<a name="8"></a>
+<strong>void iObjectOrientation(OBJ_X,Quaternion)<br>
+</strong>&nbsp;&nbsp;&nbsp;Return the current orientation for the specified object.<br>
+&nbsp;&nbsp;&nbsp;OBJ_X = object handle.<br>
+&nbsp;&nbsp;&nbsp;Quaternion = when the function returns this variable contains<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; the specified object's orientation.<br>
+&nbsp;&nbsp;&nbsp;NOTE: if OBJ_X is an object supporting physics and made of multiple parts (like the Car object)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this function returns the orientation of the part which was selected when the Script object<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;was linked to the object.<br>
+<br>
+<a name="9"></a>
+<strong>void iObjectOrientationSet(OBJ_X,Quaternion)<br>
+</strong>&nbsp;&nbsp;&nbsp;Set the specified object orientation (defined as a quaternion).<br>
+&nbsp;&nbsp;&nbsp;OBJ_X = object handle.<br>
+&nbsp;&nbsp;&nbsp;Quaternion = orientation.<br>
+&nbsp;&nbsp;&nbsp;NOTE: this function may cause unstable simulation if you use it to progressively alter the orientation of a<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;polygon-based RigidBody, or certain rigid-body based objects like the Car object, to make them spin.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;It will work as expected if used to spin box/sphere-based RigidBody objects instead.<br>
+<br>
+<a name="10"></a>
+<strong>void iObjectOrientationReset(OBJ_X,Quaternion)<br>
+</strong>&nbsp;&nbsp;&nbsp;Re-initialize the specified object completely, also setting its orientation (defined as a quaternion).<br>
+&nbsp;&nbsp;&nbsp;OBJ_X = object handle.<br>
+&nbsp;&nbsp;&nbsp;Quaternion = reset orientation.<br>
+&nbsp;&nbsp;&nbsp;NOTE: this function should not be used to alter the orientation of objects while their<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;physics simulation is in progress, because this may affect simulation accuracy for them.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This function should only be used to initialize or reset object orientation.<br>
+&nbsp;&nbsp;&nbsp;NOTE: use iObjectPositionReset() if you want to also reset location.<br>
+<br>
+<a name="11"></a>
+<strong>void iObjectLocation(OBJ_X,Vector3)<br>
+</strong>&nbsp;&nbsp;&nbsp;Return the current location for the specified object.<br>
+&nbsp;&nbsp;&nbsp;OBJ_X = object handle.<br>
+&nbsp;&nbsp;&nbsp;Vector3 = when the function returns this variable contains<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the specified object's location.<br>
+&nbsp;&nbsp;&nbsp;NOTE: if OBJ_X is an object supporting physics and made of multiple parts (like the Car object)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this function returns the location of the part which was selected when the Script object<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;was linked to the object.<br>
+<br>
+<a name="12"></a>
+<strong>void iObjectLocationSet(OBJ_X,Vector3)<br>
+</strong>&nbsp;&nbsp;&nbsp;Set the specified object to the specified position.<br>
+&nbsp;&nbsp;&nbsp;OBJ_X = object handle.<br>
+&nbsp;&nbsp;&nbsp;Vector3 = location.<br>
+&nbsp;&nbsp;&nbsp;NOTE: this function may cause unstable simulation if you use it to progressively alter the location of a<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;polygon-based RigidBody, or certain rigid-body based objects like the Car object, to make them move.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;It will work as expected if used to move box/sphere-based RigidBody objects instead.<br>
+<br>
+<a name="13"></a>
+<strong>void iObjectLocationReset(OBJ_X,Vector3)<br>
+</strong>&nbsp;&nbsp;&nbsp;Re-initialize the specified object completely, also setting its location to the specified position.<br>
+&nbsp;&nbsp;&nbsp;OBJ_X = object handle.<br>
+&nbsp;&nbsp;&nbsp;Vector3 = reset location.<br>
+&nbsp;&nbsp;&nbsp;NOTE: this function should not be used to alter the location of objects while their<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;physics simulation is in progress, because this may affect simulation accuracy for them.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This function should only be used to initialize or reset object location.<br>
+&nbsp;&nbsp;&nbsp;NOTE: use iObjectPositionReset() if you want to also reset orientation.<br>
+<br>
+<a name="14"></a>
+<strong>void iObjectPositionReset(OBJ_X,Quaternion,Vector3)<br>
+</strong>&nbsp;&nbsp;&nbsp;Re-initialize the specified object completely, also setting its position (orientation and location).<br>
+&nbsp;&nbsp;&nbsp;OBJ_X = object handle.<br>
+&nbsp;&nbsp;&nbsp;Quaternion = reset orientation.<br>
+&nbsp;&nbsp;&nbsp;Vector3 = reset location.<br>
+&nbsp;&nbsp;&nbsp;NOTE: this function should not be used to alter the position of objects while their<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;physics simulation is in progress, because this may affect simulation accuracy for them.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This function should only be used to initialize or reset object position.<br>
+<br>
+<a name="15"></a>
+<strong>void iObjectScaleSet(OBJ_X,Vector3)<br>
+</strong>&nbsp;&nbsp;&nbsp;Set the specified object's scale.<br>
+&nbsp;&nbsp;&nbsp;OBJ_X = object handle.<br>
+&nbsp;&nbsp;&nbsp;Vector3 = scale.<br>
+&nbsp;&nbsp;&nbsp;NOTE: this function will only work with objects that support dynamic scaling setting, like<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SkinMesh, Sprite, etc.<br>
+<br>
+<a name="16"></a>
+<strong>void iObjectScale(OBJ_X,Vector3)<br>
+</strong>&nbsp;&nbsp;&nbsp;Return the current scale for the specified SkinMesh object.<br>
+&nbsp;&nbsp;&nbsp;OBJ_X = SkinMesh object handle.<br>
+&nbsp;&nbsp;&nbsp;Vector3 = when the function returns this variable contains<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the specified SkinMesh object's scale.<br>
+&nbsp;&nbsp;&nbsp;NOTE: this function only supports SkinMesh objects.<br>
+<br>
+<a name="17"></a>
+<strong>float iObjectKmh(OBJ_X)<br>
+</strong>&nbsp;&nbsp;&nbsp;Return the specified object speed, in kilometers per hour (KPH).<br>
+&nbsp;&nbsp;&nbsp;OBJ_X = object handle. Must be an object supporting physics, like RigidBody, Car, Ball.<br>
+&nbsp;&nbsp;&nbsp;NOTE: you can compute miles per hour with MPH = KPH*0.6215<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;To find meters per second use M/SEC = KPH*0.277778<br>
+<br>
+<a name="18"></a>
+<strong>iObjectVelocity(OBJ_X,Vector3)<br>
+</strong>&nbsp;&nbsp;&nbsp;Return the specified object velocity, in meters per second.<br>
+&nbsp;&nbsp;&nbsp;OBJ_X = object handle. Must be an object supporting physics, like RigidBody, Car, Ball.<br>
+&nbsp;&nbsp;&nbsp;Vector3 = velocity vector. Return data.<br>
+<br>
+<a name="19"></a>
+<strong>iObjectVelocitySet(OBJ_X,Vector3)<br>
+</strong>&nbsp;&nbsp;&nbsp;Set the specified object velocity, in meters per second.<br>
+&nbsp;&nbsp;&nbsp;OBJ_X = object handle. Must be an object supporting physics, like RigidBody, Car, Ball.<br>
+&nbsp;&nbsp;&nbsp;Vector3 = velocity vector.<br>
+&nbsp;&nbsp;&nbsp;NOTE: this function should not be used to alter the velocity of objects while their<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;physics simulation is in progress, because this may affect simulation accuracy for them.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This function should only be used to initialize or reset object velocity.<br>
+<br>
+<a name="20"></a>
+<strong>iObjectSpin(OBJ_X,Vector3)<br>
+</strong>&nbsp;&nbsp;&nbsp;Return the specified object spin.<br>
+&nbsp;&nbsp;&nbsp;OBJ_X = object handle. Must be an object supporting physics, like RigidBody, Car, Ball.<br>
+&nbsp;&nbsp;&nbsp;Vector3 = spin vector.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The vector direction is the axis of rotation (absolute).<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The length of the vector is the rotation speed (spin), in degrees per second.<br>
+<br>
+<a name="21"></a>
+<strong>iObjectSpinSet(OBJ_X,Vector3)<br>
+</strong>&nbsp;&nbsp;&nbsp;Set the specified object spin, in degrees per second.<br>
+&nbsp;&nbsp;&nbsp;OBJ_X = object handle. Must be an object supporting physics, like RigidBody, Car, Ball.<br>
+&nbsp;&nbsp;&nbsp;Vector3 = spin vector. The direction of the vector is the spin axis. The length of the vector is the angular velocity.<br>
+&nbsp;&nbsp;&nbsp;NOTE: this function should not be used to alter the spin of objects while their<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;physics simulation is in progress, because this may affect simulation accuracy for them.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This function should only be used to initialize or reset object spin.<br>
+<br>
+<a name="22"></a>
+<strong>iObjectTorqueApply(OBJ_X,Vector3) <br>
+</strong>&nbsp;&nbsp;&nbsp;Apply an angular force (torque) to the specified object. <br>
+&nbsp;&nbsp;&nbsp;OBJ_X = object handle <br>
+&nbsp;&nbsp;&nbsp;Vector3 = torque. <br>
+&nbsp;&nbsp;&nbsp;Vector direction is the axis of rotation (absolute). <br>
+&nbsp;&nbsp;&nbsp;Length of the vector is angular force (torque) intensity. <br>
+&nbsp;&nbsp;&nbsp;NOTE: because resulting angular velocity depends on total object mass,<br>
+&nbsp;&nbsp;&nbsp;using iObjectAngularAccelerationApply() can be easier. <br>
+<br>
+<a name="23"></a>
+<strong>iObjectAngularAccelerationApply(OBJ_X,Vector3) <br>
+</strong>&nbsp;&nbsp;&nbsp;OBJ_X = object handle <br>
+&nbsp;&nbsp;&nbsp;Vector3 = angular acceleration, in degrees-per-second^2. <br>
+&nbsp;&nbsp;&nbsp;Vector direction is the axis of rotation (absolute). <br>
+&nbsp;&nbsp;&nbsp;Length of the vector is angular acceleration intensity. <br>
+<br>
+<a name="24"></a>
+<strong>iObjectForceApply(OBJ_X,Vector3,Vector3) <br>
+</strong>&nbsp;&nbsp;&nbsp;OBJ_X = object handle <br>
+&nbsp;&nbsp;&nbsp;Vector3 = force. <br>
+&nbsp;&nbsp;&nbsp;Vector3 = point the force is applied to. <br>
+&nbsp;&nbsp;&nbsp;Point coordinates are object-center-of-mass relative. If NULL, the <br>
+&nbsp;&nbsp;&nbsp;center of mass is assumed. <br>
+&nbsp;&nbsp;&nbsp;NOTE: resulting acceleration depends on total object mass. For example, if you apply <br>
+&nbsp;&nbsp;&nbsp;one-meter-long force-vector to a still object with mass=5, for one second, <br>
+&nbsp;&nbsp;&nbsp;the object will travel 1/5 meters (0.2f). If you apply the same force to an object with <br>
+&nbsp;&nbsp;&nbsp;mass=1, it will travel 1.0f meter instead. <br>
+&nbsp;&nbsp;&nbsp;Using iObjectAccelerationApply() is probably easier, if the application point <br>
+&nbsp;&nbsp;&nbsp;is the object's center of mass. <br>
+<br>
+<a name="25"></a>
+<strong>iObjectAccelerationApply(OBJ_X,Vector3) <br>
+</strong>&nbsp;&nbsp;&nbsp;OBJ_X = object handle <br>
+&nbsp;&nbsp;&nbsp;Vector3 = acceleration, in meters-per-second^2. <br>
+&nbsp;&nbsp;&nbsp;The length of the vector is acceleration intensity. <br>
+<br>
+<a name="26"></a>
+<strong>iObjectDampingApply(OBJ_X,float,float,float,bool,bool) <br>
+</strong>&nbsp;&nbsp;&nbsp;Apply damping factors individually to each axis of the specified rigid-body-based object (RigidBody, Car, PCar etc).<br>
+&nbsp;&nbsp;&nbsp;OBJ_X = object handle<br>
+&nbsp;&nbsp;&nbsp;float,float,float = damping factors for X, Y and Z axes.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Recommended damping values are between 0.0 (no damping) and 1.0 (maximum damping).<br>
+&nbsp;&nbsp;&nbsp;bool = set this parameter to 'true' to apply the damping factor to object's rotation.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Set it to false to apply the damping factors to object's translation. <br>
+&nbsp;&nbsp;&nbsp;bool = set this parameter to 'true' to use object's local axes as reference.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Set it to false to use world space axes as reference.<br>
+&nbsp;&nbsp;&nbsp;NOTE: this function must be called at every script loop in order to work properly.<br>
+<br>
+<a name="27"></a>
+<strong>float iObjectPicked(OBJ_X,Vector3)<br>
+</strong>&nbsp;&nbsp;&nbsp;If the specified object is clicked by using any mouse button, this function returns the pick location distance from<br>
+&nbsp;&nbsp;&nbsp;the current camera (viewport). The function returns always zero if the object is a Sprite.<br>
+&nbsp;&nbsp;&nbsp;It returns a negative value if the specified object was not picked.<br>
+&nbsp;&nbsp;&nbsp;OBJ_X = object handle.<br>
+&nbsp;&nbsp;&nbsp;Vector3 = when the function returns, if the object was picked, then this variable contains<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the world-relative coordinates of the pick location.<br>
+&nbsp;&nbsp;&nbsp;NOTE: when picking Sprite objects, please keep in mind that the whole original sprite-image is<br>
+&nbsp;&nbsp;&nbsp;used as a reference. Therefore any transparent pixels in the image can be picked.<br>
+&nbsp;&nbsp;&nbsp;NOTE: when picking an animated 3D object, please keep in mind that, because this function uses<br>
+&nbsp;&nbsp;&nbsp;the original, un-morphed geometry as a reference, picking may not be accurate.<br>
+<br>
+<a name="28"></a>
+<strong>int iObjectScan(OBJ_X,Vector3,Vector3,float,Vector3,Vector3)<br>
+</strong>&nbsp;&nbsp;&nbsp;Return true if the specified object was hit by the scan.<br>
+&nbsp;&nbsp;&nbsp;OBJ_X = object handle.<br>
+&nbsp;&nbsp;&nbsp;Vector3 = scan origin<br>
+&nbsp;&nbsp;&nbsp;Vector3 = scan direction. The length of this vector will be the length of the scanning capsule.<br>
+&nbsp;&nbsp;&nbsp;float = scan radius (capsule radius)<br>
+&nbsp;&nbsp;&nbsp;Vector3 = contact point (absolute coordinates). Return data.<br>
+&nbsp;&nbsp;&nbsp;Vector3 = contact normal (absolute orientation, outward from body surface). Return data.<br>
+&nbsp;&nbsp;&nbsp;NOTE: the scan is performed checking the specified capsule against the specified object, for<br>
+&nbsp;&nbsp;&nbsp;intersections. Only the intersection closer to origin is considered, in case the<br>
+&nbsp;&nbsp;&nbsp;capsule intersects the object at two or more points.<br>
+&nbsp;&nbsp;&nbsp;NOTE: this function will only work with objects supporting collision detection.<br>
+&nbsp;&nbsp;&nbsp;IMPORTANT: intersections within 'scan radius' from the 'scan origin' are not detected!<br>
+&nbsp;&nbsp;&nbsp;Make sure your scan starts 'radius' meters before the possible intersection area.<br>
+<br>
+<a name="29"></a>
+<strong>iObjectTextSet(OBJ_X,string)<br>
+</strong>&nbsp;&nbsp;&nbsp;Set the specified text for the specified object (for example the TextPrint object)<br>
+&nbsp;&nbsp;&nbsp;OBJ_X = object handle.<br>
+&nbsp;&nbsp;&nbsp;string = text<br>
+<br>
+<a name="30"></a>
+<strong>iObjectParamSet(OBJ_X,int,float)<br>
+</strong>&nbsp;&nbsp;&nbsp;Set special internal parameters for the specified object. This function currently only supports the PCar object.<br>
+&nbsp;&nbsp;&nbsp;OBJ_X = object handle.<br>
+&nbsp;&nbsp;&nbsp;int = parameter identifier. For a complete list and an example of usage please see demo project named PCarScriptedDemo.<br>
+&nbsp;&nbsp;&nbsp;float = parameter value.<br>
+<br>
+<a name="31"></a>
+<strong>void iObjectRefresh(OBJ_X,string)<br>
+</strong>&nbsp;&nbsp;&nbsp;Change the resources (3d models, textures, etc) associated with the specified object.<br>
+&nbsp;&nbsp;&nbsp;This function is typically used to update SkinMesh, RigidBody, SkyBox or Sprite object<br>
+&nbsp;&nbsp;&nbsp;geometry/aspect run-time, for example after the new artwork has been downloaded from<br>
+&nbsp;&nbsp;&nbsp;a server (website) by using the iFileDownload() function.<br>
+&nbsp;&nbsp;&nbsp;For an example of usage, see the demo project called WebDownloadDemo.3dr<br>
+&nbsp;&nbsp;&nbsp;OBJ_X = object handle.<br>
+&nbsp;&nbsp;&nbsp;string = path to the folder containing the new resource file or files. If a local path is specified (e.g. ".\\") this is relative<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to the current 3D Rad folder or your compiled project folder.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IMPORTANT: the destination object (OBJ_X parameter) will try to load the proper file or files from the specified folder.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Make sure the destination folder contains the files to be loaded with the proper names (for example, a SkinMesh<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;object will try to load a files named 000_mesh.x, 000_shadow.x etc).<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NOTE: if the destination folder is a SoundEffect or a SoundSource object, the file path must include the file name to use<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to replace the current sound.<br>
+&nbsp;&nbsp;&nbsp;NOTE: if the object is a SkinMesh based on frame-by-frame animation, the new<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;assets must provide the same number of frames.<br>
+&nbsp;&nbsp;&nbsp;NOTE: this function doesn't work for RigidBody objects that use a bounding sphere<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for collision detection.<br>
+<br>
+<a name="32"></a>
+<strong>int iObjectBonesCount(OBJ_X)<br>
+</strong>&nbsp;&nbsp;&nbsp;Return the number of bones in the specified object (usually a SkinMesh).<br>
+&nbsp;&nbsp;&nbsp;OBJ_X = object handle.<br>
+&nbsp;&nbsp;&nbsp;NOTE: depending on the software used to generate the .x skinned model, the returned<br>
+&nbsp;&nbsp;&nbsp;value may or may not include null bones, therefore returned bone count tends to be<br>
+&nbsp;&nbsp;&nbsp;bigger than the number of actual bones edited in the 3d modeling application.<br>
+<br>
+<a name="33"></a>
+<strong>void iObjectBoneOrientation(OBJ_X,int,Quaternion,int)<br>
+</strong>&nbsp;&nbsp;&nbsp;Return specified object's bone orientation.<br>
+&nbsp;&nbsp;&nbsp;OBJ_X = object handle.<br>
+&nbsp;&nbsp;&nbsp;int = index of the bone. This value must be between 0 (first bone) and iObjectBonesCount()-1.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Each bone in the model is indexed by the software used to generate the .x<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;skinned model. There is no easy way to predict what index will be assigned<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to a particular bone.<br>
+&nbsp;&nbsp;&nbsp;Quaternion = orientation. Return data.<br>
+&nbsp;&nbsp;&nbsp;int = orientation type.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0 = world-relative.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1 = object-relative.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2 = parent-bone relative.<br>
+<br>
+<a name="34"></a>
+<strong>iObjectBoneLocation(OBJ_X,int,Vector3,int)<br>
+</strong>&nbsp;&nbsp;&nbsp;Return specified object's bone location.<br>
+&nbsp;&nbsp;&nbsp;OBJ_X = object handle.<br>
+&nbsp;&nbsp;&nbsp;int = index of the bone. This value must be between 0 (first bone) and iObjectBonesCount()-1.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Each bone in the model is indexed by the software used to generate the .x<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;skinned model. There is no easy way to predict what index will be assigned<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to a particular bone.<br>
+&nbsp;&nbsp;&nbsp;Vector3 = location. Return data.<br>
+&nbsp;&nbsp;&nbsp;int = location type.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0 = world-relative.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1 = object-relative.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2 = parent-bone relative.<br>
+<br>
+<a name="35"></a>
+<strong>void iObjectBoneOrientationSet(OBJ_X,int,Quaternion,int)<br>
+</strong>&nbsp;&nbsp;&nbsp;Set specified object's bone orientation.<br>
+&nbsp;&nbsp;&nbsp;OBJ_X = object handle.<br>
+&nbsp;&nbsp;&nbsp;int = index of the bone. This value must be between 0 (first bone) and iObjectBonesCount()-1.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Each bone in the model is indexed by the software used to generate the .x<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;skinned model. There is no easy way to predict what index will be assigned<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to a particular bone.<br>
+&nbsp;&nbsp;&nbsp;Quaternion = orientation.<br>
+&nbsp;&nbsp;&nbsp;int = orientation type.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0 = world-relative.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1 = object-relative.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2 = parent-bone relative.<br>
+&nbsp;&nbsp;&nbsp;NOTE: this function must be called at every script loop in order to work as expected.<br>
+&nbsp;&nbsp;&nbsp;NOTE: for an example of usage, please see the SkinMeshBoneControlDemo.3dr sample project.<br>
+<br>
+<a name="36"></a>
+<strong>iObjectBoneLocationSet(OBJ_X,int,Vector3)<br>
+</strong>&nbsp;&nbsp;&nbsp;Set specified object's bone location (parent-bone relative coordinates).<br>
+&nbsp;&nbsp;&nbsp;OBJ_X = object handle.<br>
+&nbsp;&nbsp;&nbsp;int = index of the bone. This value must be between 0 (first bone) and iObjectBonesCount()-1.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Each bone in the model is indexed by the software used to generate the .x<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;skinned model. There is no easy way to predict what index will be assigned<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to a particular bone.<br>
+&nbsp;&nbsp;&nbsp;Vector3 = location (parent-bone relative).<br>
+&nbsp;&nbsp;&nbsp;NOTE: this function must be called at every script loop in order to work as expected.<br>
+<br>
+<a name="37"></a>
+<strong>iObjectBoneScaleSet(OBJ_X,int,Vector3)<br>
+</strong>&nbsp;&nbsp;&nbsp;Set specified object's bone scale.<br>
+&nbsp;&nbsp;&nbsp;OBJ_X = object handle.<br>
+&nbsp;&nbsp;&nbsp;int = index of the bone. This value must be between 0 (first bone) and iObjectBonesCount()-1.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Each bone in the model is indexed by the software used to generate the .x<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;skinned model. There is no easy way to predict what index will be assigned<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to a particular bone.<br>
+&nbsp;&nbsp;&nbsp;Vector3 = scale.<br>
+&nbsp;&nbsp;&nbsp;NOTE: this function must be called at every script loop in order to work as expected.<br>
+<br>
+<a name="38"></a>
+<strong>iObjectEnvMapFocusSet(OBJ_X,Vector3)<br>
+</strong>&nbsp;&nbsp;&nbsp;Set the focus location for the environment map associated with the specified SkinMesh object.<br>
+&nbsp;&nbsp;&nbsp;OBJ_X = SkinMesh object handle.<br>
+&nbsp;&nbsp;&nbsp;Vector3 = focus location, absolute coordinates.<br>
+<br>
+<a name="39"></a>
+<strong>iObjectImpostersCreate(OBJ_X,int)<br>
+</strong>&nbsp;&nbsp;&nbsp;Create the specified number of imposters for the object (must be SkinMesh).<br>
+&nbsp;&nbsp;&nbsp;Imposters are clones of the main SkinMesh object that can be placed by using the iObjectImposterSet() function.<br>
+&nbsp;&nbsp;&nbsp;They render faster than multiple identical SkinMesh objects because the video card doesn't have to re-load<br>
+&nbsp;&nbsp;&nbsp;the 3d model's data for each rendered item.<br>
+&nbsp;&nbsp;&nbsp;OBJ_X = SkinMesh object handle.<br>
+&nbsp;&nbsp;&nbsp;int = number of imposters to create.<br>
+&nbsp;&nbsp;&nbsp;NOTE: this function will currently only work with SkinMesh objects that have no bone-based animation.<br>
+<br>
+<a name="40"></a>
+<strong>iObjectImpostersDestroy(OBJ_X)<br>
+</strong>&nbsp;&nbsp;&nbsp;Remove all imposters for the specified SkinMesh object.<br>
+&nbsp;&nbsp;&nbsp;OBJ_X = SkinMesh object handle.<br>
+<br>
+<a name="41"></a>
+<strong>iObjectImposterSet(OBJ_X,int,Quaternion,Vector3)<br>
+</strong>&nbsp;&nbsp;&nbsp;Set orientation and location for the specified SkinMesh object's imposter.<br>
+&nbsp;&nbsp;&nbsp;OBJ_X = SkinMesh object handle.<br>
+&nbsp;&nbsp;&nbsp;int = imposter index<br>
+&nbsp;&nbsp;&nbsp;Quaternion = orientation.<br>
+&nbsp;&nbsp;&nbsp;Vector3 = location.<br>
+<br>
+<a name="42"></a>
+<strong>iObjectImposterGet(OBJ_X,int,Quaternion,Vector3)<br>
+</strong>&nbsp;&nbsp;&nbsp;Get orientation and location for the specified SkinMesh object's imposter.<br>
+&nbsp;&nbsp;&nbsp;This function can be used for example to copy the position of a RigidBody<br>
+&nbsp;&nbsp;&nbsp;imposter to the position of a SkinMesh object imposter.<br>
+&nbsp;&nbsp;&nbsp;OBJ_X = SkinMesh object handle.<br>
+&nbsp;&nbsp;&nbsp;int = imposter index<br>
+&nbsp;&nbsp;&nbsp;Quaternion = when the function returns this variable contains<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; the specified imposter's orientation.<br>
+&nbsp;&nbsp;&nbsp;Vector3 = when the function returns this variable contains<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the specified imposter's location.<br>
+<br>
+<a name="43"></a>
+<strong>iObjectImposterScaleSet(OBJ_X,int,Vector3)<br>
+</strong>&nbsp;&nbsp;&nbsp;Set scaling for the specified SkinMesh object's imposter.<br>
+&nbsp;&nbsp;&nbsp;OBJ_X = SkinMesh object handle.<br>
+&nbsp;&nbsp;&nbsp;int = imposter index<br>
+&nbsp;&nbsp;&nbsp;Vector3 = scaling. X, Y, Z components of this vector are the local scaling factors. Original size is when the scaling factor is 1.0.<br>
+<br>
+<a name="44"></a>
+<strong>iObjectImposterHide(OBJ_X,int)<br>
+</strong>&nbsp;&nbsp;&nbsp;Hide the specified SkinMesh object's imposter.<br>
+&nbsp;&nbsp;&nbsp;OBJ_X = SkinMesh object handle.<br>
+&nbsp;&nbsp;&nbsp;int = imposter index<br>
+&nbsp;&nbsp;&nbsp;NOTE: if the imposter has a shadow, calling this function will disable it. After<br>
+&nbsp;&nbsp;&nbsp;showing the imposter again with iObjctImposterShow(), you will have to also call<br>
+&nbsp;&nbsp;&nbsp;iObjectImposterShadowEnable() to re-enable the shadow.<br>
+<br>
+<a name="45"></a>
+<strong>iObjectImposterShow(OBJ_X,int)<br>
+</strong>&nbsp;&nbsp;&nbsp;Show the specified SkinMesh object's imposter.<br>
+&nbsp;&nbsp;&nbsp;OBJ_X = SkinMesh object handle.<br>
+&nbsp;&nbsp;&nbsp;int = imposter index<br>
+<br>
+<a name="46"></a>
+<strong>iObjectImposterShadowEnable(OBJ_X,int,bool)<br>
+</strong>&nbsp;&nbsp;&nbsp;Enable/disable shadow casting for the specified SkinMesh object's imposter.<br>
+&nbsp;&nbsp;&nbsp;OBJ_X = SkinMesh object handle.<br>
+&nbsp;&nbsp;&nbsp;int = imposter index<br>
+&nbsp;&nbsp;&nbsp;bool = set this parameter to 'true' to enable shadows, 'false' to disable.<br>
+&nbsp;&nbsp;&nbsp;NOTE: calls to this function are ignored if the SkinMesh doesn't have a shadow caster itself.<br>
+&nbsp;&nbsp;&nbsp;NOTE: imposter shadows are faster than regular SkinMesh shadows, but they are still<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a computationally expensive feature, slow for video cards with a poor fill-rate.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;In some cases, enabling shadows defeats the purpose of using imposters.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+<a name="47"></a>
+<strong>iObjectImposterTorqueApply(OBJ_X,int,Vector3) <br>
+</strong>&nbsp;&nbsp;&nbsp;Apply an angular force (torque) to the specified object. <br>
+&nbsp;&nbsp;&nbsp;OBJ_X = object handle <br>
+&nbsp;&nbsp;&nbsp;int = imposter index <br>
+&nbsp;&nbsp;&nbsp;Vector3 = torque. Vector direction is the axis of rotation (absolute). <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Length of the vector is angular force (torque) intensity. <br>
+&nbsp;&nbsp;&nbsp;NOTE: resulting angular velocity depends on total object mass. <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This means that using iObjectImposterAngularAccelerationApply() may be preferable in some cases. <br>
+<br>
+<a name="48"></a>
+<strong>iObjectImposterAngularAccelerationApply(OBJ_X,int,Vector3) <br>
+</strong>&nbsp;&nbsp;&nbsp;OBJ_X = object handle <br>
+&nbsp;&nbsp;&nbsp;int = imposter index <br>
+&nbsp;&nbsp;&nbsp;Vector3 = angular acceleration, in degrees-per-second^2. <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vector direction is the axis of rotation (absolute). <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Length of the vector is angular acceleration intensity. <br>
+<br>
+<a name="49"></a>
+<strong>iObjectImposterForceApply(OBJ_X,int,Vector3,Vector3) <br>
+</strong>&nbsp;&nbsp;&nbsp;OBJ_X = object handle <br>
+&nbsp;&nbsp;&nbsp;int = imposter index <br>
+&nbsp;&nbsp;&nbsp;Vector3 = force. <br>
+&nbsp;&nbsp;&nbsp;Vector3 = point the force is applied to. <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Point coordinates are object-center-of-mass relative. If NULL, the <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;center of mass is assumed. <br>
+&nbsp;&nbsp;&nbsp;NOTE: resulting acceleration depends on total object mass. For example, if you apply <br>
+&nbsp;&nbsp;&nbsp;one-meter-long force-vector to a still object with mass=5, for one second, <br>
+&nbsp;&nbsp;&nbsp;the object will travel 1/5 meters (0.2f). If you apply the same force to an object with <br>
+&nbsp;&nbsp;&nbsp;mass=1, it will travel 1.0f meter instead. <br>
+&nbsp;&nbsp;&nbsp;This means that using iObjectImposterAccelerationApply() may be easier, if application point <br>
+&nbsp;&nbsp;&nbsp;is the object center of mass. <br>
+<br>
+<a name="50"></a>
+<strong>iObjectImposterAccelerationApply(OBJ_X,int,Vector3) <br>
+</strong>&nbsp;&nbsp;&nbsp;OBJ_X = object handle <br>
+&nbsp;&nbsp;&nbsp;int = imposter index <br>
+&nbsp;&nbsp;&nbsp;Vector3 = acceleration, in meters-per-second^2. <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The length of the vector is acceleration intensity. <br>
+<br>
+<a name="51"></a>
+<strong>iObjectImposterVelocitySet(OBJ_X,int,Vector3) <br>
+</strong>&nbsp;&nbsp;&nbsp;Set the specified object's imposter velocity, in meters per second.<br>
+&nbsp;&nbsp;&nbsp;OBJ_X = object handle. Must be a RigidBody object.<br>
+&nbsp;&nbsp;&nbsp;int = imposter index <br>
+&nbsp;&nbsp;&nbsp;Vector3 = velocity vector. <br>
+&nbsp;&nbsp;&nbsp;NOTE: this function should not be used to alter the velocity of imposters while their<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;physics simulation is in progress, because this may affect simulation accuracy for them.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This function should only be used to initialize or reset imposter velocity.<br>
+&nbsp;&nbsp;&nbsp;NOTE: calling the function for one imposter may affect the simulation of the other imposters<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;in the same batch and cause a slight performance loss, during the game loop in which the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;function is called. <br>
+<br>
+<a name="52"></a>
+<strong>iObjectChildTransform(OBJ_X,OBJ_Y,Vector3,Vector3)<br>
+</strong>&nbsp;&nbsp;&nbsp;Set angular/linear offsets for a specified object (the child) using the local space of another object (the parent) as a reference.<br>
+&nbsp;&nbsp;&nbsp;OBJ_X = parent object handle.<br>
+&nbsp;&nbsp;&nbsp;OBJ_Y = child object handle.<br>
+&nbsp;&nbsp;&nbsp;Vector3 = angular offset (vector components are Euler angles, x, y, z). <br>
+&nbsp;&nbsp;&nbsp;Vector3 = linear offset. <br>
+<br>
+<hr size="1" noshade>
+<a name="53"></a>
+<center><strong>CUSTOM SHADER FUNCTIONS<br>
+</strong></center><hr size="1" noshade>
+<br>
+<a name="54"></a>
+<strong>iShaderSet(OBJ_X,string)<br>
+</strong>&nbsp;&nbsp;&nbsp;Assign the specified shader (or post-process shader) to the specified SkinMesh (or CamChase) object. After the call to this function,<br>
+&nbsp;&nbsp;&nbsp;the SkinMesh (or camera) will be rendered by using the specified shader until the function is called again<br>
+&nbsp;&nbsp;&nbsp;with a different shader name as parameter.<br>
+&nbsp;&nbsp;&nbsp;OBJ_X = SkinMesh or CamChase object handle.<br>
+&nbsp;&nbsp;&nbsp;string = shader name. Shaders are defined as HLSL code sections, delimited by '/*HLSLSTART name' and 'HLSLEND*/' tags,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;usually at the beginning of your script code. The shader name is the string following the '/*HLSLSTART' keyword.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Please see http://www.3drad.com/custom-shaders.htm for more about writing your own shaders for 3D Rad.<br>
+&nbsp;&nbsp;&nbsp;IMPORTANT: the 'Use custom shaders' option, on the SkinMesh property dialog, must be<br>
+&nbsp;&nbsp;&nbsp;checked, before a custom shader can be applied to the SkinMesh by calling iShaderSet().<br>
+&nbsp;&nbsp;&nbsp;Or, if the object is a CamChase object, the 'User' option must be selected in the 'Filter' drop down list.<br>
+&nbsp;&nbsp;&nbsp;NOTE: the iShaderSet() function uses very little processing power and can be used to switch shader as frequently<br>
+&nbsp;&nbsp;&nbsp;as needed (for example to create special run-time visual effects).<br>
+<br>
+<a name="55"></a>
+<strong>iShaderStack(OBJ_X,string,float)<br>
+</strong>&nbsp;&nbsp;&nbsp;Add the specified post-process shader to the specified CamChase object.<br>
+&nbsp;&nbsp;&nbsp;All shaders will be processed in the same order as they are added (stacked).<br>
+&nbsp;&nbsp;&nbsp;OBJ_X = CamChase object handle.<br>
+&nbsp;&nbsp;&nbsp;string = shader name. If this is an empty string (""), the list of shaders added to the camera is reset (cleared).<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;See iShaderSet() for further information on this parameter.<br>
+&nbsp;&nbsp;&nbsp;float = scaling factor. If different than 1.0f, the render-target texture is resized after the pixel-shader is processed,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;before it is copied to the screen (or to the next render target, which is then used as source by the next pixel-shader).<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If negative (and between -1.0f and 0.0f), the pixel-shader will only operate on a smaller part of the source texture and render target.<br>
+<br>
+<a name="56"></a>
+<strong>iShaderFloatSet(OBJ_X,string,float)<br>
+</strong>&nbsp;&nbsp;&nbsp;Set a float variable for the HLSL shader associated with the specified SkinMesh or CamChase object.<br>
+&nbsp;&nbsp;&nbsp;Note that this function should be called at every script loop to work properly. Failing to do<br>
+&nbsp;&nbsp;&nbsp;so may cause visual artifacts.<br>
+&nbsp;&nbsp;&nbsp;OBJ_X = SkinMesh/CamChase object handle.<br>
+&nbsp;&nbsp;&nbsp;string = shader veriable name, as declared in the HLSL code header.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If this is an empty string (""), the data isn't immediately sent to the shader. Instead it is added to a buffer.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The buffer is then sent to the shader only when a non-null string is provided, in a subsequent call to any other<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;iShaderFloat..Set() function. This allows you to 'build' an arbitrary list of float values and send it one<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;go, for example to an arbitrarily long array of floats declared in the HLSL shader. For an example of usage, please see<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the sample project called PostProcessStacked.3dr<br>
+&nbsp;&nbsp;&nbsp;float = value to set<br>
+<br>
+<a name="57"></a>
+<strong>iShaderFloat2Set(OBJ_X,string,float,float)<br>
+</strong>&nbsp;&nbsp;&nbsp;Same as iShaderValueSet() but allowing you to set two values at a time. This is typically used<br>
+&nbsp;&nbsp;&nbsp;to set a 'float2' vector variable in your HLSL code.<br>
+<br>
+<a name="58"></a>
+<strong>iShaderFloat3Set(OBJ_X,string,float,float,float)<br>
+</strong>&nbsp;&nbsp;&nbsp;Same as iShaderValueSet() but allowing you to set 3 values at a time. This is typically used<br>
+&nbsp;&nbsp;&nbsp;to set a 'float3' vector variable in your HLSL code.<br>
+<br>
+<a name="59"></a>
+<strong>iShaderFloat4Set(OBJ_X,string,float,float,float,float)<br>
+</strong>&nbsp;&nbsp;&nbsp;Same as iShaderValueSet() but allowing you to set 4 values at a time. This is typically used<br>
+&nbsp;&nbsp;&nbsp;to set a 'float4' vector variable in your HLSL code.<br>
+<br>
+<a name="60"></a>
+<strong>iShaderFloat4x3Set(OBJ_X,string,float,float,float,float,float,float,float,float,float,float,float,float)<br>
+</strong>&nbsp;&nbsp;&nbsp;Same as iShaderValueSet() but allowing you to set 12 values at a time. This is typically used<br>
+&nbsp;&nbsp;&nbsp;to set a 'float4x3' matrix variable in your HLSL code.<br>
+<br>
+<a name="61"></a>
+<strong>iShaderFloat4x4Set(OBJ_X,string,float,float,float,float,float,float,float,float,float,float,float,float,float,float,float,float)<br>
+</strong>&nbsp;&nbsp;&nbsp;Same as iShaderValueSet() but allowing you to set 16 values at a time. This is typically used<br>
+&nbsp;&nbsp;&nbsp;to set a 'float4x4' matrix variable in your HLSL code.<br>
+<br>
+<a name="62"></a>
+<strong>iShaderViewMatrixSet(OBJ_X,string,OBJ_Y)<br>
+</strong>&nbsp;&nbsp;&nbsp;Extract the view matrix from the specified CamChase object,<br>
+&nbsp;&nbsp;&nbsp;and directly pass it to the specified SkinMesh's custom shader.<br>
+&nbsp;&nbsp;&nbsp;In the custom shader the matrix should be declared as a 'float4x4' variable.<br>
+&nbsp;&nbsp;&nbsp;OBJ_X = SkinMesh object handle.<br>
+&nbsp;&nbsp;&nbsp;string = shader veriable name, as declared in the HLSL code header.<br>
+&nbsp;&nbsp;&nbsp;OBJ_Y = camera object (rendering window) to be used as a reference.<br>
+<br>
+<a name="63"></a>
+<strong>iShaderProjectionMatrixSet(OBJ_X,string,OBJ_Y)<br>
+</strong>&nbsp;&nbsp;&nbsp;Extract the projection matrix from the specified CamChase object,<br>
+&nbsp;&nbsp;&nbsp;and directly pass it to the specified SkinMesh's custom shader. <br>
+&nbsp;&nbsp;&nbsp;In the custom shader the matrix should be declared as a 'float4x4' variable.<br>
+&nbsp;&nbsp;&nbsp;OBJ_X = SkinMesh object handle.<br>
+&nbsp;&nbsp;&nbsp;string = shader veriable name, as declared in the HLSL code header.<br>
+&nbsp;&nbsp;&nbsp;OBJ_Y = camera object (rendering window) to be used as a reference.<br>
+<br>
+<a name="64"></a>
+<strong>int iShaderTextureCreate(string)<br>
+</strong>&nbsp;&nbsp;&nbsp;Load the specified image file and return a handle to the texture object. See also iShaderTextureSet(). <br>
+&nbsp;&nbsp;&nbsp;string = source image file name (bmp, dds, dib, jpg, png, tga).<br>
+&nbsp;&nbsp;&nbsp;NOTE: creating again and again the same texture (from the same source file) will not<br>
+&nbsp;&nbsp;&nbsp;waste memory, even if the call to this function happens in different Script objects.<br>
+&nbsp;&nbsp;&nbsp;3D Rad will re-use the data already in memory, if possible.<br>
+<br>
+<a name="65"></a>
+<strong>iShaderTextureDestroy(int)<br>
+</strong>&nbsp;&nbsp;&nbsp;int = texture object handle. See iShaderTextureCreate().<br>
+&nbsp;&nbsp;&nbsp;Destroying texture objects when your project no longer uses them is not necessary because 3D Rad will do it automatically on exit.<br>
+&nbsp;&nbsp;&nbsp;However designing your scripts so that they always remove textures that are no longer needed is good practice<br>
+&nbsp;&nbsp;&nbsp;because it frees memory that can be used by other reources in your project.<br>
+ <br>
+<a name="66"></a>
+<strong>iShaderTextureSet(OBJ_X,string,int)<br>
+</strong>&nbsp;&nbsp;&nbsp;Set a texture to be used by the HLSL shader associated with the specified SkinMesh or CamChase object.<br>
+&nbsp;&nbsp;&nbsp;OBJ_X = SkinMesh/CamChase object handle<br>
+&nbsp;&nbsp;&nbsp;string = texture name, as declared in the HLSL code header.<br>
+&nbsp;&nbsp;&nbsp;int = texture object handle. See iShaderTextureCreate().<br>
+<br>
+<br>
+<hr size="1" noshade>
+<a name="67"></a>
+<center><strong>STRING FUNCTIONS<br>
+</strong></center><hr size="1" noshade>
+<br>
+<a name="68"></a>
+<strong>int iStringLen(string)<br>
+</strong>&nbsp;&nbsp;&nbsp;Return the length of the specified string, in characters<br>
+<br>
+<a name="69"></a>
+<strong>iStringUCase(string,string)<br>
+</strong>&nbsp;&nbsp;&nbsp;Convert a string its uppercase version.<br>
+&nbsp;&nbsp;&nbsp;string = result string<br>
+&nbsp;&nbsp;&nbsp;string = original string<br>
+&nbsp;&nbsp;&nbsp;NOTE: the two parameters can be the same string<br>
+<br>
+<a name="70"></a>
+<strong>iStringLCase(string,string)<br>
+</strong>&nbsp;&nbsp;&nbsp;Convert a string to its lowercase version.<br>
+&nbsp;&nbsp;&nbsp;string = result string<br>
+&nbsp;&nbsp;&nbsp;string = original string<br>
+&nbsp;&nbsp;&nbsp;NOTE: the two parameters can be the same string<br>
+<br>
+<a name="71"></a>
+<strong>iStringLeft(string,string,int)<br>
+</strong>&nbsp;&nbsp;&nbsp;Copy the first X characters from a string to another string.<br>
+&nbsp;&nbsp;&nbsp;string = result string<br>
+&nbsp;&nbsp;&nbsp;string = original string<br>
+&nbsp;&nbsp;&nbsp;int = number of characters to copy<br>
+&nbsp;&nbsp;&nbsp;NOTE: the first two parameters can be the same string<br>
+<br>
+<a name="72"></a>
+<strong>iStringRight(string,string,int)<br>
+</strong>&nbsp;&nbsp;&nbsp;Copy the last X characters from a string to another string.<br>
+&nbsp;&nbsp;&nbsp;string = result string<br>
+&nbsp;&nbsp;&nbsp;string = original string<br>
+&nbsp;&nbsp;&nbsp;int = number of characters to copy<br>
+&nbsp;&nbsp;&nbsp;NOTE: the first two parameters can be the same string<br>
+<br>
+<a name="73"></a>
+<strong>iStringMid(string,string,int,int)<br>
+</strong>&nbsp;&nbsp;&nbsp;Copy X characters from a string to another string, starting from the specified position.<br>
+&nbsp;&nbsp;&nbsp;string = result string<br>
+&nbsp;&nbsp;&nbsp;string = original string<br>
+&nbsp;&nbsp;&nbsp;int = position to start copying the characters from<br>
+&nbsp;&nbsp;&nbsp;int = number of characters to copy<br>
+&nbsp;&nbsp;&nbsp;NOTE: the first two parameters can be the same string<br>
+<br>
+<a name="74"></a>
+<strong>iStringStr(string,float,string)<br>
+</strong>&nbsp;&nbsp;&nbsp;Build a string converting the specified value to characters.<br>
+&nbsp;&nbsp;&nbsp;string = result string<br>
+&nbsp;&nbsp;&nbsp;float = value to convert<br>
+&nbsp;&nbsp;&nbsp;string = a string describing the format of the resulting string<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Examples: <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"%.0f" - any number of digits for the integer part, zero digits for the fraction part (e.g. 1321) <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"%3.0f" - at least 3 digits for the integer part, zero digits for the fraction part (e.g. 321) <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"%2.3f" - at least 2 digits for the integer part, 2 digits for the fraction part (e.g. 32.731) <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"%05.1f" - at least 5 digits for the integer part, 1 digit for the fraction part. If the integer part has less than 5 digits, missing spaces are filled with zero's (e.g. 00321.3) <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"%f" - any number of digits for the integer part and up to six digits for the fraction part (e.g. 1501.540) <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"%g" - any number of digits for the integer part and for the fraction part (e.g. 1501.54) <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"%.0f%%" - any number of digits for the integer part, zero digits for the fraction part. Also append a percent-symbol (%) to the value (e.g. 77%) <br>
+<br>
+<a name="75"></a>
+<strong>float iStringVal(string)<br>
+</strong>&nbsp;&nbsp;&nbsp;Return the value corresponding the value in the specified string<br>
+<br>
+<a name="76"></a>
+<strong>iStringFind(string,string,int,bool)<br>
+</strong>&nbsp;&nbsp;&nbsp;Return the position of a sub-string inside another string. Return -1 if the sub-string could not be found.<br>
+&nbsp;&nbsp;&nbsp;string = source string<br>
+&nbsp;&nbsp;&nbsp;string = sub-string to find<br>
+&nbsp;&nbsp;&nbsp;int = position to start searching from<br>
+&nbsp;&nbsp;&nbsp;bool = set this parameter to 'true' to make the search case-sensitive<br>
+&nbsp;&nbsp;&nbsp;NOTE: while this function can be used to compare strings, keep in mind that strings also support normal script expressions.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;For example, 'if (myString == "foobar")...' is a valid usage. The <, >, != and + operators are also supported.<br>
+<br>
+<a name="77"></a>
+<strong>iStringReplace(string,string,string,string,bool)<br>
+</strong>&nbsp;&nbsp;&nbsp;Copy a string to another string also replacing all occurrence of a specified sub-string with a specified text.<br>
+&nbsp;&nbsp;&nbsp;string = result string<br>
+&nbsp;&nbsp;&nbsp;string = original string<br>
+&nbsp;&nbsp;&nbsp;string = sub-string to replace<br>
+&nbsp;&nbsp;&nbsp;string = text to use as replacement for any occurrence of sub-string found<br>
+&nbsp;&nbsp;&nbsp;bool = set this parameter to 'true' to make the search case-sensitive<br>
+&nbsp;&nbsp;&nbsp;NOTE: the first two parameters can be the same string<br>
+<br>
+<a name="78"></a>
+<strong>iPrint(string,float,float,OBJ_X)<br>
+</strong>&nbsp;&nbsp;&nbsp;Print the specified string by using the font and character settings as configured in the specified<br>
+&nbsp;&nbsp;&nbsp;TextPrint object<br>
+&nbsp;&nbsp;&nbsp;string = text (255 characters max). Multi-line text is supported (use '\r' to specify a new line character). <br>
+&nbsp;&nbsp;&nbsp;float,float = screen position. Note that resulting text location depends on source TextPrint object settings.<br>
+&nbsp;&nbsp;&nbsp;OBJ_X = TextPrint object handle.<br>
+&nbsp;&nbsp;&nbsp;NOTE: this function will only print the text once. In order to display a permanet text it must be executed<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;at every script loop.<br>
+<br>
+<a name="79"></a>
+<strong>iGlobalStringSet(string,int)<br>
+</strong>&nbsp;&nbsp;&nbsp;Set the specified element of the global array of strings.<br>
+&nbsp;&nbsp;&nbsp;The global array of strings can hold up to 1024 strings and is accessible by all scripts in the<br>
+&nbsp;&nbsp;&nbsp;project or all scripts in all projects that have been compiled together (e.g. a multi-level game). <br>
+&nbsp;&nbsp;&nbsp;string = string to copy to the specified array element (1024 characters max).<br>
+&nbsp;&nbsp;&nbsp;int = array element index (0-1023). <br>
+<br>
+<a name="80"></a>
+<strong>iGlobalStringGet(string,int)<br>
+</strong>&nbsp;&nbsp;&nbsp;Get the specified element of the global array of strings. See iGlobalStringSet() for more.<br>
+&nbsp;&nbsp;&nbsp;string = string to place the received text into.<br>
+&nbsp;&nbsp;&nbsp;int = array element index (0-1023). <br>
+<br>
+<hr size="1" noshade>
+<a name="81"></a>
+<center><strong>MATH FUNCTIONS<br>
+</strong></center><hr size="1" noshade>
+<br>
+<a name="82"></a>
+<strong>float iFloatRand(float,float) <br>
+</strong>&nbsp;&nbsp;&nbsp;Return a random float between the two specified values. <br>
+<br>
+<a name="83"></a>
+<strong>float iFloatAbs(float) <br>
+</strong>&nbsp;&nbsp;&nbsp;Return absolute value of specified float. <br>
+<br>
+<a name="84"></a>
+<strong>float iFloatSin(float) <br>
+</strong>&nbsp;&nbsp;&nbsp;Return sine of specified angle.<br>
+&nbsp;&nbsp;&nbsp;float = angle, in degrees <br>
+<br>
+<a name="85"></a>
+<strong>float iFloatCos(float) <br>
+</strong>&nbsp;&nbsp;&nbsp;Return cosine of specified angle.<br>
+&nbsp;&nbsp;&nbsp;float = angle, in degrees <br>
+<br>
+<a name="86"></a>
+<strong>float iFloatSqrt(float) <br>
+</strong>&nbsp;&nbsp;&nbsp;Return squared root of specified float.<br>
+<br>
+<a name="87"></a>
+<strong>float iFloatInterpolate(float,float,float,float,float,bool)<br>
+</strong>&nbsp;&nbsp;&nbsp;Given an input value (interpolation factor), return its interpolated version between<br>
+&nbsp;&nbsp;&nbsp;dstmin and dstmax, after comparing it against srcmin and srcmax.<br>
+&nbsp;&nbsp;&nbsp;That is: result = dstmin + (dstmax-dstmin)*((input-srcmin)/(srcmax-srcmin))<br>
+&nbsp;&nbsp;&nbsp;float = interpolation factor<br>
+&nbsp;&nbsp;&nbsp;float = source minimum (srcmin)<br>
+&nbsp;&nbsp;&nbsp;float = source maximum (srcmax)<br>
+&nbsp;&nbsp;&nbsp;float = destination minimum (dstmin)<br>
+&nbsp;&nbsp;&nbsp;float = destination maximum (dstmax)<br>
+&nbsp;&nbsp;&nbsp;bool&nbsp;&nbsp;= set this to 'true' to clamp the returned value within destination min. and destination max.<br>
+<br>
+<a name="88"></a>
+<strong>float iFloatTendTo(float,float,float,float,int)<br>
+</strong>&nbsp;&nbsp;&nbsp;float = float variable to adjust, so that it tends to a certain value.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NOTE: this variable is usually the same used as destination for the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return value. E.g. VAR = iFloatTendTo(VAR,ref,target,speed,mode)<br>
+&nbsp;&nbsp;&nbsp;float = reference value. This is usually zero.<br>
+&nbsp;&nbsp;&nbsp;float = target value (value to tend to). Note, the value is never reached really.<br>
+&nbsp;&nbsp;&nbsp;float = speed, determines the time taken to reach the specified target value.<br>
+&nbsp;&nbsp;&nbsp;int = mode.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Use 0 to reduce variation speed when closer to the target value.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Use 1 to reduce variation speed when closer to the reference value.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Use 2 to reduce variation speed when closer to the reference and target values.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Use 3 to reduce variation speed when closer to the middle point between reference and target values.<br>
+&nbsp;&nbsp;&nbsp;NOTE: this function should be executed at every script loop in order to work properly<br>
+&nbsp;&nbsp;&nbsp;NOTE: see project called 'TutScript6_iFloatTendTo.3dr' for an example of usage.<br>
+<br>
+<a name="89"></a>
+<strong>float iFloatTrend(float,float,float,float,float,int)<br>
+</strong>&nbsp;&nbsp;&nbsp;float = float variable to adjust, so that it tends to a certain value.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NOTE: this variable is usually the same used as destination for the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return value. E.g. VAR = iFloatTrend(VAR,refMin,refMax,target,speed,mode)<br>
+&nbsp;&nbsp;&nbsp;float = minimum reference value.<br>
+&nbsp;&nbsp;&nbsp;float = maximum reference value.<br>
+&nbsp;&nbsp;&nbsp;float = target value (value to tend to). Must be between minimum and maximum reference values.<br>
+&nbsp;&nbsp;&nbsp;float = speed, determines the time taken to reach the specified target value.<br>
+&nbsp;&nbsp;&nbsp;int = mode.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Use 0 to reduce variation speed when closer to the target value.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Use 1 to reduce variation speed when closer to a reference value.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Use 2 to reduce variation speed when closer to a reference and target values.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Use 3 to reduce variation speed when closer to the middle point between reference and target values.<br>
+&nbsp;&nbsp;&nbsp;NOTE: this function should be executed at every script loop in order to work properly<br>
+&nbsp;&nbsp;&nbsp;NOTE: this function is similar to <a href="#555">iFloatTendTo()</a>, but the harmonic effects it produces are usually more<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;accurate as it relies on two reference values instead of one.<br>
+<br>
+<a name="90"></a>
+<strong>float iVectorLength(Vector3)<br>
+</strong>&nbsp;&nbsp;&nbsp;Return the length of the specified vector.<br>
+&nbsp;&nbsp;&nbsp;Vector3 = source vector<br>
+<br>
+<a name="91"></a>
+<strong>float iVectorLengthSq(Vector3)<br>
+</strong>&nbsp;&nbsp;&nbsp;Return the squared length of the specified vector.<br>
+&nbsp;&nbsp;&nbsp;Vector3 = source vector<br>
+<br>
+<a name="92"></a>
+<strong>iVectorLengthSet(Vector3,Vector3,float)<br>
+</strong>&nbsp;&nbsp;&nbsp;Force the length of a vector to the specified value, without changing its direction<br>
+&nbsp;&nbsp;&nbsp;Vector3 = transformed vector. Return data.<br>
+&nbsp;&nbsp;&nbsp;Vector3 = source vector<br>
+&nbsp;&nbsp;&nbsp;float = desired length. Set this value to 1.0f to 'normalize' a vector.<br>
+<br>
+<a name="93"></a>
+<strong>float iVectorDot(Vector3,Vector3)<br>
+</strong>&nbsp;&nbsp;&nbsp;Return the dot product of the specified 3d vectors.<br>
+&nbsp;&nbsp;&nbsp;Vector3 = first source vector<br>
+&nbsp;&nbsp;&nbsp;Vector3 = second source vector<br>
+<br>
+<a name="94"></a>
+<strong>iVectorCross(Vector3,Vector3,Vector3)<br>
+</strong>&nbsp;&nbsp;&nbsp;Return the cross product of the specified 3d vectors.<br>
+&nbsp;&nbsp;&nbsp;Vector3 = resulting vector. Return data.<br>
+&nbsp;&nbsp;&nbsp;Vector3 = first source vector<br>
+&nbsp;&nbsp;&nbsp;Vector3 = second source vector<br>
+<br>
+<a name="95"></a>
+<strong>iVectorRotate(Vector3,Vector3,Quaternion)<br>
+</strong>&nbsp;&nbsp;&nbsp;Vector3 = transformed coordinates (vector). Return data.<br>
+&nbsp;&nbsp;&nbsp;Vector3 = coordinates (vector) to rotate<br>
+&nbsp;&nbsp;&nbsp;Quaternion = quaternion representing the rotation to apply<br>
+<br>
+<a name="96"></a>
+<strong>iVectorEulerRotate(Vector3,Vector3,float,float,float,string)<br>
+</strong>&nbsp;&nbsp;&nbsp;Vector3 = transformed coordinates (vector). Return data.<br>
+&nbsp;&nbsp;&nbsp;Vector3 = coordinates (vector) to rotate<br>
+&nbsp;&nbsp;&nbsp;float = first rotation. See character string below.<br>
+&nbsp;&nbsp;&nbsp;float = second rotation.<br>
+&nbsp;&nbsp;&nbsp;float = third rotation.<br>
+&nbsp;&nbsp;&nbsp;string = 3-character string specifying the axes and the order in which to apply<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the rotations.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;For example, "xyz" (apply first rotation about X axis, then second rotation about<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Y axis and then third rotation about Z axis), "xzx" and "xzy" are valid strings.<br>
+<br>
+<a name="97"></a>
+<strong>iVectorCompare(Vector3,Vector3,float)<br>
+</strong>&nbsp;&nbsp;&nbsp;Vector3 = first vector.<br>
+&nbsp;&nbsp;&nbsp;Vector3 = second vector.<br>
+&nbsp;&nbsp;&nbsp;float = threshold.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Set this value to zero for a strict comparison (the function returns true if the vectors are identical)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;or specify a positive value to check if the difference between each vector component (X,Y,Z) is within a certain threshold.<br>
+<br>
+<a name="98"></a>
+<strong>iQuaternionFromAxisAngle(Quaternion,Vector3,float)<br>
+</strong>&nbsp;&nbsp;&nbsp;Quaternion = resulting quaternion. Return data.<br>
+&nbsp;&nbsp;&nbsp;Vector3 = orientation axis.<br>
+&nbsp;&nbsp;&nbsp;float = orientation angle.<br>
+&nbsp;&nbsp;&nbsp;NOTE: input orientation is expressed by an axis (the vector) and an angle of<br>
+&nbsp;&nbsp;&nbsp;rotation about that axis (float).<br>
+<br>
+<a name="99"></a>
+<strong>iQuaternionFromEulerAngles(Quaternion,float,float,float,string)<br>
+</strong>&nbsp;&nbsp;&nbsp;Quaternion = resulting quaternion. Return data.<br>
+&nbsp;&nbsp;&nbsp;float = first rotation. See character string below.<br>
+&nbsp;&nbsp;&nbsp;float = second rotation.<br>
+&nbsp;&nbsp;&nbsp;float = third rotation.<br>
+&nbsp;&nbsp;&nbsp;string = 3-character string specifying the axes and the order in which to apply<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the rotations.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;For example, "xyz" (apply first rotation about X axis, then second rotation about<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Y axis and then third rotation about Z axis), "xzx" and "xzy" are valid strings.<br>
+<br>
+<a name="100"></a>
+<strong>iQuaternionToEulerAngles(Quaternion,float,float,float)<br>
+</strong>&nbsp;&nbsp;&nbsp;Quaternion = source quaternion.<br>
+&nbsp;&nbsp;&nbsp;float = orientation angle about world X axis. Return data.<br>
+&nbsp;&nbsp;&nbsp;float = orientation angle about world Y axis. Return data.<br>
+&nbsp;&nbsp;&nbsp;float = orientation angle about world Z axis. Return data.<br>
+&nbsp;&nbsp;&nbsp;NOTE: the three angles are computed so that they will define the original<br>
+&nbsp;&nbsp;&nbsp;orientation only if applied in the "xyz" order.<br>
+<br>
+<a name="101"></a>
+<strong>iQuaternionLookAt(Quaternion,Vector3,Vector3)<br>
+</strong>&nbsp;&nbsp;&nbsp;Quaternion = resulting quaternion. Return data.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;It is the rotation required to orientate the Z+ vector<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;D3DXVECTOR3(0.0f,0.0f,1.0f) to the specified direction.<br>
+&nbsp;&nbsp;&nbsp;Vector3 = direction<br>
+&nbsp;&nbsp;&nbsp;Vector3 = up direction. For example Vector3(0,1,0)<br>
+&nbsp;&nbsp;&nbsp;NOTE: this function will not work properly if 'direction' and 'up'<br>
+&nbsp;&nbsp;&nbsp;vectors are parallel.<br>
+<br>
+<a name="102"></a>
+<strong>iQuaternionMultiply(Quaternion,Quaternion,Quaternion)<br>
+</strong>&nbsp;&nbsp;&nbsp;Return the orientation resulting from concatenating two given quaternion<br>
+&nbsp;&nbsp;&nbsp;orientations (rotations).<br>
+&nbsp;&nbsp;&nbsp;Quaternion = resulting orientation. Return data.<br>
+&nbsp;&nbsp;&nbsp;Quaternion = source orientation q1<br>
+&nbsp;&nbsp;&nbsp;Quaternion = source orientation q2<br>
+&nbsp;&nbsp;&nbsp;Imagine an unoriented object. That is, an object with its local Z+ axis parallel to<br>
+&nbsp;&nbsp;&nbsp;world's Z+ axis. Imagine applying to it the q2 orientation (rotating it by q2) and<br>
+&nbsp;&nbsp;&nbsp;then applying to it the q1 orientation. The resulting orientation is<br>
+&nbsp;&nbsp;&nbsp;returned in the quaternion specified as first parameter.<br>
+<br>
+<a name="103"></a>
+<strong>iQuaternionInterpolate(Quaternion,Quaternion,Quaternion,float)<br>
+</strong>&nbsp;&nbsp;&nbsp;Compute an intermediate orientation from two given orientations, by a given factor.<br>
+&nbsp;&nbsp;&nbsp;Quaternion = resulting orientation. Return data.<br>
+&nbsp;&nbsp;&nbsp;Quaternion = source orientation q1<br>
+&nbsp;&nbsp;&nbsp;Quaternion = source orientation q2<br>
+&nbsp;&nbsp;&nbsp;float = if it is 0, q1 is returned. If it is 1, q2 is returned. Intermediate<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;values (e.g. 0.13 etc) return intermediate orientations.<br>
+<br>
+<a name="104"></a>
+<strong>iQuaternionCompare(Quaternion,Quaternion)<br>
+</strong>&nbsp;&nbsp;&nbsp;Return true if the quaternions are identical.<br>
+&nbsp;&nbsp;&nbsp;Quaternion = first quaternion.<br>
+&nbsp;&nbsp;&nbsp;Quaternion = second quaternion.<br>
+<br>
+<hr size="1" noshade>
+<a name="105"></a>
+<center><strong>FILE FUNCTIONS<br>
+</strong></center><hr size="1" noshade>
+<br>
+<a name="106"></a>
+<strong>int iFileReadOpen(string)<br>
+</strong>&nbsp;&nbsp;&nbsp;Open the specified file for reading. Return -1 if the file could not be opened.<br>
+&nbsp;&nbsp;&nbsp;string = path to the file. If a local path is specified (e.g. ".\\myFile.txt") this is relative<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to the current 3D Rad folder or your compiled project folder.<br>
+<br>
+<a name="107"></a>
+<strong>int iFileWriteOpen(string)<br>
+</strong>&nbsp;&nbsp;&nbsp;Open the specified file for writing. Return -1 if the file could not be opened.<br>
+&nbsp;&nbsp;&nbsp;string = path to the file. If a local path is specified (e.g. ".\\myFile.txt") this is relative<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to the current 3D Rad folder or your compiled project folder.<br>
+&nbsp;&nbsp;&nbsp;WARNING: this function permanently deletes the specified file. Before executing a script<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;including this function, double check that the file path does point to the intended file.<br>
+<br>
+<a name="108"></a>
+<strong>iFileClose(int)<br>
+</strong>&nbsp;&nbsp;&nbsp;Close the specified file.<br>
+&nbsp;&nbsp;&nbsp;int = file handle returned by iFileReadOpen() or iFileWriteOpen()<br>
+<br>
+<a name="109"></a>
+<strong>float iFileValueRead(int)<br>
+</strong>&nbsp;&nbsp;&nbsp;Read the next value from the specified file.<br>
+&nbsp;&nbsp;&nbsp;int = file handle returned by iFileReadOpen() or iFileWriteOpen()<br>
+<br>
+<a name="110"></a>
+<strong>iFileValueWrite(int,float,bool)<br>
+</strong>&nbsp;&nbsp;&nbsp;Write (appends) the specified value to the specified file.<br>
+&nbsp;&nbsp;&nbsp;int = file handle returned by iFileReadOpen() or iFileWriteOpen()<br>
+&nbsp;&nbsp;&nbsp;float = the value to write.<br>
+&nbsp;&nbsp;&nbsp;bool = if this value is 'true', a newline is added after the written value.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This is necessary if you want to be able to read the value from<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the file afterwards by using iFileValueRead().<br>
+<br>
+<a name="111"></a>
+<strong>int iFileByteRead(int)<br>
+</strong>&nbsp;&nbsp;&nbsp;Read the next byte from the specified file.<br>
+&nbsp;&nbsp;&nbsp;int = file handle returned by iFileReadOpen() or iFileWriteOpen()<br>
+<br>
+<a name="112"></a>
+<strong>iFileByteWrite(int,int)<br>
+</strong>&nbsp;&nbsp;&nbsp;Write (appends) the specified byte to the specified file.<br>
+&nbsp;&nbsp;&nbsp;int = file handle returned by iFileReadOpen() or iFileWriteOpen()<br>
+&nbsp;&nbsp;&nbsp;int = the byte to write.<br>
+<br>
+<a name="113"></a>
+<strong>iFileStringRead(int,string)<br>
+</strong>&nbsp;&nbsp;&nbsp;Read the next string from the specified file.<br>
+&nbsp;&nbsp;&nbsp;int = file handle returned by iFileReadOpen() or iFileWriteOpen()<br>
+&nbsp;&nbsp;&nbsp;string = string to place the read text into.<br>
+<br>
+<a name="114"></a>
+<strong>iFileStringWrite(int,string,bool)<br>
+</strong>&nbsp;&nbsp;&nbsp;Write (appends) the specified string to the specified file.<br>
+&nbsp;&nbsp;&nbsp;int = file handle returned by iFileReadOpen() or iFileWriteOpen()<br>
+&nbsp;&nbsp;&nbsp;string = string to write.<br>
+&nbsp;&nbsp;&nbsp;bool = if this value is 'true', a newline is added after the written string.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This is necessary if you want to be able to read the string from<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the file afterwards by using iFileStringRead().<br>
+<br>
+<a name="115"></a>
+<strong>bool iFileEOF(int)<br>
+</strong>&nbsp;&nbsp;&nbsp;Return true if any previous iFile...Read() call has reached the end of the file, or an error occurred.<br>
+&nbsp;&nbsp;&nbsp;int = file handle returned by iFileReadOpen() or iFileWriteOpen()<br>
+<br>
+<a name="116"></a>
+<strong>bool iFileExists(string)<br>
+</strong>&nbsp;&nbsp;&nbsp;Return true if the specified file exists<br>
+&nbsp;&nbsp;&nbsp;string = name of file to check. If a local path is specified (e.g. ".\\myFile.txt") this is relative<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to the current 3D Rad folder or your compiled project folder.<br>
+<br>
+<a name="117"></a>
+<strong>iFileCopy(string,string)<br>
+</strong>&nbsp;&nbsp;&nbsp;Copy a file.<br>
+&nbsp;&nbsp;&nbsp;string = source file name. If a local path is specified (e.g. ".\\myFile.txt") this is relative<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to the current 3D Rad folder or your compiled project folder.<br>
+&nbsp;&nbsp;&nbsp;string = destination file name. If a local path is specified (e.g. ".\\myFile_bak.txt") this is relative<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to the current 3D Rad folder or your compiled project folder.<br>
+<br>
+<a name="118"></a>
+<strong>iFileDelete(string)<br>
+</strong>&nbsp;&nbsp;&nbsp;Remove the specified file.<br>
+&nbsp;&nbsp;&nbsp;string = name of file to delete. If a local path is specified (e.g. ".\\myFile.txt") this is relative<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to the current 3D Rad folder or your compiled project folder.<br>
+<br>
+<a name="119"></a>
+<strong>iFolderCreate(string)<br>
+</strong>&nbsp;&nbsp;&nbsp;Create a new folder.<br>
+&nbsp;&nbsp;&nbsp;string = name of folder to create. If a local path is specified (e.g. ".\\myFolder") this is relative<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to the current 3D Rad folder or your compiled project folder.<br>
+<br>
+<a name="120"></a>
+<strong>iFolderDelete(string)<br>
+</strong>&nbsp;&nbsp;&nbsp;Remove the specified folder, if it is empty.<br>
+&nbsp;&nbsp;&nbsp;string = name of folder to delete. If a local path is specified (e.g. ".\\myFolder") this is relative<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to the current 3D Rad folder or your compiled project folder.<br>
+<br>
+<a name="121"></a>
+<strong>int iFileDownload(string,string)<br>
+</strong>&nbsp;&nbsp;&nbsp;Downloads a file from the specified Web location to the local computer.<br>
+&nbsp;&nbsp;&nbsp;Return the size of the downloaded file, or -1 if an error occurred.<br>
+&nbsp;&nbsp;&nbsp;string = URL of the file to download (like for example 'http://www.3drad.com/index.htm').<br>
+&nbsp;&nbsp;&nbsp;string = destination file name. If a local path is specified (e.g. ".\\index.htm") this is relative<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to the current 3D Rad folder or your compiled project folder.<br>
+&nbsp;&nbsp;&nbsp;NOTE: 3D Rad processing will stop until the download is completed or it was interrupted by the user (Esc key).<br>
+<br>
+<a name="122"></a>
+<strong>int iFileDownloadPB(string,string)<br>
+</strong>&nbsp;&nbsp;&nbsp;Same as iFileDownload(), but displaying a progress bar during the download.<br>
+&nbsp;&nbsp;&nbsp;NOTE: the progress bar is shown at the lower edge of all camera windows active on the screen when the function is called.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;In your compiled projects, you can customize the progress bar aspect by modifying the .\3DRad_res\system\progressBarDL.dds file.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;You can also use a different image format by opening the progressBarDL.x file with an ASCII editor and changing the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'progressBarDL.dds' name to your alternate image file (must be .dds, .png, .tga, .bmp or .jpg).<br>
+<br>
+<a name="123"></a>
+<strong>int iFileSize(string)<br>
+</strong>&nbsp;&nbsp;&nbsp;Return the size of the specified file, or -1 if the file could not be found.<br>
+&nbsp;&nbsp;&nbsp;string = path to the file. If a local path is specified (e.g. ".\\myFile.txt") this is relative<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to the current 3D Rad folder or your compiled project folder.<br>
+<br>
+<a name="124"></a>
+<strong>iLocalFolder(string)<br>
+</strong>&nbsp;&nbsp;&nbsp;Place the path of the 3D Rad's installation folder (or your compiled project's folder)<br>
+&nbsp;&nbsp;&nbsp;into the specified string.<br>
+&nbsp;&nbsp;&nbsp;string = string to place the local folder into.<br>
+<br>
+<a name="125"></a>
+<strong>bool iFileOpenDialog(string,string,string)<br>
+</strong>&nbsp;&nbsp;&nbsp;Open the Windows file open dialog box allowing the user to browse the file system and<br>
+&nbsp;&nbsp;&nbsp;select a file. Return true if a file was selected, false if the dialog was canceled.<br>
+&nbsp;&nbsp;&nbsp;string = initial file path. When the function returns, it will be the file<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;path chosen by the user.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NOTE: the string must include the file name, with extension, or a generic<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;file name like "c:\\foobar\\*.txt". The extension must be the same as<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the extension filter (see next parameter).<br>
+&nbsp;&nbsp;&nbsp;string = extension filter.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;For example "txt" will allow only .txt files to be browsed.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Set this parameter to "*" to allow browsing of all file types.<br>
+&nbsp;&nbsp;&nbsp;string = dialog box title.<br>
+&nbsp;&nbsp;&nbsp;NOTE: Windows standard dialogs aren't supported in full-screen mode. Compiled projects that use this<br>
+&nbsp;&nbsp;&nbsp;function must be set to only run in windowed or maximized mode.<br>
+<br>
+<a name="126"></a>
+<strong>bool iFileSaveDialog(string,string,string)<br>
+</strong>&nbsp;&nbsp;&nbsp;Open the Windows' save-as dialog box allowing the user to browse the file system<br>
+&nbsp;&nbsp;&nbsp;and type a filename to save. Return true if a file was selected, false if the<br>
+&nbsp;&nbsp;&nbsp;dialog was canceled or an error occurred.<br>
+&nbsp;&nbsp;&nbsp;See also <a href="#567">iFileOpenDialog()</a>.<br>
+<br>
+<hr size="1" noshade>
+<a name="127"></a>
+<center><strong>KEYBOARD FUNCTIONS<br>
+</strong></center><hr size="1" noshade>
+<br>
+<a name="128"></a>
+<strong>bool iKeyDown(int)<br>
+</strong>&nbsp;&nbsp;&nbsp;Return true if the specified key is pressed<br>
+&nbsp;&nbsp;&nbsp;int = key code. Use the iKeyCode() function to find the key code for specific keyboard keys.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Set this value to -1 to check if any key is pressed<br>
+&nbsp;&nbsp;&nbsp;NOTE: not all keyboards allow for more than two simultaneous key presses to<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;be detected, unless one of them is [Ctrl] or [Alt].<br>
+<br>
+<a name="129"></a>
+<strong>int iKeyCode(string)<br>
+</strong>&nbsp;&nbsp;&nbsp;Return the key code corresponding to the specified description.<br>
+&nbsp;&nbsp;&nbsp;string = key code description (e.g. 'DIK_A', 'DIK_B', etc). The complete list of key code<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;descriptions can be found on the Web by searching for 'Keyboard Device Constants'.<br>
+<br>
+<a name="130"></a>
+<strong>int iTypedChar(bool)<br>
+</strong>&nbsp;&nbsp;&nbsp;Return the character (ASCII code) generated by the current keystroke. Return zero if<br>
+&nbsp;&nbsp;&nbsp;no key is pressed or there is no printable character associated with the pressed key.<br>
+&nbsp;&nbsp;&nbsp;Note however that it will return -1 if [Enter] is pressed and -2 if [Backspace] is pressed.<br>
+&nbsp;&nbsp;&nbsp;International, standard 256-code ASCII based keyboards are supported.<br>
+&nbsp;&nbsp;&nbsp;bool = if 'true', this function will return the character only once. It will then return<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;zero until the key is released. If 'false', it will keep returning the character<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;until the key is released.<br>
+<br>
+<hr size="1" noshade>
+<a name="131"></a>
+<center><strong>MOUSE FUNCTIONS<br>
+</strong></center><hr size="1" noshade>
+<br>
+<a name="132"></a>
+<strong>float iMouseX()<br>
+</strong>&nbsp;&nbsp;&nbsp;Return mouse horizontal position, where 0.0 = left margin and a value<br>
+&nbsp;&nbsp;&nbsp;close to 1.0 = right margin.<br>
+&nbsp;&nbsp;&nbsp;Note that the output can be very close to 1.0, but always less than 1.0.<br>
+&nbsp;&nbsp;&nbsp;If necessary, you can compute screen coordinates for a Sprite object as follows: <br>
+&nbsp;&nbsp;&nbsp;x = <a href="#433">iMouseX()</a>*32.0-16.0;<br>
+&nbsp;&nbsp;&nbsp;y = 12.0-<a href="#434">iMouseY()</a>*24.0;<br>
+<br>
+<a name="133"></a>
+<strong>float iMouseY()<br>
+</strong>&nbsp;&nbsp;&nbsp;Return mouse vertical position, where 0.0f = top margin and a value<br>
+&nbsp;&nbsp;&nbsp;close to 1.0f = bottom margin.<br>
+&nbsp;&nbsp;&nbsp;Note that the output can be very close to 1.0f, but always less than 1.0f.<br>
+&nbsp;&nbsp;&nbsp;See <a href="#433">iMouseX()</a> for more.<br>
+<br>
+<a name="134"></a>
+<strong>float iMouseZ(bool)<br>
+</strong>&nbsp;&nbsp;&nbsp;Return mouse wheel position.<br>
+&nbsp;&nbsp;&nbsp;bool = whether to return relative wheel position changes since last call to this<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;function (true), or the absolute wheel position since last call to<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#438">iMouseZSet()</a> function (false).<br>
+<br>
+<a name="135"></a>
+<strong>bool iMouseButtonDown(int)<br>
+</strong>&nbsp;&nbsp;&nbsp;Return true if the specified mouse button is pressed<br>
+&nbsp;&nbsp;&nbsp;int = mouse button codes can be 0=left, 1=right, 2=middle<br>
+<br>
+<a name="136"></a>
+<strong>bool iMouseButtonClick(int)<br>
+</strong>&nbsp;&nbsp;&nbsp;Return true if the specified mouse button is pressed<br>
+&nbsp;&nbsp;&nbsp;int = mouse button codes can be 0=left, 1=right, 2=middle<br>
+&nbsp;&nbsp;&nbsp;NOTE: this function will return true only once. It will no longer return true until the<br>
+&nbsp;&nbsp;&nbsp;button is released and pressed again.<br>
+&nbsp;&nbsp;&nbsp;NOTE: you cannot call <a href="#431">iMouseButtonClick()</a> more than once per project, in any script, for the same button.<br>
+&nbsp;&nbsp;&nbsp;If you do so, only one call will respond to key presses. All others will always return false.<br>
+<br>
+<a name="137"></a>
+<strong>float iMouseLookX()<br>
+</strong>&nbsp;&nbsp;&nbsp;Return the current pitch (X axis orientation, in degrees) for the current Script object's mouselook system.<br>
+&nbsp;&nbsp;&nbsp;The mouselook system keeps track of mouse movements and rotates accordingly.<br>
+&nbsp;&nbsp;&nbsp;See also iMouseLookY(), iMouseLookSet(), iMouseLookSpeedSet(), iMouseLookYRangeSet().<br>
+&nbsp;&nbsp;&nbsp;NOTE: because this function controls the mouse location, it can be only called once per script loop and<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;only from one single script at a time.<br>
+<br>
+<a name="138"></a>
+<strong>float iMouseLookY()<br>
+</strong>&nbsp;&nbsp;&nbsp;Return the current yaw (Y axis orientation, in degrees) for the current Script object's mouselook system.<br>
+&nbsp;&nbsp;&nbsp;See also iMouseLookX().<br>
+&nbsp;&nbsp;&nbsp;NOTE: because this function controls the mouse location, it can be only called once per script loop and<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;only from one single script at a time.<br>
+<br>
+<a name="139"></a>
+<strong>iMouseLookSet(float,float)<br>
+</strong>&nbsp;&nbsp;&nbsp;Set the current pitch and yaw (in degrees) for the current Script object's mouselook system.<br>
+&nbsp;&nbsp;&nbsp;See also iMouseLookX().<br>
+<br>
+<a name="140"></a>
+<strong>iMouseLookSpeedSet(float,float)<br>
+</strong>&nbsp;&nbsp;&nbsp;Set the sensitivity (response speed) for the current Script object's mouselook system.<br>
+&nbsp;&nbsp;&nbsp;See also iMouseLookX().<br>
+<br>
+<a name="141"></a>
+<strong>iMouseLookYRangeSet(float,float)<br>
+</strong>&nbsp;&nbsp;&nbsp;Set the pitch limits (minimum, maximum, in degrees) for the current Script object's mouselook system.<br>
+&nbsp;&nbsp;&nbsp;See also iMouseLookX().<br>
+<br>
+<hr size="1" noshade>
+<a name="142"></a>
+<center><strong>INPUT DEVICE FUNCTIONS<br>
+</strong></center><hr size="1" noshade>
+<br>
+<a name="143"></a>
+<strong>int iJoyCount()<br>
+</strong>&nbsp;&nbsp;&nbsp;Return the number of installed joysticks/gamepads/steering-wheels<br>
+<br>
+<a name="144"></a>
+<strong>bool iJoyButtonDown(int,int)<br>
+</strong>&nbsp;&nbsp;&nbsp;Return 'true' if the specified joystick/gamepads/steering-wheel button is pressed<br>
+&nbsp;&nbsp;&nbsp;int = joystick number<br>
+&nbsp;&nbsp;&nbsp;int = joystick button number (0-127)<br>
+<br>
+<a name="145"></a>
+<strong>float iJoyX(int)<br>
+</strong>&nbsp;&nbsp;&nbsp;Return position of X axis for the specified joystick/gamepads/steering-wheel.<br>
+&nbsp;&nbsp;&nbsp;Returned value is between -1.0 and 1.0.<br>
+&nbsp;&nbsp;&nbsp;int = joystick number<br>
+&nbsp;&nbsp;&nbsp;NOTE: never assume that the returned value is stable. For example, even if the joystick is<br>
+&nbsp;&nbsp;&nbsp;relaxed (centered), for some devices, the returned value may not be always zero.<br>
+&nbsp;&nbsp;&nbsp;See <a href="#449">iJoyXAverage()</a><br>
+<br>
+<a name="146"></a>
+<strong>float iJoyY(int)<br>
+</strong>&nbsp;&nbsp;&nbsp;Return position of Y axis for the specified joystick. See <a href="#446">iJoyX()</a> for more.<br>
+<br>
+<a name="147"></a>
+<strong>float iJoyZ(int)<br>
+</strong>&nbsp;&nbsp;&nbsp;Return position of Z axis for the specified joystick. See <a href="#446">iJoyX()</a> for more.<br>
+<br>
+<a name="148"></a>
+<strong>float iJoyXAverage(int,float)<br>
+</strong>&nbsp;&nbsp;&nbsp;Return average position of X axis for the specified joystick/gamepads/steering-wheel.<br>
+&nbsp;&nbsp;&nbsp;int = joystick number<br>
+&nbsp;&nbsp;&nbsp;float = average computation period, in seconds. Basically, an average value is returned<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;after summing up direct values from the hardware for the specified period.<br>
+<br>
+<a name="149"></a>
+<strong>float iJoyYAverage(int,float)<br>
+</strong>&nbsp;&nbsp;&nbsp;Return average position of Y axis for the specified joystick. <a href="#449">iJoyXAverage()</a> for more<br>
+<br>
+<a name="150"></a>
+<strong>float iJoyZAverage(int,float)<br>
+</strong>&nbsp;&nbsp;&nbsp;Return average position of Z axis for the specified joystick. <a href="#449">iJoyXAverage()</a> for more<br>
+<br>
+<a name="151"></a>
+<strong>float iJoyU(int)<br>
+</strong>&nbsp;&nbsp;&nbsp;Return position of additional U axis for the specified joystick. See <a href="#446">iJoyX()</a> for more.<br>
+<br>
+<a name="152"></a>
+<strong>float iJoyV(int)<br>
+</strong>&nbsp;&nbsp;&nbsp;Return position of additional V axis for the specified joystick. See <a href="#446">iJoyX()</a> for more.<br>
+<br>
+<a name="153"></a>
+<strong>float iJoyPOV1/2/3/4(int)<br>
+</strong>&nbsp;&nbsp;&nbsp;Return direction controller state for the specified joystick. The value is in<br>
+&nbsp;&nbsp;&nbsp;in degrees from north (clockwise). Center position is -1.<br>
+<br>
+<a name="154"></a>
+<strong>iMidiInOpen(int,bool)<br>
+</strong>&nbsp;&nbsp;&nbsp;Open the specified MIDI device for input<br>
+&nbsp;&nbsp;&nbsp;int = MIDI device index. For example, if you have 3 MIDI devices attached to your PC, 0 will be the first MIDI device, 1 the second and 2 the third.<br>
+&nbsp;&nbsp;&nbsp;bool = if this value is set to 'true', a message box displaying a list of attached MIDI devices will be shown. This function is for debug purposes only.<br>
+&nbsp;&nbsp;&nbsp;NOTE: this function is currently experimental<br>
+<br>
+<a name="155"></a>
+<strong>bool iMidiInMessage(int,int,int)<br>
+</strong>&nbsp;&nbsp;&nbsp;Receive a message from the currently opened MIDI device (see iMidiInOpen() function). For an example of usage, please see the sample project<br>
+&nbsp;&nbsp;&nbsp;called 'MIDI_test.3dr'<br>
+&nbsp;&nbsp;&nbsp;NOTE: this function is currently experimental<br>
+<br>
+<a name="156"></a>
+<strong>iMidiInClose()<br>
+</strong>&nbsp;&nbsp;&nbsp;Closes the MIDI device opened with iMidiInOpen().<br>
+&nbsp;&nbsp;&nbsp;NOTE: this function is currently experimental<br>
+<br>
+<hr size="1" noshade>
+<a name="157"></a>
+<center><strong>NETWORK FUNCTIONS<br>
+</strong></center><hr size="1" noshade>
+<br>
+<a name="158"></a>
+<strong>bool iNetServerStart(string,string,int,int,int)<br>
+</strong>&nbsp;&nbsp;&nbsp;Start the network system as server for the local machine.<br>
+&nbsp;&nbsp;&nbsp;Return false if the system could not be started for some reason.<br>
+&nbsp;&nbsp;&nbsp;string = session name. Connecting users will see this name in the list of network<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;games to join, when the client network system is launched on their local<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;machine. See <a href="#492">iNetClientStart()</a> for more.<br>
+&nbsp;&nbsp;&nbsp;string = player name. The name identifying the server.<br>
+&nbsp;&nbsp;&nbsp;int = port number.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The system port to use for network input/output data. For example, 25857. <br>
+&nbsp;&nbsp;&nbsp;int = game identifier. This value is used to generate a globally unique identifier<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for the game application. For example 9414234 and 372 are valid ids.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The id must be identical both for <a href="#491">iNetServerStart()</a> and <a href="#492">iNetClientStart()</a> calls.<br>
+&nbsp;&nbsp;&nbsp;int = network buffer size, in bytes.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This function allocates memory to be used as temporary buffer for data<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;exchanges. 100000 bytes is usually enough.<br>
+&nbsp;&nbsp;&nbsp;NOTE: after calling this function, you must stop the network system before exiting<br>
+&nbsp;&nbsp;&nbsp;the project by calling <a href="#493">iNetStop()</a><br>
+<br>
+<a name="159"></a>
+<strong>bool iNetClientStart(string,string,int,int,string,int,int)<br>
+</strong>&nbsp;&nbsp;&nbsp;Start the network system as client for the local machine.<br>
+&nbsp;&nbsp;&nbsp;Return false if the system could not be started for some reason.<br>
+&nbsp;&nbsp;&nbsp;This functions allows you to either open a standard connection dialog box<br>
+&nbsp;&nbsp;&nbsp;or directly connect to a defined remote server.<br>
+&nbsp;&nbsp;&nbsp;string = server IP address. For example "64.64.64.64", or "64.64.64.64:8080"<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if a port number is also required.<br>
+&nbsp;&nbsp;&nbsp;string = player name. The name identifying the local client machine.<br>
+&nbsp;&nbsp;&nbsp;int = game identifier. See <a href="#491">iNetServerStart()</a> for details.<br>
+&nbsp;&nbsp;&nbsp;int = network buffer size, in bytes. See <a href="#491">iNetServerStart()</a> for details.<br>
+&nbsp;&nbsp;&nbsp;string = optional dialog box title, or "" for no title.<br>
+&nbsp;&nbsp;&nbsp;int = remote game sequential number. If greater or equal to zero, the optional<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dialog box is not shown. The specified sequential number indicates the game<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to select from the list of available games on the remote server. The first<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;game in the list is 0, the second is 1 and so on.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NOTE: when hidden, the dialog box is still processed normally. Actually,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the system will simulate user actions, by automatically pressing the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'Search' button, selecting one game from the list and pressing 'Join'.<br>
+&nbsp;&nbsp;&nbsp;int = game searching timeout, in seconds (auto connect mode only).<br>
+&nbsp;&nbsp;&nbsp;NOTE: after calling this function, you must stop the network system before exiting<br>
+&nbsp;&nbsp;&nbsp;the game by calling <a href="#493">iNetStop()</a><br>
+<br>
+<a name="160"></a>
+<strong>void iNetStop()<br>
+</strong>&nbsp;&nbsp;&nbsp;Stop the network system for the local machine, also releasing all memory resources<br>
+&nbsp;&nbsp;&nbsp;allocated by calls to <a href="#491">iNetServerStart()</a> or <a href="#492">iNetClientStart()</a>.<br>
+<br>
+<a name="161"></a>
+<strong>void iNetStringSend(string,int,bool)<br>
+</strong>&nbsp;&nbsp;&nbsp;Send the specified string to one or all connected client machines.<br>
+&nbsp;&nbsp;&nbsp;string = string to send.<br>
+&nbsp;&nbsp;&nbsp;int = player identifier. Use zero to send to all players. See also <a href="#509">iNetPlayerId()</a>.<br>
+&nbsp;&nbsp;&nbsp;bool = whether to send the data message as guaranteed (true) or not (false).<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Guaranteed messages are ensured to arrive to the destination, even if the connection<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;is subject to lags and data loss, but they add overhead to the send process.<br>
+<br>
+<a name="162"></a>
+<strong>int iNetStringReceive(string)<br>
+</strong>&nbsp;&nbsp;&nbsp;Receive a string from the server. See iNetStringSend() for more.<br>
+&nbsp;&nbsp;&nbsp;Returns the number of characters received (string length + 1), or zero if nothing was received.<br>
+&nbsp;&nbsp;&nbsp;string = string to place the received text into.<br>
+&nbsp;&nbsp;&nbsp;IMPORTANT! if you call iNetStringSend() on the server you MUST call this function<br>
+&nbsp;&nbsp;&nbsp;at every script loop, on all client PCs.<br>
+<br>
+<a name="163"></a>
+<strong>void iNetFloatArraySendEx(int,int,int,bool)<br>
+</strong>&nbsp;&nbsp;&nbsp;Send the specified part of the global array of floats to one or all connected client machines.<br>
+&nbsp;&nbsp;&nbsp;The global array of floats is basically a list of values you can set by using iNetFloatArraySet()<br>
+&nbsp;&nbsp;&nbsp;before sending it to the clients by calling this function.<br>
+&nbsp;&nbsp;&nbsp;int = index of the first value of the array to send (see also next parameter).<br>
+&nbsp;&nbsp;&nbsp;int = number of values to send. For example, setting the previous value to 0 and this value to 7 will send the first 7 values in the array.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Another example: setting the previous value to 3 and this value to 7 will send the fourth value in the array and the 6 values following it.<br>
+&nbsp;&nbsp;&nbsp;int = player identifier. Use zero to send to all players. See also <a href="#509">iNetPlayerId()</a>.<br>
+&nbsp;&nbsp;&nbsp;bool = whether to send the data message as guaranteed (true) or not (false).<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Guaranteed messages are ensured to arrive to the destination, even if the connection<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;is subject to lags and data loss, but they add overhead to the send process.<br>
+&nbsp;&nbsp;&nbsp;NOTE: if this function is called on a client machine, the array will only be received by the server.<br>
+<br>
+<a name="164"></a>
+<strong>void iNetFloatArraySend(int,int,bool)<br>
+</strong>&nbsp;&nbsp;&nbsp;This function is obsolete. If called it actually calls iNetFloatArraySendEx() with the first parameter set to zero.<br>
+<br>
+<a name="165"></a>
+<strong>int iNetFloatArrayReceive()<br>
+</strong>&nbsp;&nbsp;&nbsp;Receive data from the server and updates the global array of floats accordingly.<br>
+&nbsp;&nbsp;&nbsp;See iNetFloatArraySend() for more.<br>
+&nbsp;&nbsp;&nbsp;Returns the number of array elements received, or zero if nothing was received.<br>
+&nbsp;&nbsp;&nbsp;IMPORTANT! if you call iNetFloatArraySend() on the server you MUST call this function<br>
+&nbsp;&nbsp;&nbsp;at every script loop, on all client PCs.<br>
+&nbsp;&nbsp;&nbsp;NOTE: this function can also be called on the server, to receive arrays from client machines.<br>
+<br>
+<a name="166"></a>
+<strong>void iNetFloatArraySet(int,float)<br>
+</strong>&nbsp;&nbsp;&nbsp;Set the value for the specified element in the global array of floats.<br>
+&nbsp;&nbsp;&nbsp;See iNetFloatArraySend() for more.<br>
+<br>
+<a name="167"></a>
+<strong>float iNetFloatArrayGet(int)<br>
+</strong>&nbsp;&nbsp;&nbsp;Read the value of the specified element in the global array of floats.<br>
+&nbsp;&nbsp;&nbsp;See iNetFloatArraySend() for more.<br>
+<br>
+<a name="168"></a>
+<strong>int iNetPlayersCount()<br>
+</strong>&nbsp;&nbsp;&nbsp;Return the current number of connected machines, including the server.<br>
+<br>
+<a name="169"></a>
+<strong>int iNetPlayerId(int)<br>
+</strong>&nbsp;&nbsp;&nbsp;Retrieve the player's unique ID assigned by the network system to the specified machine<br>
+&nbsp;&nbsp;&nbsp;and places it to the specified DWORD variable.<br>
+&nbsp;&nbsp;&nbsp;Return -99999 if the specified machine is no longer connected.<br>
+&nbsp;&nbsp;&nbsp;The return ID is required to send messages exclusively to specific players,<br>
+&nbsp;&nbsp;&nbsp;or to retrieve statistics data about specific machines.<br>
+&nbsp;&nbsp;&nbsp;int = machine to retrieve the player's ID for. <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;It must be a value between 0 and 255. Server's ID is always 0x00000000.<br>
+&nbsp;&nbsp;&nbsp;NOTE: when called on a client, this function always returns -99999.<br>
+<br>
+<a name="170"></a>
+<strong>int iNetLocalPlayerMachine()<br>
+</strong>&nbsp;&nbsp;&nbsp;Return the sequential number assigned by the network system to the local machine, based on when it joined the game.<br>
+&nbsp;&nbsp;&nbsp;If the local machine is the server, the returned value is zero.<br>
+&nbsp;&nbsp;&nbsp;Return -1 if the system isn't in network mode.<br>
+&nbsp;&nbsp;&nbsp;NOTE: the machine number doesn't change when another player leaves the game. However if the local player leaves the game<br>
+&nbsp;&nbsp;&nbsp;and then joins again, it's machine number may be different.<br>
+<br>
+<a name="171"></a>
+<strong>int iNetPlayerMachine(int)<br>
+</strong>&nbsp;&nbsp;&nbsp;Return the sequential number assigned by the network system to the machine associated<br>
+&nbsp;&nbsp;&nbsp;with the specified player.<br>
+&nbsp;&nbsp;&nbsp;int = player's unique identifier. <br>
+&nbsp;&nbsp;&nbsp;NOTE: when called on a client, this function always returns -1<br>
+<br>
+<a name="172"></a>
+<strong>iNetClientDisconnect(int)<br>
+</strong>&nbsp;&nbsp;&nbsp;Disconnect the specified client machine.<br>
+&nbsp;&nbsp;&nbsp;int = machine's player ID. See <a href="#509">iNetPlayerId()</a> for details.<br>
+&nbsp;&nbsp;&nbsp;NOTE: calling this function on the client machine has no effect.<br>
+<br>
+<a name="173"></a>
+<strong>BOOL iNetSessionTerminated()<br>
+</strong>&nbsp;&nbsp;&nbsp;Return true if the connection with the server has been lost. The local machine<br>
+&nbsp;&nbsp;&nbsp;should then call <a href="#493">iNetStop()</a> to stop the network system and free resources.<br>
+&nbsp;&nbsp;&nbsp;If called on the server machine, this function will return true if the network<br>
+&nbsp;&nbsp;&nbsp;system was stopped.<br>
+<br>
+<a name="174"></a>
+<strong>BOOL iNetPlayersChanged()<br>
+</strong>&nbsp;&nbsp;&nbsp;Return true if one or more client machines joined or left the session.<br>
+<br>
+<a name="175"></a>
+<strong>float iNetLag(int)<br>
+</strong>&nbsp;&nbsp;&nbsp;Return the specified machine lag (ping), in seconds.<br>
+&nbsp;&nbsp;&nbsp;int = machine ID to retrieve the lag for.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Should be a valid player's ID, as returned by <a href="#509">iNetPlayerId()</a>.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NOTE: if this function is called on a client machine, this parameter<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;is ignored, and the local machine lag is returned.<br>
+<br>
+<a name="176"></a>
+<strong>int iNetBPS(int)<br>
+</strong>&nbsp;&nbsp;&nbsp;Return the average number of bytes per second exchanged by the specified machine<br>
+&nbsp;&nbsp;&nbsp;with the network of connected machines.<br>
+&nbsp;&nbsp;&nbsp;int = machine ID to retrieve the information for.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Should be a valid player's ID, as returned by <a href="#509">iNetPlayerId()</a>.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NOTE: if this function is called on a client machine, this parameter<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;is ignored, and the information is retrieved for the local machine.<br>
+<br>
+<a name="177"></a>
+<strong>int iNetBytesSent(int)<br>
+</strong>&nbsp;&nbsp;&nbsp;Return the total number of bytes sent by the specified machine.<br>
+&nbsp;&nbsp;&nbsp;int = machine ID. See <a href="#516">iNetBPS()</a> for details on this parameter.<br>
+<br>
+<a name="178"></a>
+<strong>int iNetBytesReceived(int)<br>
+</strong>&nbsp;&nbsp;&nbsp;Return the total number of bytes received by the specified machine.<br>
+&nbsp;&nbsp;&nbsp;int = machine ID. See <a href="#516">iNetBPS()</a> for details on this parameter.<br>
+<br>
+<hr size="1" noshade>
+<a name="179"></a>
+<center><strong>EXTERNAL DLL FUNCTIONS<br>
+</strong></center><hr size="1" noshade>
+<br>
+<a name="180"></a>
+<strong>int iDLLLoad(string)<br>
+</strong>&nbsp;&nbsp;&nbsp;Load the specified DLL module ad make any exposed function in it available for calling.<br>
+&nbsp;&nbsp;&nbsp;Return a handle to the loaded DLL module, or zero if a problem occurred.<br>
+&nbsp;&nbsp;&nbsp;See iDLLCall() for more.<br>
+&nbsp;&nbsp;&nbsp;string = DLL module file.<br>
+<br>
+<a name="181"></a>
+<strong>iDLLUnload(int)<br>
+</strong>&nbsp;&nbsp;&nbsp;Release the specified DLL module.<br>
+&nbsp;&nbsp;&nbsp;int = DLL module handle. See iDLLLoad().<br>
+<br>
+<a name="182"></a>
+<strong>bool iDLLCall(int,string,int)<br>
+</strong>&nbsp;&nbsp;&nbsp;Calls the specified function in the specified DLL module, passing an array of float values as parameter.<br>
+&nbsp;&nbsp;&nbsp;int = DLL module handle. See iDLLLoad().<br>
+&nbsp;&nbsp;&nbsp;string = DLL function name.<br>
+&nbsp;&nbsp;&nbsp;int = index of the first element of the array of floats to pass to the user DLL function. This is usually zero.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;For each Script object, the array of floats is defined by default and can be accessed by using iDLLArraySet() and iDLLArrayGet().<br>
+&nbsp;&nbsp;&nbsp;NOTE: please see the demo project called 'iDLLCall.3dr' ('Script_Functions_Usage_Examples' sub-folder) for an example of usage.<br>
+<br>
+<a name="183"></a>
+<strong>iDLLArraySet(int,float)<br>
+</strong>&nbsp;&nbsp;&nbsp;Set the value for the specified element in the array of floats.<br>
+&nbsp;&nbsp;&nbsp;See iDLLCall() for more.<br>
+&nbsp;&nbsp;&nbsp;int = index of the array element to set. Must be between 0 and 16383.<br>
+<br>
+<a name="184"></a>
+<strong>float iDLLArrayGet(int)<br>
+</strong>&nbsp;&nbsp;&nbsp;Return the value of the specified element in the array of floats.<br>
+&nbsp;&nbsp;&nbsp;See iDLLCall() for more.<br>
+&nbsp;&nbsp;&nbsp;int = index of the array element to get. Must be between 0 and 16383.<br>
+<br>
+<hr size="1" noshade>
+<a name="185"></a>
+<center><strong>MISC FUNCTIONS<br>
+</strong></center><hr size="1" noshade>
+<br>
+<a name="186"></a>
+<strong>bool iInitializing()<br>
+</strong>&nbsp;&nbsp;&nbsp;Return true if the script is executed for the first time, after the project was launched.<br>
+&nbsp;&nbsp;&nbsp;This function also returns true at the next execution after the script object has been started or reset by another object.<br>
+<br>
+<a name="187"></a>
+<strong>bool iDeinitializing()<br>
+</strong>&nbsp;&nbsp;&nbsp;Return true if the script is executed for the last time, before terminating project execution.<br>
+&nbsp;&nbsp;&nbsp;This function also returns true at the last execution after the script object has been stopped by another object<br>
+&nbsp;&nbsp;&nbsp;or by a call to iScriptStop().<br>
+<br>
+<a name="188"></a>
+<strong>iScriptStop()<br>
+</strong>&nbsp;&nbsp;&nbsp;Stop the Script object, preventing any further execution of the code.<br>
+&nbsp;&nbsp;&nbsp;The Script object can only resume execution if started by another object.<br>
+&nbsp;&nbsp;&nbsp;NOTE: after this function is called, the script will execute once more.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Calling the iDeinitializing() function during this last execution,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;will return true.<br>
+<br>
+<a name="189"></a>
+<strong>int iObjectHandle(int)<br>
+</strong>&nbsp;&nbsp;&nbsp;This special function lets you programmatically determine the OBJ_ value of a certain object from its<br>
+&nbsp;&nbsp;&nbsp;position in the 'Object HANDLE' window. The returned value can be passed to functions in place of the actual<br>
+&nbsp;&nbsp;&nbsp;OBJ_ variable.<br>
+&nbsp;&nbsp;&nbsp;int = index of the object to retrieve the handle for, as it appears in the 'Object HANDLE' window (Script editor),<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;with zero being the first item, 1 the second and so on. If this parameter is -1 the function returns the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;total number of items in the 'Object HANDLE' window.<br>
+<br>
+<a name="190"></a>
+<strong>int iSystemTime(int) <br>
+</strong>&nbsp;&nbsp;&nbsp;Return system clock data.<br>
+&nbsp;&nbsp;&nbsp;int = identifier of the information to return, as follows:<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0 - Year<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1 - Month<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2 - DayOfWeek<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3 - Day<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4 - Hour<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5 - Minute<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6 - Second<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7 - Milliseconds<br>
+&nbsp;&nbsp;&nbsp;For example, iSystemTime(4) will return current hour.<br>
+<br>
+<a name="191"></a>
+<strong>int iDisplayWidth()<br>
+</strong>&nbsp;&nbsp;&nbsp;Return the current display width, in pixels.<br>
+&nbsp;&nbsp;&nbsp;NOTE: unless the project is compiled and running in full-screen, this function returns the Windows desktop width.<br>
+<br>
+<a name="192"></a>
+<strong>int iDisplayHeight()<br>
+</strong>&nbsp;&nbsp;&nbsp;Return the current display height, in pixels.<br>
+&nbsp;&nbsp;&nbsp;NOTE: unless the project is compiled and running in full-screen, this function returns the Windows desktop height.<br>
+<br>
+<a name="193"></a>
+<strong>iBoundingSphereFrustumCheckSet(bool)<br>
+</strong>&nbsp;&nbsp;&nbsp;Enable/disable quick exclusion of SkinMesh objects rendering if<br>
+&nbsp;&nbsp;&nbsp;their bounding spheres are outside the rendering window.<br>
+&nbsp;&nbsp;&nbsp;bool = 'false' to disable, 'true' to enable. Default is 'true'.<br>
+<br>
+<a name="194"></a>
+<strong>float iFrameRate(bool)<br>
+</strong>&nbsp;&nbsp;&nbsp;Return the current frame-rate (frames rendered per second).<br>
+&nbsp;&nbsp;&nbsp;bool = whether to return average frame-rate (true) or instant frame-rate (false).<br>
+&nbsp;&nbsp;&nbsp;NOTE: instant frame-rate is actually based on the time needed to process the last rendered frame.<br>
+&nbsp;&nbsp;&nbsp;To get the real instant frame-rate, clamp the returned value within 0 and 60.<br>
+<br>
+<a name="195"></a>
+<strong>iGammaSet(float,float,float,float,float,float)<br>
+</strong>&nbsp;&nbsp;&nbsp;Set the gamma for the full screen display (compiled project only).<br>
+&nbsp;&nbsp;&nbsp;float,float,float = Red, Green, Blue bias factor (> 0.0). Default brightness for each<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rgb component is multiplied by the specified value. So, for example,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;specifying 2.0 for all the three components will double the display<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;brightness. Default value is 1.0 (no bias).<br>
+&nbsp;&nbsp;&nbsp;float,float,float = Red, Green, Blue offset factor (between -1.0 and 1.0). The specified<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;value is added to the default brightness for each rgb component.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Default value is 0.0 (no offset).<br>
+&nbsp;&nbsp;&nbsp;NOTE: this function has no effect when called in windowed mode.<br>
+&nbsp;&nbsp;&nbsp;NOTE: this function is computationally expensive and should not be called at every script loop.<br>
+<br>
+<a name="196"></a>
+<strong>int iVertexShaderVersion(bool)<br>
+</strong>&nbsp;&nbsp;&nbsp;Return the vertex shader version supported by the hardware.<br>
+&nbsp;&nbsp;&nbsp;bool = set to 'false' to return the major version (e.g., return 2 if vs version is 2.0),<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;set to 'true' to return the minor version (e.g., return 0 if vs version is 2.0)<br>
+ <br>
+<a name="197"></a>
+<strong>int iPixelShaderVersion(bool)<br>
+</strong>&nbsp;&nbsp;&nbsp;Return the pixel shader version supported by the hardware.<br>
+&nbsp;&nbsp;&nbsp;bool = set to 'false' to return the major version (e.g., return 2 if ps version is 2.0),<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;set to 'true' to return the minor version (e.g., return 0 if ps version is 2.0)<br>
+<br>
+<a name="198"></a>
+<strong>iRenderingEnable(bool)<br>
+</strong>&nbsp;&nbsp;&nbsp;bool = set to 'false' to disable the rendering of the scene, processing the simulation at the maximum speed allowed by the system.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This can be useful if you are only interested in the results of a simulation, and want to get them<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;as fast as possible.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Set this value to 'true' to restore rendering.<br>
+<br>
+<a name="199"></a>
+<strong>iShadowsEnable(bool)<br>
+</strong>&nbsp;&nbsp;&nbsp;bool = set to 'false' to disable rendering of volumetric shadows, which may dramatically improve framerate.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Set this value to 'true' to restore shadow rendering.<br>
+<br>
+<a name="200"></a>
+<strong>iEscKeyDisable()<br>
+</strong>&nbsp;&nbsp;&nbsp;Disable the Esc key, which normally stops a compiled project at any time and exit back to Windows.<br>
+&nbsp;&nbsp;&nbsp;Warning, when the Esc key is disabled, the only way to terminate a compiled project is by using<br>
+&nbsp;&nbsp;&nbsp;the ExitFade object.<br>
+&nbsp;&nbsp;&nbsp;Use iEscKeyEnable() to re-enable the Esc key.<br>
+&nbsp;&nbsp;&nbsp;NOTE: this function only works in a compiled project.<br>
+<br>
+<a name="201"></a>
+<strong>iSettingsDialogDisable()<br>
+</strong>&nbsp;&nbsp;&nbsp;Disable the startup dialog which is shown when the compiled version of your project is launched.<br>
+&nbsp;&nbsp;&nbsp;Note that this will only work the next time the compiled project is run.<br>
+&nbsp;&nbsp;&nbsp;Use iSettingsDialogEnable() to re-enable the startup dialog or to make sure it is shown, even if the user<br>
+&nbsp;&nbsp;&nbsp;selected 'Don't show this dialog again' on the dialog.<br>
+&nbsp;&nbsp;&nbsp;NOTE: this function only works in a compiled project.<br>
+<br>
+<a name="202"></a>
+<strong>iSimulationQualitySet(int)<br>
+</strong>&nbsp;&nbsp;&nbsp;Set physics simulation accuracy.<br>
+&nbsp;&nbsp;&nbsp;int = set this value to non-zero to enable reduced accuracy (typical value 20).<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The lower the value, the lower the accuracy and the faster the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;processing. Reduced accuracy will dramatically improve processing<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;speed where many joints are defined and many collisions are performed.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Set this parameter to zero to set maximum supported accuracy (default).<br>
+&nbsp;&nbsp;&nbsp;NOTE: setting the parameter to a negative value (eg -1) will use additional<br>
+&nbsp;&nbsp;&nbsp;computation to make very fast moving RigidBody objects less likely<br>
+&nbsp;&nbsp;&nbsp;to go through polygonal-based RigidBody objects (like walls). This feature<br>
+&nbsp;&nbsp;&nbsp;is computationally expensive and may cause poor frame rates.<br>
+<br>
+<a name="203"></a>
+<strong>iSimulationFrqSet(float)<br>
+</strong>&nbsp;&nbsp;&nbsp;Set simulation frequency (physics simulation speed).<br>
+&nbsp;&nbsp;&nbsp;float = simulation frequency. Normal speed is 0.016666f (1.0f/60.0f).<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Decrease the value to slow down the simulation. Increase it to<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;speed it up.<br>
+&nbsp;&nbsp;&nbsp;NOTE: Script objects' loop frequency is not affected by simulation speed changes.<br>
+&nbsp;&nbsp;&nbsp;NOTE: while frequency can be set to zero, practically causing the simulation to pause,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;because sudden changes in simulation speed cause computation errors and affect<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;simulation accuracy, simply setting the speed to zero and resuming it to normal<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;will not be a viable solution, to pause your games. You may only be able to<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;preserve simulation integrity by progressively adjusting simulation speed in<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;your scripts. <br>
+&nbsp;&nbsp;&nbsp;NOTE: speed change will only affect physics. It will not affect Particles, CamChase<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;speed, or any other effect which timing is not directly dependant on physics simulation.<br>
+<br>
+<a name="204"></a>
+<strong>bool iCommand(string)<br>
+</strong>&nbsp;&nbsp;&nbsp;Executes the specified Windows command (CLI).<br>
+&nbsp;&nbsp;&nbsp;string = command to execute.<br>
+&nbsp;&nbsp;&nbsp;NOTE: control will only go back to 3D Rad after the command has been completed.<br>
+&nbsp;&nbsp;&nbsp;NOTE: this function opens an invisible CLI window, so, if you use it to directly<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;launch an application, the application may be invisible as well. The<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;workaround is launching a batch file instead, which in turn launches the application.<br>
+<br>
+<a name="205"></a>
+<strong>bool iCommandContinue(string)<br>
+</strong>&nbsp;&nbsp;&nbsp;Like iCommand(), except that control will return immediately to 3D Rad's script, with the<br>
+&nbsp;&nbsp;&nbsp;application working in the background, until it is closed by the user or it terminates by itself.<br>
+&nbsp;&nbsp;&nbsp;NOTE: if the launched application cannot terminate by itself, you must use the intermediate<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;batch file method (see iCommand() function above), otherwise closing it manually<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;will not be possible, being it an invisible background application.<br>
+<br>
+<a name="206"></a>
+<strong>iExitDocumentSet(string)<br>
+</strong>&nbsp;&nbsp;&nbsp;Open the specified file after the program is terminated.<br>
+&nbsp;&nbsp;&nbsp;The document is typically an .html file, for example the user manual for your compiled project.<br>
+&nbsp;&nbsp;&nbsp;string = path to the file to open.<br>
+&nbsp;&nbsp;&nbsp;NOTE: this function only works in a compiled project.<br>
+<br>
+<a name="207"></a>
+<strong>bool i3DPointVisible(OBJ_X,Vector3)<br>
+</strong>&nbsp;&nbsp;&nbsp;Return TRUE if the specified 3d point is within the specified camera window.<br>
+&nbsp;&nbsp;&nbsp;OBJ_X = camera object<br>
+&nbsp;&nbsp;&nbsp;Vector3 = 3d point location<br>
+<br>
+<a name="208"></a>
+<strong>bool iSphereVisible(OBJ_X,Vector3,float)<br>
+</strong>&nbsp;&nbsp;&nbsp;Return TRUE if the specified sphere is within the specified camera window.<br>
+&nbsp;&nbsp;&nbsp;OBJ_X = camera object<br>
+&nbsp;&nbsp;&nbsp;Vector3 = sphere center location<br>
+&nbsp;&nbsp;&nbsp;float = radius<br>
+&nbsp;&nbsp;&nbsp;NOTE: see SkinMeshImpostersVisible demo project for an example of usage.<br>
+<br>
+<a name="209"></a>
+<strong>i3DLocationToScreen(Vector3,Vector3,OBJ_X)<br>
+</strong>&nbsp;&nbsp;&nbsp;Vector3 = screen location. Return data.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Resulting coordinates specify a screen location using<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the same convention used for iObjectLocationSet()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;when the object is a Sprite, a ValuePrint or a TextPrint object.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NOTE: if the source 3d location is outside the viewing<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;frustum returned 2d coordinates will be outside the screen.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NOTE: if the source 3d location is behind the camera,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;returned 2d coordinates will be both 1000000000.<br>
+&nbsp;&nbsp;&nbsp;Vector3 = source 3d location to convert to screen coordinates.<br>
+&nbsp;&nbsp;&nbsp;OBJ_X = camera object to be used as a reference.<br>
+<br>
+<a name="210"></a>
+<strong>iScreenRay(Vector3,Vector3,Vector3,OBJ_X)<br>
+</strong>&nbsp;&nbsp;&nbsp;Return a 3d vector with origin at the specified camera location and pointing toward<br>
+&nbsp;&nbsp;&nbsp;the 3d location indicated by the specified screen coordinates. <br>
+&nbsp;&nbsp;&nbsp;Vector3 = 3d ray origin, absolute coordinates. Return data.<br>
+&nbsp;&nbsp;&nbsp;Vector3 = 3d ray direction. Return data.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Note that the length of this vector is random. You will typically<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;need a specific length for your computation. You can set the length<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;of a vector with <a href="#541">iVectorLengthSet()</a><br>
+&nbsp;&nbsp;&nbsp;Vector3 = screen coordinates defining a 3d point at infinite distance<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;from the camera, in the virtual space.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Coordinates specify a screen location using<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the same convention used for iObjectLocationSet()<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;when the object is a Sprite, a ValuePrint or a TextPrint object.<br>
+&nbsp;&nbsp;&nbsp;OBJ_X = camera object (rendering window) to be used as a reference.<br>
+<br>
+<a name="211"></a>
+<strong>bool iSpherePicked(Vector3,float,OBJ_X,Vector3)<br>
+</strong>&nbsp;&nbsp;&nbsp;Return true if the specified sphere is pointed by the mouse.<br>
+&nbsp;&nbsp;&nbsp;Vector3 = sphere center, world-relative coordinates.<br>
+&nbsp;&nbsp;&nbsp;float = sphere radius<br>
+&nbsp;&nbsp;&nbsp;OBJ_X = camera object (rendering window) to be used as a reference.<br>
+&nbsp;&nbsp;&nbsp;Vector3 = when the function returns true, this variable contains<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the world-relative coordinates of the point indicated by<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the mouse, on the sphere surface.<br>
+<br>
+<a name="212"></a>
+<strong>int iSphereSegmentIntersect(Vector3,float,Vector3,Vector3,Vector3,Vector3)<br>
+</strong>&nbsp;&nbsp;&nbsp;Return the number of intersection points between the specified sphere and the specified segment.<br>
+&nbsp;&nbsp;&nbsp;Vector3 = sphere center, world-relative coordinates.<br>
+&nbsp;&nbsp;&nbsp;float = sphere radius<br>
+&nbsp;&nbsp;&nbsp;Vector3 = location of the first vertex for the 3d line segment, world-relative coordinates.<br>
+&nbsp;&nbsp;&nbsp;Vector3 = location of the second vertex for the 3d line segment, world-relative coordinates.<br>
+&nbsp;&nbsp;&nbsp;Vector3 = when the function returns non-zero, this variable contains<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the world-relative coordinates of the first intersection point.<br>
+&nbsp;&nbsp;&nbsp;Vector3 = when the function returns 2, this variable contains<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the world-relative coordinates of the second intersection point.<br>
+<br>
+<a name="213"></a>
+<strong>bool iScreenAreaPicked(float,float,float,float,bool)<br>
+</strong>&nbsp;&nbsp;&nbsp;Return 'true' if the specified screen area is pointed by the mouse.<br>
+&nbsp;&nbsp;&nbsp;float,float = coordinates of the upper-left corner of the pickable screen area.<br>
+&nbsp;&nbsp;&nbsp;float,float = coordinates of the lower-right corner of the pickable screen area.<br>
+&nbsp;&nbsp;&nbsp;bool = if set to 'true', the function will only return 'true' once, when the left<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mouse button is clicked while the area is pointed by the mouse.<br>
+&nbsp;&nbsp;&nbsp;NOTE: coordinates specify a screen location using<br>
+&nbsp;&nbsp;&nbsp;the same convention used for iObjectLocationSet()<br>
+&nbsp;&nbsp;&nbsp;when the object is a Sprite, a ValuePrint or a TextPrint object.<br>
+<br>
+<a name="214"></a>
+<strong>iScreenshotSave(string)<br>
+</strong>&nbsp;&nbsp;&nbsp;Save a screenshot as an image file in .jpg or .bmp format.<br>
+&nbsp;&nbsp;&nbsp;For an example of usage, please see the sample project called ScreenshotDemo.3dr<br>
+&nbsp;&nbsp;&nbsp;string = file path (absolute or relative) of the .jpg/.bmp file to save<br>
+&nbsp;&nbsp;&nbsp;NOTE: the screenshot will always be of the whole screen. It means that,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for your 3drad applications running in windowed mode, the screenshot<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;may include parts of the Windows desktop. <br>
+<br>
+<a name="215"></a>
+<strong>iSuperScreenshotSave(string,int)<br>
+</strong>&nbsp;&nbsp;&nbsp;Save a screenshot of the 3D scene as tiles. Each tile is an image with the same format as the current display.<br>
+&nbsp;&nbsp;&nbsp;The tiles can be combined by using a paint program or a specialized tool, to form the original<br>
+&nbsp;&nbsp;&nbsp;screenshot, as an unique high resolution image.<br>
+&nbsp;&nbsp;&nbsp;There is virtually no limit in the number of tiles you can produce for each screenshot, so there<br>
+&nbsp;&nbsp;&nbsp;is virtually no limit in the size, in pixels, of the final image.<br>
+&nbsp;&nbsp;&nbsp;string = file path (absolute or relative) of the base .jpg/.bmp file.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3D Rad will use this name as basis to name the tiles as sequence of numbered files.<br>
+&nbsp;&nbsp;&nbsp;int = number of tiles per dimension. For example, 3 will produce 9 tiles (3x3 grid of tiles).<br>
+&nbsp;&nbsp;&nbsp;NOTE: this function will not work for sprites and texts. Any 2D element on screen will not be<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;included to the images created. Particles active in the scene may also look slightly<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;different in the final image.<br>
+&nbsp;&nbsp;&nbsp;NOTE: this function is designed to work in full-screen or maximized mode. In Windowed mode,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;because each tile will be a screenshot of the whole screen, additional editing may be<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;required to compose the image and obtain the finished high-resolution screenshot.<br>
+<hr size="1" noshade>
+</font>
+</body>
+</html>

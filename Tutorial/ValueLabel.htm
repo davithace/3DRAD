@@ -1,0 +1,176 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+
+<head>
+   <title>
+      ValueLabel, 3D Rad
+   </title>
+
+   <META
+      content="ValueLabel,Follow,Label,Print,Value,3D Rad"
+      name="keywords">
+</head>
+
+<body bgcolor="#000000" text="#909080" link="#F0E0E0" vlink="#F0E0E0" alink="#F0E0E0">
+
+<table border="0" cellpadding="0" cellspacing="0" width="760">
+
+   <tr>
+      <td width="760" colspan="6"><img src="./img/main_logo.jpg" width="760" height="182"></td>
+   </tr>
+
+   <tr>
+      <td width="26" bgcolor="#00002F"></td>
+      <td width="112" bgcolor="#00002F" valign="top">
+         <br>
+         <p>
+            <a href="http://www.3drad.com/">
+            <font color="#909080" size="1" face="Verdana">
+               <strong>WHAT IS<br>3D RAD?<br>CLICK HERE<br>TO FIND OUT!</strong>
+            </font>
+            </a>
+         </p>
+         <br>
+      </td>
+      <td width="24" bgcolor="#00002F"></td>
+      <td width="24"></td>
+      <td width="400">
+         <h1 align="center">
+            <font size="4" face="Verdana">
+               ValueLabel<br>
+            </font>
+         </h1>
+         <font size="2" face="Verdana">
+         <p>
+            <center>
+            <img src="./img/ValueLabel.jpg" width="128" height="128" align="center" border="0">
+            </center>
+            <br>
+            Attach numerical labels to any 3d object and display its internal values.
+            Digit size, color, transparency, offset and format are definable.
+            <br><br>
+
+            <br>
+            <center>
+            <font size="3" face="Verdana">
+               <strong>USAGE</strong>
+            </font>
+            </center>
+            <br>
+
+            Add the ValueLabel object to your project, link it to all the object you want to
+            read the values from and also to all 3d objects you want to attach a label to.
+            <br><br>
+            You link objects together in the Object List (left side of 3D Rad main screen), by
+            selecting an object and then checking the other objects you want to link to it.
+            <br><br>
+            To configure the ValueLabel object, double-click it in the
+            Object List to open the following property dialog:
+            <br><br>
+
+            <center>
+            <img src="./img/ValueLabel_properties.jpg">
+            </center>
+            <br><br>
+            <center><strong>Text width & height</strong></center>
+            <br>
+            Any size is allowed for the digits, but values bigger than 2.0 may affect rendering quality.
+            <br><br>
+            <center><strong>Text location offset</strong></center>
+            <br>
+            The current screen location of the target object center is used as a reference.
+            The offset is in screen units.
+            <br><br>
+            <center><strong>Text color & opacity</strong></center>
+            <br>
+            Click the color button to open the color picker.
+            Opacity must be between 0.0 (invisible) and 1.0 (fully visible).
+            <br><br>
+            <center><strong>Format string</strong></center>
+            <br>
+            This string specifies the visualization format of the printed value. Examples:
+            <br><br>
+            <li>%.0f - any number of digits for the integer part, zero digits for the fraction part (e.g. 1321)</li>
+            <br><br>
+            <li>%3.0f - at least 3 digits for the integer part, zero digits for the fraction part (e.g. 321)</li>
+            <br><br>
+            <li>%2.3f - at least 2 digits for the integer part, 2 digits for the fraction part (e.g. 32.731)</li>
+            <br><br>
+            <li>%05.1f - at least 5 digits for the integer part, 1 digit for the fraction part.
+            If the integer part has less than 5 digits, missing spaces are filled with zero's (e.g. 00321.3)</li>
+            <br><br>
+            <li>%.0f%% - any number of digits for the integer part, zero digits for the fraction part.
+            Also append a percent-symbol (%) to the value (e.g. 77%)</li>
+            <br><br>
+            <center><strong>Value range</strong></center>
+            <br>
+            Before printing, the source value can be <em>clamped</em> or <em>wrapped</em> within a specified range.
+            For example, if the source value is 48 and the range is 50,100, in clamp-mode the printed value is 50
+            and in wrap mode it is 98.
+            <br><br>
+            <center><strong>Value interpolation range</strong></center>
+            <br>
+            Before printing, the source value can be <em>transformed</em> by using two interpolation values as reference. Examples:
+            <br><br>
+            <li>Interpolation range is 0,100: the source value is printed as zero when it is zero and as 100 when it is 1.
+            Intermediate source values produce intermediate printed values (e.g. source = 0.5, printed value = 50)</li>
+            <br><br>
+            <li>Interpolation range is 150,200: the source value is printed as 150 when it is zero and as 200 when it is 1.
+            Intermediate source values produce intermediate printed values (e.g. source = 0.5, printed value = 175)</li>
+            <br><br>
+            <li>Interpolation range is -1,1: the source value is printed as -1 when it is zero and as 1 when it is 1.
+            Intermediate source values produce intermediate printed values (e.g. source = 0.5, printed value = 0)</li>
+            <br><br>
+            <li>Interpolation range is 10,-20: the source value is printed as 10 when it is zero and as -20 when it is 1.
+            Intermediate source values produce intermediate printed values (e.g. source = 0.5, printed value = -5)</li>
+            <br><br>
+            <li>Interpolation range is 0,1: the source value is printed as is (no transformation)</li>
+            <br><br>
+            <center><strong>Relationships</strong></center>
+            <br>
+            This list defines how the ValueLabel object relates to the object linked to it. 
+            The following relationship types are supported:
+            <br><br>
+            <li>IGNORE. Do nothing.</li>
+            <br><br>
+            <li>[parameter] is displayed as a LABEL. Display the specified internal value of the
+            3d object as a label <em>attached</em> to it.
+            <br><br>
+            <li>[parameter] is displayed as another object's LABEL. Read the specified internal value of the object
+            but attach the resulting label to the object marked as <em>ATTACH LABEL</em> (see below).
+            <br><br>
+            Please see linked object's documentation (INTERNAL PARAMETERS section)
+            for details on the internal parameters it supports.
+            <br><br>
+            <strong>NOTE:</strong> if you specify two or more objects as source,
+            the resulting printed value is the <em>average</em> of all source parameters.
+            <br><br>
+            <li>ATTACH LABEL. Attach to this object the numeric label generated from the
+            '<em>[parameter] is displayed as another object's LABEL</em>' object (see above).</li>
+            <br><br>
+            <center><strong>Visible at start</strong></center>
+            <br>
+            Whether to show the labels when the project is run. If this option is unchecked, you will have
+            to link this object to an event object like for example <a href="./EventTimer.htm">EventTimer</a>
+            in order to visualize them.
+            <br><br>
+            <center>For information about the remaining controls, please <a href="./AllObjects.htm">click here</a>.</center>
+         </p>
+         </font>
+      </td>
+      <td width="174"></td>
+   </tr>
+
+   <tr>
+      <td width="26" bgcolor="#00002F"></td>
+      <td width="112" bgcolor="#00002F"></td>
+      <td width="24" bgcolor="#00002F"></td>
+      <td width="598" colspan="3"><img src="./img/main_logo_bottom.jpg" width="598" height="103"></td>
+   </tr>
+
+</table>
+
+</body>
+
+</html>

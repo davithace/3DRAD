@@ -1,0 +1,256 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+
+<head>
+   <title>
+      EventOnInput, 3D Rad
+   </title>
+
+   <META
+      content="EventOnInput,Game,Keypress,3D Rad"
+      name="keywords">
+</head>
+
+<body bgcolor="#000000" text="#909080" link="#F0E0E0" vlink="#F0E0E0" alink="#F0E0E0">
+
+<table border="0" cellpadding="0" cellspacing="0" width="760">
+
+   <tr>
+      <td width="760" colspan="6"><img src="./img/main_logo.jpg" width="760" height="182"></td>
+   </tr>
+
+   <tr>
+      <td width="26" bgcolor="#00002F"></td>
+      <td width="112" bgcolor="#00002F" valign="top">
+         <br>
+         <p>
+            <a href="http://www.3drad.com/">
+            <font color="#909080" size="1" face="Verdana">
+               <strong>WHAT IS<br>3D RAD?<br>CLICK HERE<br>TO FIND OUT!</strong>
+            </font>
+            </a>
+         </p>
+         <br>
+      </td>
+      <td width="24" bgcolor="#00002F"></td>
+      <td width="24"></td>
+      <td width="400">
+         <h1 align="center">
+            <font size="4" face="Verdana">
+               EventOnInput<br>
+            </font>
+         </h1>
+         <div align="justify"> 
+         <font size="2" face="Verdana">
+         <p>
+            <center>
+            <img src="./img/EventOnInput.jpg" width="128" height="128" align="center" border="0">
+            </center>
+            <br>
+            This object starts/stops (or shows/hides) objects linked to it when a keypress, key-release or another specific input is detected.
+            It can also perform the same actions when the mouse enters or leaves a specified screen area.
+            <br><br>
+            For example, you can use this object to interactively control pre-defined events like the
+            animation of an opening door, and so on.
+            <br><br>
+            This object can itself be started and stopped by other event objects,
+            allowing you to create <em>chains</em> and achieve articulated event management.
+            <br><br>
+            For more about event objects in general, please see <a href="http://www.3drad.com/event_objects.htm">this tutorial</a>.
+            <br><br>
+
+            <br>
+            <center>
+            <font size="3" face="Verdana">
+               <strong>USAGE</strong>
+            </font>
+            </center>
+            <br>
+
+            Add the EventOnInput object to your project, link it to all objects you want
+            to start/stop when an input is detected.
+            <br><br>
+            You link objects together in the Object List (left side of 3D Rad main screen), by
+            selecting an object and then checking the other objects you want to link to it.
+            <br><br>
+            To configure the EventOnInput object, double-click it in the
+            Object List to open the following property dialog:
+            <br><br>
+
+            <center>
+            <img src="./img/EventOnInput_properties.jpg">
+            </center>
+            <br><br>
+            <center><strong>Input Control</strong></center>
+            <br>
+            Use this combo box to specify what input control to use to trigger the action specified in the
+            <em>Relationships</em> list (below).
+            <br><br>
+            Note that to change the available default controls and/or let users of your projects to assign any
+            input device to the trigger, you must add the
+            <a href="./ConfigureControls.htm">ConfingureControls object</a> to the project.
+            <br><br>
+            <center><strong>Continuous</strong></center>
+            <br>
+            By default, the action is triggered only once, when the control is activated (eg key is pressed).
+            It is triggered again only after the control is released and activated again.
+            <br><br>
+            If the <em>Continuous</em> option is checked instead, the actions are triggered repeatedly, until the control is released.
+            <br><br>
+            The <em>Auto-repeat rate</em> parameter specifies the number of times per second the action is triggered.
+            <br><br>
+            If the <em>Toggle mode</em> option is checked, the auto-repeat is activated when you press the key
+            and de-activated when you press it again.
+            <br><br>
+            <center><strong>Mouse detection area</strong></center>
+            <br>
+            Coordinates of the upper-left and bottom-right corners of a rectangular screen area.
+            The screen center is at 0,0. Left/right margins are at -16 and 16. Top/bottom margins are at 12 and -12. 
+            <br><br>
+            The area can also be edited visually in the Virtual Editor by clicking and dragging the mouse (use right button
+            to scale and right button with left Ctrl key to stretch).
+            <br><br>
+            The screen area is used for 'ON MOUSOVER' and 'ON MOUSEOFF' relationship types only. See
+            <em>Relationships</em> section, below.
+            <br><br>
+            <center><strong>Relationships</strong></center>
+            <br>
+            This list defines how the EventOnInput object relates to the objects that are linked to it. 
+            The following relationship types are supported:
+            <br><br>
+            <li>IGNORE. Do nothing.
+            Typically used for linked objects that are <em>starters</em> for this EventOnInput
+            object itself (in a chain of event objects for example).</li>
+            <br><br>
+            <li>START ON INPUT. Start the object when the input is detected (for example the specified key is pressed).
+            Note that the target object must provide some 'startable' action.</li>
+            <br><br>
+            <li>STOP ON INPUT. Stop the object when the input is detected.</li>
+            <br><br>
+            <li>SWITCH ON INPUT. Switch the object (start if stopped and vice-versa)
+            when the input is detected.</li>
+            <br><br>
+            <li>SHOW ON INPUT. Show the object when the input is detected.</li>
+            <br><br>
+            <li>HIDE ON INPUT. Hide the object when the input is detected.</li>
+            <br><br>
+            <li>S/H SWITCH ON INPUT. Switch the object (show if hidden and vice-versa) when the input is detected.</li>
+            <br><br>
+            <li>RESET ON INPUT. Re-initialize the object completely, to its default state, as defined in the project.</li>
+            <br><br>
+            <li>START ON RELEASE (and all other variants). Same as above, but triggering the actions when the input control is released.</li>
+            <br><br>
+            <li>START ON MOUSEOVER (and all other variants). Same as above, but triggering the actions when the mouse enters the specified mouse-detection area (see above).</li>
+            <br><br>
+            <li>START ON MOUSEOFF (and all other variants). Same as above, but triggering the actions when the mouse exits the specified mouse-detection area (see above).</li>
+            <br><br>
+            <li>START ON LMBUTTON (and all other variants). Same as above, but triggering the actions when the mouse is inside the specified mouse-detection area AND the left mouse button is clicked.</li>
+            <br><br>
+            <li>START ON LMBRELEASE (and all other variants). Same as above, but triggering the actions when the mouse is inside the specified mouse-detection area AND the left mouse button is released.</li>
+            <br><br>
+            <li>START ON RMBUTTON (and all other variants). Same as above, but triggering the actions when the mouse is inside the specified mouse-detection area AND the right mouse button is clicked.</li>
+            <br><br>
+            <li>START ON RMBRELEASE (and all other variants). Same as above, but triggering the actions when the mouse is inside the specified mouse-detection area AND the right mouse button is released.</li>
+            <br><br>
+
+            <center><strong>Execute opposite action on release</strong></center>
+            <br>
+            If this option is checked, the specified action
+            is applied to the target on pressing the specified key (or activating the specified control),
+            and the opposite action is applied to the target when the key (or control) is released.
+            <br><br>
+            This feature can be used, for example, to start a looping sound when a key is pressed and stop the sound
+            when the key is released.
+            <br><br>
+            Note that this feature only works for objects that are marked, in the <em>Relationships</em> window, as
+            <em>... ON INPUT</em> (see above).
+            <br><br>
+
+            <center><strong>Randomize target object</strong></center>
+            <br>
+            If this option is checked, the specified action
+            is applied to one target object only, picked randomly.
+            If the option is not checked, the action is applied to all target objects instead.
+            <br><br>
+            NOTE: this option is supported for 'ON INPUT' actions only (see <em>Relationships</em> section, above).
+            <br><br>
+            <center><strong>Working at start</strong></center>
+            <br>
+            If this option is not checked, the EventOnInput object will not work (no input detected)
+            until it is <em>started</em> by using another event object.
+            <br><br>
+
+            <center><strong>NETWORK</strong></center>
+            <br>
+            In a multiplayer game, when the project is running on the server, EventOnInput objects that have the same <em>Network ID</em> as
+            EventOnInput objects in a project which is running on a connected client PC, will trigger actions on the server, based on the remote
+            user input.
+            <br><br>
+            So, for example, if you have a tank battle game running on the server, and the EventOnInput objects that control movements for a
+            tank are synchronized with EventOnInput objects in a project running on a client, the client PC user will be able
+            to control the tank on the server.
+            <br><br>
+            This feature, coupled with the ability to synchronize SkinMesh objects between server and client projects, allows you to
+            create multiplayer games enjoying a productivity which isn't possible with classic game creation systems.
+            <br><br>
+            <strong>Network ID</strong>. The Network ID can be any value between 1 and 65535. Setting the ID to zero will disable synchronization.
+            <br><br>
+            <strong>Player number</strong>. This value specifies what connected PC will control the input for the EventOnInput object.
+            The player number can be any value between 0 and 255, where 0 is always the server, 1 is the first client PC joining the game,
+            2 the second and so on.
+            <br><br>
+            Note that when a PC is disconnected (when a player leaves), its <em>slot</em> becomes available again and it will be assigned
+            to the next PC that may connect.
+            <br><br>
+            It is up to the project developer to put mechanisms in place to only start a game when a certain number of players has been
+            reached, or to disable (stop) EventOnInput objects when a player leaves. All the tools required to handle these situations
+            are provided as <em>iNet...()</em> script <a href="./Script.htm">functions</a>.
+            <br><br>
+            For more information about creating multiplayer projects with 3D Rad, please <a href="./how-to-make-multiplayer-games.htm">click here</a>.
+            <br><br>
+
+            <br><br>
+            <center>For information about the remaining controls, please <a href="./AllObjects.htm">click here</a>.</center>
+            <br><br>
+
+            <br>
+            <center>
+            <font size="3" face="Verdana">
+               <strong>INTERNAL PARAMETERS</strong>
+            </font>
+            </center>
+            <br><br>
+            The current input value can be read
+            and processed run-time by using <em>value</em> objects like
+            <a href="./EventOnValue.htm">EventOnValue</a> or
+            by using a <a href="./Script.htm">Script</a>
+            <br><br>
+            For non-proportional input controls, like a keyboard or a joystick button,
+            the input value is zero when the key or button is released and 1 when it is pressed.
+            <br><br>
+            For proportional input controls, like a joystick, the input value is zero
+            when the device is released and 1 when it is fully set (for example, when
+            a stick is fully pushed or a steering wheel fully turned).
+            Intermediate proportional device states (like a partially turned wheel)
+            produce intermediate input values.
+            <br><br>
+         </p>
+         </font>
+         </div>
+      </td>
+      <td width="174"></td>
+   </tr>
+
+   <tr>
+      <td width="26" bgcolor="#00002F"></td>
+      <td width="112" bgcolor="#00002F"></td>
+      <td width="24" bgcolor="#00002F"></td>
+      <td width="598" colspan="3"><img src="./img/main_logo_bottom.jpg" width="598" height="103"></td>
+   </tr>
+
+</table>
+
+</body>
+
+</html>

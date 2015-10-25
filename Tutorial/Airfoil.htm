@@ -1,0 +1,187 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+
+<head>
+   <title>
+      Airfoil, make 3d aircraft with 3D Rad
+   </title>
+
+   <META
+      content="Airplane,Aircraft,Flight Simulator,Airfoil,3D Rad"
+      name="keywords">
+</head>
+
+<body bgcolor="#000000" text="#909080" link="#F0E0E0" vlink="#F0E0E0" alink="#F0E0E0">
+
+<table border="0" cellpadding="0" cellspacing="0" width="760">
+
+   <tr>
+      <td width="760" colspan="6"><img src="./img/main_logo.jpg" width="760" height="182"></td>
+   </tr>
+
+   <tr>
+      <td width="26" bgcolor="#00002F"></td>
+      <td width="112" bgcolor="#00002F" valign="top">
+         <br>
+         <p>
+            <a href="http://www.3drad.com/">
+            <font color="#909080" size="1" face="Verdana">
+               <strong>WHAT IS<br>3D RAD?<br>CLICK HERE<br>TO FIND OUT!</strong>
+            </font>
+            </a>
+         </p>
+         <br>
+      </td>
+      <td width="24" bgcolor="#00002F"></td>
+      <td width="24"></td>
+      <td width="400">
+         <h1 align="center">
+            <font size="4" face="Verdana">
+               Airfoil
+            </font>
+         </h1>
+         <font size="2" face="Verdana">
+         <p>
+            <center>
+            <img src="./img/Airfoil.jpg" width="128" height="128" align="center" border="0">
+            </center>
+            <br>
+            The Airfoil object can be used to apply aerodynamic forces to any object supporting physics,
+            like a <a href="./RigidBody.htm">RigidBody</a>-based airplane fuselage.
+            <br><br>
+            This allows you to realistically simulate aircraft, sailing boats, submarines or any other object moving through a fluid.
+            <br><br>
+            Used with the <a href="./Car.htm">Car object</a>, airfoils can also be used to set up race cars that behave more realistically (down force simulation).
+            <br><br>
+            Furthermore, physics can be influenced by wind, if the Airfoil object is linked to a <a href="./Wind.htm">Wind object</a>.
+            <br><br>
+            You can visually apply ('attach') an Airfoil to any object in the scene, launch the simulation and see what happens.
+            <br><br>
+
+            After adding the Airfoil object to your project, you can configure it by double-clicking it in the Object List.
+            <br>
+            <br><br>
+            <center>
+            <img src="./img/Airfoil_properties.jpg">
+            </center>
+            <br><br>
+            <center><strong>Display airfoil geometry</strong></center>
+            <br>
+            Checking this option helps you see the airfoil reference geometry runtime.
+            This is useful for example when testing airfoils that can be controlled and rotate about their axis.
+            <br><br>
+            <center><strong>Airfoil surface area (m^2)</strong></center>
+            <br>
+            The bigger the airfoil surface, the greater the lift and drag forces produced.
+            <br><br>
+            Note that lift force is only generated when the
+            <a href="http://en.wikipedia.org/wiki/Angle_of_attack">angle of attack</a> is below approximately 14 degrees.
+            <br><br>
+            <center><strong>Face relative wind (drag-only mode)</strong></center>
+            <br>
+            When this option is checked, no lift forces are produced.
+            The airfoil will only produce drag forces, simulating a generic body with a <em>frontal projection area</em>
+            equal to the airfoil surface area (see above).
+            <br><br>
+            This feature can be used to simulate air friction more realsitically than simply using RigidBody object's
+            damping parameters.
+            <br><br>
+            NOTE: when this option is not checked, the Airfoil object still simulates drag forces (besides lift), but
+            only those produced by a flat object like a wing or a sail.
+            <br><br>
+            <center><strong>Lift-to-drag ratio</strong></center>
+            <br>
+            The bigger the ratio, the smaller the effect of drag forces on the airfoil.
+            <br><br>
+            In general, reducing this factor makes a plane less realistic but easier to control.
+            <br><br>
+            <center><strong>Auto-balance force</strong></center>
+            <br>
+            Setting this factor to any non-zero, positive value will automatically apply a force to the
+            object linked to the airfoil (e.g. airplane fuselage) to prevent it from banking/pitching too much.
+            <br><br>
+            The bigger the value, the stronger the force applied.
+            <br><br>
+            This option helps you setup aircrafts that tend to fly horizontally and are easier to control.
+            <br><br>
+            Enabling auto-balance for more than one single airfoil attached to the same aircraft is not recommended.
+            You should only enable auto-balance for one single airfoil per aircraft (usually the main wing).
+            <br><br>
+            <center><strong>Controls</strong></center>
+            <br>
+            You can make the airfoil interactive by checking the box next to the input controls
+            (Decrease angle control, Increase angle control).
+            <br><br>
+            This option is typically checked for airfoils that will work as elevators, rudders, ailerons etc.
+            <br><br>
+            Please note that this option must be unchecked if you want to control the airfoil by manipulating its internal value,
+            for example by using the <a href="./Script.htm">Script</a> object.
+            See <em>internal values</em> table below for more.
+            <br><br>
+            <li>If the <em>Working At Start</em> option is not checked, the airfoil will only respond to input controls when the
+            object is <em>started</em> by another object, like for example
+            <a href="./EventOnInput.htm">EventOnInput</a>.</li>
+            <br><br>
+            <li><em>Max angle</em> determines the turning angle range for the airfoil,
+            about its axis (marked in red on the reference geometry).</li>
+            <br><br>
+            <li>The <em>Delay</em> parameters allow you to set the <em>response time</em> for the control, in seconds (approximately).
+            <br><br>
+            Please note that delays should be set to 0.0 if proportional controls are used (see
+            <a href="./ConfigureControls.htm">ConfigureControls</a> for details).</li>
+            <br><br>
+            <center><strong>Other dialog controls</strong></center>
+            <br>
+            For information about the remaining controls, please <a href="./AllObjects.htm">click here</a>.
+            <br><br>
+
+            <center><strong>REMARKS</strong></center>
+            <br><br>
+            Airfoil is a fantastic asset. However, in order to create systems that
+            work as expected (e.g. a flying plane) it is recommended that you
+            start by using as few airfoils as possible, to keep things simple.
+            <br><br>
+            To make your own airplanes it is recommended that you use the AircraftDemo.3dr project as basis.
+            This is basically a RigidBody object shaped like a plane. Mass distribtuion and weight
+            are based on a Cessna 170.
+            <br><br>
+            When using your own RigidBody models, start placing Airfoil objects close to the horizontal
+            plane passing through the center of mass. This should give you a stable setup. You can find the center of mass by
+            right-clicking the RigidBody object in the Vistual Editor, while holding the 'M' key pressed.
+            <br><br>
+            Launch the project to see if the system can actually fly. If it can you may gradually move airfoils to real positions
+            to reproduce behaviors peculiar to your specific aircraft type.
+            <br><br>
+            While freely experimenting with Airfoil surface area and lift-to-drag parameters is highly recommended,
+            please keep in mind that you usually get better results by using real airplanes' specifications as a reference.
+            <br><br>
+            
+            <br><br><br>
+            <center><strong>INTERNAL PARAMETERS</strong></center>
+            <br><br>
+            The following internal parameters can be accessed by using other objects like
+            <a href="./EventOnValue.htm">EventOnValue</a> or <a href="./Script.htm">Script</a>:
+            <br><br>
+            <li>Angle Ctrl, between -1 and 1.</li>
+            <li>Surface Area. Write only. Setting this value to zero completely disables Airfoil object forces.</li>
+            <li>Angle (degrees). Current parent-relative airfoil angle. Read only.</li>
+            <br><br>
+         </p>
+         </font>
+      </td>
+      <td width="174"></td>
+   </tr>
+
+   <tr>
+      <td width="26" bgcolor="#00002F"></td>
+      <td width="112" bgcolor="#00002F"></td>
+      <td width="24" bgcolor="#00002F"></td>
+      <td width="598" colspan="3"><img src="./img/main_logo_bottom.jpg" width="598" height="103"></td>
+   </tr>
+
+</table>
+
+</body>
+
+</html>

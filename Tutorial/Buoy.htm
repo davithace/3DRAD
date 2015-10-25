@@ -1,0 +1,158 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+
+<head>
+   <title>
+      Buoy, 3D Rad
+   </title>
+
+   <META
+      content="Buoy,Boat,3D Rad"
+      name="keywords">
+</head>
+
+<body bgcolor="#000000" text="#909080" link="#F0E0E0" vlink="#F0E0E0" alink="#F0E0E0">
+
+<table border="0" cellpadding="0" cellspacing="0" width="760">
+
+   <tr>
+      <td width="760" colspan="6"><img src="./img/main_logo.jpg" width="760" height="182"></td>
+   </tr>
+
+   <tr>
+      <td width="26" bgcolor="#00002F"></td>
+      <td width="112" bgcolor="#00002F" valign="top">
+         <br>
+         <p>
+            <a href="http://www.3drad.com/">
+            <font color="#909080" size="1" face="Verdana">
+               <strong>WHAT IS<br>3D RAD?<br>CLICK HERE<br>TO FIND OUT!</strong>
+            </font>
+            </a>
+         </p>
+         <br>
+      </td>
+      <td width="24" bgcolor="#00002F"></td>
+      <td width="24"></td>
+      <td width="400">
+         <h1 align="center">
+            <font size="4" face="Verdana">
+               Buoy<br>
+            </font>
+         </h1>
+         <font size="2" face="Verdana">
+         <p>
+            <center>
+            <img src="./img/Buoy.jpg" width="128" height="128" align="center" border="0">
+            </center>
+            <br>
+            When linked to a <a href="./RigidBody.htm">RigidBody</a> object, the Buoy object applies upward forces to it,
+            to realistically simulate floating on or under a water surface, specified in the Buoy object property dialog
+            as an altitude parameter. 
+            <br><br>
+            Typical usage is for the creation of realistic boats. Please see the project
+            called <em>BoatDemo.3dr</em> for an example.
+            <br><br>
+            The Buoy object position <em>on</em> the parent RigidBody determines the application point of the buoyancy forces.
+            <br><br>
+            The buoy is editable visually as a sphere. The sphere size will determine its buoyancy force.
+            <br><br>
+            Multiple Buoy objects can be attached to a single RigidBody (boat)
+            object, allowing you to create complex boat setups. 
+            <br><br>
+            By using a <a href="./Script.htm">Script</a>, the water plane altitude can be adjusted run-time (see Internal Parameters section, below), to make the water
+            move up and down, for example to simulate waves. 
+            <br><br>
+            <center>
+            <img src="./img/Buoy_properties.jpg">
+            </center>
+            <br><br>
+            <center><strong>Working At Start</strong></center>
+            <br>
+            If this option is not checked, the buoyancy forces will be applied only when the Buoy
+            object is <em>started</em> by another object, like for example
+            <a href="./EventOnInput.htm">EventOnInput</a>.
+            <br><br>
+            <center><strong>Display geometry</strong></center>
+            <br>
+            Check this option to visualize the buoy model run-time.
+            <br><br>
+            <center><strong>Buoy size</strong></center>
+            <br>
+            The diameter of the buoy, in meters.
+            <br><br>
+            Buoyancy forces are proportional to the buoy volume.
+            <br><br>
+            <font color="#FF0000" size="2" face="Verdana">Important!</font>
+            Applying big buoys to a RigidBody object with a small mass is likely to produce very fast
+            translations and/or spinning that can lead to collision detection failures and even software crashes.
+            <br><br>
+            <center><strong>Water level</strong></center>
+            <br>
+            The altitude, in meters, of the water level. Note that each Buoy object has its own
+            water level. This is typically the same for all Buoy objects in the scene, but the
+            ability to set it individually for each buoy allows you to simulate uneven wave
+            patterns, raising waters in a dam etc, where necessary.
+            <br><br>
+            <center><strong>Fluid viscosity</strong></center>
+            <br>
+            The bigger the value, the higher the vertical drag that the buoy will experience when pushed down by
+            the boat weight or up by the buoyancy force.
+            <br><br>
+            The default (1.0) is approximately the viscosity of fresh water.
+            <br><br>
+            Setting higher viscosity values help reduce boat wobbling/bouncing.
+            To further stabilize a boat you can also set some <em>angular damping</em> for the RigidBody
+            object the buoy is attached to (the boat). See <a href="./RigidBody.htm">RigidBody object help file</a> for details.
+            <br><br>
+            NOTE: fluid viscosity drag is only applied along the vertical axis. There is no drag for a buoy moving on the horizontal
+            plane (but see <em>Keel factor</em>).
+            <br><br>
+            <center><strong>Keel factor</strong></center>
+            <br>
+            Due to the hull shape, real boats tend to resist sideways translation.
+            <br><br>
+            This effect can be simulated in 3D Rad, for each Buoy object individually,
+            by setting a keel factor bigger than zero.
+            <br><br>
+            For each buoy, the keel drag force is applied along the local X axis of the boat object (RigidBody).
+            The application point position for the drag force is approximately the center of the submerged buoy volume.
+            <br><br>
+            <center><strong>Relationships</strong></center>
+            <br>
+            This list defines how the Buoy object relates to the objects linked to it. 
+            The following relationship types are supported:
+            <br><br>
+            <li>IGNORE. Do nothing.</li>
+            <br><br>
+            <li>RECIPIENT. Apply the buoyancy forces to this object. This is typically a RigidBody object (the boat's physics layout).
+            Specifying more than one single object as recipient is not recommended.</li>
+            <br><br>
+            <br><br>
+            <center>For information about the remaining controls, please <a href="./AllObjects.htm">click here</a>.</center>
+            <br><br><br>
+            <center><strong>INTERNAL PARAMETERS</strong></center>
+            <br><br>
+            The following internal parameters can be accessed by using <em>event</em> objects like
+            <a href="./EventOnValue.htm">EventOnValue</a> or <a href="./Script.htm">Script</a>:
+            <br><br>
+            <li>Water level</li>
+         </p>
+         </font>
+      </td>
+      <td width="174"></td>
+   </tr>
+
+   <tr>
+      <td width="26" bgcolor="#00002F"></td>
+      <td width="112" bgcolor="#00002F"></td>
+      <td width="24" bgcolor="#00002F"></td>
+      <td width="598" colspan="3"><img src="./img/main_logo_bottom.jpg" width="598" height="103"></td>
+   </tr>
+
+</table>
+
+</body>
+
+</html>

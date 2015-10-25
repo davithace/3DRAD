@@ -1,0 +1,191 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+
+<head>
+   <title>
+      TextPrint, 3D Rad
+   </title>
+
+   <META
+      content="TextPrint,Text,Print,Aligned,3D Rad"
+      name="keywords">
+</head>
+
+<body bgcolor="#000000" text="#909080" link="#F0E0E0" vlink="#F0E0E0" alink="#F0E0E0">
+
+<table border="0" cellpadding="0" cellspacing="0" width="760">
+
+   <tr>
+      <td width="760" colspan="6"><img src="./img/main_logo.jpg" width="760" height="182"></td>
+   </tr>
+
+   <tr>
+      <td width="26" bgcolor="#00002F"></td>
+      <td width="112" bgcolor="#00002F" valign="top">
+         <br>
+         <p>
+            <a href="http://www.3drad.com/">
+            <font color="#909080" size="1" face="Verdana">
+               <strong>WHAT IS<br>3D RAD?<br>CLICK HERE<br>TO FIND OUT!</strong>
+            </font>
+            </a>
+         </p>
+         <br>
+      </td>
+      <td width="24" bgcolor="#00002F"></td>
+      <td width="24"></td>
+      <td width="400">
+         <h1 align="center">
+            <font size="4" face="Verdana">
+               TextPrint<br>
+            </font>
+         </h1>
+         <font size="2" face="Verdana">
+         <p>
+            <center>
+            <img src="./img/TextPrint.jpg" width="128" height="128" align="center" border="0">
+            </center>
+            <br>
+            The TextPrint object allows you to display text in your 3D Rad projects.
+            Character size, color, transparency and kerning are definable.
+            Text alignment and multiple lines are supported.
+            <br><br>
+
+            <br>
+            <center>
+            <font size="3" face="Verdana">
+               <strong>USAGE</strong>
+            </font>
+            </center>
+            <br>
+
+            Add the TextPrint object to your project and launch the simulation to render the text.
+            <br><br>
+            If the TextPrint object is linked to a <a href="./CamChase.htm">camera</a> in the Object List, run-time it will be rendered
+            into the viewport for that camera only. This is typically useful when you add
+            split-screen functionality to your projects. 
+            <br><br>
+            To customize the text, stop the simulation and double-click the TextPrint item in the
+            Object List to open the following property dialog:
+            <br><br>
+
+            <center>
+            <img src="./img/TextPrint_properties.jpg">
+            </center>
+            <br><br>
+            <center><strong>Text</strong></center>
+            <br>
+            The text to print can be typed in the big input box.
+            <br><br>
+            <strong>Visible at start</strong>.
+            If this option is unchecked, the text will only be shown when the TextPrint object is
+            shown by another object, like for example <a href="./EventTimer.htm">EventTimer</a>.
+            <br><br>
+            <center><strong>Parameters</strong></center>
+            <br>
+            <strong>Text's screen location</strong>.
+            The screen center is at 0,0. Left/right margins are at -16 and 16. Top/bottom margins are at 12 and -12.
+            Note that the actual text-block position depends on alignment (see below). 
+            <br><br>
+            NOTE: don't forget that you can visually set the text location by clicking and dragging the mouse
+            in the Virtual Editor window, without opening the property dialog every time.
+            <br><br>
+            <strong>Text width & height</strong>.
+            Any size is allowed for the characters, but values bigger than 2.0 may affect rendering quality.
+            <br><br>
+            NOTE: don't forget that you can visually set the text size by right-clicking and dragging the mouse
+            in the Virtual Editor window, without opening the property dialog every time (you can
+            stretch the text by right-clicking and dragging while holding the [Ctrl] key pressed).
+            <br><br>
+            <strong>Kerning & leading</strong>.
+            These are the space between printed letters and the offset between text lines, respectively.
+            <br><br>
+            <strong>Maximum overall width</strong>.
+            If <em>Center</em> is used for alignment, you can also specify the maximum width for the printed text-block,
+            in screen units. Total screen width is 32.
+            <br><br>
+            <strong>Text color & opacity</strong>.
+            Click the color button to open the color picker.
+            Opacity must be between 0.0 (invisible) and 1.0 (fully visible).
+            <br><br>
+            <strong>Text alignment</strong>.
+            This setting uses the vertical line passing through the
+            <em>Text's screen location</em> point (see above) as a reference.
+            <br><br>
+            <center>For information about the remaining controls, please <a href="./AllObjects.htm">click here</a>.</center>
+
+            <br>
+            <center>
+            <font size="3" face="Verdana">
+               <strong>ADDING YOUR OWN FONTS</strong>
+            </font>
+            </center>
+            <br>
+
+            The first step is duplicating the
+            <br><br>
+            <font size="2" face="Courier New">
+            C:\3D Rad\3DRad_res\<br>objects\TextPrint\data\default
+            </font>
+            <br><br>
+            folder. Give the cloned folder a proper name (eg MyFont).
+            <br><br>
+            Duplicate the
+            <br><br>
+            <font size="2" face="Courier New">
+            C:\3D Rad\3DRad_res\<br>objects\TextPrint\data\index\default.jpg
+            </font>
+            <br><br>
+            file and give it the same name as the cloned folder (eg MyFont.jpg).
+            <br><br>
+            Open the existing fonts.dds file in the
+            <br><br>
+            <font size="2" face="Courier New">
+            C:\3D Rad\3DRad_res\<br>objects\TextPrint\data\MyFont
+            </font>
+            <br><br>
+            folder, by using any paint software supporting the .dds file format.
+            <br><br>
+            Modify the character images and save the .dds file back.
+            <br><br>
+            In the property dialog for the TextPrint object you can now
+            click the Change button and double click the new skybox thumbnail.
+            <br><br>
+            The .wid file in the data folder specifies the relative width of each character in the set.
+            You can use a text editor to adjust the values for your custom font.
+            <br><br>
+            For advanced modifications, please keep in mind that the .x files in the data folder
+            can also be edited. They are 3d models (simple quads really) that use the fonts.dds file as texture.
+            <br><br>
+            You can replace them with any other 3d model in .x file format, as long as they all use the fonts.dds texture.
+            <br><br>
+            You can remove the .x files belonging to characters that are not present in your custom font.
+            This will make font loading faster for your 3D Rad projects.
+            <br><br><br>
+
+            <center><strong>INTERNAL PARAMETERS</strong></center>
+            <br><br>
+            The following internal parameters can be accessed by using <em>event</em> objects like
+            <a href="./EventOnValue.htm">EventOnValue</a> or <a href="./Script.htm">Script</a>:
+            <br><br>
+            <li>Opacity, between 0 and 1</li>
+            <li>Red/Green/Blue, each between 0 and 1. Text color. Write-only.</li>
+         </p>
+         </font>
+      </td>
+      <td width="174"></td>
+   </tr>
+
+   <tr>
+      <td width="26" bgcolor="#00002F"></td>
+      <td width="112" bgcolor="#00002F"></td>
+      <td width="24" bgcolor="#00002F"></td>
+      <td width="598" colspan="3"><img src="./img/main_logo_bottom.jpg" width="598" height="103"></td>
+   </tr>
+
+</table>
+
+</body>
+
+</html>

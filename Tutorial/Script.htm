@@ -1,0 +1,292 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+
+<head>
+   <title>
+      Script for 3D Rad
+   </title>
+
+   <META
+      content="Script,Coding,Programming,Source,C++,Scripting,3D Rad"
+      name="keywords">
+</head>
+
+<body bgcolor="#000000" text="#909080" link="#F0E0E0" vlink="#F0E0E0" alink="#F0E0E0">
+
+<table border="0" cellpadding="0" cellspacing="0" width="860">
+
+   <tr>
+      <td width="860" colspan="6"><img src="./img/main_logo.jpg" width="760" height="182"></td>
+   </tr>
+
+   <tr>
+      <td width="26" bgcolor="#00002F"></td>
+      <td width="112" bgcolor="#00002F" valign="top">
+         <br>
+         <p>
+            <a href="http://www.3drad.com/">
+            <font color="#909080" size="1" face="Verdana">
+               <strong>WHAT IS<br>3D RAD?<br>CLICK HERE<br>TO FIND OUT!</strong>
+            </font>
+            </a>
+         </p>
+         <br>
+      </td>
+      <td width="24" bgcolor="#00002F"></td>
+      <td width="24"></td>
+      <td width="500">
+         <h1 align="center">
+            <font size="4" face="Verdana">
+               Script<br>
+            </font>
+         </h1>
+         <div align="justify"> 
+         <font size="2" face="Verdana">
+         <p>
+            <center>
+            <img src="./img/Script.jpg" width="128" height="128" align="center" border="0">
+            </center>
+            <br>
+            With this object you can manipulate the internal parameters of all the objects linked to it
+            by using a script.
+            <br><br>
+            In your script, you can also execute functions on the linked objects, for example to show/hide them,
+            or start/stop their action, and so on.
+            <br><br>
+            The script language's syntax is C-like. The script engine is AngelScript, by Andreas Jönsson.
+            <br><br>
+            Please see the <a href="./Script_reference.htm">Script Object Reference</a>
+            document for details on all currently available script functions.
+            <br><br>
+
+            <center><strong>TUTORIAL 1</strong></center>
+            <br>
+            Launch 3D Rad, press <em>[Ctrl]+[O]</em> and double click the <em>TutScript1</em> project to open it.
+            <br>
+            <br><br>
+            <center>
+            <img src="./img/Script_a.jpg">
+            </center>
+            <br><br>
+            The project is made of a Script and a Sprite object, linked together.
+            <br><br>
+            Linking an object to a Script makes it available to the script code.
+            <br><br>
+            Double-click the Script item in the <em>Object List</em> to open its property dialog.
+            <br>
+            <br><br>
+            <center>
+            <img src="./img/Script_b.jpg">
+            </center>
+            <br><br>
+            <center><strong>OBJECT HANDLES</strong></center>
+            <br>
+            This window lists all object 'handles' that can be accessed by the script.
+            <br><br>
+            These handles can be passed as parameters to object manipulation functions (see <em>Tutorial 2</em>, below).
+            <br><br>
+            <center><strong>INPUT</strong></center>
+            <br>
+            This window lists the linked object's internal parameters that can be <em>read</em> by the script.
+            <br><br>
+            <center><strong>OUTPUT</strong></center>
+            <br>
+            This window lists the linked object's internal parameters that can be <em>written</em> (set) by the script.
+            <br><br>
+            <center><strong>SCRIPT</strong></center>
+            <br>
+            This is the editable script code. Note that the Main() function must always be present in your script.
+            <br><br>
+            In this example, the actual code is the line between the curly brackets.
+            What it does is setting the OUT_0 variable (sprite opacity) to a random value between 0 and 1.
+            <br><br>
+            Because, when the project is launched, the script is executed 75 times per second,
+            what you see on your screen is a twinkling sprite.
+            <br><br>
+            Exit the properties dialog and press <em>[Space]</em> to see this little script in action.
+            <br><br>
+            <strong>
+            NOTE: everything in a script is case sensitive. This means that all function names and
+            variables must be typed as listed in the <a href="./Script_reference.htm">Reference</a>.
+            </strong>
+            <br><br>
+
+            <center><strong>TUTORIAL 2</strong></center>
+            <br>
+            Press <em>[Ctrl]+[O]</em> and double click the <em>TutScript2</em> project to open it.
+            Then double-click the Script item in the <em>Object List</em> to open its property dialog.
+            <br>
+            <br><br>
+            <center>
+            <img src="./img/Script_c.jpg">
+            </center>
+            <br><br>
+            This script defines a new variable named <em>count</em> of type <em>int</em> (integer).
+            Its initial value will be zero when the project is launched.
+            <br><br>
+            The definition is outside the Main() function, which means that the variable <em>count</em>
+            will preserve its value after every execution of the script code.
+            <br><br>
+            In the Main() function we increase the <em>count</em> variable by one at every execution (<em>count++;</em>).
+            It means that, when the project is launched, after one second it will be 75, after two seconds 150 and so on. 
+            <br><br>
+            At the <em>if (count == 200) iObjectHide(OBJ_0);</em> line, the script checks if the <em>count</em> variable
+            is 200 and, if it is, it calls the iObjectHide() function for the sprite object.
+            <br><br>
+            The result is that the sprite will twinkle for a bit more than 2 seconds and then it will disappear.
+            <br><br>
+
+            <center><strong>TUTORIAL 3</strong></center>
+            <br>
+            The third script (<em>TutScript3</em> project) demonstrates a bit more complex script.
+            We have an additional object (SoundEffect) linked to the Script now.
+            <br>
+            <br><br>
+            <center>
+            <img src="./img/Script_d.jpg">
+            </center>
+            <br><br>
+            This makes more environment variables available to our script. They are listed in the top 3
+            windows, in the property dialog for the Script object.
+            <br>
+            <br><br>
+            <center>
+            <img src="./img/Script_e.jpg">
+            </center>
+            <br><br>
+            In this case, in our script, we only set the sprite opacity until the <em>count</em> variable has
+            reached 200 (<em>if (count < 200) OUT_0 = iFloatRand(0,1);</em>).
+            <br><br>
+            We also hide the sprite and start the sound effect when the <em>count</em> variable is 300.
+            <br><br>
+            The result is that the sprite will twinkle for a while, then freeze at a certain opacity level
+            and finally disappear after approximately one second.
+            <br><br>
+
+            <center><strong>ADDITIONAL INFORMATION</strong></center>
+            <br>
+            3D Rad uses AngelScript as script interpreter. For more information on AngelScript, please see the
+            <a href="http://www.angelcode.com/angelscript/sdk/docs/manual/index.html">language documentation</a> and the
+            <a href="http://www.angelcode.com/angelscript/sdk/docs/manual/doc_datatypes.html">datatype documentation</a>
+            <br><br>
+            A coding tutorial written by a community member (IronF) is also available <a href="http://www.3drad.com/files/AngleScript_tutorial_lesson.pdf">here</a>.
+            <br><br>
+
+            <center><strong>SCRIPT EDITOR FUNCTIONS</strong></center>
+            <br>
+
+            <center><strong>Check Script</strong></center>
+            <br>
+            Use this button to verify your script syntax.
+            If any problem is detected in your script code a message box will popup and give you clues on how to fix it.
+            <br><br>
+
+            <center><strong>Find Selected Text</strong></center>
+            <br>
+            You can find all occurrences of the currently selected text by clicking this button multiple times.
+            <br><br>
+            To find and replace a recurring text with something else, select replacement text, do Ctrl+C,
+            select text to replace, click <em>Find Selected Text</em> button, do Ctrl+V, click button again, do Ctrl+V and so on.
+            <br><br>
+
+            <center><strong>Working At Start</strong></center>
+            <br>
+            If this option is not checked, the script will not be executed.
+            It will only execute after it is <em>started</em> by another object,
+            like for example <a href="./EventOnInput.htm">EventOnInput</a> or another Script object.
+            <br><br>
+
+            <center><strong>Display line numbers</strong></center>
+            <br>
+            If this option is checked, line numbers are
+            displayed in the script editor window.
+            The setting is global for all Script objects and is preserved when 3D Rad is closed.
+            <br><br>
+
+            <br>
+            <center><strong>INTERNAL PARAMETERS</strong></center>
+            <br><br>
+            The Script object, like many other objects, has internal parameters you can access/manipulate
+            by using other objects like
+            <a href="./EventOnValue.htm">EventOnValue</a> or another <a href="./Script.htm">Script</a>.
+            The Script's internal parameters are defined as <em>Script's VAL_1</em> to <em>Script's VAL_9</em>.
+            <br><br>
+            The 9 internal parameters of a Script object can be accessed by its own script code as variables named
+            <em>VAL_1</em> to <em>VAL_9</em>.
+            <br><br>
+
+            <br>
+            <center><strong>REMARKS</strong></center>
+            <br><br>
+            3D Rad has been designed to work with the minimum scripting possible.
+            But it works great even if you fill your projects with scripts.
+            <br><br>
+            Still, please keep in mind that you should design your scripts (each Script object)
+            as 'self-contained', to get the maximum advantage from the <em>object oriented nature</em> of 3D Rad.
+            <br><br>
+            Where possible, each script should take care of a specific 'task' in your project.
+            If you succeed in this, your scripts will be much simpler, smaller, easier to update and port.
+            <br><br>
+
+            <br>
+            <center><strong>AUTOMATIC VARIABLE RENUMBERING</strong></center>
+            <br><br>
+            When porting a script from a project to another, or from a Script object to another,
+            the variable names in the code may no longer be consistent with the environment
+            variables defined for the new Script object.
+            <br><br>
+            You can automatically renumber all instances of a variable in the code by selecting
+            it in the code (double-click or mouse-click & drag) and then double-clicking the proper variable
+            declaration in the <em>OBJECT HANDLE</em>, <em>INPUT</em> or <em>OUTPUT</em> windows
+            on the Script object dialog.
+            <br><br>
+         </p>
+         <p>
+            <hr NOSHADE color="#A0A0B6" size=1>
+            <font size="1" face="Verdana">
+               <center>
+               <br><br>
+               Script's editor window is powered by Scintilla/SciTE, a brilliant free source code editing component.
+               <br><br>
+               License for Scintilla and SciTE
+               <br><br>
+               Copyright 1998-2003 by Neil Hodgson neilh@scintilla.org
+               <br><br>
+               All Rights Reserved 
+               <br><br>
+               Permission to use, copy, modify, and distribute this software and its 
+               documentation for any purpose and without fee is hereby granted, 
+               provided that the above copyright notice appear in all copies and that 
+               both that copyright notice and this permission notice appear in 
+               supporting documentation. 
+               <br><br>
+               NEIL HODGSON DISCLAIMS ALL WARRANTIES WITH REGARD TO THIS 
+               SOFTWARE, INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY 
+               AND FITNESS, IN NO EVENT SHALL NEIL HODGSON BE LIABLE FOR ANY 
+               SPECIAL, INDIRECT OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES 
+               WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, 
+               WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER 
+               TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE 
+               OR PERFORMANCE OF THIS SOFTWARE. 
+               </center>
+            </font>
+         </p>
+         </font>
+         </div>
+      </td>
+      <td width="174"></td>
+   </tr>
+
+   <tr>
+      <td width="26" bgcolor="#00002F"></td>
+      <td width="112" bgcolor="#00002F"></td>
+      <td width="24" bgcolor="#00002F"></td>
+      <td width="698" colspan="3"><img src="./img/main_logo_bottom.jpg" width="598" height="103"></td>
+   </tr>
+
+</table>
+
+</body>
+
+</html>
